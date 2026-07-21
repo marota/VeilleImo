@@ -121,3 +121,24 @@ moins d'annonces, ou échouer en 502). Sans précaution, ça produit de faux
 
 Chaque bien de l'état porte `misses` (absences consécutives) et `last_seen`.
 Augmente `retrait_grace` (ex. 3) si tu veux être encore plus conservateur.
+
+---
+
+## Fallback automatique éco → résidentiel (dans le workflow)
+
+Le workflow tente **d'abord le mode économique** (proxy datacenter, ~5 crédits/page) ;
+si la collecte échoue (vide/partielle → code de sortie ≠ 0), il **relance
+automatiquement en résidentiel** (`SCRAPER_SUPER=true`, anti-DataDome).
+
+- Étape 1 « Scan (éco - datacenter) » : `SCRAPER_SUPER=false`,
+  `--suppress-alert-email` (pas d'alerte email puisqu'on va réessayer),
+  `continue-on-error: true`.
+- Étape 2 « Scan (fallback - résidentiel) » : ne s'exécute que
+  `if: steps.scan_eco.outcome == 'failure'`, en résidentiel, sans suppression
+  d'alerte (si ça échoue AUSSI, tu reçois l'alerte).
+
+Conséquence : **un seul email par run** (rapport si l'un des deux réussit ;
+alerte seulement si les deux échouent), et tu payes le résidentiel **uniquement
+quand le datacenter n'a pas suffi**. La *Variable* `SCRAPER_SUPER` n'est plus
+nécessaire — le workflow pilote les deux modes. Pour forcer toujours le
+résidentiel, supprime l'étape 1 et mets `SCRAPER_SUPER=true` sur l'étape restante.

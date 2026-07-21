@@ -25,6 +25,8 @@ def main(argv=None):
     ap.add_argument("--config", default="config.gha.yaml")
     ap.add_argument("--state", default="data/state_chained.json")
     ap.add_argument("--no-email", action="store_true")
+    ap.add_argument("--suppress-alert-email", action="store_true",
+                    help="n'envoie pas l'email d'alerte (utile pour la 1re tentative éco avant fallback résidentiel)")
     a = ap.parse_args(argv)
     cfg = yaml.safe_load(open(a.config, encoding="utf-8"))
     today = datetime.date.today().isoformat()
@@ -51,7 +53,7 @@ def main(argv=None):
             print("[veille] collecteur : Playwright headless (pas de SCRAPER_API_KEY)")
         except Exception:
             _alert(f"[Veille immo] ⚠ SCRAPER_API_KEY absent le {today} — collecte non effectuee",
-                   ["SCRAPER_API_KEY non defini et collecteur headless indisponible"], {}, a.no_email)
+                   ["SCRAPER_API_KEY non defini et collecteur headless indisponible"], {}, a.no_email or a.suppress_alert_email)
             return 4
     rows, errors, per_source = col.collect(
         cfg["sources"], delay=cfg.get("politeness", {}).get("delay_seconds", 6))
@@ -63,12 +65,12 @@ def main(argv=None):
 
     # --- GARDE-FOU : collecte vide ou nettement inférieure => on n'écrase rien ---
     if not collected:
-        _alert(f"[Veille immo] ⚠ collecte VIDE le {today}", errors, per_source, a.no_email)
+        _alert(f"[Veille immo] ⚠ collecte VIDE le {today}", errors, per_source, a.no_email or a.suppress_alert_email)
         return 2
     if prev_n >= 20 and len(collected) < MIN_RATIO * prev_n:
         _alert(f"[Veille immo] ⚠ collecte partielle le {today} : "
                f"{len(collected)} biens vs {prev_n} attendus — état conservé",
-               errors, per_source, a.no_email)
+               errors, per_source, a.no_email or a.suppress_alert_email)
         return 3
 
     # communes dont la source a échoué (0 annonce) => gel (pas de faux retrait)

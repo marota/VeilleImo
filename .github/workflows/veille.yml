@@ -11,6 +11,11 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    env:                          # secrets communs aux deux tentatives
+      SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+      GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+      MAIL_TO: ${{ secrets.MAIL_TO }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -18,14 +23,24 @@ jobs:
           python-version: "3.12"
       - name: Install deps
         run: pip install -r requirements-gha.txt
-      - name: Run veille
+
+      # 1) Tentative ÉCONOMIQUE (proxy datacenter, ~5 crédits/page).
+      #    --suppress-alert-email : pas d'email d'alerte si ça échoue (on va réessayer).
+      - name: Scan (éco - datacenter)
+        id: scan_eco
+        continue-on-error: true
         env:
-          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}   # token scrape.do (ou ScrapingBee)
-          SCRAPER_SUPER: ${{ vars.SCRAPER_SUPER }}          # "false" pour tester le mode économique (proxy datacenter)
-          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
+          SCRAPER_SUPER: "false"
+        run: python run_veille.py --config config.gha.yaml --suppress-alert-email
+
+      # 2) FALLBACK RÉSIDENTIEL, seulement si l'éco a échoué (collecte vide/partielle).
+      #    Ici l'alerte email n'est PAS supprimée : si ça échoue aussi, tu es prévenu.
+      - name: Scan (fallback - résidentiel)
+        if: steps.scan_eco.outcome == 'failure'
+        env:
+          SCRAPER_SUPER: "true"
         run: python run_veille.py --config config.gha.yaml
+
       - name: Persist state & report
         if: always()
         run: |
@@ -34,6 +49,7 @@ jobs:
           git add data/state_chained.json data/reports 2>/dev/null || true
           git commit -m "veille: etat $(date -u +%FT%TZ)" || echo "rien a committer"
           git push || echo "push ignore"
+
       - name: Archive report
         if: always()
         uses: actions/upload-artifact@v4
