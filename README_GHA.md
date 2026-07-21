@@ -52,3 +52,54 @@ run ; ils ne sont jamais écrits sur disque ni visibles dans les logs.
 ## Test local (optionnel, sans email)
     pip install -r requirements-gha.txt && python -m playwright install chromium
     python run_veille.py --config config.gha.yaml --no-email
+
+---
+
+## Collecte fiable via ScrapingBee (recommandé)
+
+Depuis une IP GitHub, DataDome (l'anti-robot de Belles Demeures) bloque souvent
+la collecte headless. On passe donc par **ScrapingBee**, qui rend la page depuis
+une **IP résidentielle française** en mode *stealth*.
+
+1. Crée un compte sur https://www.scrapingbee.com (essai gratuit ~1000 crédits, sans CB).
+2. Récupère ta **clé API** (dashboard).
+3. Ajoute-la en secret du dépôt : **Settings → Secrets → Actions → New repository secret**,
+   nom `SCRAPER_API_KEY`, valeur = ta clé.
+
+Dès que `SCRAPER_API_KEY` est présent, `run_veille.py` utilise automatiquement le
+collecteur ScrapingBee (sinon il retombe sur Playwright headless).
+
+**Coût / crédits.** Le mode stealth (nécessaire contre DataDome) coûte ~75 crédits
+par page. Périmètre = 5 pages → ~375 crédits par scan. Un scan tous les 2 jours
+≈ 15 scans/mois ≈ ~5 600 crédits/mois. L'essai gratuit (1000 crédits) couvre
+~2-3 scans de test ; au-delà, le plan payant le moins cher suffit largement.
+Pour réduire : dans `veille_immo/collector_scrapingbee.py`, tu peux tester
+`premium_proxy=true` (moins cher) à la place de `stealth_proxy=true` si DataDome
+laisse passer, ou espacer les scans.
+
+Le garde-fou reste actif : si ScrapingBee échoue et que la collecte est partielle,
+l'état n'est pas modifié et tu reçois une alerte.
+
+---
+
+## Variante scrape.do (par défaut ici)
+
+`scrape.do` ≠ ScrapingBee (services distincts). Le pipeline utilise **scrape.do**
+par défaut (`config.gha.yaml` → `scraper.provider: scrapedo`), offre gratuite
+**1000 crédits/mois renouvelables**.
+
+1. Compte sur https://scrape.do → récupère ton **token** (dashboard).
+2. Secret `SCRAPER_API_KEY` = ton token scrape.do.
+3. (facultatif) **Test du mode économique** : ajoute une *Variable* de dépôt
+   (Settings → Secrets and variables → Actions → **Variables**) nommée
+   `SCRAPER_SUPER` = `false` → utilise le proxy datacenter (coût minimal). Si les
+   sources reviennent vides/bloquées (DataDome), repasse à `true` (proxy
+   résidentiel, franchit DataDome). Par défaut (`true`) c'est le mode fiable.
+
+**Diagnostic** : le log du run affiche `[veille] collecteur : scrapedo (API, super=…)`
+puis, par source, `[scrapedo/super] <source>: N annonces`. Une collecte vide côté
+API + 0 crédit débité = le token n'a pas été pris en compte (secret absent) → le
+run est retombé sur le headless.
+
+Pour repasser sur ScrapingBee : `scraper.provider: scrapingbee` dans `config.gha.yaml`
+et `SCRAPER_API_KEY` = ta clé ScrapingBee.

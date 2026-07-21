@@ -1,10 +1,10 @@
-# Périmètre de veille (URLs Belles Demeures). 'expect' = mot devant figurer dans
-# le titre de la page : garde-fou contre les redirections vers une recherche nationale.
 criteria: {price_min: 700000, price_max: 1200000, surface_min: 90, rooms_min: 4}
-politeness: {delay_seconds: 6}
+politeness: {delay_seconds: 4}
+scraper:
+  provider: scrapedo        # 'scrapedo' (ta clé) ou 'scrapingbee'
 sources:
-  - {name: sevres_brancas, expect: "Sèvres",       url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/sevres/brancas-fontenelles-beauregard/maison-luxe/tt-2-tb-2-pl-47097/"}
-  - {name: ville_davray,   expect: "Ville-d",       url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/ville-d-avray/maison-luxe/tt-2-tb-2-pl-38341/"}
-  - {name: meudon,         expect: "Meudon",        url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/meudon/maison-luxe/tt-2-tb-2-pl-38328/"}
-  - {name: chaville,       expect: "Chaville",      url: "https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2"}
-  - {name: viroflay,       expect: "Viroflay",      url: "https://www.bellesdemeures.com/recherche?ci=780686&idpays=250&idtb=2&idtt=2"}
+  - {name: sevres_brancas, expect: "Sèvres",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/sevres/brancas-fontenelles-beauregard/maison-luxe/tt-2-tb-2-pl-47097/"}
+  - {name: ville_davray,   expect: "Ville-d",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/ville-d-avray/maison-luxe/tt-2-tb-2-pl-38341/"}
+  - {name: meudon,         expect: "Meudon",   url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/meudon/maison-luxe/tt-2-tb-2-pl-38328/"}
+  - {name: chaville,       expect: "Chaville", url: "https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2"}
+  - {name: viroflay,       expect: "Viroflay", url: "https://www.bellesdemeures.com/recherche?ci=780686&idpays=250&idtb=2&idtt=2"}

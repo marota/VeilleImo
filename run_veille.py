@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Orchestrateur veille (cloud) : collecte -> GARDE-FOU -> chaînage -> rapport -> email -> persistance."""
-import argparse, json, datetime, pathlib, yaml
+import argparse, json, datetime, pathlib, os, yaml
 from veille_immo.models import Listing
-from veille_immo import chain, collector, report_html, mailer
+from veille_immo import chain, report_html, mailer
 
 MIN_RATIO = 0.6      # en dessous de 60% des biens précédents => collecte suspecte
 
@@ -36,7 +36,19 @@ def main(argv=None):
     prev_n = len(prev)
     prev_max_id = max((int(x) for p in prev for x in p.get("aliases", [])), default=274139959)
 
-    rows, errors, per_source = collector.collect(
+    # Choix du collecteur : ScrapingBee si une clé est présente (fiable, IP résidentielle),
+    # sinon Playwright headless (dépannage, souvent bloqué par DataDome sur IP GitHub).
+    provider = ((cfg.get("scraper") or {}).get("provider") or "scrapedo").lower()
+    if os.environ.get("SCRAPER_API_KEY"):
+        if provider == "scrapingbee":
+            from veille_immo import collector_scrapingbee as col
+        else:
+            from veille_immo import collector_scrapedo as col
+        print(f"[veille] collecteur : {provider} (API, super={os.environ.get('SCRAPER_SUPER','true')})")
+    else:
+        from veille_immo import collector as col
+        print("[veille] collecteur : Playwright headless (pas de SCRAPER_API_KEY)")
+    rows, errors, per_source = col.collect(
         cfg["sources"], delay=cfg.get("politeness", {}).get("delay_seconds", 6))
     print(f"[veille] collecté {len(rows)} annonces (état précédent: {prev_n} biens)")
 

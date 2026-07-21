@@ -1,4 +1,6 @@
-playwright>=1.44
+requests>=2.31
 beautifulsoup4>=4.12
 PyYAML>=6.0
-requests>=2.31
+# Playwright n'est nécessaire QUE pour le collecteur de secours (headless).
+# Le collecteur principal (ScrapingBee) n'utilise que requests + bs4.
+# playwright>=1.44
