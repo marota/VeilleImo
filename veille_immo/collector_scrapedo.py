@@ -25,7 +25,17 @@ def _fetch(url, token, super_proxy=True):
     return requests.get(API, params=params, timeout=100)
 
 
+def _title_ok(title, expect):
+    """expect peut être une chaîne ou une liste : au moins un motif doit apparaître."""
+    if not expect:
+        return True
+    pats = expect if isinstance(expect, (list, tuple)) else [expect]
+    return any(str(x).lower() in title.lower() for x in pats)
+
+
 def collect(sources, delay=4.0, api_key=None, super_proxy=None):
+    """Collecte TOUTES les URL d'une source et fusionne (couverture garantie même
+    si l'une des URL est redirigée vers la recherche nationale)."""
     token = api_key or os.environ.get("SCRAPER_API_KEY")
     if not token:
         raise RuntimeError("SCRAPER_API_KEY manquant")
@@ -33,37 +43,38 @@ def collect(sources, delay=4.0, api_key=None, super_proxy=None):
         super_proxy = os.environ.get("SCRAPER_SUPER", "true").lower() != "false"
     listings, errors, per_source = {}, [], {}
     for src in sources:
-        recs, err = None, None
-        for attempt in (1, 2):
-            try:
-                r = _fetch(src["url"], token, super_proxy)
-                if r.status_code != 200:
-                    err = f"{src['name']} : HTTP {r.status_code} scrape.do ({r.text[:80]})"
-                    time.sleep(delay); continue
-                title_m = re.search(r"<title>(.*?)</title>", r.text, re.I | re.S)
-                title = (title_m.group(1) if title_m else "").strip()
-                exp = src.get("expect")
-                if exp and exp.lower() not in title.lower():
-                    err = f"{src['name']} : titre inattendu ('{title[:50]}') — source ignorée"
-                    recs = None; break
-                recs = parse_cards(r.text)
-                if not recs:
-                    err = f"{src['name']} : 0 annonce (page rendue mais vide)"
-                    time.sleep(delay); continue
-                err = None; break
-            except Exception as e:
-                err = f"{src['name']} : {type(e).__name__} {str(e)[:70]}"
-                time.sleep(delay)
-        n = 0
-        if recs:
-            for rec in recs:
-                if rec["id"] not in listings:
-                    listings[rec["id"]] = rec
-            n = len(recs)
-        else:
-            errors.append(err)
-        per_source[src["name"]] = n
-        print(f"[scrapedo{'/super' if super_proxy else ''}] {src['name']}: {n} annonces"
-              + (f" — {err}" if err else ""))
+        got, urls = {}, (src.get("urls") or [src["url"]])
+        for url_try in urls:
+            recs, err = None, None
+            for attempt in (1, 2):
+                try:
+                    r = _fetch(url_try, token, super_proxy)
+                    if r.status_code != 200:
+                        err = f"{src['name']} : HTTP {r.status_code} ({url_try[-40:]})"
+                        time.sleep(delay); continue
+                    tm = re.search(r"<title>(.*?)</title>", r.text, re.I | re.S)
+                    title = (tm.group(1) if tm else "").strip()
+                    if not _title_ok(title, src.get("expect")):
+                        err = f"{src['name']} : titre inattendu ('{title[:46]}') sur ...{url_try[-34:]}"
+                        recs = None; break        # redirection : inutile de réessayer
+                    recs = parse_cards(r.text)
+                    if not recs:
+                        err = f"{src['name']} : 0 annonce sur ...{url_try[-34:]}"
+                        time.sleep(delay); continue
+                    err = None; break
+                except Exception as e:
+                    err = f"{src['name']} : {type(e).__name__} {str(e)[:60]}"
+                    time.sleep(delay)
+            if recs:
+                for rec in recs:
+                    got.setdefault(rec["id"], rec)
+            elif err:
+                errors.append(err)
+            time.sleep(delay)
+        for rid, rec in got.items():
+            listings.setdefault(rid, rec)
+        per_source[src["name"]] = len(got)
+        print(f"[scrapedo{'/super' if super_proxy else ''}] {src['name']}: {len(got)} annonces"
+              + (f"  ({len(urls)} url)" if len(urls) > 1 else ""))
         time.sleep(delay)
     return list(listings.values()), errors, per_source

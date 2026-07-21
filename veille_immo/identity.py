@@ -107,9 +107,12 @@ def cluster(listings: List) -> List[List]:
 
     # index par (commune, pièces) puis comparaison surface-proche
     from collections import defaultdict
+    # Regroupement par COMMUNE seule : le nombre de pièces varie d'un diffuseur à
+    # l'autre (7 vs 8 pour le même bien), or same_property tolère ±1 pièce. Bucketer
+    # sur (commune, pièces) empêchait ces fusions. O(n²) par commune = négligeable ici.
     buckets = defaultdict(list)
     for idx, l in enumerate(items):
-        buckets[(commune(l.quartier), l.rooms or 0)].append(idx)
+        buckets[commune(l.quartier)].append(idx)
     for _, idxs in buckets.items():
         for x in range(len(idxs)):
             for y in range(x + 1, len(idxs)):

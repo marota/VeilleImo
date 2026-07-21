@@ -12,23 +12,39 @@ sources:
 - name: sevres_brancas
   commune: sevres
   expect: Brancas
-  url: https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/sevres/brancas-fontenelles-beauregard/maison-luxe/tt-2-tb-2-pl-47097/
+  urls:
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/sevres/brancas-fontenelles-beauregard/maison-luxe/tt-2-tb-2-pl-47097/
 - name: ville_davray
   commune: ville-d'avray
   expect: Ville-d
-  url: https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/ville-d-avray/maison-luxe/tt-2-tb-2-pl-38341/
+  urls:
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/ville-d-avray/maison-luxe/tt-2-tb-2-pl-38341/
 - name: meudon
   commune: meudon
   expect: Meudon
-  url: https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/meudon/maison-luxe/tt-2-tb-2-pl-38328/
+  urls:
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/meudon/maison-luxe/tt-2-tb-2-pl-38328/
 - name: chaville
   commune: chaville
-  expect: Chaville
-  url: https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2
+  expect:
+  - Chaville
+  urls:
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/chaville/maison-luxe/tt-2-tb-2-pl-38315/
+  - https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2
 - name: viroflay
   commune: viroflay
-  expect: Viroflay
-  url: https://www.bellesdemeures.com/recherche?ci=780686&idpays=250&idtb=2&idtt=2
+  expect:
+  - Viroflay
+  - Rive Gauche
+  - Aulnettes
+  - Arcades
+  - Rive Droite
+  urls:
+  - https://www.bellesdemeures.com/recherche?ci=780686&idpays=250&idtb=2&idtt=2
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45801/
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45797/
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45799/
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45796/
 agences:
 - name: aetm
   agency: A&M Appartements & Maisons
