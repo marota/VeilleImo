@@ -59,20 +59,28 @@ def main(argv=None):
 
     listings = [Listing(id=r["id"], source="bd", url=r["url"], title=r["title"], price=r["price"],
                         surface=r["surface"], rooms=r["rooms"], quartier=r["quartier"]) for r in rows]
-    curr = chain.build_properties(listings)
+    collected = chain.build_properties(listings)
 
     # --- GARDE-FOU : collecte vide ou nettement inférieure => on n'écrase rien ---
-    if not curr:
+    if not collected:
         _alert(f"[Veille immo] ⚠ collecte VIDE le {today}", errors, per_source, a.no_email)
         return 2
-    if prev_n >= 20 and len(curr) < MIN_RATIO * prev_n:
+    if prev_n >= 20 and len(collected) < MIN_RATIO * prev_n:
         _alert(f"[Veille immo] ⚠ collecte partielle le {today} : "
-               f"{len(curr)} biens vs {prev_n} attendus — état conservé",
+               f"{len(collected)} biens vs {prev_n} attendus — état conservé",
                errors, per_source, a.no_email)
         return 3
 
-    events = chain.diff_properties(curr, prev)
-    curr = chain.chain(curr, prev, today)
+    # communes dont la source a échoué (0 annonce) => gel (pas de faux retrait)
+    src_commune = {s["name"]: s.get("commune") for s in cfg["sources"] if s.get("commune")}
+    failed_communes = {src_commune[n] for n, cnt in per_source.items()
+                       if cnt == 0 and src_commune.get(n)}
+    grace = int(cfg.get("retrait_grace", 2))
+    if failed_communes:
+        print(f"[veille] communes gelées (source en échec) : {sorted(failed_communes)}")
+
+    # chaînage FIABLE : hystérésis retraits + gel des communes non collectées
+    curr, events = chain.scan_grace(collected, prev, today, failed_communes=failed_communes, grace=grace)
     full_html, email_html, stats = report_html.build(curr, events, prev_max_id, today, errors)
     print(f"[veille] {stats}")
 

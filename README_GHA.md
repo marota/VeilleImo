@@ -103,3 +103,21 @@ run est retombé sur le headless.
 
 Pour repasser sur ScrapingBee : `scraper.provider: scrapingbee` dans `config.gha.yaml`
 et `SCRAPER_API_KEY` = ta clé ScrapingBee.
+
+---
+
+## Fiabilité des mouvements (anti-variance)
+
+La complétude de la collecte varie d'un run à l'autre (une source peut renvoyer
+moins d'annonces, ou échouer en 502). Sans précaution, ça produit de faux
+« retraits » qui reviennent en « nouveaux » au run suivant. Deux mécanismes :
+
+- **Hystérésis** (`retrait_grace: 2` dans `config.gha.yaml`) : un bien n'est
+  déclaré RETIRÉ qu'après **2 scans consécutifs d'absence**. Une absence ponctuelle
+  est ignorée (le bien reste « en sursis » dans l'état).
+- **Gel par commune** : si la source d'une commune échoue (0 annonce / 502),
+  ses biens sont **gelés** — ni retrait, ni compteur — puisqu'on ne peut rien
+  conclure. Le rapport reste complet grâce à l'état conservé.
+
+Chaque bien de l'état porte `misses` (absences consécutives) et `last_seen`.
+Augmente `retrait_grace` (ex. 3) si tu veux être encore plus conservateur.

@@ -1,10 +1,11 @@
 criteria: {price_min: 700000, price_max: 1200000, surface_min: 90, rooms_min: 4}
 politeness: {delay_seconds: 4}
+retrait_grace: 2            # nb de scans consécutifs d'absence avant de déclarer un RETRAIT
 scraper:
-  provider: scrapedo        # 'scrapedo' (ta clé) ou 'scrapingbee'
+  provider: scrapedo       # 'scrapedo' (ta clé) ou 'scrapingbee'
 sources:
-  - {name: sevres_brancas, expect: "Brancas",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/sevres/brancas-fontenelles-beauregard/maison-luxe/tt-2-tb-2-pl-47097/"}
-  - {name: ville_davray,   expect: "Ville-d",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/ville-d-avray/maison-luxe/tt-2-tb-2-pl-38341/"}
-  - {name: meudon,         expect: "Meudon",   url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/meudon/maison-luxe/tt-2-tb-2-pl-38328/"}
-  - {name: chaville,       expect: "Chaville", url: "https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2"}
-  - {name: viroflay,       expect: "Viroflay", url: "https://www.bellesdemeures.com/recherche?ci=780686&idpays=250&idtb=2&idtt=2"}
+  - {name: sevres_brancas, commune: "sevres",         expect: "Brancas",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/sevres/brancas-fontenelles-beauregard/maison-luxe/tt-2-tb-2-pl-47097/"}
+  - {name: ville_davray,   commune: "ville-d'avray",  expect: "Ville-d",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/ville-d-avray/maison-luxe/tt-2-tb-2-pl-38341/"}
+  - {name: meudon,         commune: "meudon",          expect: "Meudon",   url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/meudon/maison-luxe/tt-2-tb-2-pl-38328/"}
+  - {name: chaville,       commune: "chaville",        expect: "Chaville", url: "https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2"}
+  - {name: viroflay,       commune: "viroflay",        expect: "Viroflay", url: "https://www.bellesdemeures.com/recherche?ci=780686&idpays=250&idtb=2&idtt=2"}

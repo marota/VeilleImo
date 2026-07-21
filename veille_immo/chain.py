@@ -117,3 +117,66 @@ def diff_properties(curr: List[dict], prev: List[dict]) -> List[dict]:
         events.append({"type": "RETIRE", "id": p["canonical_id"],
                        "title": p.get("title", ""), "price": p.get("price")})
     return events
+
+
+def _match_prior(prop, prev, used):
+    alias_set = set(prop["aliases"])
+    for p in prev:
+        if id(p) in used:
+            continue
+        if alias_set & set(p.get("aliases", [])):
+            return p
+    a = Listing(id=prop["canonical_id"], source="", title=prop["title"], price=prop["price"],
+                surface=prop["surface"], rooms=prop["rooms"], quartier=prop["quartier"])
+    for p in prev:
+        if id(p) in used:
+            continue
+        b = Listing(id=p["canonical_id"], source="", title=p.get("title", ""), price=p.get("price"),
+                    surface=p.get("surface"), rooms=p.get("rooms"), quartier=p.get("quartier", ""))
+        if identity.same_property(a, b):
+            return p
+    return None
+
+
+def scan_grace(curr_props, prev_props, today, failed_communes=(), grace=2):
+    """Chaînage FIABLE : hystérésis sur les retraits + gel des communes non collectées.
+
+    - un bien courant retrouvé => conservé, misses=0, first_seen préservé ;
+    - un bien courant inconnu => NOUVEAU (first_seen=today) ;
+    - un bien précédent absent :
+        * si sa commune n'a pas été collectée (source en échec) => gelé (conservé, inchangé) ;
+        * sinon misses += 1 ; RETIRÉ seulement quand misses >= grace, sinon conservé « en sursis ».
+    Retourne (nouvel_état, événements)."""
+    failed = {identity.commune(c) if "," in c or " " in c else c for c in failed_communes}
+    events, used, out = [], set(), []
+    for cp in curr_props:
+        prior = _match_prior(cp, prev_props, used)
+        if prior is None:
+            cp["first_seen"] = today; cp["first_seen_estimated"] = False
+            cp["last_seen"] = today; cp["misses"] = 0
+            events.append({"type": "NOUVEAU", "id": cp["canonical_id"], "title": cp["title"], "price": cp["price"]})
+        else:
+            used.add(id(prior))
+            cp["first_seen"] = prior.get("first_seen", today)
+            cp["first_seen_estimated"] = prior.get("first_seen_estimated", False)
+            cp["last_seen"] = today; cp["misses"] = 0
+            cp["aliases"] = sorted(set(cp["aliases"]) | set(prior.get("aliases", [])), key=int)
+            op, np_ = prior.get("price"), cp.get("price")
+            if op and np_ and op != np_:
+                events.append({"type": "BAISSE" if np_ < op else "HAUSSE", "id": cp["canonical_id"],
+                               "title": cp["title"], "old_price": op, "price": np_,
+                               "pct": round(100 * (np_ - op) / op, 1)})
+        out.append(cp)
+    for pp in prev_props:
+        if id(pp) in used:
+            continue
+        commune = identity.commune(pp.get("quartier", "")) or pp.get("commune", "")
+        if commune in failed:                       # source en échec => on gèle
+            out.append(pp); continue
+        misses = pp.get("misses", 0) + 1
+        if misses >= grace:                          # retrait CONFIRMÉ
+            events.append({"type": "RETIRE", "id": pp["canonical_id"],
+                           "title": pp.get("title", ""), "price": pp.get("price")})
+        else:                                        # en sursis : conservé, non signalé
+            pp = dict(pp); pp["misses"] = misses; out.append(pp)
+    return out, events
