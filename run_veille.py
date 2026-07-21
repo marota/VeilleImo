@@ -46,8 +46,13 @@ def main(argv=None):
             from veille_immo import collector_scrapedo as col
         print(f"[veille] collecteur : {provider} (API, super={os.environ.get('SCRAPER_SUPER','true')})")
     else:
-        from veille_immo import collector as col
-        print("[veille] collecteur : Playwright headless (pas de SCRAPER_API_KEY)")
+        try:
+            from veille_immo import collector as col
+            print("[veille] collecteur : Playwright headless (pas de SCRAPER_API_KEY)")
+        except Exception:
+            _alert(f"[Veille immo] ⚠ SCRAPER_API_KEY absent le {today} — collecte non effectuee",
+                   ["SCRAPER_API_KEY non defini et collecteur headless indisponible"], {}, a.no_email)
+            return 4
     rows, errors, per_source = col.collect(
         cfg["sources"], delay=cfg.get("politeness", {}).get("delay_seconds", 6))
     print(f"[veille] collecté {len(rows)} annonces (état précédent: {prev_n} biens)")

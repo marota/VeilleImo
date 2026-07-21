@@ -3,7 +3,7 @@ politeness: {delay_seconds: 4}
 scraper:
   provider: scrapedo        # 'scrapedo' (ta clé) ou 'scrapingbee'
 sources:
-  - {name: sevres_brancas, expect: "Sèvres",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/sevres/brancas-fontenelles-beauregard/maison-luxe/tt-2-tb-2-pl-47097/"}
+  - {name: sevres_brancas, expect: "Brancas",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/sevres/brancas-fontenelles-beauregard/maison-luxe/tt-2-tb-2-pl-47097/"}
   - {name: ville_davray,   expect: "Ville-d",  url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/ville-d-avray/maison-luxe/tt-2-tb-2-pl-38341/"}
   - {name: meudon,         expect: "Meudon",   url: "https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/meudon/maison-luxe/tt-2-tb-2-pl-38328/"}
   - {name: chaville,       expect: "Chaville", url: "https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2"}
