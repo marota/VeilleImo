@@ -14,9 +14,15 @@ from . import identity
 from .models import Listing
 
 
+def _idkey(x):
+    """Tri robuste : ids numériques (portail) et alphanumériques (agences)."""
+    xs = str(x)
+    return (0, int(xs), "") if xs.isdigit() else (1, 0, xs)
+
+
 def _canonical(group: List[Listing]) -> Listing:
     # annonce au plus petit id = la plus ancienne (id séquentiels)
-    return min(group, key=lambda l: int(l.id))
+    return min(group, key=lambda l: _idkey(l.id))
 
 
 def build_properties(listings: List[Listing]) -> List[dict]:
@@ -26,7 +32,7 @@ def build_properties(listings: List[Listing]) -> List[dict]:
         prices = [l.price for l in grp if l.price]
         props.append({
             "canonical_id": c.id,
-            "aliases": sorted({l.id for l in grp}, key=int),
+            "aliases": sorted({l.id for l in grp}, key=_idkey),
             "fingerprint": identity.fingerprint(c),
             "commune": identity.commune(c.quartier),
             "quartier": c.quartier,
@@ -69,7 +75,7 @@ def chain(curr_props: List[dict], prev_props: List[dict], today: str) -> List[di
             matched_prev.add(id(prior))
             prop["first_seen"] = prior.get("first_seen", today)
             prop["first_seen_estimated"] = prior.get("first_seen_estimated", False)
-            prop["aliases"] = sorted(set(prop["aliases"]) | set(prior.get("aliases", [])), key=int)
+            prop["aliases"] = sorted(set(prop["aliases"]) | set(prior.get("aliases", [])), key=_idkey)
             prop["price_prev"] = prior.get("price")
         else:
             prop["first_seen"] = today
@@ -160,7 +166,7 @@ def scan_grace(curr_props, prev_props, today, failed_communes=(), grace=2):
             cp["first_seen"] = prior.get("first_seen", today)
             cp["first_seen_estimated"] = prior.get("first_seen_estimated", False)
             cp["last_seen"] = today; cp["misses"] = 0
-            cp["aliases"] = sorted(set(cp["aliases"]) | set(prior.get("aliases", [])), key=int)
+            cp["aliases"] = sorted(set(cp["aliases"]) | set(prior.get("aliases", [])), key=_idkey)
             op, np_ = prior.get("price"), cp.get("price")
             if op and np_ and op != np_:
                 events.append({"type": "BAISSE" if np_ < op else "HAUSSE", "id": cp["canonical_id"],

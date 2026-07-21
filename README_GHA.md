@@ -142,3 +142,32 @@ alerte seulement si les deux échouent), et tu payes le résidentiel **uniquemen
 quand le datacenter n'a pas suffi**. La *Variable* `SCRAPER_SUPER` n'est plus
 nécessaire — le workflow pilote les deux modes. Pour forcer toujours le
 résidentiel, supprime l'étape 1 et mets `SCRAPER_SUPER=true` sur l'étape restante.
+
+---
+
+## Sources « agences locales » (gratuites, hors portail)
+
+En plus de Belles Demeures, la veille interroge directement les sites d'agences
+locales (`agences:` dans `config.gha.yaml`). Ces sites sont en HTML simple, sans
+anti-robot : **aucun crédit scrape.do consommé**. Objectif : capter les
+exclusivités et avant-premières absentes du portail, et fiabiliser le compteur
+« Mandats ».
+
+Le collecteur est **générique** : pour chaque lien d'annonce, il remonte au plus
+petit conteneur contenant un prix et une surface, puis extrait prix / surface /
+pièces / commune / quartier. Il gère les deux gabarits rencontrés (prix dans le
+texte du lien, ou prix dans la carte).
+
+Ajouter une agence = une entrée de config :
+```yaml
+- name: mon_agence                  # préfixe des ids générés
+  agency: Nom affiché
+  base: https://www.exemple.com
+  href_filter: "/fiches/4-40-"      # ne garder que les MAISONS (ce CMS : 4-40- maison, 3-33- appart)
+  id_regex: "_(\\d{5,})"
+  commune_default: Sèvres           # si la commune n'est pas détectable dans la carte
+  urls: ["https://www.exemple.com/annonces/transaction/Vente.html"]
+```
+Les doublons avec le portail sont fusionnés automatiquement par l'empreinte
+(lieu + description + prix + surface) : pas de double comptage, et `n_mandats`
+reflète le nombre réel de diffuseurs.

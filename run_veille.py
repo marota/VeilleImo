@@ -36,7 +36,7 @@ def main(argv=None):
     if sp.exists():
         prev = json.load(open(sp, encoding="utf-8")).get("properties", [])
     prev_n = len(prev)
-    prev_max_id = max((int(x) for p in prev for x in p.get("aliases", [])), default=274139959)
+    prev_max_id = max((int(x) for p in prev for x in p.get("aliases", []) if str(x).isdigit()), default=274139959)
 
     # Choix du collecteur : ScrapingBee si une clé est présente (fiable, IP résidentielle),
     # sinon Playwright headless (dépannage, souvent bloqué par DataDome sur IP GitHub).
@@ -57,10 +57,23 @@ def main(argv=None):
             return 4
     rows, errors, per_source = col.collect(
         cfg["sources"], delay=cfg.get("politeness", {}).get("delay_seconds", 6))
+
+    # Sources AGENCES (sites directs, HTML simple, sans anti-robot => gratuit).
+    # Objectif : capter les exclusivités / avant-premières absentes du portail.
+    ag_sources = cfg.get("agences") or []
+    if ag_sources:
+        from veille_immo import collector_agences
+        ag_rows, ag_errors, ag_per = collector_agences.collect(ag_sources)
+        rows = rows + ag_rows
+        errors = errors + ag_errors
+        per_source.update(ag_per)
+        print(f"[veille] + {len(ag_rows)} annonces via sites d'agences")
     print(f"[veille] collecté {len(rows)} annonces (état précédent: {prev_n} biens)")
 
-    listings = [Listing(id=r["id"], source="bd", url=r["url"], title=r["title"], price=r["price"],
-                        surface=r["surface"], rooms=r["rooms"], quartier=r["quartier"]) for r in rows]
+    listings = [Listing(id=r["id"], source=r.get("agency") or "bd", url=r["url"],
+                        title=r["title"], price=r["price"], surface=r["surface"],
+                        rooms=r["rooms"], quartier=r["quartier"],
+                        agency=r.get("agency", "")) for r in rows]
     collected = chain.build_properties(listings)
 
     # --- GARDE-FOU : collecte vide ou nettement inférieure => on n'écrase rien ---

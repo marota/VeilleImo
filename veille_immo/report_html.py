@@ -20,6 +20,10 @@ def _est_date(id_int, today_max):
     return ANCHOR_DATE + datetime.timedelta(days=(id_int - ANCHOR_ID) / slope)
 
 
+def _num_aliases(prop):
+    return [int(x) for x in prop.get("aliases", []) if str(x).isdigit()]
+
+
 def _online_label(prop, today_max):
     fs = prop.get("first_seen")
     try:
@@ -29,7 +33,11 @@ def _online_label(prop, today_max):
     if d and d < datetime.date.today():
         est = False
     else:                      # pas encore d'historique -> estimation par ID
-        d = _est_date(int(min(prop["aliases"], key=int)), today_max); est = True
+        nums = _num_aliases(prop)
+        if nums:
+            d = _est_date(min(nums), today_max); est = True
+        else:                       # annonce d'agence : pas d'ID séquentiel exploitable
+            d = datetime.date.today(); est = True
     lbl = f"~{MOIS[d.month]} {d.year}" if d < datetime.date(2026, 6, 1) else f"~{d.day} {MOIS[d.month]}"
     return lbl, est
 
@@ -40,11 +48,12 @@ def _matches(p):
 
 
 def _is_recent(p, prev_max_id):
-    return int(min(p["aliases"], key=int)) > prev_max_id
+    nums = _num_aliases(p)
+    return (min(nums) > prev_max_id) if nums else False
 
 
 def build(props, events, prev_max_id, today, errors=None):
-    today_max = max((int(a) for p in props for a in p["aliases"]), default=ANCHOR_ID)
+    today_max = max((int(a) for p in props for a in p["aliases"] if str(a).isdigit()), default=ANCHOR_ID)
     scored = []
     for p in props:
         if not _matches(p):
