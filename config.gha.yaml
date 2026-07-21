@@ -44,7 +44,6 @@ agences:
   base: https://www.agenceprincipalesevres.com
   href_filter: /fiches/4-40-
   id_regex: _(\d{5,})
-  commune_default: Sèvres
   urls:
   - https://www.agenceprincipalesevres.com/annonces/transaction/Vente.html
   - https://www.agenceprincipalesevres.com/catalog/annonce.php

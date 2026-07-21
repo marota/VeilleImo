@@ -24,10 +24,13 @@ ROOMS = re.compile(r"(\d{1,2})\s*pi[eè]ces?", re.I)
 
 COMMUNES = {
     "VILLE D AVRAY": "Ville-d'Avray", "VILLE-D'AVRAY": "Ville-d'Avray",
-    "SEVRES": "Sèvres", "SÈVRES": "Sèvres", "MEUDON": "Meudon",
-    "CHAVILLE": "Chaville", "VIROFLAY": "Viroflay", "SAINT-CLOUD": "Saint-Cloud",
-    "SAINT CLOUD": "Saint-Cloud",
+    "SEVRES": "Sèvres", "SÈVRES": "Sèvres", "SVERES": "Sèvres",   # coquille vue en prod
+    "MEUDON": "Meudon", "CHAVILLE": "Chaville", "VIROFLAY": "Viroflay",
+    "SAINT-CLOUD": "Saint-Cloud", "SAINT CLOUD": "Saint-Cloud",
 }
+SLUG_COMMUNES = {"ville-d-avray": "Ville-d'Avray", "villedavray": "Ville-d'Avray",
+                 "sevres": "Sèvres", "sveres": "Sèvres", "meudon": "Meudon",
+                 "chaville": "Chaville", "viroflay": "Viroflay", "saint-cloud": "Saint-Cloud"}
 QUARTIERS = ["Bellevue", "Brancas", "Rive Gauche", "Rive Droite", "Croix Bosset",
              "Val Fleury", "Centre", "Cote d'Argent", "Côte d'Argent", "Musée Rodin",
              "Château", "Etangs", "Étangs"]
@@ -39,6 +42,7 @@ def _to_int(t):
 
 
 def _parse_link(text, href, base):
+    """La commune est cherchée dans la carte PUIS dans le slug de l'URL."""
     """Extrait une annonce depuis le texte d'un lien de liste. None si non exploitable."""
     txt = re.sub(r"\s+", " ", text or "").strip()
     pm = PRICE.search(txt)
@@ -48,6 +52,9 @@ def _parse_link(text, href, base):
     if not sm:
         return None
     commune = next((v for k, v in COMMUNES.items() if k in txt.upper()), "")
+    if not commune:                      # repli : slug de l'URL (/fiches/..._id/meudon-maison-...)
+        low = href.lower()
+        commune = next((v for k, v in SLUG_COMMUNES.items() if k in low), "")
     quartier = next((q for q in QUARTIERS if q.lower() in txt.lower()), "")
     loc = f"{quartier}, {commune}" if quartier and commune else (commune or "")
     rm = ROOMS.search(txt)
@@ -78,7 +85,7 @@ def _card_text(a, max_up=6):
 
 def _scan_site(src):
     """src: {name, agency, base, urls[], href_filter, id_regex, commune_default}"""
-    out, seen = [], set()
+    out, seen, skipped = [], set(), []
     href_filter = re.compile(src["href_filter"]) if src.get("href_filter") else None
     id_re = re.compile(src.get("id_regex", r"(\d{5,})"))
     for url in src["urls"]:
@@ -100,13 +107,19 @@ def _scan_site(src):
             rec = _parse_link(txt, href, src["base"])
             if not rec:
                 continue
-            if not rec["quartier"] and src.get("commune_default"):
-                rec["quartier"] = src["commune_default"]
+            if not rec["quartier"]:
+                if src.get("commune_default"):
+                    rec["quartier"] = src["commune_default"]
+                else:                    # commune inconnue -> on ignore (ni doublon, ni notation faussée)
+                    skipped.append(href)
+                    continue
             rec["id"] = f"{src['name']}_{m.group(1)}"
             rec["agency"] = src.get("agency", src["name"])
             seen.add(rec["id"])
             out.append(rec)
         time.sleep(1.5)
+    if skipped:
+        print(f"    ({src['name']}: {len(skipped)} annonces ignorées, commune indétectable)")
     return out
 
 

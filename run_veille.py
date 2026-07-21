@@ -98,6 +98,16 @@ def main(argv=None):
     curr, events = chain.scan_grace(collected, prev, today, failed_communes=failed_communes, grace=grace)
     full_html, email_html, stats = report_html.build(curr, events, prev_max_id, today, errors)
     print(f"[veille] {stats}")
+    # diagnostic : détail des NOUVEAUX (pour repérer d'éventuels doublons non fusionnés)
+    news = [e for e in events if e["type"] == "NOUVEAU"]
+    if news:
+        by_id = {p["canonical_id"]: p for p in curr}
+        print(f"[veille] détail des {len(news)} nouveaux biens :")
+        for e in news:
+            p = by_id.get(e["id"], {})
+            print(f"    {e['id']:<20} {str(e.get('price') or '?'):>9}€ "
+                  f"{str(p.get('surface') or '?'):>7}m² {str(p.get('rooms') or '?'):>3}p "
+                  f"{p.get('commune','?'):<14} mandats={p.get('n_mandats','?')}")
 
     sp.parent.mkdir(parents=True, exist_ok=True)
     json.dump({"schema": "chained-properties-v1", "updated_at": datetime.datetime.now().isoformat(),
