@@ -1,795 +1,60 @@
 {
  "schema": "chained-properties-v1",
- "updated_at": "2026-07-20T09:07:59",
- "note": "first_seen estimé via séquence d'ID (chaînage historique indisponible cette session)",
+ "updated_at": "2026-07-21T07:57:38.715615",
  "properties": [
   {
-   "canonical_id": "272266513",
+   "canonical_id": "274017259",
    "aliases": [
-    "272266513"
+    "274017259"
    ],
-   "fingerprint": "sevres|115|6",
-   "commune": "sevres",
-   "quartier": "Bruyères-Acacias-Fonceaux, Sèvres",
-   "title": "EXCLUSIVITE AGENCE PRINCIPALE - Nichée dans un environnement",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47088/272266513/",
-   "surface": 115.0,
-   "rooms": 6,
-   "price": 790000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-14",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "271671805",
-   "aliases": [
-    "271671805"
-   ],
-   "fingerprint": "meudon|105|5",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "EXCLUSIVITÉ – Au cœur du très recherché quartier de Val Fleu",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/271671805/",
-   "surface": 105.0,
-   "rooms": 5,
-   "price": 795000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-07",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "270457565",
-   "aliases": [
-    "270457565"
-   ],
-   "fingerprint": "sevres|124|7",
-   "commune": "sevres",
-   "quartier": "Beau Site-Pommerets-Binelles, Sèvres",
-   "title": "Dans un quartier résidentiel calme, proche du centre, de la",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47091/270457565/",
-   "surface": 124.0,
+   "fingerprint": "ville-d'avray|260|7",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "À quelques pas du parc de Saint-Cloud et à 7 minutes à pied de la gare (lignes L et U), située en retrait d'une rue calm",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/274017259/",
+   "surface": 260,
    "rooms": 7,
-   "price": 799000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-24",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "270739301",
-   "aliases": [
-    "270739301"
-   ],
-   "fingerprint": "sevres|180|8",
-   "commune": "sevres",
-   "quartier": "Beau Site-Pommerets-Binelles, Sèvres",
-   "title": "Sur la Rive Gauche de Sèvres, entre Meudon Bellevue et le Po",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47091/270739301/",
-   "surface": 180.0,
-   "rooms": 8,
-   "price": 824000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-27",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "272276927",
-   "aliases": [
-    "272276927"
-   ],
-   "fingerprint": "viroflay|154|6",
-   "commune": "viroflay",
-   "quartier": "Les Aulnettes, Viroflay",
-   "title": "Exclusivité. Votre consultant BARNES - Damien Portail - a le",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45797/272276927/",
-   "surface": 153.7,
-   "rooms": 6,
-   "price": 840000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-14",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "274049773",
-   "aliases": [
-    "274049773"
-   ],
-   "fingerprint": "viroflay|130|6",
-   "commune": "viroflay",
-   "quartier": "Rive Droite, Viroflay",
-   "title": "Exclusivité. Votre consultant Barnes - Damien Portail - vous",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45796/274049773/",
-   "surface": 130.1,
-   "rooms": 6,
-   "price": 840000,
+   "price": 3200000,
    "n_mandats": 1,
    "first_seen": "2026-07-04",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 3200000
   },
   {
-   "canonical_id": "266002847",
+   "canonical_id": "272624927",
    "aliases": [
-    "266002847"
+    "272624927"
    ],
-   "fingerprint": "chaville|104|5",
-   "commune": "chaville",
-   "quartier": "Monesse-Roger Salendro, Chaville",
-   "title": "A la limite de Chaville et Sèvres, à 3 minutes à pied des co",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46916/266002847/",
-   "surface": 104.0,
-   "rooms": 5,
-   "price": 849500,
-   "n_mandats": 1,
-   "first_seen": "2026-04-02",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "271128619",
-   "aliases": [
-    "271128619"
-   ],
-   "fingerprint": "chaville|162|6",
-   "commune": "chaville",
-   "quartier": "Père Komitas, Chaville",
-   "title": "Chaville rive droite en impasse, sur un terrain de 370m2, jo",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/271128619/",
-   "surface": 162.0,
-   "rooms": 6,
-   "price": 895000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-01",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265849707",
-   "aliases": [
-    "265849707"
-   ],
-   "fingerprint": "versailles|125|7",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "VERSAILLES Porchefontaine, à proximité immédiate de la gare",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/265849707/",
-   "surface": 125.0,
-   "rooms": 7,
-   "price": 899000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-01",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "258482007",
-   "aliases": [
-    "258482007"
-   ],
-   "fingerprint": "velizy-villacoublay|175|6",
-   "commune": "velizy-villacoublay",
-   "quartier": "Velizy Bas-Centre Nord, Vélizy-Villacoublay",
-   "title": "iad France - Sylvain Etievant vous propose: Maison familiale",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45758/258482007/",
-   "surface": 175.0,
-   "rooms": 6,
-   "price": 900000,
-   "n_mandats": 1,
-   "first_seen": "2026-01-06",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265928317",
-   "aliases": [
-    "265928317"
-   ],
-   "fingerprint": "viroflay|125|5",
-   "commune": "viroflay",
-   "quartier": "Forêt, Viroflay",
-   "title": "Maison Contemporaine 4 chambres Rive gauche Découvrez cette",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45795/265928317/",
-   "surface": 124.9,
-   "rooms": 5,
-   "price": 905500,
-   "n_mandats": 1,
-   "first_seen": "2026-04-02",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "272649319",
-   "aliases": [
-    "272649319"
-   ],
-   "fingerprint": "viroflay|116|5",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Maison Contemporaine de 116 m² Rive Gauche Découvrez cette s",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/272649319/",
-   "surface": 116.2,
-   "rooms": 5,
-   "price": 911000,
+   "fingerprint": "ville-d'avray|329|10",
+   "commune": "ville-d'avray",
+   "quartier": "Ville-d'Avray",
+   "title": "Au cœur de Ville-d'Avray, maison de caractère fin du XIXe siècle de 350 m² sur un terrain clos et arboré de 1 585 m², ex",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38341/272624927/",
+   "surface": 328.59,
+   "rooms": 10,
+   "price": 2700000,
    "n_mandats": 1,
    "first_seen": "2026-06-18",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 2700000
   },
   {
-   "canonical_id": "275145599",
+   "canonical_id": "272518357",
    "aliases": [
-    "275145599"
+    "272518357"
    ],
-   "fingerprint": "versailles|110|5",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "Barnes Versailles vous présente une maison ancienne d'enviro",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275145599/",
-   "surface": 110.0,
-   "rooms": 5,
-   "price": 922000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-17",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "275296571",
-   "aliases": [
-    "275296571"
-   ],
-   "fingerprint": "chaville|163|8",
-   "commune": "chaville",
-   "quartier": "Père Komitas, Chaville",
-   "title": "Au calme d'une impasse, à proximité immédiate de la forêt de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/275296571/",
-   "surface": 163.42,
-   "rooms": 8,
-   "price": 930000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-19",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "249707091",
-   "aliases": [
-    "249707091",
-    "273905393"
-   ],
-   "fingerprint": "sevres|100|5",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Charmante maison du début du 20ème siècle, d'une surface de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/249707091/",
-   "surface": 100.0,
-   "rooms": 5,
-   "price": 950000,
-   "n_mandats": 2,
-   "first_seen": "2025-09-26",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "272218595",
-   "aliases": [
-    "272218595"
-   ],
-   "fingerprint": "meudon|102|5",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "Maison ancienne 102m² avec jardin plein sud - Avenue du Chat",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47016/272218595/",
-   "surface": 102.0,
-   "rooms": 5,
-   "price": 950000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-13",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "275310819",
-   "aliases": [
-    "275310819"
-   ],
-   "fingerprint": "versailles|107|6",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "VERSAILLES - Porchefontaine – Maison de 107,12 m² entièremen",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275310819/",
-   "surface": 107.12,
-   "rooms": 6,
-   "price": 960000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-19",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265091471",
-   "aliases": [
-    "265091471",
-    "265109027"
-   ],
-   "fingerprint": "viroflay|105|5",
-   "commune": "viroflay",
-   "quartier": "Forêt, Viroflay",
-   "title": "Sous compromis : Découvrez cette **maison individuelle de st",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45795/265091471/",
-   "surface": 105.49,
-   "rooms": 5,
-   "price": 990000,
-   "n_mandats": 2,
-   "first_seen": "2026-03-23",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265646355",
-   "aliases": [
-    "265646355"
-   ],
-   "fingerprint": "chaville|180|7",
-   "commune": "chaville",
-   "quartier": "Étang Saint Denis, Chaville",
-   "title": "Maison ancienne en pierre, édifiée en 1957, d'une surface de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46918/265646355/",
-   "surface": 180.0,
-   "rooms": 7,
-   "price": 990000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-29",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "270136255",
-   "aliases": [
-    "270136255"
-   ],
-   "fingerprint": "viroflay|140|7",
-   "commune": "viroflay",
-   "quartier": "Les Arcades, Viroflay",
-   "title": "Agréable maison familiale au coeur d'un quartier prisé entre",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45799/270136255/",
-   "surface": 140.0,
-   "rooms": 7,
-   "price": 990000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-20",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "272296747",
-   "aliases": [
-    "272296747"
-   ],
-   "fingerprint": "chaville|158|6",
-   "commune": "chaville",
-   "quartier": "Pavé des Gardes, Chaville",
-   "title": "EN EXCLUSIVITE -CHAVILLE Proche du Centre et des gares RG/RD",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46920/272296747/",
-   "surface": 157.92,
-   "rooms": 6,
-   "price": 990000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-14",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "274597503",
-   "aliases": [
-    "274597503"
-   ],
-   "fingerprint": "sevres|151|7",
-   "commune": "sevres",
-   "quartier": "Danton-Gabriel Peri, Sèvres",
-   "title": "Proche de la gare de Sèvres-Ville d'Avray maison familiale d",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47094/274597503/",
-   "surface": 151.0,
-   "rooms": 7,
-   "price": 990000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-11",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "272908287",
-   "aliases": [
-    "272908287"
-   ],
-   "fingerprint": "viroflay|182|9",
-   "commune": "viroflay",
-   "quartier": "Verdun, Viroflay",
-   "title": "Au calme d'un des quartiers les plus prisés de Viroflay appr",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45802/272908287/",
-   "surface": 182.17,
-   "rooms": 9,
-   "price": 995000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-21",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "274118941",
-   "aliases": [
-    "274118941"
-   ],
-   "fingerprint": "meudon|140|6",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "EXCLUSIVITÉ MEUDON CENTRE MAISON 6 PIÈCES AVEC JARDIN Idéale",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/274118941/",
-   "surface": 140.0,
-   "rooms": 6,
-   "price": 995000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-05",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "264651711",
-   "aliases": [
-    "264651711"
-   ],
-   "fingerprint": "meudon|160|8",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "iad France - Stéphanie Cornetti vous propose: MEUDON VAL-FLE",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/264651711/",
-   "surface": 160.0,
-   "rooms": 8,
-   "price": 1050000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-18",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "270136843",
-   "aliases": [
-    "270136843"
-   ],
-   "fingerprint": "chaville|140|7",
-   "commune": "chaville",
-   "quartier": "Les Petits Bois, Chaville",
-   "title": "COUP DE COEUR DE L'AGENCE Un coin de verdure privilégié au c",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46915/270136843/",
-   "surface": 140.0,
-   "rooms": 7,
-   "price": 1076000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-20",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "273205857",
-   "aliases": [
-    "273205857"
-   ],
-   "fingerprint": "chaville|150|7",
-   "commune": "chaville",
-   "quartier": "Les Petits Bois, Chaville",
-   "title": "Idéalement située dans un environnement privilégié, à proxim",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46915/273205857/",
-   "surface": 150.0,
-   "rooms": 7,
-   "price": 1076000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-25",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "219230995",
-   "aliases": [
-    "219230995"
-   ],
-   "fingerprint": "viroflay|178|7",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Cette maison de 170 m² vous séduira par ses volumes généreux",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/219230995/",
-   "surface": 178.0,
-   "rooms": 7,
-   "price": 1090000,
-   "n_mandats": 1,
-   "first_seen": "2024-10-09",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "259966745",
-   "aliases": [
-    "259966745"
-   ],
-   "fingerprint": "chaville|212|7",
-   "commune": "chaville",
-   "quartier": "Père Komitas, Chaville",
-   "title": "- UNE EXCLUSIVITE APPARTEMENTS ET MAISONS CHAVILLE- Au calme",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/259966745/",
-   "surface": 212.0,
-   "rooms": 7,
-   "price": 1094000,
-   "n_mandats": 1,
-   "first_seen": "2026-01-23",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "274583123",
-   "aliases": [
-    "274583123"
-   ],
-   "fingerprint": "meudon|140|5",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "Dans un environnement calme, cette maison récente bénéficie",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/274583123/",
-   "surface": 140.0,
-   "rooms": 5,
-   "price": 1150000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-11",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "275204623",
-   "aliases": [
-    "275204623",
-    "275208365"
-   ],
-   "fingerprint": "sevres|190|6",
-   "commune": "sevres",
-   "quartier": "Bruyères-Acacias-Fonceaux, Sèvres",
-   "title": "L'agence St Ferdinand vous ouvre les portes de cette charman",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47088/275204623/",
-   "surface": 190.08,
-   "rooms": 6,
-   "price": 1150000,
-   "n_mandats": 2,
-   "first_seen": "2026-07-18",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "262583733",
-   "aliases": [
-    "262583733"
-   ],
-   "fingerprint": "meudon|185|7",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "EXCLUSIVITÉ - Nichée dans un environnement calme et verdoyan",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/262583733/",
-   "surface": 185.0,
-   "rooms": 7,
-   "price": 1180000,
-   "n_mandats": 1,
-   "first_seen": "2026-02-22",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265788053",
-   "aliases": [
-    "265788053"
-   ],
-   "fingerprint": "chaville|150|8",
-   "commune": "chaville",
-   "quartier": "Louvois-Anatole France, Chaville",
-   "title": "Domaine privé du Parc Fourchon — Élégante demeure début XX r",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46921/265788053/",
-   "surface": 150.0,
-   "rooms": 8,
-   "price": 1180000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-31",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "270387453",
-   "aliases": [
-    "270387453",
-    "270477905"
-   ],
-   "fingerprint": "chaville|145|6",
-   "commune": "chaville",
-   "quartier": "Chaville",
-   "title": "Située dans une impasse sans issue, dans un quartier calme e",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38315/270387453/",
-   "surface": 145.0,
-   "rooms": 6,
-   "price": 1190000,
-   "n_mandats": 2,
-   "first_seen": "2026-05-23",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "275059587",
-   "aliases": [
-    "275059587"
-   ],
-   "fingerprint": "viroflay|150|0",
-   "commune": "viroflay",
-   "quartier": "Les Aulnettes, Viroflay",
-   "title": "Votre consultant Barnes à Versailles - Damien Portail - vous",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45797/275059587/",
-   "surface": 150.0,
-   "rooms": null,
-   "price": 1190000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-16",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265995427",
-   "aliases": [
-    "265995427",
-    "275299199"
-   ],
-   "fingerprint": "viroflay|150|6",
-   "commune": "viroflay",
-   "quartier": "La Ville Au Bois, Viroflay",
-   "title": "Casavo vous propose à la vente cette maison de 6 pièces de 1",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45798/265995427/",
-   "surface": 150.0,
-   "rooms": 6,
-   "price": 1195000,
-   "n_mandats": 2,
-   "first_seen": "2026-04-02",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "267728671",
-   "aliases": [
-    "267728671",
-    "272930647"
-   ],
-   "fingerprint": "viroflay|154|8",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Située dans une adresse très recherchée de Viroflay dans un",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/267728671/",
-   "surface": 154.0,
-   "rooms": 8,
-   "price": 1240000,
-   "n_mandats": 2,
-   "first_seen": "2026-04-22",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "273905401",
-   "aliases": [
-    "273905401"
-   ],
-   "fingerprint": "sevres|180|6",
-   "commune": "sevres",
-   "quartier": "Monesse-Croix Bosset, Sèvres",
-   "title": "SEVRES RIVE DROITE - CROIX BOSSET - Dans un quartier recherc",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/273905401/",
-   "surface": 180.0,
-   "rooms": 6,
-   "price": 1245000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-03",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "250210289",
-   "aliases": [
-    "250210289"
-   ],
-   "fingerprint": "ville-d'avray|138|5",
+   "fingerprint": "ville-d'avray|380|10",
    "commune": "ville-d'avray",
-   "quartier": "Rue de Versailles-Monastere, Ville-d'Avray",
-   "title": "À Ville-d'Avray, au cœur des Hauts-de-Seine, découvrez une m",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47120/250210289/",
-   "surface": 137.53,
-   "rooms": 5,
-   "price": 1250000,
-   "n_mandats": 1,
-   "first_seen": "2025-10-02",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "268194639",
-   "aliases": [
-    "268194639"
-   ],
-   "fingerprint": "viroflay|180|10",
-   "commune": "viroflay",
-   "quartier": "Les Aulnettes, Viroflay",
-   "title": "Dans l'un des quartiers les plus recherchés de Viroflay, à p",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45797/268194639/",
-   "surface": 180.0,
+   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
+   "title": "Au calme d’un chemin privé, cette propriété de 380 m² habitables (550 m² au sol), édifiée en 2004 sur un terrain paysage",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47124/272518357/",
+   "surface": 380,
    "rooms": 10,
-   "price": 1250000,
+   "price": 3400000,
    "n_mandats": 1,
-   "first_seen": "2026-04-28",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "275351855",
-   "aliases": [
-    "275351855"
-   ],
-   "fingerprint": "chaville|207|5",
-   "commune": "chaville",
-   "quartier": "Les Petits Bois, Chaville",
-   "title": "MAISON MEULIÈRE AVEC JARDIN - CHAVILLE Moriss Immobilier vou",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46915/275351855/",
-   "surface": 207.0,
-   "rooms": 5,
-   "price": 1250000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-20",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265186403",
-   "aliases": [
-    "265186403"
-   ],
-   "fingerprint": "chaville|184|7",
-   "commune": "chaville",
-   "quartier": "Chaville",
-   "title": "Sous-Offre acceptée. Exclusivité. Votre consultant Barnes Ve",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38315/265186403/",
-   "surface": 184.0,
-   "rooms": 7,
-   "price": 1290000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-24",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "269145095",
-   "aliases": [
-    "269145095"
-   ],
-   "fingerprint": "viroflay|262|6",
-   "commune": "viroflay",
-   "quartier": "Le Haras, Viroflay",
-   "title": "La Bastide Immobilière vous propose à la vente en exclusivit",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45800/269145095/",
-   "surface": 262.0,
-   "rooms": 6,
-   "price": 1300000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-09",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "270410081",
-   "aliases": [
-    "270410081"
-   ],
-   "fingerprint": "sevres|135|6",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Brancas. Ambiance très bucolique pour cette ravissante maiso",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/270410081/",
-   "surface": 135.0,
-   "rooms": 6,
-   "price": 1300000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-23",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "270612203",
-   "aliases": [
-    "270612203"
-   ],
-   "fingerprint": "sevres|154|7",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Dans le quartier résidentiel « Brancas » à Sèvres, à proximi",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/270612203/",
-   "surface": 153.88,
-   "rooms": 7,
-   "price": 1300000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-26",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "272129545",
-   "aliases": [
-    "272129545"
-   ],
-   "fingerprint": "viroflay|185|8",
-   "commune": "viroflay",
-   "quartier": "Les Arcades, Viroflay",
-   "title": "Au cœur du quartier historique, édifiée sur une parcelle de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45799/272129545/",
-   "surface": 185.0,
-   "rooms": 8,
-   "price": 1300000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-12",
-   "first_seen_estimated": true
+   "first_seen": "2026-06-17",
+   "first_seen_estimated": true,
+   "price_prev": 3400000
   },
   {
    "canonical_id": "272272707",
@@ -799,103 +64,15 @@
    "fingerprint": "ville-d'avray|169|7",
    "commune": "ville-d'avray",
    "quartier": "Ville-d'Avray",
-   "title": "À 10 minutes à pied de la gare (lignes L U), du parc de Sain",
+   "title": "À 10 minutes à pied de la gare (lignes L & U), du parc de Saint-Cloud et à proximité immédiate des écoles, maison non mi",
    "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38341/272272707/",
    "surface": 169.3,
    "rooms": 7,
    "price": 1320000,
    "n_mandats": 1,
    "first_seen": "2026-06-14",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "267137589",
-   "aliases": [
-    "267137589",
-    "272266519",
-    "272528297",
-    "272635709"
-   ],
-   "fingerprint": "sevres|170|7",
-   "commune": "sevres",
-   "quartier": "Danton-Gabriel Peri, Sèvres",
-   "title": "iad France - Elodie Guichard vous propose: QUARTIER BRANCAS.",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47094/267137589/",
-   "surface": 170.0,
-   "rooms": 7,
-   "price": 1330000,
-   "n_mandats": 4,
-   "first_seen": "2026-04-16",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "275190649",
-   "aliases": [
-    "275190649"
-   ],
-   "fingerprint": "sevres|215|7",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "EXCLUSIVITE - Sèvres, en limite de Meudon Bellevue, dans un",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38337/275190649/",
-   "surface": 215.0,
-   "rooms": 7,
-   "price": 1345000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-18",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "273962935",
-   "aliases": [
-    "273962935"
-   ],
-   "fingerprint": "versailles|175|8",
-   "commune": "versailles",
-   "quartier": "Bernard de Jussieu-Petits Bois-Picardie, Versailles",
-   "title": "Versailles Montreuil Maison 7 pièces 165 m² habitables sur p",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45780/273962935/",
-   "surface": 175.0,
-   "rooms": 8,
-   "price": 1360000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-03",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "257469953",
-   "aliases": [
-    "257469953"
-   ],
-   "fingerprint": "chaville|265|9",
-   "commune": "chaville",
-   "quartier": "Père Komitas, Chaville",
-   "title": "Au calme d'une impasse, à 3-4 minutes à pied de Chaville–Riv",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/257469953/",
-   "surface": 265.0,
-   "rooms": 9,
-   "price": 1390000,
-   "n_mandats": 1,
-   "first_seen": "2025-12-25",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265858585",
-   "aliases": [
-    "265858585",
-    "273905391"
-   ],
-   "fingerprint": "sevres|242|8",
-   "commune": "sevres",
-   "quartier": "Danton-Gabriel Peri, Sèvres",
-   "title": "Au sein du quartier Brancas, à l'abri des regards, cette vas",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47094/265858585/",
-   "surface": 242.0,
-   "rooms": 8,
-   "price": 1390000,
-   "n_mandats": 2,
-   "first_seen": "2026-04-01",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 1320000
   },
   {
    "canonical_id": "263347931",
@@ -906,529 +83,33 @@
    "fingerprint": "ville-d'avray|190|6",
    "commune": "ville-d'avray",
    "quartier": "Centre-La Prairie, Ville-d'Avray",
-   "title": "Idéalement située dans un environnement calme et résidentiel",
+   "title": "Idéalement située dans un environnement calme et résidentiel, à proximité de la gare, des écoles, des commerces et du Pa",
    "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47123/263347931/",
-   "surface": 190.0,
+   "surface": 190,
    "rooms": 6,
    "price": 1395000,
    "n_mandats": 2,
    "first_seen": "2026-03-03",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 1395000
   },
   {
-   "canonical_id": "264352093",
+   "canonical_id": "267669923",
    "aliases": [
-    "264352093",
-    "274859341"
+    "267669923"
    ],
-   "fingerprint": "sevres|170|9",
-   "commune": "sevres",
-   "quartier": "Beau Site-Pommerets-Binelles, Sèvres",
-   "title": "Elégante meulière de 170 m² pleine de charme et d'authentici",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47091/264352093/",
-   "surface": 170.0,
-   "rooms": 9,
-   "price": 1400000,
-   "n_mandats": 2,
-   "first_seen": "2026-03-14",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "266459479",
-   "aliases": [
-    "266459479"
-   ],
-   "fingerprint": "ville-d'avray|198|8",
-   "commune": "ville-d'avray",
-   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
-   "title": "Ville d'Avray: Belle maison contemporaine proche du centre-v",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47124/266459479/",
-   "surface": 198.0,
-   "rooms": 8,
-   "price": 1450000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-08",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "274259733",
-   "aliases": [
-    "274259733"
-   ],
-   "fingerprint": "ville-d'avray|161|7",
+   "fingerprint": "ville-d'avray|430|11",
    "commune": "ville-d'avray",
    "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "Cette charmante maison construite en 1926, agrandie et rénov",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/274259733/",
-   "surface": 161.0,
-   "rooms": 7,
-   "price": 1450000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-07",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "271450541",
-   "aliases": [
-    "271450541"
-   ],
-   "fingerprint": "meudon|190|6",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "RARE- Entre la place Stalingrad et le potager du Dauphin. Au",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271450541/",
-   "surface": 190.0,
-   "rooms": 6,
-   "price": 1470000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-04",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "251593851",
-   "aliases": [
-    "251593851",
-    "251595575"
-   ],
-   "fingerprint": "meudon|256|11",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "--SOUS-OFFRE ACCEPTÉE- Située dans le très recherché quartie",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/251593851/",
-   "surface": 256.12,
+   "title": "Aux portes de Paris, superbe propriété de 430 m² en pierre de taille, répartie sur deux niveaux, au cœur d’un jardin arb",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/267669923/",
+   "surface": 430.3,
    "rooms": 11,
-   "price": 1480000,
-   "n_mandats": 2,
-   "first_seen": "2025-10-18",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "263976827",
-   "aliases": [
-    "263976827"
-   ],
-   "fingerprint": "sevres|190|7",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Au coeur du quartier Brancas, en limite du Parc de Saint Clo",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/263976827/",
-   "surface": 190.0,
-   "rooms": 7,
-   "price": 1480000,
+   "price": 3290000,
    "n_mandats": 1,
-   "first_seen": "2026-03-10",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "274035981",
-   "aliases": [
-    "274035981"
-   ],
-   "fingerprint": "sevres|187|6",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Magnifique maison en pierre meulière typique du bassin Paris",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/274035981/",
-   "surface": 187.0,
-   "rooms": 6,
-   "price": 1490000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-04",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "268315701",
-   "aliases": [
-    "268315701"
-   ],
-   "fingerprint": "meudon|160|7",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Edifiée sur un terrain paysager de 445 m², cette belle maiso",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268315701/",
-   "surface": 160.0,
-   "rooms": 7,
-   "price": 1495000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-29",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "252415385",
-   "aliases": [
-    "252415385"
-   ],
-   "fingerprint": "sevres|235|9",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "MAISON DE CHARME EN PIERRE MEULIÈRE Cette élégante maison en",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/252415385/",
-   "surface": 235.0,
-   "rooms": 9,
-   "price": 1590000,
-   "n_mandats": 1,
-   "first_seen": "2025-10-28",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "263225955",
-   "aliases": [
-    "263225955"
-   ],
-   "fingerprint": "sevres|200|8",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Au sein du quartier Brancas, adossée au parc de Saint-Cloud",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/263225955/",
-   "surface": 200.0,
-   "rooms": 8,
-   "price": 1590000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-01",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "254793401",
-   "aliases": [
-    "254793401"
-   ],
-   "fingerprint": "sevres|143|6",
-   "commune": "sevres",
-   "quartier": "Monesse-Croix Bosset, Sèvres",
-   "title": "Située sur les coteaux recherchés de Sèvres, au calme d'un e",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/254793401/",
-   "surface": 143.0,
-   "rooms": 6,
-   "price": 1595000,
-   "n_mandats": 1,
-   "first_seen": "2025-11-24",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "268735221",
-   "aliases": [
-    "268735221"
-   ],
-   "fingerprint": "meudon|192|9",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "En plein cœur de Meudon Centre, dans une rue parmi les plus",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268735221/",
-   "surface": 192.0,
-   "rooms": 9,
-   "price": 1630000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-04",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "269740377",
-   "aliases": [
-    "269740377"
-   ],
-   "fingerprint": "sevres|160|5",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "À l’abri des regards, dans un environnement privilégié en li",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/269740377/",
-   "surface": 160.09,
-   "rooms": 5,
-   "price": 1670000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-16",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "271664505",
-   "aliases": [
-    "271664505"
-   ],
-   "fingerprint": "sevres|160|9",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "SEVRES RIVE DROITE - Adresse recherchée, proche de la gare R",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/271664505/",
-   "surface": 160.0,
-   "rooms": 9,
-   "price": 1670000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-07",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "259865199",
-   "aliases": [
-    "259865199"
-   ],
-   "fingerprint": "ville-d'avray|250|10",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "RARE - Dans le très recherché triangle d'or de Ville-d'Avray",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/259865199/",
-   "surface": 250.0,
-   "rooms": 10,
-   "price": 1750000,
-   "n_mandats": 1,
-   "first_seen": "2026-01-22",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265240157",
-   "aliases": [
-    "265240157"
-   ],
-   "fingerprint": "sevres|250|10",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "RARE - Ville d'Avray en limite de Sèvres - Dans le très rech",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38337/265240157/",
-   "surface": 250.0,
-   "rooms": 10,
-   "price": 1750000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-25",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "259439803",
-   "aliases": [
-    "259439803",
-    "270152733"
-   ],
-   "fingerprint": "sevres|227|8",
-   "commune": "sevres",
-   "quartier": "Danton-Gabriel Peri, Sèvres",
-   "title": "Claire Michel vous propose ce bien : Le calme, la lumière, l",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47094/259439803/",
-   "surface": 227.0,
-   "rooms": 8,
-   "price": 1790000,
-   "n_mandats": 2,
-   "first_seen": "2026-01-17",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "268315697",
-   "aliases": [
-    "268315697"
-   ],
-   "fingerprint": "meudon|211|8",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Edifiée sur un terrain paysager de 523 m², cette belle maiso",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268315697/",
-   "surface": 211.0,
-   "rooms": 8,
-   "price": 1795000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-29",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "271067753",
-   "aliases": [
-    "271067753"
-   ],
-   "fingerprint": "meudon|215|8",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "RARE - Cette maison d'environ 215m² sur un terrain de 445m²",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271067753/",
-   "surface": 215.0,
-   "rooms": 8,
-   "price": 1795000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-31",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "265688437",
-   "aliases": [
-    "265688437"
-   ],
-   "fingerprint": "sevres|141|7",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "Dans un environnement exceptionnel, avec un parc de plus de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38337/265688437/",
-   "surface": 141.0,
-   "rooms": 7,
-   "price": 1870000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-30",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "267947611",
-   "aliases": [
-    "267947611"
-   ],
-   "fingerprint": "ville-d'avray|141|7",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "Dans un environnement exceptionnel, avec un parc de plus de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/267947611/",
-   "surface": 141.0,
-   "rooms": 7,
-   "price": 1870000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-25",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "266021527",
-   "aliases": [
-    "266021527",
-    "269695061",
-    "274699935"
-   ],
-   "fingerprint": "sevres|220|8",
-   "commune": "sevres",
-   "quartier": "Monesse-Croix Bosset, Sèvres",
-   "title": "Maison de caractère de la fin du 19ème siècle, en parfait ét",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/266021527/",
-   "surface": 220.0,
-   "rooms": 8,
-   "price": 1875000,
-   "n_mandats": 3,
-   "first_seen": "2026-04-03",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "272652095",
-   "aliases": [
-    "272652095"
-   ],
-   "fingerprint": "meudon|147|5",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "À Meudon, témoin de l'architecture avant-gardiste des années",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272652095/",
-   "surface": 147.0,
-   "rooms": 5,
-   "price": 1895000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-18",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "271723207",
-   "aliases": [
-    "271723207"
-   ],
-   "fingerprint": "ville-d'avray|260|10",
-   "commune": "ville-d'avray",
-   "quartier": "Centre-La Prairie, Ville-d'Avray",
-   "title": "Immobilier.notaires® et l'office notarial SELAS 137 Notaires",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47123/271723207/",
-   "surface": 260.0,
-   "rooms": 10,
-   "price": 1930000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-08",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "267626515",
-   "aliases": [
-    "267626515"
-   ],
-   "fingerprint": "versailles|275|10",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Signée Léon Bachelin, l'architecte emblématique du quartier",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/267626515/",
-   "surface": 275.0,
-   "rooms": 10,
-   "price": 1950000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-21",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "270386213",
-   "aliases": [
-    "270386213"
-   ],
-   "fingerprint": "versailles|262|0",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "À l'abri des regards, cette élégante propriété familiale séd",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/270386213/",
-   "surface": 262.0,
-   "rooms": null,
-   "price": 1950000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-23",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "273399215",
-   "aliases": [
-    "273399215"
-   ],
-   "fingerprint": "sevres|240|10",
-   "commune": "sevres",
-   "quartier": "Monesse-Croix Bosset, Sèvres",
-   "title": "EXCLUSIVITE AGENCE PRINCIPALE - SEVRES RIVE DROITE Au sein d",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/273399215/",
-   "surface": 240.0,
-   "rooms": 10,
-   "price": 1980000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-27",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "259061817",
-   "aliases": [
-    "259061817"
-   ],
-   "fingerprint": "viroflay|364|16",
-   "commune": "viroflay",
-   "quartier": "Les Aulnettes, Viroflay",
-   "title": "Sous promesse. Exclusivité. Votre consultant BARNES - Damien",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45797/259061817/",
-   "surface": 364.0,
-   "rooms": 16,
-   "price": 1995000,
-   "n_mandats": 1,
-   "first_seen": "2026-01-12",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "275286565",
-   "aliases": [
-    "275286565"
-   ],
-   "fingerprint": "meudon|230|12",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "Bien d'exception ! Cette demeure construite en 1880 ornée de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/275286565/",
-   "surface": 230.0,
-   "rooms": 12,
-   "price": 2000000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-19",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "274271547",
-   "aliases": [
-    "274271547"
-   ],
-   "fingerprint": "sevres|300|12",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "NOTAIRE VEND - SEVRES (92310) - rue Brancas - dans un secteu",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38337/274271547/",
-   "surface": 300.0,
-   "rooms": 12,
-   "price": 2095000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-07",
-   "first_seen_estimated": true
+   "first_seen": "2026-04-22",
+   "first_seen_estimated": true,
+   "price_prev": 3290000
   },
   {
    "canonical_id": "259216945",
@@ -1438,185 +119,51 @@
    "fingerprint": "ville-d'avray|382|8",
    "commune": "ville-d'avray",
    "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "Ville-d'Avray. Située dans un secteur résidentiel recherché,",
+   "title": "Ville-d'Avray. Située dans un secteur résidentiel recherché, à proximité immédiate du parc de Saint-Cloud et d'établisse",
    "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/259216945/",
-   "surface": 382.0,
+   "surface": 382,
    "rooms": 8,
    "price": 2150000,
    "n_mandats": 1,
    "first_seen": "2026-01-14",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 2150000
   },
   {
-   "canonical_id": "272318427",
+   "canonical_id": "271723207",
    "aliases": [
-    "272318427"
+    "271723207"
    ],
-   "fingerprint": "meudon|200|10",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "À l'abri des regards, au cœur d'un environnement résidentiel",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272318427/",
-   "surface": 200.16,
-   "rooms": 10,
-   "price": 2150000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-14",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "275190683",
-   "aliases": [
-    "275190683"
-   ],
-   "fingerprint": "meudon|335|10",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Maison d'architecte contemporaine ossature bois 335 m² Meudo",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/275190683/",
-   "surface": 335.0,
-   "rooms": 10,
-   "price": 2280000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-18",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "262224443",
-   "aliases": [
-    "262224443"
-   ],
-   "fingerprint": "ville-d'avray|305|10",
+   "fingerprint": "ville-d'avray|260|10",
    "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "Maison ancienne de caractère de 300 m², construite en 1870 e",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/262224443/",
-   "surface": 305.0,
+   "quartier": "Centre-La Prairie, Ville-d'Avray",
+   "title": "Immobilier.notaires® et l'office notarial SELAS 137 Notaires vous proposent : Maison / villa à vendre - VILLE D AVRAY (9",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47123/271723207/",
+   "surface": 260,
    "rooms": 10,
-   "price": 2350000,
+   "price": 1930000,
    "n_mandats": 1,
-   "first_seen": "2026-02-18",
-   "first_seen_estimated": true
+   "first_seen": "2026-06-08",
+   "first_seen_estimated": true,
+   "price_prev": 1930000
   },
   {
-   "canonical_id": "266671407",
+   "canonical_id": "272324495",
    "aliases": [
-    "266671407"
+    "272324495"
    ],
-   "fingerprint": "meudon|244|10",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Nichée sur les hauteurs de l’Observatoire de Meudon, cette s",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/266671407/",
-   "surface": 243.61,
-   "rooms": 10,
-   "price": 2400000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-10",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "262650027",
-   "aliases": [
-    "262650027"
-   ],
-   "fingerprint": "sevres|380|9",
-   "commune": "sevres",
-   "quartier": "Monesse-Croix Bosset, Sèvres",
-   "title": "Nichée dans un écrin de verdure de 1 500m². cette somptueuse",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/262650027/",
-   "surface": 380.0,
-   "rooms": 9,
-   "price": 2490000,
-   "n_mandats": 1,
-   "first_seen": "2026-02-23",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "263963427",
-   "aliases": [
-    "263963427"
-   ],
-   "fingerprint": "sevres|270|10",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Dans l'un des quartiers les plus recherchés de Sèvres, cette",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/263963427/",
-   "surface": 270.0,
-   "rooms": 10,
-   "price": 2495000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-10",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "264036619",
-   "aliases": [
-    "264036619",
-    "273549787"
-   ],
-   "fingerprint": "sevres|260|10",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Au sein du très prisé quartier Brancas, jouxtant le Parc de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/264036619/",
-   "surface": 260.0,
-   "rooms": 10,
-   "price": 2495000,
-   "n_mandats": 2,
-   "first_seen": "2026-03-11",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "258275613",
-   "aliases": [
-    "258275613"
-   ],
-   "fingerprint": "ville-d'avray|285|8",
+   "fingerprint": "ville-d'avray|511|10",
    "commune": "ville-d'avray",
-   "quartier": "Rue de Versailles-Monastere, Ville-d'Avray",
-   "title": "Cette superbe demeure de 1860, édifiée sur une belle parcell",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47120/258275613/",
-   "surface": 285.0,
-   "rooms": 8,
-   "price": 2500000,
+   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
+   "title": "A Ville d'Avray. Edifiée au milieu du XIXe siècle et entièrement restaurée entre 2001 et 2003, cette propriété de presti",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47124/272324495/",
+   "surface": 511,
+   "rooms": 10,
+   "price": 5200000,
    "n_mandats": 1,
-   "first_seen": "2026-01-03",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "268554445",
-   "aliases": [
-    "268554445"
-   ],
-   "fingerprint": "sevres|221|8",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "EXCLUSIVITÉ - Nichée dans une allée privée entre Meudon et S",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38337/268554445/",
-   "surface": 220.8,
-   "rooms": 8,
-   "price": 2560000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-02",
-   "first_seen_estimated": true
-  },
-  {
-   "canonical_id": "272635779",
-   "aliases": [
-    "272635779"
-   ],
-   "fingerprint": "sevres|295|8",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "SEVRES - BRANCAS ; PARC DE SAINT CLOUD Au cœur du très reche",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/272635779/",
-   "surface": 295.0,
-   "rooms": 8,
-   "price": 2650000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-18",
-   "first_seen_estimated": true
+   "first_seen": "2026-06-15",
+   "first_seen_estimated": true,
+   "price_prev": 5200000
   },
   {
    "canonical_id": "268315443",
@@ -1627,31 +174,141 @@
    "fingerprint": "ville-d'avray|355|11",
    "commune": "ville-d'avray",
    "quartier": "Centre-La Prairie, Ville-d'Avray",
-   "title": "L'élégance bohème d'une maison familiale dans une nature pré",
+   "title": "L'élégance bohème d'une maison familiale dans une nature préservée aux portes de Paris. Nichée dans un écrin de verdure,",
    "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47123/268315443/",
-   "surface": 355.0,
+   "surface": 355,
    "rooms": 11,
    "price": 2700000,
    "n_mandats": 2,
    "first_seen": "2026-04-29",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 2700000
   },
   {
-   "canonical_id": "272624927",
+   "canonical_id": "250210289",
    "aliases": [
-    "272624927"
+    "250210289"
    ],
-   "fingerprint": "ville-d'avray|329|10",
+   "fingerprint": "ville-d'avray|138|5",
    "commune": "ville-d'avray",
-   "quartier": "Ville-d'Avray",
-   "title": "Au cœur de Ville-d'Avray, maison de caractère fin du XIXe si",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38341/272624927/",
-   "surface": 328.59,
-   "rooms": 10,
-   "price": 2700000,
+   "quartier": "Rue de Versailles-Monastere, Ville-d'Avray",
+   "title": "À Ville-d'Avray, au cœur des Hauts-de-Seine, découvrez une maison d'architecte contemporaine nichée entre les célèbres é",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47120/250210289/",
+   "surface": 137.53,
+   "rooms": 5,
+   "price": 1250000,
    "n_mandats": 1,
-   "first_seen": "2026-06-18",
-   "first_seen_estimated": true
+   "first_seen": "2025-10-02",
+   "first_seen_estimated": true,
+   "price_prev": 1250000
+  },
+  {
+   "canonical_id": "259865199",
+   "aliases": [
+    "259865199"
+   ],
+   "fingerprint": "ville-d'avray|250|10",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "RARE - Dans le très recherché triangle d'or de Ville-d'Avray, à la limite de Sèvres (rive droite), cette maison bénéfici",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/259865199/",
+   "surface": 250,
+   "rooms": 10,
+   "price": 1750000,
+   "n_mandats": 1,
+   "first_seen": "2026-01-22",
+   "first_seen_estimated": true,
+   "price_prev": 1750000
+  },
+  {
+   "canonical_id": "274259733",
+   "aliases": [
+    "274259733"
+   ],
+   "fingerprint": "ville-d'avray|161|7",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "Cette charmante maison construite en 1926, agrandie et rénovée en 2001, d'une surface de 160 m² environ, érigée sur une ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/274259733/",
+   "surface": 161,
+   "rooms": 7,
+   "price": 1450000,
+   "n_mandats": 1,
+   "first_seen": "2026-07-07",
+   "first_seen_estimated": true,
+   "price_prev": 1450000
+  },
+  {
+   "canonical_id": "266459479",
+   "aliases": [
+    "266459479"
+   ],
+   "fingerprint": "ville-d'avray|198|8",
+   "commune": "ville-d'avray",
+   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
+   "title": "Ville d'Avray: Belle maison contemporaine proche du centre-ville. Cette maison moderne et familiale, construite en 2017,",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47124/266459479/",
+   "surface": 198,
+   "rooms": 8,
+   "price": 1450000,
+   "n_mandats": 1,
+   "first_seen": "2026-04-08",
+   "first_seen_estimated": true,
+   "price_prev": 1450000
+  },
+  {
+   "canonical_id": "262224443",
+   "aliases": [
+    "262224443"
+   ],
+   "fingerprint": "ville-d'avray|305|10",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "Maison ancienne de caractère de 300 m², construite en 1870 et rénovée en 2019, édifiée sur une parcelle de 1300 m². Situ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/262224443/",
+   "surface": 305,
+   "rooms": 10,
+   "price": 2350000,
+   "n_mandats": 1,
+   "first_seen": "2026-02-18",
+   "first_seen_estimated": true,
+   "price_prev": 2350000
+  },
+  {
+   "canonical_id": "258275613",
+   "aliases": [
+    "258275613"
+   ],
+   "fingerprint": "ville-d'avray|285|8",
+   "commune": "ville-d'avray",
+   "quartier": "Rue de Versailles-Monastere, Ville-d'Avray",
+   "title": "Cette superbe demeure de 1860, édifiée sur une belle parcelle de 1060 m², idéalement orientée au sud, a été rénovée réce",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47120/258275613/",
+   "surface": 285,
+   "rooms": 8,
+   "price": 2500000,
+   "n_mandats": 1,
+   "first_seen": "2026-01-03",
+   "first_seen_estimated": true,
+   "price_prev": 2500000
+  },
+  {
+   "canonical_id": "267947611",
+   "aliases": [
+    "267947611"
+   ],
+   "fingerprint": "ville-d'avray|141|7",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "Dans un environnement exceptionnel, avec un parc de plus de 2000m2, nous vous proposons cette propriété parfaitement au ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/267947611/",
+   "surface": 141,
+   "rooms": 7,
+   "price": 1870000,
+   "n_mandats": 1,
+   "first_seen": "2026-04-25",
+   "first_seen_estimated": true,
+   "price_prev": 1870000
   },
   {
    "canonical_id": "263764607",
@@ -1661,14 +318,69 @@
    "fingerprint": "ville-d'avray|340|14",
    "commune": "ville-d'avray",
    "quartier": "Ville-d'Avray",
-   "title": "Au meilleur emplacement du site classé des Etangs de Corot,",
+   "title": "Au meilleur emplacement du site classé des Etangs de Corot, dans un cadre paradisiaque, cette élégante maison familiale ",
    "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38341/263764607/",
-   "surface": 340.0,
+   "surface": 340,
    "rooms": 14,
    "price": 2790000,
    "n_mandats": 1,
    "first_seen": "2026-03-08",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 2790000
+  },
+  {
+   "canonical_id": "272652095",
+   "aliases": [
+    "272652095"
+   ],
+   "fingerprint": "meudon|147|5",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "À Meudon, témoin de l'architecture avant-gardiste des années 1950, la maison-atelier d'André Bloc conçue par Claude Pare",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272652095/",
+   "surface": 147,
+   "rooms": 5,
+   "price": 1895000,
+   "n_mandats": 1,
+   "first_seen": "2026-06-18",
+   "first_seen_estimated": true,
+   "price_prev": 1895000
+  },
+  {
+   "canonical_id": "268315697",
+   "aliases": [
+    "268315697"
+   ],
+   "fingerprint": "meudon|211|8",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Edifiée sur un terrain paysager de 523 m², cette belle maison ancienne de 211 m² a été entièrement rénovée. Elle compren",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268315697/",
+   "surface": 211,
+   "rooms": 8,
+   "price": 1795000,
+   "n_mandats": 1,
+   "first_seen": "2026-04-29",
+   "first_seen_estimated": true,
+   "price_prev": 1795000
+  },
+  {
+   "canonical_id": "268315701",
+   "aliases": [
+    "268315701"
+   ],
+   "fingerprint": "meudon|160|7",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Edifiée sur un terrain paysager de 445 m², cette belle maison ancienne d'une surface habitable de 160 m² a été entièreme",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268315701/",
+   "surface": 160,
+   "rooms": 7,
+   "price": 1495000,
+   "n_mandats": 1,
+   "first_seen": "2026-04-29",
+   "first_seen_estimated": true,
+   "price_prev": 1495000
   },
   {
    "canonical_id": "269646231",
@@ -1678,48 +390,124 @@
    "fingerprint": "meudon|480|8",
    "commune": "meudon",
    "quartier": "Val Fleury, Meudon",
-   "title": "À l'abri des regards, dans une rue calme et résidentielle de",
+   "title": "À l'abri des regards, dans une rue calme et résidentielle de Meudon Val-Fleury, cet ensemble immobilier singulier dévelo",
    "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/269646231/",
-   "surface": 480.0,
+   "surface": 480,
    "rooms": 8,
    "price": 2950000,
    "n_mandats": 1,
    "first_seen": "2026-05-15",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 2950000
   },
   {
-   "canonical_id": "270382077",
+   "canonical_id": "268735221",
    "aliases": [
-    "270382077"
+    "268735221"
    ],
-   "fingerprint": "versailles|340|14",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Implantée dans un parc privé et historique, à l'abri de tout",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/270382077/",
-   "surface": 340.0,
-   "rooms": 14,
-   "price": 2990000,
+   "fingerprint": "meudon|192|9",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "En plein cœur de Meudon Centre, dans une rue parmi les plus recherchées du secteur, à moins de 10 minutes à pied des deu",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268735221/",
+   "surface": 192,
+   "rooms": 9,
+   "price": 1630000,
    "n_mandats": 1,
-   "first_seen": "2026-05-23",
-   "first_seen_estimated": true
+   "first_seen": "2026-05-04",
+   "first_seen_estimated": true,
+   "price_prev": 1630000
   },
   {
-   "canonical_id": "274017259",
+   "canonical_id": "266671407",
    "aliases": [
-    "274017259"
+    "266671407"
    ],
-   "fingerprint": "ville-d'avray|260|7",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "À quelques pas du parc de Saint-Cloud et à 7 minutes à pied",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/274017259/",
-   "surface": 260.0,
-   "rooms": 7,
-   "price": 3200000,
+   "fingerprint": "meudon|244|10",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Nichée sur les hauteurs de l’Observatoire de Meudon, cette somptueuse maison de maître du XIXème siècle bénéficie d’une ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/266671407/",
+   "surface": 243.61,
+   "rooms": 10,
+   "price": 2400000,
    "n_mandats": 1,
-   "first_seen": "2026-07-04",
-   "first_seen_estimated": true
+   "first_seen": "2026-04-10",
+   "first_seen_estimated": true,
+   "price_prev": 2400000
+  },
+  {
+   "canonical_id": "251593851",
+   "aliases": [
+    "251593851",
+    "251595575"
+   ],
+   "fingerprint": "meudon|256|11",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "--SOUS-OFFRE ACCEPTÉE- Située dans le très recherché quartier du Val à Meudon, à mi-chemin entre Meudon Val-Fleury et Me",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/251593851/",
+   "surface": 256.12,
+   "rooms": 11,
+   "price": 1480000,
+   "n_mandats": 2,
+   "first_seen": "2025-10-18",
+   "first_seen_estimated": true,
+   "price_prev": 1480000
+  },
+  {
+   "canonical_id": "275286565",
+   "aliases": [
+    "275286565"
+   ],
+   "fingerprint": "meudon|230|12",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "Bien d'exception ! Cette demeure construite en 1880 ornée de charmants cabochons en façade, a été entièrement rénovée av",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/275286565/",
+   "surface": 230,
+   "rooms": 12,
+   "price": 2000000,
+   "n_mandats": 1,
+   "first_seen": "2026-07-19",
+   "first_seen_estimated": true,
+   "price_prev": 2000000
+  },
+  {
+   "canonical_id": "275190683",
+   "aliases": [
+    "275190683"
+   ],
+   "fingerprint": "meudon|335|10",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Maison d'architecte contemporaine ossature bois ? 335 m² ? Meudon centre Maison d'architecte contemporaine ossature bois",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/275190683/",
+   "surface": 335,
+   "rooms": 10,
+   "price": 2280000,
+   "n_mandats": 1,
+   "first_seen": "2026-07-18",
+   "first_seen_estimated": true,
+   "price_prev": 2280000
+  },
+  {
+   "canonical_id": "274583123",
+   "aliases": [
+    "274583123"
+   ],
+   "fingerprint": "meudon|140|5",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "Dans un environnement calme, cette maison récente bénéficie d'une vue privilégiée sur Paris et d'un emplacement recherch",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/274583123/",
+   "surface": 140,
+   "rooms": 5,
+   "price": 1150000,
+   "n_mandats": 1,
+   "first_seen": "2026-07-11",
+   "first_seen_estimated": true,
+   "price_prev": 1150000
   },
   {
    "canonical_id": "274466477",
@@ -1729,82 +517,159 @@
    "fingerprint": "meudon|300|9",
    "commune": "meudon",
    "quartier": "Bellevue, Meudon",
-   "title": "EXCLUSIVITE - RARE - Maison familiale de 300 m² répartie sur",
+   "title": "EXCLUSIVITE - RARE - Maison familiale de 300 m² répartie sur seulement deux niveaux, au coeur d'un superbe parc arboré d",
    "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47016/274466477/",
-   "surface": 300.0,
+   "surface": 300,
    "rooms": 9,
    "price": 3200000,
    "n_mandats": 1,
    "first_seen": "2026-07-09",
-   "first_seen_estimated": true
+   "first_seen_estimated": true,
+   "price_prev": 3200000
   },
   {
-   "canonical_id": "267669923",
+   "canonical_id": "264651711",
    "aliases": [
-    "267669923"
+    "264651711"
    ],
-   "fingerprint": "ville-d'avray|430|11",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "Aux portes de Paris, superbe propriété de 430 m² en pierre d",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/267669923/",
-   "surface": 430.3,
-   "rooms": 11,
-   "price": 3290000,
+   "fingerprint": "meudon|160|8",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "iad France - Stéphanie Cornetti vous propose: MEUDON VAL-FLEURY A 6 MINUTES DU MONOPRIX ET DU RER C - MAISON FAMILIALE 6",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/264651711/",
+   "surface": 160,
+   "rooms": 8,
+   "price": 1050000,
    "n_mandats": 1,
-   "first_seen": "2026-04-22",
-   "first_seen_estimated": true
+   "first_seen": "2026-03-18",
+   "first_seen_estimated": true,
+   "price_prev": 1050000
   },
   {
-   "canonical_id": "272518357",
+   "canonical_id": "274118941",
    "aliases": [
-    "272518357"
+    "274118941"
    ],
-   "fingerprint": "ville-d'avray|380|10",
-   "commune": "ville-d'avray",
-   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
-   "title": "Au calme d’un chemin privé, cette propriété de 380 m² habita",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47124/272518357/",
-   "surface": 380.0,
-   "rooms": 10,
-   "price": 3400000,
+   "fingerprint": "meudon|140|6",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "EXCLUSIVITÉ MEUDON CENTRE MAISON 6 PIÈCES AVEC JARDIN Idéalement située au coeur de Meudon, dans un environnement calme ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/274118941/",
+   "surface": 140,
+   "rooms": 6,
+   "price": 995000,
    "n_mandats": 1,
-   "first_seen": "2026-06-17",
-   "first_seen_estimated": true
+   "first_seen": "2026-07-05",
+   "first_seen_estimated": true,
+   "price_prev": 995000
   },
   {
-   "canonical_id": "258831355",
+   "canonical_id": "262583733",
    "aliases": [
-    "258831355"
+    "262583733"
    ],
-   "fingerprint": "sevres|500|12",
-   "commune": "sevres",
-   "quartier": "Beau Site-Pommerets-Binelles, Sèvres",
-   "title": "Au calme, à l'abri des regards et entourée de verdure, Engel",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47091/258831355/",
-   "surface": 500.0,
-   "rooms": 12,
-   "price": 4500000,
+   "fingerprint": "meudon|185|7",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "EXCLUSIVITÉ - Nichée dans un environnement calme et verdoyant, à deux pas des écoles (Institut Notre-Dame, La Source..),",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/262583733/",
+   "surface": 185,
+   "rooms": 7,
+   "price": 1180000,
    "n_mandats": 1,
-   "first_seen": "2026-01-10",
-   "first_seen_estimated": true
+   "first_seen": "2026-02-22",
+   "first_seen_estimated": true,
+   "price_prev": 1180000
   },
   {
-   "canonical_id": "272324495",
+   "canonical_id": "271671805",
    "aliases": [
-    "272324495"
+    "271671805"
    ],
-   "fingerprint": "ville-d'avray|511|10",
-   "commune": "ville-d'avray",
-   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
-   "title": "A Ville d'Avray. Edifiée au milieu du XIXe siècle et entière",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47124/272324495/",
-   "surface": 511.0,
-   "rooms": 10,
-   "price": 5200000,
+   "fingerprint": "meudon|105|5",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "EXCLUSIVITÉ – Au cœur du très recherché quartier de Val Fleury, découvrez cette charmante maison de 105 m², idéalement e",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/271671805/",
+   "surface": 105,
+   "rooms": 5,
+   "price": 795000,
    "n_mandats": 1,
-   "first_seen": "2026-06-15",
-   "first_seen_estimated": true
+   "first_seen": "2026-06-07",
+   "first_seen_estimated": true,
+   "price_prev": 795000
+  },
+  {
+   "canonical_id": "271450541",
+   "aliases": [
+    "271450541"
+   ],
+   "fingerprint": "meudon|190|6",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "RARE- Entre la place Stalingrad et le potager du Dauphin. Au calme, dans un quartier très recherché pour sa proximité av",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271450541/",
+   "surface": 190,
+   "rooms": 6,
+   "price": 1470000,
+   "n_mandats": 1,
+   "first_seen": "2026-06-04",
+   "first_seen_estimated": true,
+   "price_prev": 1470000
+  },
+  {
+   "canonical_id": "271067753",
+   "aliases": [
+    "271067753"
+   ],
+   "fingerprint": "meudon|215|8",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "RARE - Cette maison d'environ 215m² sur un terrain de 445m² et entièrement réhabilitée a su garder son âme ! Très belle ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271067753/",
+   "surface": 215,
+   "rooms": 8,
+   "price": 1795000,
+   "n_mandats": 1,
+   "first_seen": "2026-05-31",
+   "first_seen_estimated": true,
+   "price_prev": 1795000
+  },
+  {
+   "canonical_id": "271067951",
+   "aliases": [
+    "271067951"
+   ],
+   "fingerprint": "meudon|170|8",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "RARE - Cette maison d'environ 170m² sur un terrain de 523m² entièrement réhabilitée a su garder son âme et un cachet ind",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271067951/",
+   "surface": 170,
+   "rooms": 8,
+   "price": 1495000,
+   "n_mandats": 1,
+   "first_seen": "2026-07-21",
+   "first_seen_estimated": false,
+   "price_prev": null
+  },
+  {
+   "canonical_id": "265788349",
+   "aliases": [
+    "265788349"
+   ],
+   "fingerprint": "meudon|220|8",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "Idéalement située et véritable potentiel pour cette très belle maison en bon état, non mitoyenne de plus de 200 m² au so",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/265788349/",
+   "surface": 220,
+   "rooms": 8,
+   "price": 1250000,
+   "n_mandats": 1,
+   "first_seen": "2026-07-21",
+   "first_seen_estimated": false,
+   "price_prev": null
   }
  ]
 }
