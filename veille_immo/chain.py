@@ -11,6 +11,9 @@ Le first_seen est alors conservé ; sinon le bien est NOUVEAU (first_seen = aujo
 """
 from typing import Dict, List
 from . import identity
+
+MIN_PCT = 2.0     # variation de prix minimale signalée (%)
+MIN_EUR = 5000    # et en euros
 from .models import Listing
 
 
@@ -40,7 +43,7 @@ def build_properties(listings: List[Listing]) -> List[dict]:
             "url": c.url,
             "surface": c.surface,
             "rooms": c.rooms,
-            "price": min(prices) if prices else None,
+            "price": (prices[len(prices) // 2] if prices else None),   # médiane, robuste
             "n_mandats": len(grp),
         })
     return props
@@ -169,9 +172,15 @@ def scan_grace(curr_props, prev_props, today, failed_communes=(), grace=2):
             cp["aliases"] = sorted(set(cp["aliases"]) | set(prior.get("aliases", [])), key=_idkey)
             op, np_ = prior.get("price"), cp.get("price")
             if op and np_ and op != np_:
-                events.append({"type": "BAISSE" if np_ < op else "HAUSSE", "id": cp["canonical_id"],
-                               "title": cp["title"], "old_price": op, "price": np_,
-                               "pct": round(100 * (np_ - op) / op, 1)})
+                pct = round(100 * (np_ - op) / op, 1)
+                # seuil anti-bruit : on ignore les micro-variations (arrondis, honoraires)
+                if abs(pct) >= MIN_PCT and abs(np_ - op) >= MIN_EUR:
+                    events.append({"type": "BAISSE" if np_ < op else "HAUSSE",
+                                   "id": cp["canonical_id"], "title": cp["title"],
+                                   "old_price": op, "price": np_, "pct": pct,
+                                   "url": cp.get("url", ""), "surface": cp.get("surface"),
+                                   "rooms": cp.get("rooms"), "commune": cp.get("commune", ""),
+                                   "n_mandats": cp.get("n_mandats", 1)})
         out.append(cp)
     for pp in prev_props:
         if id(pp) in used:

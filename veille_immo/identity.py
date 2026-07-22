@@ -20,7 +20,8 @@ import unicodedata
 from typing import List
 
 SURF_TOL = 2.0        # m²
-PRICE_TOL = 0.06      # 6 %
+PRICE_TOL = 0.02      # "prix quasi identique" -> confirme à lui seul
+PRICE_MAX_GAP = 0.08  # au-delà : ce ne peut PAS être le même bien (garde-fou dur)      # 6 %
 JACCARD_MIN = 0.34    # recouvrement min. des mots-clés de description
 ROOMS_TOL = 1
 
@@ -72,17 +73,31 @@ def fingerprint(listing) -> str:
 
 
 def same_property(a, b) -> bool:
-    """Vrai si a et b désignent (très probablement) le même bien physique."""
+    """Vrai si a et b désignent (très probablement) le même bien physique.
+
+    Le PRIX est un garde-fou DUR : au-delà de PRICE_MAX_GAP d'écart, deux annonces
+    ne peuvent pas décrire le même bien, même si la description se ressemble
+    (titres courts et génériques -> faux positifs, et fausses "baisses" ensuite).
+    """
     if commune(a.quartier) != commune(b.quartier):
         return False
     if a.surface and b.surface and abs(a.surface - b.surface) > SURF_TOL:
         return False
     if a.rooms and b.rooms and abs(a.rooms - b.rooms) > ROOMS_TOL:
         return False
-    price_close = bool(a.price and b.price and
-                       abs(a.price - b.price) <= PRICE_TOL * max(a.price, b.price))
-    desc_close = _jaccard(desc_tokens(a.title), desc_tokens(b.title)) >= JACCARD_MIN
-    return price_close or desc_close
+    if a.price and b.price:
+        gap = abs(a.price - b.price) / max(a.price, b.price)
+        if gap > PRICE_MAX_GAP:
+            return False                      # écart de prix rédhibitoire
+        if gap <= PRICE_TOL:
+            return True                       # prix quasi identique = même bien
+        # Prix proche mais pas identique (honoraires, négociation, republication) :
+        # on accepte si la STRUCTURE colle exactement (surface ~1 m² et mêmes pièces),
+        # sinon on exige une description concordante.
+        if (a.surface and b.surface and abs(a.surface - b.surface) <= 1.0
+                and a.rooms and b.rooms and a.rooms == b.rooms):
+            return True
+    return _jaccard(desc_tokens(a.title), desc_tokens(b.title)) >= JACCARD_MIN
 
 
 def cluster(listings: List) -> List[List]:

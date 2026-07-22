@@ -116,10 +116,22 @@ def build(props, events, prev_max_id, today, errors=None):
         o = ""
         for e in [x for x in events if x["type"] in ("BAISSE", "HAUSSE")]:
             col = "#2e7d32" if e["type"] == "BAISSE" else "#b00"
+            surf = f'{e["surface"]:g} m²' if e.get("surface") else "?"
+            rooms = f'{e["rooms"]}p' if e.get("rooms") else "?"
+            lieu = _esc(e.get("commune") or "")
+            label = lieu or "voir l" + chr(39) + "annonce"
+            if e.get("url"):
+                lien = f'<a href="{_esc(e["url"])}" style="color:#8a6d1b;font-weight:bold;text-decoration:none;">{label}</a>'
+            else:
+                lien = f'<b>{label}</b>'
+
+            nm = e.get("n_mandats", 1)
             o += (f'<tr><td style="{B}"><b style="color:{col}">{e["type"]}</b></td>'
-                  f'<td style="{B}">{_esc(e["title"])[:58]}</td>'
+                  f'<td style="{B}">{lien} <span style="color:#555;">· {surf} · {rooms}</span>'
+                  f'<div style="color:#777;font-size:11px;">{_esc(e["title"])[:56]}</div></td>'
                   f'<td style="{B}white-space:nowrap;">{_euro(e["old_price"])} → <b>{_euro(e["price"])}</b></td>'
-                  f'<td style="{B}color:{col};white-space:nowrap;">{e["pct"]:+} %</td></tr>')
+                  f'<td style="{B}color:{col};white-space:nowrap;font-weight:bold;">{e["pct"]:+} %</td>'
+                  f'<td style="{B}text-align:center;">{nm}</td></tr>')
         return o
 
     def anoter_rows():
@@ -157,7 +169,7 @@ def build(props, events, prev_max_id, today, errors=None):
         f'⚡ Mouvements de prix ({len(moves)})</h3>'
         f'<p style="font-size:12px;color:#777;font-style:italic;margin:5px 0;">Le signal le plus actionnable : un vendeur qui baisse son prix ouvre une fenêtre de négociation.</p>'
         f'<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:Georgia,serif;font-size:13px;">'
-        f'<tr><th {TH2}></th><th {TH2}>Bien</th><th {TH2}>Prix</th><th {TH2}>Écart</th></tr>{moves_rows()}</table>')
+        f'<tr><th {TH2}></th><th {TH2}>Bien (lien)</th><th {TH2}>Prix</th><th {TH2}>Écart</th><th {TH2}>Mandats</th></tr>{moves_rows()}</table>')
     anoter_block = ("" if not anoter else
         f'<h3 style="font-size:17px;color:#3a2f1c;border-bottom:2px solid #c9a24a;padding-bottom:5px;margin-top:20px;">'
         f'À noter — bien placés en prix, quartier à préciser ({len(anoter)})</h3>'
