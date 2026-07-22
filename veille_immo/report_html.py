@@ -65,6 +65,10 @@ def build(props, events, prev_max_id, today, errors=None):
     inb = sorted(scored, key=lambda r: r["p"]["price"] or 0)
     cdc = sorted([r for r in inb if r["total"] and r["total"] >= 5 and r["pd"] is not None and r["pd"] <= 0],
                  key=lambda r: (-r["total"], r["pd"]))
+    # biens attractifs en prix mais SANS score de zone (typiquement annonces d'agence
+    # qui ne donnent que la commune) : ils ne peuvent pas être coups de cœur.
+    anoter = sorted([r for r in inb if r["total"] is None and r["pd"] is not None and r["pd"] <= 0],
+                    key=lambda r: r["pd"])
     n_multi = sum(1 for p in props if p["n_mandats"] > 1)
     n_new = sum(1 for e in events if e["type"] == "NOUVEAU")
     n_ret = sum(1 for e in events if e["type"] == "RETIRE")
@@ -107,6 +111,30 @@ def build(props, events, prev_max_id, today, errors=None):
             o += f'<tr><td style="text-align:center;">{p["n_mandats"]}×</td><td>{p["surface"]:g} m² · {p["rooms"] or "?"}p</td><td style="font-weight:bold;">{_euro(p["price"])}</td><td>{_esc(p["commune"])}</td><td style="font-size:11px;color:#777;">{al}</td></tr>'
         return o
 
+    def moves_rows(inline=False):
+        B = 'padding:6px 9px;border-bottom:1px solid #eee;'
+        o = ""
+        for e in [x for x in events if x["type"] in ("BAISSE", "HAUSSE")]:
+            col = "#2e7d32" if e["type"] == "BAISSE" else "#b00"
+            o += (f'<tr><td style="{B}"><b style="color:{col}">{e["type"]}</b></td>'
+                  f'<td style="{B}">{_esc(e["title"])[:58]}</td>'
+                  f'<td style="{B}white-space:nowrap;">{_euro(e["old_price"])} → <b>{_euro(e["price"])}</b></td>'
+                  f'<td style="{B}color:{col};white-space:nowrap;">{e["pct"]:+} %</td></tr>')
+        return o
+
+    def anoter_rows():
+        B = 'padding:6px 9px;border-bottom:1px solid #eee;'
+        o = ""
+        for r in anoter:
+            p = r["p"]
+            o += (f'<tr><td style="{B}"><a href="{_esc(p["url"])}" style="color:#8a6d1b;font-weight:bold;text-decoration:none;">{_esc(p["quartier"] or p["commune"])}</a>'
+                  f'<div style="color:#777;font-size:11px;">{_esc(p["title"])[:56]}</div></td>'
+                  f'<td style="{B}font-weight:bold;white-space:nowrap;">{_euro(p["price"])}</td>'
+                  f'<td style="{B}white-space:nowrap;">{p["surface"]:g} m² · {p["rooms"] or "?"}p</td>'
+                  f'<td style="{B}color:#2e7d32;">{_pdf(r["pd"])}</td>'
+                  f'<td style="{B}">{_esc(p.get("agency") or "—")}</td></tr>')
+        return o
+
     def ev_rows():
         o = ""
         for e in events:
@@ -121,6 +149,22 @@ def build(props, events, prev_max_id, today, errors=None):
     err_html = ("<div class='warn'><b>Sources non récupérées :</b><br>" + "<br>".join(_esc(x) for x in (errors or [])) + "</div>") if errors else ""
     synth = (f"{sum(len(p['aliases']) for p in props)} annonces → <b>{len(props)} biens uniques</b> · {n_multi} multi-mandats · "
              f"<b>{len(inb)} biens dans le budget</b> · <b>{len(cdc)} coups de cœur</b> · mouvements : {n_new} nouveaux, {n_baisse} baisses, {n_ret} retraits")
+
+    moves = [e for e in events if e["type"] in ("BAISSE", "HAUSSE")]
+    TH2 = 'style="padding:7px 9px;text-align:left;color:#5b4636;border-bottom:2px solid #c9a24a;background:#faf6ec;"'
+    moves_block = ("" if not moves else
+        f'<h3 style="font-size:17px;color:#3a2f1c;border-bottom:2px solid #c9a24a;padding-bottom:5px;margin-top:20px;">'
+        f'⚡ Mouvements de prix ({len(moves)})</h3>'
+        f'<p style="font-size:12px;color:#777;font-style:italic;margin:5px 0;">Le signal le plus actionnable : un vendeur qui baisse son prix ouvre une fenêtre de négociation.</p>'
+        f'<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:Georgia,serif;font-size:13px;">'
+        f'<tr><th {TH2}></th><th {TH2}>Bien</th><th {TH2}>Prix</th><th {TH2}>Écart</th></tr>{moves_rows()}</table>')
+    anoter_block = ("" if not anoter else
+        f'<h3 style="font-size:17px;color:#3a2f1c;border-bottom:2px solid #c9a24a;padding-bottom:5px;margin-top:20px;">'
+        f'À noter — bien placés en prix, quartier à préciser ({len(anoter)})</h3>'
+        f'<p style="font-size:12px;color:#777;font-style:italic;margin:5px 0;">Dans le budget et sous la moyenne de la commune, mais sans quartier précis (annonces d\'agence) : '
+        f'pas de score de confort, donc absents des coups de cœur. À qualifier manuellement (dénivelé, distance gare).</p>'
+        f'<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:Georgia,serif;font-size:13px;">'
+        f'<tr><th {TH2}>Bien (lien)</th><th {TH2}>Prix</th><th {TH2}>Surface</th><th {TH2}>vs moy.</th><th {TH2}>Agence</th></tr>{anoter_rows()}</table>')
 
     STYLE = """<style>body{font-family:Georgia,'Times New Roman',serif;color:#2b2b2b;background:#f4f1ea;margin:0;}
 .wrap{max-width:980px;margin:0 auto;background:#fff;padding:30px 38px;}h1{font-size:24px;color:#3a2f1c;margin:2px 0;}
@@ -138,6 +182,7 @@ td{padding:6px 9px;border-bottom:1px solid #eee;vertical-align:top;}a{color:#8a6
 <h2>★ Coups de cœur dans le budget ({len(cdc)})</h2>
 <p class="note">Confort de zone ≥ 5/6 <b>et</b> prix ≤ moyenne maisons de la commune. « Mandats » = nb d'annonces pour le même bien.</p>
 <table><tr><th>Bien (lien)</th><th>Prix</th><th>Surface</th><th>Mandats</th><th>Confort</th><th>vs moy.</th><th>En ligne (est.)</th><th>Statut</th></tr>{cdc_rows(True)}</table>
+{anoter_block}
 <h2>Biens dans vos critères ({len(inb)})</h2>
 <p class="note">700 000–1 200 000 € · ≥ 90 m² · ≥ 4 p. — ● nouveau · ○ déjà suivi.</p>
 <table><tr><th></th><th>Prix</th><th>Surf.</th><th>P.</th><th>Mandats</th><th>Conf.</th><th>vs moy.</th><th>En ligne (est.)</th><th>Quartier</th></tr>{inb_rows()}</table>
@@ -152,10 +197,12 @@ td{padding:6px 9px;border-bottom:1px solid #eee;vertical-align:top;}a{color:#8a6
 <p style="color:#8a6d1b;font-size:12px;letter-spacing:1px;margin:0;">VEILLE IMMOBILIÈRE — OUEST PARISIEN</p>
 <h2 style="font-size:22px;color:#3a2f1c;margin:3px 0;">Maison à acheter — scan du {today}</h2>
 <div style="background:#faf6ec;border:1px solid #e6d9b8;border-radius:6px;padding:11px 15px;font-size:14px;color:#5b4636;"><b>Synthèse.</b> {synth}.</div>
+{moves_block}
 <h3 style="font-size:17px;color:#3a2f1c;border-bottom:2px solid #c9a24a;padding-bottom:5px;margin-top:18px;">★ Coups de cœur dans le budget ({len(cdc)})</h3>
 <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:Georgia,serif;font-size:13px;">
 <tr style="background:#faf6ec;"><th style="padding:8px 9px;text-align:left;border-bottom:2px solid #c9a24a;">Bien (lien)</th><th style="padding:8px 9px;text-align:left;border-bottom:2px solid #c9a24a;">Prix</th><th style="padding:8px 9px;text-align:left;border-bottom:2px solid #c9a24a;">Surface</th><th style="padding:8px 9px;text-align:center;border-bottom:2px solid #c9a24a;">Mandats</th><th style="padding:8px 9px;text-align:left;border-bottom:2px solid #c9a24a;">Confort</th><th style="padding:8px 9px;text-align:left;border-bottom:2px solid #c9a24a;">vs moy.</th><th style="padding:8px 9px;text-align:left;border-bottom:2px solid #c9a24a;">En ligne (est.)</th><th style="padding:8px 9px;text-align:left;border-bottom:2px solid #c9a24a;">Statut</th></tr>
 {cdc_rows(True)}</table>
+{anoter_block}
 <p style="font-size:12px;color:#777;font-style:italic;">Rapport complet (biens du budget, multi-mandats, mouvements) en pièce jointe HTML. Scores de confort = scores de zone indicatifs.</p>
 </div>"""
     stats = dict(biens=len(props), inb=len(inb), cdc=len(cdc), multi=n_multi, nouveaux=n_new, retraits=n_ret, baisses=n_baisse)

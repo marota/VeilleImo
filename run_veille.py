@@ -99,6 +99,10 @@ def main(argv=None):
     full_html, email_html, stats = report_html.build(curr, events, prev_max_id, today, errors)
     print(f"[veille] {stats}")
     # diagnostic : détail des NOUVEAUX (pour repérer d'éventuels doublons non fusionnés)
+    moves = [e for e in events if e["type"] in ("BAISSE", "HAUSSE")]
+    for e in moves:
+        print(f"[veille] {e['type']} [{e['id']}] {e['title'][:45]} : "
+              f"{e['old_price']:,} -> {e['price']:,} ({e['pct']:+}%)".replace(",", " "))
     news = [e for e in events if e["type"] == "NOUVEAU"]
     if news:
         by_id = {p["canonical_id"]: p for p in curr}
