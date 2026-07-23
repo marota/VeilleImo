@@ -137,7 +137,7 @@ def build(props, events, prev_max_id, today, errors=None):
                   f'<td data-sort="{p["n_mandats"]}" style="{B}text-align:center;">{p["n_mandats"]}</td>'
                   f'<td data-sort="{r["total"] if r["total"] is not None else -1}" style="{B}">{r["total"]}/6</td>'
                   f'<td data-sort="{r["pd"] if r["pd"] is not None else 9999}" style="{B}color:#2e7d32;">{_pdf(r["pd"])}</td>'
-                  f'<td data-sort="{_esc(p.get("first_seen") or "")}" style="{B}white-space:nowrap;">{lbl}</td>'
+                  f'<td data-sort="{(p.get("first_seen") or "").replace("-", "")}" style="{B}white-space:nowrap;">{lbl}</td>'
                   f'<td style="{B}">{badge}</td></tr>')
         return o
 
@@ -157,7 +157,7 @@ def build(props, events, prev_max_id, today, errors=None):
                   f'<td data-sort="{p["n_mandats"]}" style="text-align:center;">{p["n_mandats"]}</td>'
                   f'<td data-sort="{r["total"] if r["total"] is not None else -1}">{conf}</td>'
                   f'<td data-sort="{r["pd"] if r["pd"] is not None else 9999}" style="color:{"#2e7d32" if (r["pd"] is not None and r["pd"]<0) else "#333"};">{_pdf(r["pd"])}</td>'
-                  f'<td data-sort="{_esc(p.get("first_seen") or "")}">{lbl}</td>'
+                  f'<td data-sort="{(p.get("first_seen") or "").replace("-", "")}">{lbl}</td>'
                   f'<td style="font-weight:bold;">{_esc(comm)}{badge}</td>'
                   f'<td>{lien}</td></tr>')
         return o
