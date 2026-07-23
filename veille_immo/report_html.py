@@ -14,6 +14,53 @@ def _pdf(v): return "—" if v is None else (("+" if v >= 0 else "") + f"{v} %")
 def _esc(s): return html.escape(str(s or ""))
 
 
+_COMMUNE_PRETTY = {
+    "sevres": "Sèvres", "sèvres": "Sèvres",
+    "ville-d'avray": "Ville-d'Avray", "ville d'avray": "Ville-d'Avray",
+    "meudon": "Meudon", "chaville": "Chaville", "viroflay": "Viroflay",
+    "saint-cloud": "Saint-Cloud", "versailles": "Versailles",
+    "velizy-villacoublay": "Vélizy-Villacoublay",
+}
+
+
+def _commune_disp(p):
+    """Commune en casse propre : segment après la virgule du quartier, sinon la
+    table de correspondance (le quartier stocké garde la casse ; le champ commune
+    n'est qu'un slug minuscule)."""
+    q = (p.get("quartier") or "").strip()
+    if "," in q:
+        return q.rsplit(",", 1)[-1].strip()
+    if q:
+        return q
+    slug = (p.get("commune") or "").strip()
+    return _COMMUNE_PRETTY.get(slug.lower(), slug.title())
+
+
+def _quartier_short(p):
+    """Quartier sans la ville : segment avant la dernière virgule. Vide si le
+    quartier se réduit à la commune (annonces qui ne donnent que la ville)."""
+    q = (p.get("quartier") or "").strip()
+    if "," in q:
+        return q.rsplit(",", 1)[0].strip()
+    return ""
+
+
+def _agency_of(p):
+    """Nom de l'agence si l'annonce vient d'un site d'agence, sinon ''. Repli sur
+    l'id non numérique (les portails ont des id numériques ; les agences non)."""
+    ag = (p.get("agency") or "").strip()
+    if ag:
+        return ag
+    ids = [p.get("canonical_id")] + list(p.get("aliases", []))
+    if any(i is not None and not str(i).isdigit() for i in ids):
+        return "agence"
+    return ""
+
+
+_BADGE_AG = ('<span style="background:#5b4636;color:#fff;font-size:9px;padding:1px 5px;'
+             'border-radius:8px;margin-left:5px;vertical-align:middle;">AGENCE</span>')
+
+
 def _est_date(id_int, today_max):
     span = max((datetime.date.today() - ANCHOR_DATE).days, 1)
     slope = max((today_max - ANCHOR_ID) / span, 1)
@@ -82,14 +129,15 @@ def build(props, events, prev_max_id, today, errors=None):
                      if rec else '<span style="background:#8a8a8a;color:#fff;font-size:10px;padding:1px 6px;border-radius:8px;">déjà en ligne</span>')
             B = 'padding:7px 9px;border-bottom:1px solid #eee;'
             tr = ' style="background:#f0f7f0;"' if rec else ''
-            o += (f'<tr{tr}><td style="{B}"><a href="{_esc(p["url"])}" style="color:#8a6d1b;font-weight:bold;text-decoration:none;">{_esc(p["quartier"])}</a>'
+            ag = _BADGE_AG if _agency_of(p) else ""
+            o += (f'<tr data-commune="{_esc(_commune_disp(p))}"{tr}><td style="{B}"><a href="{_esc(p["url"])}" style="color:#8a6d1b;font-weight:bold;text-decoration:none;">{_esc(p["quartier"])}</a>{ag}'
                   f'<br><span style="color:#666;font-size:11px;">{_esc(p["title"])[:56]}</span></td>'
-                  f'<td style="{B}font-weight:bold;white-space:nowrap;">{_euro(p["price"])}</td>'
-                  f'<td style="{B}white-space:nowrap;">{p["surface"]:g} m² · {p["rooms"] or "?"}p</td>'
-                  f'<td style="{B}text-align:center;">{p["n_mandats"]}</td>'
-                  f'<td style="{B}">{r["total"]}/6</td>'
-                  f'<td style="{B}color:#2e7d32;">{_pdf(r["pd"])}</td>'
-                  f'<td style="{B}white-space:nowrap;">{lbl}</td>'
+                  f'<td data-sort="{p["price"] or 0}" style="{B}font-weight:bold;white-space:nowrap;">{_euro(p["price"])}</td>'
+                  f'<td data-sort="{p["surface"] or 0}" style="{B}white-space:nowrap;">{p["surface"]:g} m² · {p["rooms"] or "?"}p</td>'
+                  f'<td data-sort="{p["n_mandats"]}" style="{B}text-align:center;">{p["n_mandats"]}</td>'
+                  f'<td data-sort="{r["total"] if r["total"] is not None else -1}" style="{B}">{r["total"]}/6</td>'
+                  f'<td data-sort="{r["pd"] if r["pd"] is not None else 9999}" style="{B}color:#2e7d32;">{_pdf(r["pd"])}</td>'
+                  f'<td data-sort="{_esc(p.get("first_seen") or "")}" style="{B}white-space:nowrap;">{lbl}</td>'
                   f'<td style="{B}">{badge}</td></tr>')
         return o
 
@@ -98,17 +146,31 @@ def build(props, events, prev_max_id, today, errors=None):
         for r in inb:
             p = r["p"]; conf = f"{r['total']}/6" if r["total"] is not None else "—"; lbl, _ = _online_label(p, today_max)
             dot = '<span style="color:#2e7d32;font-weight:700;">●</span>' if _is_recent(p, prev_max_id) else '○'
-            o += (f'<tr><td>{dot}</td><td style="font-weight:bold;">{_euro(p["price"])}</td><td>{p["surface"]:g}</td>'
-                  f'<td>{p["rooms"] or "?"}</td><td style="text-align:center;">{p["n_mandats"]}</td><td>{conf}</td>'
-                  f'<td style="color:{"#2e7d32" if (r["pd"] is not None and r["pd"]<0) else "#333"};">{_pdf(r["pd"])}</td>'
-                  f'<td>{lbl}</td><td><a href="{_esc(p["url"])}">{_esc(p["quartier"])}</a></td></tr>')
+            comm = _commune_disp(p); quart = _quartier_short(p)
+            badge = _BADGE_AG if _agency_of(p) else ""
+            lien = f'<a href="{_esc(p["url"])}">{_esc(quart) if quart else "voir la fiche"}</a>'
+            surf = p["surface"] or 0
+            o += (f'<tr data-commune="{_esc(comm)}"><td>{dot}</td>'
+                  f'<td data-sort="{p["price"] or 0}" style="font-weight:bold;">{_euro(p["price"])}</td>'
+                  f'<td data-sort="{surf}">{p["surface"]:g}</td>'
+                  f'<td data-sort="{p["rooms"] or 0}">{p["rooms"] or "?"}</td>'
+                  f'<td data-sort="{p["n_mandats"]}" style="text-align:center;">{p["n_mandats"]}</td>'
+                  f'<td data-sort="{r["total"] if r["total"] is not None else -1}">{conf}</td>'
+                  f'<td data-sort="{r["pd"] if r["pd"] is not None else 9999}" style="color:{"#2e7d32" if (r["pd"] is not None and r["pd"]<0) else "#333"};">{_pdf(r["pd"])}</td>'
+                  f'<td data-sort="{_esc(p.get("first_seen") or "")}">{lbl}</td>'
+                  f'<td style="font-weight:bold;">{_esc(comm)}{badge}</td>'
+                  f'<td>{lien}</td></tr>')
         return o
 
     def multi_rows():
         o = ""
         for p in sorted([x for x in props if x["n_mandats"] > 1], key=lambda x: -x["n_mandats"]):
             al = ", ".join(f'<a href="{_esc(p["url"])}">{a}</a>' for a in p["aliases"])
-            o += f'<tr><td style="text-align:center;">{p["n_mandats"]}×</td><td>{p["surface"]:g} m² · {p["rooms"] or "?"}p</td><td style="font-weight:bold;">{_euro(p["price"])}</td><td>{_esc(p["commune"])}</td><td style="font-size:11px;color:#777;">{al}</td></tr>'
+            comm = _commune_disp(p)
+            o += (f'<tr data-commune="{_esc(comm)}"><td data-sort="{p["n_mandats"]}" style="text-align:center;">{p["n_mandats"]}×</td>'
+                  f'<td data-sort="{p["surface"] or 0}">{p["surface"]:g} m² · {p["rooms"] or "?"}p</td>'
+                  f'<td data-sort="{p["price"] or 0}" style="font-weight:bold;">{_euro(p["price"])}</td>'
+                  f'<td>{_esc(comm)}</td><td style="font-size:11px;color:#777;">{al}</td></tr>')
         return o
 
     def moves_rows(inline=False):
@@ -139,23 +201,31 @@ def build(props, events, prev_max_id, today, errors=None):
         o = ""
         for r in anoter:
             p = r["p"]
-            o += (f'<tr><td style="{B}"><a href="{_esc(p["url"])}" style="color:#8a6d1b;font-weight:bold;text-decoration:none;">{_esc(p["quartier"] or p["commune"])}</a>'
+            lieu = _esc(p["quartier"]) if p["quartier"] else _esc(_commune_disp(p))
+            o += (f'<tr data-commune="{_esc(_commune_disp(p))}"><td style="{B}"><a href="{_esc(p["url"])}" style="color:#8a6d1b;font-weight:bold;text-decoration:none;">{lieu}</a>'
                   f'<div style="color:#777;font-size:11px;">{_esc(p["title"])[:56]}</div></td>'
-                  f'<td style="{B}font-weight:bold;white-space:nowrap;">{_euro(p["price"])}</td>'
-                  f'<td style="{B}white-space:nowrap;">{p["surface"]:g} m² · {p["rooms"] or "?"}p</td>'
-                  f'<td style="{B}color:#2e7d32;">{_pdf(r["pd"])}</td>'
-                  f'<td style="{B}">{_esc(p.get("agency") or "—")}</td></tr>')
+                  f'<td data-sort="{p["price"] or 0}" style="{B}font-weight:bold;white-space:nowrap;">{_euro(p["price"])}</td>'
+                  f'<td data-sort="{p["surface"] or 0}" style="{B}white-space:nowrap;">{p["surface"]:g} m² · {p["rooms"] or "?"}p</td>'
+                  f'<td data-sort="{r["pd"] if r["pd"] is not None else 9999}" style="{B}color:#2e7d32;">{_pdf(r["pd"])}</td>'
+                  f'<td style="{B}">{_esc(_agency_of(p)) or "—"}</td></tr>')
         return o
 
     def ev_rows():
         o = ""
         for e in events:
-            if e["type"] == "NOUVEAU":
-                o += f'<li><b>NOUVEAU</b> [{e["id"]}] {_esc(e["title"])[:64]} — {_euro(e.get("price"))}</li>'
-            elif e["type"] == "RETIRE":
-                o += f'<li><b>RETIRÉ</b> [{e["id"]}] {_esc(e["title"])[:64]}</li>'
+            t = e["type"]
+            titre = _esc(e["title"])[:64] or "voir l" + chr(39) + "annonce"
+            url = e.get("url")
+            # lien direct vers l'annonce pour tout mouvement encore en ligne (pas les retraits)
+            corps = f'<a href="{_esc(url)}">{titre}</a>' if (url and t != "RETIRE") else titre
+            if t == "NOUVEAU":
+                o += f'<li><b style="color:#2e7d32;">NOUVEAU</b> {corps} — {_euro(e.get("price"))}</li>'
+            elif t == "RETIRE":
+                o += f'<li><b style="color:#8a8a8a;">RETIRÉ</b> {titre}</li>'
             else:
-                o += f'<li><b>{e["type"]}</b> [{e["id"]}] {_euro(e.get("old_price"))} → {_euro(e.get("price"))} ({e.get("pct"):+}%)</li>'
+                col = "#2e7d32" if t == "BAISSE" else "#b00"
+                o += (f'<li><b style="color:{col};">{t}</b> {corps} — '
+                      f'{_euro(e.get("old_price"))} → <b>{_euro(e.get("price"))}</b> ({e.get("pct"):+}%)</li>')
         return o or "<li>Aucun mouvement.</li>"
 
     err_html = ("<div class='warn'><b>Sources non récupérées :</b><br>" + "<br>".join(_esc(x) for x in (errors or [])) + "</div>") if errors else ""
@@ -175,7 +245,7 @@ def build(props, events, prev_max_id, today, errors=None):
         f'À noter — bien placés en prix, quartier à préciser ({len(anoter)})</h3>'
         f'<p style="font-size:12px;color:#777;font-style:italic;margin:5px 0;">Dans le budget et sous la moyenne de la commune, mais sans quartier précis (annonces d\'agence) : '
         f'pas de score de confort, donc absents des coups de cœur. À qualifier manuellement (dénivelé, distance gare).</p>'
-        f'<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:Georgia,serif;font-size:13px;">'
+        f'<table class="sortable filterable" cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:Georgia,serif;font-size:13px;">'
         f'<tr><th {TH2}>Bien (lien)</th><th {TH2}>Prix</th><th {TH2}>Surface</th><th {TH2}>vs moy.</th><th {TH2}>Agence</th></tr>{anoter_rows()}</table>')
 
     STYLE = """<style>body{font-family:Georgia,'Times New Roman',serif;color:#2b2b2b;background:#f4f1ea;margin:0;}
@@ -185,24 +255,73 @@ h2{font-size:18px;color:#3a2f1c;border-bottom:2px solid #c9a24a;padding-bottom:5
 .synth{background:#faf6ec;border:1px solid #e6d9b8;border-radius:6px;padding:11px 15px;font-size:14px;color:#5b4636;}
 table{border-collapse:collapse;width:100%;font-size:12.5px;margin:8px 0;}th{background:#faf6ec;color:#5b4636;text-align:left;padding:7px 9px;border-bottom:2px solid #c9a24a;font-size:12px;}
 td{padding:6px 9px;border-bottom:1px solid #eee;vertical-align:top;}a{color:#8a6d1b;text-decoration:none;}
-.note{font-size:12px;color:#777;font-style:italic;margin:6px 0;}.warn{background:#fff7f2;border-left:4px solid #d08a4a;padding:9px 13px;font-size:12.5px;color:#7a4a1e;margin:12px 0;}</style>"""
+.note{font-size:12px;color:#777;font-style:italic;margin:6px 0;}.warn{background:#fff7f2;border-left:4px solid #d08a4a;padding:9px 13px;font-size:12.5px;color:#7a4a1e;margin:12px 0;}
+.toolbar{position:sticky;top:0;z-index:5;margin:14px 0;padding:9px 13px;background:#faf6ec;border:1px solid #e6d9b8;border-radius:6px;font-size:13px;color:#5b4636;}
+.toolbar label{font-weight:bold;margin-right:6px;}
+.toolbar select{font-family:inherit;font-size:13px;padding:3px 7px;border:1px solid #c9a24a;border-radius:4px;background:#fff;color:#3a2f1c;}
+.toolbar .count{color:#7a5f2a;font-style:italic;margin-left:12px;}
+.toolbar .hint{color:#999;font-style:italic;margin-left:12px;font-size:12px;}
+table.sortable th:not(.nosort){cursor:pointer;}table.sortable th:not(.nosort):hover{background:#f1e6c9;}
+table.sortable th.sort-asc::after{content:" \\2191";color:#8a6d1b;}table.sortable th.sort-desc::after{content:" \\2193";color:#8a6d1b;}</style>"""
+    SCRIPT = """<script>
+(function(){
+  function dataRows(t){return Array.prototype.filter.call(t.querySelectorAll('tr'),function(r){return r.getElementsByTagName('th').length===0;});}
+  function val(tr,i){var c=tr.children[i];if(!c)return '';var d=c.getAttribute('data-sort');return d!==null?d:(c.textContent||'').trim();}
+  function sortTable(t,i,th){
+    var rows=dataRows(t),asc=!th.classList.contains('sort-asc');
+    Array.prototype.forEach.call(t.querySelectorAll('th'),function(h){h.classList.remove('sort-asc','sort-desc');});
+    th.classList.add(asc?'sort-asc':'sort-desc');
+    rows.sort(function(a,b){
+      var x=val(a,i),y=val(b,i),nx=parseFloat(x),ny=parseFloat(y),
+          num=(x!==''&&y!==''&&!isNaN(nx)&&!isNaN(ny)),
+          c=num?(nx-ny):x.localeCompare(y,'fr',{numeric:true});
+      return asc?c:-c;});
+    var p=rows[0]&&rows[0].parentNode;if(p)rows.forEach(function(r){p.appendChild(r);});
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('table.sortable'),function(t){
+    var head=t.querySelector('tr');if(!head)return;
+    Array.prototype.forEach.call(head.children,function(th,i){
+      if(th.classList.contains('nosort'))return;
+      th.addEventListener('click',function(){sortTable(t,i,th);});});
+  });
+  var sel=document.getElementById('communeFilter');
+  if(sel){
+    var seen={};
+    Array.prototype.forEach.call(document.querySelectorAll('table.filterable tr[data-commune]'),function(tr){
+      var c=tr.getAttribute('data-commune');if(c)seen[c]=true;});
+    Object.keys(seen).sort(function(a,b){return a.localeCompare(b,'fr');}).forEach(function(c){
+      var o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);});
+    sel.addEventListener('change',function(){
+      var v=sel.value,n=0;
+      Array.prototype.forEach.call(document.querySelectorAll('table.filterable tr[data-commune]'),function(tr){
+        var ok=(!v||tr.getAttribute('data-commune')===v);tr.style.display=ok?'':'none';if(ok)n++;});
+      var cnt=document.getElementById('filterCount');
+      if(cnt)cnt.textContent=v?(n+' bien(s) affiché(s) à '+v):'';});
+  }
+})();
+</script>"""
     full = f"""<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">{STYLE}</head><body><div class="wrap">
 <p class="k">VEILLE IMMOBILIÈRE — OUEST PARISIEN</p>
 <h1>Maison à acheter — scan du {today}</h1>
 <p class="sub">Sèvres · Ville-d'Avray · Meudon · Chaville · Viroflay (+ voisins) — source Belles Demeures (exécution GitHub Actions)</p>
 <div class="synth"><b>Synthèse.</b> {synth}.</div>
+<div class="toolbar"><label for="communeFilter">Filtrer par commune :</label>
+<select id="communeFilter"><option value="">Toutes les communes</option></select>
+<span id="filterCount" class="count"></span>
+<span class="hint">↕ cliquez un en-tête de colonne pour trier.</span></div>
 <h2>★ Coups de cœur dans le budget ({len(cdc)})</h2>
 <p class="note">Confort de zone ≥ 5/6 <b>et</b> prix ≤ moyenne maisons de la commune. « Mandats » = nb d'annonces pour le même bien.</p>
-<table><tr><th>Bien (lien)</th><th>Prix</th><th>Surface</th><th>Mandats</th><th>Confort</th><th>vs moy.</th><th>En ligne (est.)</th><th>Statut</th></tr>{cdc_rows(True)}</table>
+<table class="sortable filterable"><tr><th>Bien (lien)</th><th>Prix</th><th>Surface</th><th>Mandats</th><th>Confort</th><th>vs moy.</th><th>En ligne (est.)</th><th>Statut</th></tr>{cdc_rows(True)}</table>
 {anoter_block}
 <h2>Biens dans vos critères ({len(inb)})</h2>
-<p class="note">700 000–1 200 000 € · ≥ 90 m² · ≥ 4 p. — ● nouveau · ○ déjà suivi.</p>
-<table><tr><th></th><th>Prix</th><th>Surf.</th><th>P.</th><th>Mandats</th><th>Conf.</th><th>vs moy.</th><th>En ligne (est.)</th><th>Quartier</th></tr>{inb_rows()}</table>
+<p class="note">700 000–1 200 000 € · ≥ 90 m² · ≥ 4 p. — ● nouveau · ○ déjà suivi. <span style="background:#5b4636;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;">AGENCE</span> = annonce d'un site d'agence.</p>
+<table class="sortable filterable"><tr><th class="nosort"></th><th>Prix</th><th>Surf.</th><th>P.</th><th>Mandats</th><th>Conf.</th><th>vs moy.</th><th>En ligne (est.)</th><th>Commune</th><th>Quartier</th></tr>{inb_rows()}</table>
 <h2>Mouvements depuis le dernier scan (chaînés par bien)</h2><ul style="font-size:13px;">{ev_rows()}</ul>
 <h2>Biens en multi-mandats ({n_multi})</h2>
-<table><tr><th>Mandats</th><th>Surface</th><th>Prix</th><th>Commune</th><th>Identifiants (alias)</th></tr>{multi_rows()}</table>
+<table class="sortable filterable"><tr><th>Mandats</th><th>Surface</th><th>Prix</th><th>Commune</th><th class="nosort">Identifiants (alias)</th></tr>{multi_rows()}</table>
 {err_html}
 <p class="note">Scores de confort = scores de ZONE indicatifs ; confirmer le dénivelé réel au trajet piéton (≤ 20–25 m cumulés). « En ligne depuis » = first_seen chaîné, ou estimation par la séquence des identifiants tant que l'historique est court.</p>
+{SCRIPT}
 </div></body></html>"""
 
     email = f"""<div style="font-family:Georgia,serif;color:#2b2b2b;max-width:960px;">

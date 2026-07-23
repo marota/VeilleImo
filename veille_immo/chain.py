@@ -45,6 +45,8 @@ def build_properties(listings: List[Listing]) -> List[dict]:
             "rooms": c.rooms,
             "price": (prices[len(prices) // 2] if prices else None),   # médiane, robuste
             "n_mandats": len(grp),
+            # agence d'origine (site direct) : sert au badge et au repérage des exclusivités
+            "agency": next((l.agency for l in grp if getattr(l, "agency", "")), ""),
         })
     return props
 
@@ -163,7 +165,10 @@ def scan_grace(curr_props, prev_props, today, failed_communes=(), grace=2):
         if prior is None:
             cp["first_seen"] = today; cp["first_seen_estimated"] = False
             cp["last_seen"] = today; cp["misses"] = 0
-            events.append({"type": "NOUVEAU", "id": cp["canonical_id"], "title": cp["title"], "price": cp["price"]})
+            events.append({"type": "NOUVEAU", "id": cp["canonical_id"], "title": cp["title"],
+                           "price": cp["price"], "url": cp.get("url", ""),
+                           "surface": cp.get("surface"), "rooms": cp.get("rooms"),
+                           "commune": cp.get("commune", ""), "n_mandats": cp.get("n_mandats", 1)})
         else:
             used.add(id(prior))
             cp["first_seen"] = prior.get("first_seen", today)
