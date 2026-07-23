@@ -2,6 +2,7 @@ name: Veille immo
 on:
   schedule:
     - cron: "30 6 */2 * *"      # tous les 2 jours à 06:30 UTC (~08:30 Paris l'été)
+    - cron: "45 8 23 7 *"       # TEST PONCTUEL 2026-07-23 08:45 UTC — à retirer après vérification
   workflow_dispatch: {}
 permissions:
   contents: write
