@@ -1,0 +1,6 @@
+# Fichier d'aperçu local (non destiné au dépôt)
+data/reports/apercu_ameliore.html
+
+# Python
+__pycache__/
+*.pyc
