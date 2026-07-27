@@ -1,6 +1,6 @@
 {
  "schema": "chained-properties-v1",
- "updated_at": "2026-07-25T08:37:16.390875",
+ "updated_at": "2026-07-27T10:30:07.451583",
  "properties": [
   {
    "canonical_id": "264036619",
@@ -20,7 +20,7 @@
    "agency": "",
    "first_seen": "2026-03-11",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -40,7 +40,7 @@
    "agency": "",
    "first_seen": "2026-05-16",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -60,7 +60,7 @@
    "agency": "",
    "first_seen": "2025-10-28",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -82,7 +82,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2025-09-26",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -103,7 +103,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-06-07",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -124,7 +124,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -144,7 +144,7 @@
    "agency": "",
    "first_seen": "2026-03-10",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -164,7 +164,7 @@
    "agency": "",
    "first_seen": "2026-05-26",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -184,7 +184,7 @@
    "agency": "",
    "first_seen": "2026-03-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -205,7 +205,7 @@
    "agency": "",
    "first_seen": "2026-04-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -230,7 +230,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-04-16",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -251,7 +251,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -271,7 +271,7 @@
    "agency": "",
    "first_seen": "2026-05-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -292,7 +292,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-03-25",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -312,7 +312,7 @@
    "agency": "",
    "first_seen": "2026-07-07",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -333,7 +333,7 @@
    "agency": "",
    "first_seen": "2026-01-10",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -357,7 +357,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-03-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -378,7 +378,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-05-24",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -398,7 +398,7 @@
    "agency": "",
    "first_seen": "2026-07-04",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -418,7 +418,7 @@
    "agency": "",
    "first_seen": "2026-04-22",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -438,7 +438,7 @@
    "agency": "",
    "first_seen": "2026-01-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -460,7 +460,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-01-22",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -481,7 +481,7 @@
    "agency": "",
    "first_seen": "2026-07-07",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -501,7 +501,7 @@
    "agency": "",
    "first_seen": "2026-02-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -521,19 +521,20 @@
    "agency": "",
    "first_seen": "2026-04-25",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
-   "canonical_id": "275374005",
+   "canonical_id": "275972219",
    "aliases": [
-    "275374005"
+    "275374005",
+    "275972219"
    ],
    "fingerprint": "saint-cloud|360|7",
    "commune": "saint-cloud",
    "quartier": "Centre, Saint-Cloud",
    "title": "MONTRETOUT Square's International vous propose une maison de maître de 300m2 implantée sur une parcelle de 1100m2, avec ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47078/275374005/#",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47078/275972219/#",
    "surface": 360.0,
    "rooms": 7,
    "price": 2900000,
@@ -541,7 +542,7 @@
    "agency": "",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -561,7 +562,7 @@
    "agency": "",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -581,7 +582,7 @@
    "agency": "",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -601,7 +602,7 @@
    "agency": "",
    "first_seen": "2026-06-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -621,7 +622,7 @@
    "agency": "",
    "first_seen": "2026-06-17",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -642,7 +643,7 @@
    "agency": "",
    "first_seen": "2026-04-29",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -662,7 +663,7 @@
    "agency": "",
    "first_seen": "2026-06-08",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -682,7 +683,7 @@
    "agency": "",
    "first_seen": "2026-06-15",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -702,7 +703,7 @@
    "agency": "",
    "first_seen": "2025-10-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -722,7 +723,7 @@
    "agency": "",
    "first_seen": "2026-04-08",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -742,7 +743,7 @@
    "agency": "",
    "first_seen": "2026-01-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -762,7 +763,7 @@
    "agency": "",
    "first_seen": "2026-03-08",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -782,27 +783,393 @@
    "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
-   "canonical_id": "266002847",
+   "canonical_id": "275190683",
    "aliases": [
-    "266002847"
+    "275190683"
    ],
-   "fingerprint": "chaville|104|5",
-   "commune": "chaville",
-   "quartier": "Monesse-Roger Salendro, Chaville",
-   "title": "A la limite de Chaville et Sèvres, à 3 minutes à pied des commerces du centre-ville et environ 15 minutes à pied de la g",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46916/266002847/#",
-   "surface": 104.0,
-   "rooms": 5,
-   "price": 849500,
+   "fingerprint": "meudon|335|10",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Maison d'architecte contemporaine ossature bois ? 335 m² ? Meudon centre Maison d'architecte contemporaine ossature bois",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/275190683/#",
+   "surface": 335.0,
+   "rooms": 10,
+   "price": 2280000,
    "n_mandats": 1,
    "agency": "",
-   "first_seen": "2026-04-02",
+   "first_seen": "2026-07-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "272652095",
+   "aliases": [
+    "272652095"
+   ],
+   "fingerprint": "meudon|147|5",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "À Meudon, témoin de l'architecture avant-gardiste des années 1950, la maison-atelier d'André Bloc conçue par Claude Pare",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272652095/#",
+   "surface": 147.0,
+   "rooms": 5,
+   "price": 1895000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-06-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "268315697",
+   "aliases": [
+    "268315697"
+   ],
+   "fingerprint": "meudon|211|8",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Edifiée sur un terrain paysager de 523 m², cette belle maison ancienne de 211 m² a été entièrement rénovée. Elle compren",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268315697/#",
+   "surface": 211.0,
+   "rooms": 8,
+   "price": 1795000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-29",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "268315701",
+   "aliases": [
+    "268315701"
+   ],
+   "fingerprint": "meudon|160|7",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Edifiée sur un terrain paysager de 445 m², cette belle maison ancienne d'une surface habitable de 160 m² a été entièreme",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268315701/#",
+   "surface": 160.0,
+   "rooms": 7,
+   "price": 1495000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-29",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "269646231",
+   "aliases": [
+    "269646231"
+   ],
+   "fingerprint": "meudon|480|8",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "À l'abri des regards, dans une rue calme et résidentielle de Meudon Val-Fleury, cet ensemble immobilier singulier dévelo",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/269646231/#",
+   "surface": 480.0,
+   "rooms": 8,
+   "price": 2950000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-05-15",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "266671407",
+   "aliases": [
+    "266671407"
+   ],
+   "fingerprint": "meudon|244|10",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Nichée sur les hauteurs de l’Observatoire de Meudon, cette somptueuse maison de maître du XIXème siècle bénéficie d’une ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/266671407/#",
+   "surface": 243.61,
+   "rooms": 10,
+   "price": 2400000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-10",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "251593851",
+   "aliases": [
+    "251593851",
+    "251595575"
+   ],
+   "fingerprint": "meudon|256|11",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "--SOUS-OFFRE ACCEPTÉE- Située dans le très recherché quartier du Val à Meudon, à mi-chemin entre Meudon Val-Fleury et Me",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/251593851/#",
+   "surface": 256.12,
+   "rooms": 11,
+   "price": 1480000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2025-10-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275286565",
+   "aliases": [
+    "275286565",
+    "aetm_61070004"
+   ],
+   "fingerprint": "meudon|230|12",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "Bien d'exception ! Cette demeure construite en 1880 ornée de charmants cabochons en façade, a été entièrement rénovée av",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/275286565/#",
+   "surface": 230.0,
+   "rooms": 12,
+   "price": 2000000,
+   "n_mandats": 2,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-19",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "274583123",
+   "aliases": [
+    "274583123"
+   ],
+   "fingerprint": "meudon|140|5",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "Dans un environnement calme, cette maison récente bénéficie d'une vue privilégiée sur Paris et d'un emplacement recherch",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/274583123/#",
+   "surface": 140.0,
+   "rooms": 5,
+   "price": 1150000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-11",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "274466477",
+   "aliases": [
+    "274466477",
+    "aetm_60963076"
+   ],
+   "fingerprint": "meudon|300|9",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "EXCLUSIVITE - RARE - Maison familiale de 300 m² répartie sur seulement deux niveaux, au coeur d'un superbe parc arboré d",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47016/274466477/#",
+   "surface": 300.0,
+   "rooms": 9,
+   "price": 3200000,
+   "n_mandats": 2,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-09",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "264651711",
+   "aliases": [
+    "264651711"
+   ],
+   "fingerprint": "meudon|160|8",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "iad France - Stéphanie Cornetti vous propose: MEUDON VAL-FLEURY A 6 MINUTES DU MONOPRIX ET DU RER C - MAISON FAMILIALE 6",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/264651711/#",
+   "surface": 160.0,
+   "rooms": 8,
+   "price": 1050000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-03-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "274118941",
+   "aliases": [
+    "274118941"
+   ],
+   "fingerprint": "meudon|140|6",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "EXCLUSIVITÉ MEUDON CENTRE MAISON 6 PIÈCES AVEC JARDIN Idéalement située au coeur de Meudon, dans un environnement calme ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/274118941/#",
+   "surface": 140.0,
+   "rooms": 6,
+   "price": 995000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-05",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "262583733",
+   "aliases": [
+    "262583733"
+   ],
+   "fingerprint": "meudon|185|7",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "EXCLUSIVITÉ - Nichée dans un environnement calme et verdoyant, à deux pas des écoles (Institut Notre-Dame, La Source..),",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/262583733/#",
+   "surface": 185.0,
+   "rooms": 7,
+   "price": 1180000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-02-22",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271671805",
+   "aliases": [
+    "271671805"
+   ],
+   "fingerprint": "meudon|105|5",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "EXCLUSIVITÉ – Au cœur du très recherché quartier de Val Fleury, découvrez cette charmante maison de 105 m², idéalement e",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/271671805/#",
+   "surface": 105.0,
+   "rooms": 5,
+   "price": 795000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-06-07",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271450541",
+   "aliases": [
+    "271450541",
+    "aetm_60698098"
+   ],
+   "fingerprint": "meudon|190|6",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "RARE- Entre la place Stalingrad et le potager du Dauphin. Au calme, dans un quartier très recherché pour sa proximité av",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271450541/#",
+   "surface": 190.0,
+   "rooms": 6,
+   "price": 1470000,
+   "n_mandats": 2,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-06-04",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271067753",
+   "aliases": [
+    "271067753",
+    "aetm_60756005"
+   ],
+   "fingerprint": "meudon|215|8",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "RARE - Cette maison d'environ 215m² sur un terrain de 445m² et entièrement réhabilitée a su garder son âme ! Très belle ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271067753/#",
+   "surface": 215.0,
+   "rooms": 8,
+   "price": 1795000,
+   "n_mandats": 2,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-05-31",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271067951",
+   "aliases": [
+    "271067951",
+    "aetm_60756056"
+   ],
+   "fingerprint": "meudon|170|8",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "RARE - Cette maison d'environ 170m² sur un terrain de 523m² entièrement réhabilitée a su garder son âme et un cachet ind",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271067951/#",
+   "surface": 170.0,
+   "rooms": 8,
+   "price": 1495000,
+   "n_mandats": 2,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "265788349",
+   "aliases": [
+    "265788349"
+   ],
+   "fingerprint": "meudon|220|8",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "Idéalement située et véritable potentiel pour cette très belle maison en bon état, non mitoyenne de plus de 200 m² au so",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/265788349/#",
+   "surface": 220.0,
+   "rooms": 8,
+   "price": 1250000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-27",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "268754763",
+   "aliases": [
+    "268754763"
+   ],
+   "fingerprint": "meudon|153|5",
+   "commune": "meudon",
+   "quartier": "Forêt Domaniale, Meudon",
+   "title": "Minimalisme Fifties à Meudon Construite pour l'aviateur Constantin Feldzer dans les années 1950, cette villa aux lignes ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47012/268754763/#",
+   "surface": 153.0,
+   "rooms": 5,
+   "price": 1190000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-27",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -823,7 +1190,7 @@
    "agency": "",
    "first_seen": "2025-12-25",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -844,7 +1211,7 @@
    "agency": "",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -864,7 +1231,7 @@
    "agency": "",
    "first_seen": "2026-03-31",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -884,7 +1251,7 @@
    "agency": "",
    "first_seen": "2026-07-19",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -904,7 +1271,7 @@
    "agency": "",
    "first_seen": "2026-06-25",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -924,7 +1291,27 @@
    "agency": "",
    "first_seen": "2026-06-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "266002847",
+   "aliases": [
+    "266002847"
+   ],
+   "fingerprint": "chaville|104|5",
+   "commune": "chaville",
+   "quartier": "Monesse-Roger Salendro, Chaville",
+   "title": "A la limite de Chaville et Sèvres, à 3 minutes à pied des commerces du centre-ville et environ 15 minutes à pied de la g",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46916/266002847/#",
+   "surface": 104.0,
+   "rooms": 5,
+   "price": 849500,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-02",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -944,7 +1331,7 @@
    "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -964,7 +1351,7 @@
    "agency": "",
    "first_seen": "2026-05-20",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -984,7 +1371,7 @@
    "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1004,7 +1391,7 @@
    "agency": "",
    "first_seen": "2026-01-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1024,7 +1411,7 @@
    "agency": "",
    "first_seen": "2026-07-20",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1044,7 +1431,7 @@
    "agency": "",
    "first_seen": "2026-06-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1064,7 +1451,7 @@
    "agency": "",
    "first_seen": "2026-03-24",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1086,28 +1473,7 @@
    "agency": "",
    "first_seen": "2026-07-16",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "265091471",
-   "aliases": [
-    "265091471",
-    "265109027"
-   ],
-   "fingerprint": "viroflay|105|5",
-   "commune": "viroflay",
-   "quartier": "Forêt, Viroflay",
-   "title": "Sous compromis : Découvrez cette **maison individuelle de standing**, entièrement rénovée en 2022, où l'élégance intempo",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45795/265091471/",
-   "surface": 105.49,
-   "rooms": 5,
-   "price": 990000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-03-23",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1127,7 +1493,7 @@
    "agency": "",
    "first_seen": "2026-05-09",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1151,7 +1517,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1172,7 +1538,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-06-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1192,7 +1558,7 @@
    "agency": "",
    "first_seen": "2026-02-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1213,7 +1579,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1234,7 +1600,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-06-27",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1257,7 +1623,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-04-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1277,7 +1643,7 @@
    "agency": "",
    "first_seen": "2025-11-24",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1297,7 +1663,7 @@
    "agency": "",
    "first_seen": "2026-04-28",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1317,7 +1683,7 @@
    "agency": "",
    "first_seen": "2026-06-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1337,7 +1703,7 @@
    "agency": "",
    "first_seen": "2026-01-12",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1360,7 +1726,28 @@
    "agency": "",
    "first_seen": "2026-04-22",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "265091471",
+   "aliases": [
+    "265091471",
+    "265109027"
+   ],
+   "fingerprint": "viroflay|105|5",
+   "commune": "viroflay",
+   "quartier": "Forêt, Viroflay",
+   "title": "Sous compromis : Découvrez cette **maison individuelle de standing**, entièrement rénovée en 2022, où l'élégance intempo",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45795/265091471/",
+   "surface": 105.49,
+   "rooms": 5,
+   "price": 990000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-03-23",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1380,7 +1767,7 @@
    "agency": "",
    "first_seen": "2026-06-12",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1400,7 +1787,7 @@
    "agency": "",
    "first_seen": "2026-05-20",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1420,7 +1807,7 @@
    "agency": "",
    "first_seen": "2024-10-09",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1440,7 +1827,7 @@
    "agency": "",
    "first_seen": "2026-07-04",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1460,7 +1847,7 @@
    "agency": "",
    "first_seen": "2026-04-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1480,7 +1867,7 @@
    "agency": "",
    "first_seen": "2026-06-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1500,7 +1887,7 @@
    "agency": "",
    "first_seen": "2026-07-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1520,27 +1907,7 @@
    "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275310819",
-   "aliases": [
-    "275310819"
-   ],
-   "fingerprint": "versailles|107|6",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "VERSAILLES - Porchefontaine – Maison de 107,12 m² entièrement refaite à neuf Maison familiale, avec 4 chambres, idéaleme",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275310819/",
-   "surface": 107.12,
-   "rooms": 6,
-   "price": 960000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-19",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1560,7 +1927,7 @@
    "agency": "",
    "first_seen": "2026-04-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1580,7 +1947,7 @@
    "agency": "",
    "first_seen": "2026-07-17",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1600,7 +1967,7 @@
    "agency": "",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1620,7 +1987,27 @@
    "agency": "",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
+   "misses": 0
+  },
+  {
+   "canonical_id": "267626515",
+   "aliases": [
+    "267626515"
+   ],
+   "fingerprint": "versailles|275|10",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "Signée Léon Bachelin, l'architecte emblématique du quartier de Montreuil qui a sévi à la fin du XIXème siècle, cette mai",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/267626515/",
+   "surface": 275.0,
+   "rooms": 10,
+   "price": 1950000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-21",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1641,89 +2028,7 @@
    "agency": "",
    "first_seen": "2026-01-06",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "267626515",
-   "aliases": [
-    "267626515"
-   ],
-   "fingerprint": "versailles|275|10",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Signée Léon Bachelin, l'architecte emblématique du quartier de Montreuil qui a sévi à la fin du XIXème siècle, cette mai",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/267626515/#",
-   "surface": 275.0,
-   "rooms": 10,
-   "price": 1950000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-04-21",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "266392703",
-   "aliases": [
-    "266392703"
-   ],
-   "fingerprint": "versailles|190|6",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Belle maison familiale Bachelin, très lumineuse en pierre de meulière avec ornements en céramique Art nouveau, située au",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/266392703/#",
-   "surface": 190.0,
-   "rooms": 6,
-   "price": 1850000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_61070004",
-   "aliases": [
-    "275286565",
-    "aetm_61070004"
-   ],
-   "fingerprint": "meudon|230|12",
-   "commune": "meudon",
-   "quartier": "Centre, Meudon",
-   "title": "MEUDON Centre Elégante meulière de 12 pièces sur un terrain de 492 m² 230m² - 2 000 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_61070004/elegante-meuliere-de-12-pieces-sur-un-terrain-de-492-m2.html",
-   "surface": 230.0,
-   "rooms": 12,
-   "price": 2000000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-19",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_60963076",
-   "aliases": [
-    "274466477",
-    "aetm_60963076"
-   ],
-   "fingerprint": "meudon|300|9",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "MEUDON Bellevue Maison 9 pièces sur un terrain de 1 425 m² 300m² - 3 200 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60963076/maison-9-pieces-sur-un-terrain-de-1-425-m2.html",
-   "surface": 300.0,
-   "rooms": 9,
-   "price": 3200000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-09",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1744,70 +2049,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_60756005",
-   "aliases": [
-    "271067753",
-    "aetm_60756005"
-   ],
-   "fingerprint": "meudon|215|8",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "MEUDON Bellevue Maison 8 pièces sur terrain de 445 m² 215m² - 1 795 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60756005/maison-8-pieces-sur-terrain-de-445-m2.html",
-   "surface": 215.0,
-   "rooms": 8,
-   "price": 1795000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-05-31",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_60756056",
-   "aliases": [
-    "271067951",
-    "aetm_60756056"
-   ],
-   "fingerprint": "meudon|170|8",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "MEUDON Bellevue Maison 8 pièces sur terrain de 523 m² 170m² - 1 495 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60756056/maison-8-pieces-sur-terrain-de-523-m2.html",
-   "surface": 170.0,
-   "rooms": 8,
-   "price": 1495000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_60698098",
-   "aliases": [
-    "271450541",
-    "aetm_60698098"
-   ],
-   "fingerprint": "meudon|190|6",
-   "commune": "meudon",
-   "quartier": "Meudon",
-   "title": "MEUDON Stalingrad Maison 6 pièces sur terrain de 342m² 190m² - 1 470 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60698098/maison-6-pieces-sur-terrain-de-342m2.html",
-   "surface": 190.0,
-   "rooms": 6,
-   "price": 1470000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-06-04",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1827,7 +2069,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1847,7 +2089,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1867,7 +2109,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1887,7 +2129,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1907,7 +2149,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1927,7 +2169,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1947,7 +2189,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1967,7 +2209,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -1987,7 +2229,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -2007,7 +2249,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -2027,7 +2269,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -2047,7 +2289,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -2067,7 +2309,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
@@ -2087,65 +2329,47 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
+   "last_seen": "2026-07-27",
    "misses": 0
   },
   {
-   "canonical_id": "259439803",
+   "canonical_id": "275310819",
    "aliases": [
-    "259439803",
-    "270152733"
+    "275310819"
    ],
-   "fingerprint": "sevres|227|8",
-   "commune": "sevres",
-   "quartier": "Danton-Gabriel Peri, Sèvres",
-   "title": "Claire Michel vous propose ce bien : Le calme, la lumière, l'espace, la vue et le confort seront les qualités que vous a",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47094/259439803/#",
-   "surface": 227.0,
-   "rooms": 8,
-   "price": 1790000,
-   "n_mandats": 2,
-   "first_seen": "2026-01-17",
+   "fingerprint": "versailles|107|6",
+   "commune": "versailles",
+   "quartier": "Chantiers-Prochefontaine, Versailles",
+   "title": "VERSAILLES - Porchefontaine – Maison de 107,12 m² entièrement refaite à neuf Maison familiale, avec 4 chambres, idéaleme",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275310819/",
+   "surface": 107.12,
+   "rooms": 6,
+   "price": 960000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-19",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
+   "last_seen": "2026-07-25",
    "misses": 1
   },
   {
-   "canonical_id": "222347989",
+   "canonical_id": "266392703",
    "aliases": [
-    "222347989"
+    "266392703"
    ],
-   "fingerprint": "ville-d'avray|400|10",
-   "commune": "ville-d'avray",
-   "quartier": "Ville-d'Avray",
-   "title": "A l'entrée du parc de Saint-Cloud et au cœur du centre-ville de Ville-d’Avray, belle demeure bourgeoise de 350 m² sur te",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38341/222347989/#",
-   "surface": 400.0,
-   "rooms": 10,
-   "price": 2700000,
+   "fingerprint": "versailles|190|6",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "Belle maison familiale Bachelin, très lumineuse en pierre de meulière avec ornements en céramique Art nouveau, située au",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/266392703/#",
+   "surface": 190.0,
+   "rooms": 6,
+   "price": 1850000,
    "n_mandats": 1,
+   "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-22",
-   "misses": 1
-  },
-  {
-   "canonical_id": "240012437",
-   "aliases": [
-    "240012437"
-   ],
-   "fingerprint": "ville-d'avray|400|13",
-   "commune": "ville-d'avray",
-   "quartier": "Ville-d'Avray",
-   "title": "A l'orée de la forêt, en exclusivité, magnifique construction 2022 entièrement vitrée signée Jean-Pierre Watel d'environ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38341/240012437/#",
-   "surface": 400.0,
-   "rooms": 13,
-   "price": 4900000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-22",
+   "last_seen": "2026-07-25",
    "misses": 1
   },
   {
@@ -2165,7 +2389,7 @@
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
    "last_seen": "2026-07-22",
-   "misses": 0
+   "misses": 1
   },
   {
    "canonical_id": "264443153",
@@ -2184,308 +2408,6 @@
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
    "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "272652095",
-   "aliases": [
-    "272652095"
-   ],
-   "fingerprint": "meudon|147|5",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "À Meudon, témoin de l'architecture avant-gardiste des années 1950, la maison-atelier d'André Bloc conçue par Claude Pare",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272652095/#",
-   "surface": 147.0,
-   "rooms": 5,
-   "price": 1895000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "268315697",
-   "aliases": [
-    "268315697"
-   ],
-   "fingerprint": "meudon|211|8",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Edifiée sur un terrain paysager de 523 m², cette belle maison ancienne de 211 m² a été entièrement rénovée. Elle compren",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268315697/#",
-   "surface": 211.0,
-   "rooms": 8,
-   "price": 1795000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-29",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "268315701",
-   "aliases": [
-    "268315701"
-   ],
-   "fingerprint": "meudon|160|7",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Edifiée sur un terrain paysager de 445 m², cette belle maison ancienne d'une surface habitable de 160 m² a été entièreme",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268315701/#",
-   "surface": 160.0,
-   "rooms": 7,
-   "price": 1495000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-29",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "269646231",
-   "aliases": [
-    "269646231"
-   ],
-   "fingerprint": "meudon|480|8",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "À l'abri des regards, dans une rue calme et résidentielle de Meudon Val-Fleury, cet ensemble immobilier singulier dévelo",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/269646231/#",
-   "surface": 480.0,
-   "rooms": 8,
-   "price": 2950000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-15",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "266671407",
-   "aliases": [
-    "266671407"
-   ],
-   "fingerprint": "meudon|244|10",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Nichée sur les hauteurs de l’Observatoire de Meudon, cette somptueuse maison de maître du XIXème siècle bénéficie d’une ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/266671407/#",
-   "surface": 243.61,
-   "rooms": 10,
-   "price": 2400000,
-   "n_mandats": 1,
-   "first_seen": "2026-04-10",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "251593851",
-   "aliases": [
-    "251593851",
-    "251595575"
-   ],
-   "fingerprint": "meudon|256|11",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "--SOUS-OFFRE ACCEPTÉE- Située dans le très recherché quartier du Val à Meudon, à mi-chemin entre Meudon Val-Fleury et Me",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/251593851/#",
-   "surface": 256.12,
-   "rooms": 11,
-   "price": 1480000,
-   "n_mandats": 2,
-   "first_seen": "2025-10-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275190683",
-   "aliases": [
-    "275190683"
-   ],
-   "fingerprint": "meudon|335|10",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Maison d'architecte contemporaine ossature bois ? 335 m² ? Meudon centre Maison d'architecte contemporaine ossature bois",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/275190683/#",
-   "surface": 335.0,
-   "rooms": 10,
-   "price": 2280000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274583123",
-   "aliases": [
-    "274583123"
-   ],
-   "fingerprint": "meudon|140|5",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "Dans un environnement calme, cette maison récente bénéficie d'une vue privilégiée sur Paris et d'un emplacement recherch",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/274583123/#",
-   "surface": 140.0,
-   "rooms": 5,
-   "price": 1150000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-11",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "264651711",
-   "aliases": [
-    "264651711"
-   ],
-   "fingerprint": "meudon|160|8",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "iad France - Stéphanie Cornetti vous propose: MEUDON VAL-FLEURY A 6 MINUTES DU MONOPRIX ET DU RER C - MAISON FAMILIALE 6",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/264651711/#",
-   "surface": 160.0,
-   "rooms": 8,
-   "price": 1050000,
-   "n_mandats": 1,
-   "first_seen": "2026-03-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274118941",
-   "aliases": [
-    "274118941"
-   ],
-   "fingerprint": "meudon|140|6",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "EXCLUSIVITÉ MEUDON CENTRE MAISON 6 PIÈCES AVEC JARDIN Idéalement située au coeur de Meudon, dans un environnement calme ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/274118941/#",
-   "surface": 140.0,
-   "rooms": 6,
-   "price": 995000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-05",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "262583733",
-   "aliases": [
-    "262583733"
-   ],
-   "fingerprint": "meudon|185|7",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "EXCLUSIVITÉ - Nichée dans un environnement calme et verdoyant, à deux pas des écoles (Institut Notre-Dame, La Source..),",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/262583733/#",
-   "surface": 185.0,
-   "rooms": 7,
-   "price": 1180000,
-   "n_mandats": 1,
-   "first_seen": "2026-02-22",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271671805",
-   "aliases": [
-    "271671805"
-   ],
-   "fingerprint": "meudon|105|5",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "EXCLUSIVITÉ – Au cœur du très recherché quartier de Val Fleury, découvrez cette charmante maison de 105 m², idéalement e",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/271671805/#",
-   "surface": 105.0,
-   "rooms": 5,
-   "price": 795000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-07",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-22",
-   "misses": 0
-  },
-  {
-   "canonical_id": "261076299",
-   "aliases": [
-    "261076299"
-   ],
-   "fingerprint": "versailles|380|10",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Elégante maison en pierre de meulière et briques, érigée en 1900, d'une surface totale d'environ 380 m² (286 m² habitabl",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/261076299/#",
-   "surface": 380.0,
-   "rooms": 10,
-   "price": 3490000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-22",
-   "misses": 1
-  },
-  {
-   "canonical_id": "272218595",
-   "aliases": [
-    "272218595"
-   ],
-   "fingerprint": "meudon|102|5",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "Maison ancienne 102m² avec jardin plein sud - Avenue du Chat",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47016/272218595/",
-   "surface": 102.0,
-   "rooms": 5,
-   "price": 950000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-13",
-   "first_seen_estimated": true,
-   "misses": 1
-  },
-  {
-   "canonical_id": "268735221",
-   "aliases": [
-    "268735221"
-   ],
-   "fingerprint": "meudon|192|9",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "En plein cœur de Meudon Centre, dans une rue parmi les plus",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/268735221/",
-   "surface": 192.0,
-   "rooms": 9,
-   "price": 1630000,
-   "n_mandats": 1,
-   "first_seen": "2026-05-04",
-   "first_seen_estimated": true,
-   "misses": 1
-  },
-  {
-   "canonical_id": "272318427",
-   "aliases": [
-    "272318427"
-   ],
-   "fingerprint": "meudon|200|10",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "À l'abri des regards, au cœur d'un environnement résidentiel",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272318427/",
-   "surface": 200.16,
-   "rooms": 10,
-   "price": 2150000,
-   "n_mandats": 1,
-   "first_seen": "2026-06-14",
-   "first_seen_estimated": true,
    "misses": 1
   }
  ]
