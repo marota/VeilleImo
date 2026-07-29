@@ -136,7 +136,7 @@ def test_cdc_demoted_memo(monkeypatch):
 def test_retire_event_is_enriched():
     prev = [mkprop("z", surface=123.0, quartier="Parc, Meudon", first_seen="2025-03-03",
                    n_mandats=2, aliases=["z", "999"])]
-    out, events = chain.scan_grace([], prev, today="2026-07-29", grace=1)
+    out, events, backlog = chain.scan_grace([], prev, today="2026-07-29", grace=1)
     ret = [e for e in events if e["type"] == "RETIRE"]
     assert len(ret) == 1
     e = ret[0]
