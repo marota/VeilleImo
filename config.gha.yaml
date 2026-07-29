@@ -5,7 +5,7 @@ criteria:
   rooms_min: 4
 politeness:
   delay_seconds: 4
-retrait_grace: 2
+retrait_grace: 3
 scraper:
   provider: scrapedo
 sources:
