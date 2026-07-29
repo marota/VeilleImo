@@ -1,7 +1,27 @@
 {
  "schema": "chained-properties-v1",
- "updated_at": "2026-07-27T10:30:07.451583",
+ "updated_at": "2026-07-29T09:24:42.473165",
  "properties": [
+  {
+   "canonical_id": "269740377",
+   "aliases": [
+    "269740377"
+   ],
+   "fingerprint": "sevres|160|5",
+   "commune": "sevres",
+   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
+   "title": "À l’abri des regards, dans un environnement privilégié en lisière du Parc de Saint-Cloud, cette élégante maison traversa",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/269740377/#",
+   "surface": 160.09,
+   "rooms": 5,
+   "price": 1670000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-05-16",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
   {
    "canonical_id": "264036619",
    "aliases": [
@@ -20,27 +40,7 @@
    "agency": "",
    "first_seen": "2026-03-11",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "269740377",
-   "aliases": [
-    "269740377"
-   ],
-   "fingerprint": "sevres|160|5",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "À l’abri des regards, dans un environnement privilégié en lisière du Parc de Saint-Cloud, cette élégante maison traversa",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/269740377/#",
-   "surface": 160.09,
-   "rooms": 5,
-   "price": 1670000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-05-16",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -60,7 +60,7 @@
    "agency": "",
    "first_seen": "2025-10-28",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -68,7 +68,9 @@
    "aliases": [
     "249707091",
     "273905393",
-    "agence_principale_sevres_60918814"
+    "276111975",
+    "agence_principale_sevres_60918814",
+    "agence_principale_sevres_61180626"
    ],
    "fingerprint": "sevres|100|5",
    "commune": "sevres",
@@ -82,7 +84,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2025-09-26",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -103,7 +105,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-06-07",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -124,7 +126,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -144,7 +146,7 @@
    "agency": "",
    "first_seen": "2026-03-10",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -164,7 +166,7 @@
    "agency": "",
    "first_seen": "2026-05-26",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -184,7 +186,7 @@
    "agency": "",
    "first_seen": "2026-03-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -205,7 +207,7 @@
    "agency": "",
    "first_seen": "2026-04-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -230,7 +232,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-04-16",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -251,7 +253,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -271,7 +273,7 @@
    "agency": "",
    "first_seen": "2026-05-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -292,7 +294,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-03-25",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -312,7 +314,7 @@
    "agency": "",
    "first_seen": "2026-07-07",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -333,7 +335,7 @@
    "agency": "",
    "first_seen": "2026-01-10",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -342,6 +344,7 @@
     "264352093",
     "274859341",
     "275502419",
+    "276074147",
     "aetm_60230486",
     "aetm_60231016"
    ],
@@ -357,7 +360,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-03-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -378,7 +381,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-05-24",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -398,7 +401,7 @@
    "agency": "",
    "first_seen": "2026-07-04",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -418,7 +421,7 @@
    "agency": "",
    "first_seen": "2026-04-22",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -438,7 +441,7 @@
    "agency": "",
    "first_seen": "2026-01-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -456,11 +459,11 @@
    "surface": 250.0,
    "rooms": 10,
    "price": 1750000,
-   "n_mandats": 3,
+   "n_mandats": 2,
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-01-22",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -481,7 +484,7 @@
    "agency": "",
    "first_seen": "2026-07-07",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -501,7 +504,7 @@
    "agency": "",
    "first_seen": "2026-02-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -521,7 +524,7 @@
    "agency": "",
    "first_seen": "2026-04-25",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -542,7 +545,7 @@
    "agency": "",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -562,7 +565,7 @@
    "agency": "",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -582,7 +585,7 @@
    "agency": "",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -602,7 +605,7 @@
    "agency": "",
    "first_seen": "2026-06-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -622,7 +625,7 @@
    "agency": "",
    "first_seen": "2026-06-17",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -643,7 +646,7 @@
    "agency": "",
    "first_seen": "2026-04-29",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -663,7 +666,7 @@
    "agency": "",
    "first_seen": "2026-06-08",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -683,7 +686,7 @@
    "agency": "",
    "first_seen": "2026-06-15",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -703,7 +706,7 @@
    "agency": "",
    "first_seen": "2025-10-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -723,7 +726,7 @@
    "agency": "",
    "first_seen": "2026-04-08",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -743,7 +746,7 @@
    "agency": "",
    "first_seen": "2026-01-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -763,7 +766,7 @@
    "agency": "",
    "first_seen": "2026-03-08",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -783,47 +786,27 @@
    "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
-   "canonical_id": "275190683",
+   "canonical_id": "222347989",
    "aliases": [
-    "275190683"
+    "222347989"
    ],
-   "fingerprint": "meudon|335|10",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Maison d'architecte contemporaine ossature bois ? 335 m² ? Meudon centre Maison d'architecte contemporaine ossature bois",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/275190683/#",
-   "surface": 335.0,
+   "fingerprint": "ville-d'avray|400|10",
+   "commune": "ville-d'avray",
+   "quartier": "Ville-d'Avray",
+   "title": "A l'entrée du parc de Saint-Cloud et au cœur du centre-ville de Ville-d’Avray, belle demeure bourgeoise de 350 m² sur te",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38341/222347989/#",
+   "surface": 400.0,
    "rooms": 10,
-   "price": 2280000,
+   "price": 2700000,
    "n_mandats": 1,
    "agency": "",
-   "first_seen": "2026-07-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "272652095",
-   "aliases": [
-    "272652095"
-   ],
-   "fingerprint": "meudon|147|5",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "À Meudon, témoin de l'architecture avant-gardiste des années 1950, la maison-atelier d'André Bloc conçue par Claude Pare",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272652095/#",
-   "surface": 147.0,
-   "rooms": 5,
-   "price": 1895000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-06-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "first_seen": "2026-07-29",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -843,7 +826,68 @@
    "agency": "",
    "first_seen": "2026-04-29",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
+  {
+   "canonical_id": "251593851",
+   "aliases": [
+    "251593851",
+    "251595575"
+   ],
+   "fingerprint": "meudon|256|11",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "--SOUS-OFFRE ACCEPTÉE- Située dans le très recherché quartier du Val à Meudon, à mi-chemin entre Meudon Val-Fleury et Me",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/251593851/#",
+   "surface": 256.12,
+   "rooms": 11,
+   "price": 1480000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2025-10-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275190683",
+   "aliases": [
+    "275190683"
+   ],
+   "fingerprint": "meudon|335|10",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Maison d'architecte contemporaine ossature bois ? 335 m² ? Meudon centre Maison d'architecte contemporaine ossature bois",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/275190683/#",
+   "surface": 335.0,
+   "rooms": 10,
+   "price": 2280000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
+  {
+   "canonical_id": "272652095",
+   "aliases": [
+    "272652095"
+   ],
+   "fingerprint": "meudon|147|5",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "À Meudon, témoin de l'architecture avant-gardiste des années 1950, la maison-atelier d'André Bloc conçue par Claude Pare",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272652095/#",
+   "surface": 147.0,
+   "rooms": 5,
+   "price": 1895000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-06-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -863,7 +907,7 @@
    "agency": "",
    "first_seen": "2026-04-29",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -883,48 +927,28 @@
    "agency": "",
    "first_seen": "2026-05-15",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
-   "canonical_id": "266671407",
+   "canonical_id": "252269633",
    "aliases": [
-    "266671407"
+    "252269633",
+    "274583123"
    ],
-   "fingerprint": "meudon|244|10",
+   "fingerprint": "meudon|140|5",
    "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Nichée sur les hauteurs de l’Observatoire de Meudon, cette somptueuse maison de maître du XIXème siècle bénéficie d’une ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/266671407/#",
-   "surface": 243.61,
-   "rooms": 10,
-   "price": 2400000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-04-10",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "251593851",
-   "aliases": [
-    "251593851",
-    "251595575"
-   ],
-   "fingerprint": "meudon|256|11",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "--SOUS-OFFRE ACCEPTÉE- Située dans le très recherché quartier du Val à Meudon, à mi-chemin entre Meudon Val-Fleury et Me",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/251593851/#",
-   "surface": 256.12,
-   "rooms": 11,
-   "price": 1480000,
+   "quartier": "Bas Meudon, Meudon",
+   "title": "Dans une impasse privative avec une vue privilégiée sur Paris cette maison récente de 2008 située dans un environnement ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/252269633/#",
+   "surface": 140.0,
+   "rooms": 5,
+   "price": 1150000,
    "n_mandats": 2,
    "agency": "",
-   "first_seen": "2025-10-18",
+   "first_seen": "2026-07-11",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -945,27 +969,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-19",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274583123",
-   "aliases": [
-    "274583123"
-   ],
-   "fingerprint": "meudon|140|5",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "Dans un environnement calme, cette maison récente bénéficie d'une vue privilégiée sur Paris et d'un emplacement recherch",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/274583123/#",
-   "surface": 140.0,
-   "rooms": 5,
-   "price": 1150000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-11",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -986,7 +990,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-09",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1006,7 +1010,7 @@
    "agency": "",
    "first_seen": "2026-03-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1026,7 +1030,7 @@
    "agency": "",
    "first_seen": "2026-07-05",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1046,7 +1050,7 @@
    "agency": "",
    "first_seen": "2026-02-22",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1066,7 +1070,7 @@
    "agency": "",
    "first_seen": "2026-06-07",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1087,7 +1091,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-06-04",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1108,7 +1112,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-05-31",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1129,7 +1133,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1149,7 +1153,7 @@
    "agency": "",
    "first_seen": "2026-07-27",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1169,28 +1173,7 @@
    "agency": "",
    "first_seen": "2026-07-27",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "257469745",
-   "aliases": [
-    "257469745",
-    "257469953"
-   ],
-   "fingerprint": "chaville|265|9",
-   "commune": "chaville",
-   "quartier": "Père Komitas, Chaville",
-   "title": "Au calme d'une impasse, à 3-4 minutes à pied de Chaville–Rive Droite, cette maison des années 1930, agrandie, développe ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/257469745/#",
-   "surface": 265.0,
-   "rooms": 9,
-   "price": 1390000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2025-12-25",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1211,7 +1194,7 @@
    "agency": "",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1231,7 +1214,7 @@
    "agency": "",
    "first_seen": "2026-03-31",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1251,7 +1234,7 @@
    "agency": "",
    "first_seen": "2026-07-19",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1271,7 +1254,7 @@
    "agency": "",
    "first_seen": "2026-06-25",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1291,7 +1274,7 @@
    "agency": "",
    "first_seen": "2026-06-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1311,7 +1294,7 @@
    "agency": "",
    "first_seen": "2026-04-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1331,7 +1314,7 @@
    "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1351,7 +1334,7 @@
    "agency": "",
    "first_seen": "2026-05-20",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1371,7 +1354,27 @@
    "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
+  {
+   "canonical_id": "264958461",
+   "aliases": [
+    "264958461"
+   ],
+   "fingerprint": "chaville|300|7",
+   "commune": "chaville",
+   "quartier": "Les Petits Bois, Chaville",
+   "title": "Élégante demeure de caractère aux portes de la forêt de Fausses-Reposes Dans l'un des quartiers résidentiels les plus pr",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46915/264958461/#",
+   "surface": 300.0,
+   "rooms": 7,
+   "price": 1395000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-29",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1391,7 +1394,7 @@
    "agency": "",
    "first_seen": "2026-01-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1411,7 +1414,7 @@
    "agency": "",
    "first_seen": "2026-07-20",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1431,7 +1434,7 @@
    "agency": "",
    "first_seen": "2026-06-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1442,7 +1445,7 @@
    "fingerprint": "chaville|184|7",
    "commune": "chaville",
    "quartier": "Chaville",
-   "title": "Sous-Offre acceptée. Exclusivité. Votre consultant Barnes Versailles-Viroflay - Damien Portail - vous présente cette dem",
+   "title": "Sous Promesse. Exclusivité. Votre consultant Barnes Versailles-Viroflay - Damien Portail - vous présente cette demeure é",
    "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38315/265186403/#",
    "surface": 184.0,
    "rooms": 7,
@@ -1451,7 +1454,7 @@
    "agency": "",
    "first_seen": "2026-03-24",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1473,7 +1476,7 @@
    "agency": "",
    "first_seen": "2026-07-16",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1493,7 +1496,7 @@
    "agency": "",
    "first_seen": "2026-05-09",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1517,7 +1520,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1538,27 +1541,27 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-06-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
-   "canonical_id": "262650027",
+   "canonical_id": "254793401",
    "aliases": [
-    "262650027"
+    "254793401"
    ],
-   "fingerprint": "sevres|380|9",
+   "fingerprint": "sevres|143|6",
    "commune": "sevres",
    "quartier": "Monesse-Croix Bosset, Sèvres",
-   "title": "Nichée dans un écrin de verdure de 1 500m². cette somptueuse villa en pierre meulière à tourelle, d’une superficie de 43",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/262650027/#",
-   "surface": 380.0,
-   "rooms": 9,
-   "price": 2490000,
+   "title": "Située sur les coteaux recherchés de Sèvres, au calme d'un environnement résidentiel, cette villa contemporaine neuve of",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/254793401/#",
+   "surface": 143.0,
+   "rooms": 6,
+   "price": 1450000,
    "n_mandats": 1,
    "agency": "",
-   "first_seen": "2026-02-23",
+   "first_seen": "2025-11-24",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1579,7 +1582,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1600,7 +1603,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-06-27",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1623,47 +1626,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-04-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "254793401",
-   "aliases": [
-    "254793401"
-   ],
-   "fingerprint": "sevres|143|6",
-   "commune": "sevres",
-   "quartier": "Monesse-Croix Bosset, Sèvres",
-   "title": "Située sur les coteaux recherchés de Sèvres, au calme d'un environnement résidentiel, cette villa contemporaine neuve of",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/254793401/#",
-   "surface": 143.0,
-   "rooms": 6,
-   "price": 1595000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2025-11-24",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "268194639",
-   "aliases": [
-    "268194639"
-   ],
-   "fingerprint": "viroflay|180|10",
-   "commune": "viroflay",
-   "quartier": "Les Aulnettes, Viroflay",
-   "title": "Dans l'un des quartiers les plus recherchés de Viroflay, à proximité immédiate de la gare de Viroflay Rive Droite (ligne",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45797/268194639/#",
-   "surface": 180.0,
-   "rooms": 10,
-   "price": 1250000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-04-28",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1683,7 +1646,7 @@
    "agency": "",
    "first_seen": "2026-06-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1703,30 +1666,7 @@
    "agency": "",
    "first_seen": "2026-01-12",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275622133",
-   "aliases": [
-    "267728671",
-    "272930647",
-    "275622133",
-    "275622143"
-   ],
-   "fingerprint": "viroflay|154|8",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Située dans une adresse très recherchée de Viroflay dans un quartier historique avec des rues en étoile autour de la pla",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/275622133/",
-   "surface": 154.0,
-   "rooms": 8,
-   "price": 1195000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-04-22",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1747,7 +1687,30 @@
    "agency": "",
    "first_seen": "2026-03-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275622133",
+   "aliases": [
+    "267728671",
+    "272930647",
+    "275622133",
+    "275622143"
+   ],
+   "fingerprint": "viroflay|154|8",
+   "commune": "viroflay",
+   "quartier": "Rive Gauche, Viroflay",
+   "title": "Située dans une adresse très recherchée de Viroflay dans un quartier historique avec des rues en étoile autour de la pla",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/275622133/#",
+   "surface": 154.0,
+   "rooms": 8,
+   "price": 1195000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-04-22",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1767,7 +1730,7 @@
    "agency": "",
    "first_seen": "2026-06-12",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1787,7 +1750,7 @@
    "agency": "",
    "first_seen": "2026-05-20",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1807,27 +1770,7 @@
    "agency": "",
    "first_seen": "2024-10-09",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274049773",
-   "aliases": [
-    "274049773"
-   ],
-   "fingerprint": "viroflay|130|6",
-   "commune": "viroflay",
-   "quartier": "Rive Droite, Viroflay",
-   "title": "Exclusivité. Votre consultant Barnes - Damien Portail - vous présente aujourd'hui cette maison contemporaine de 1994 ave",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45796/274049773/",
-   "surface": 130.1,
-   "rooms": 6,
-   "price": 840000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-04",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1837,9 +1780,9 @@
    ],
    "fingerprint": "viroflay|125|5",
    "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
+   "quartier": "Forêt, Viroflay",
    "title": "Sous compromis : Maison Contemporaine 4 chambres Rive gauche Découvrez cette superbe maison contemporaine de 125 m², con",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/265928317/",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45795/265928317/",
    "surface": 124.9,
    "rooms": 5,
    "price": 905500,
@@ -1847,7 +1790,7 @@
    "agency": "",
    "first_seen": "2026-04-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1867,7 +1810,7 @@
    "agency": "",
    "first_seen": "2026-06-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1887,27 +1830,7 @@
    "agency": "",
    "first_seen": "2026-07-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271096525",
-   "aliases": [
-    "271096525"
-   ],
-   "fingerprint": "versailles|183|8",
-   "commune": "versailles",
-   "quartier": "Bernard de Jussieu-Petits Bois-Picardie, Versailles",
-   "title": "Maison meulière style Bachelin à deux pas du lycée privé Sainte Geneviève et ses grandes écoles.Elle se compose au rez d",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45780/271096525/",
-   "surface": 183.0,
-   "rooms": 8,
-   "price": 1075000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1927,7 +1850,27 @@
    "agency": "",
    "first_seen": "2026-04-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275275897",
+   "aliases": [
+    "275275897"
+   ],
+   "fingerprint": "versailles|188|8",
+   "commune": "versailles",
+   "quartier": "Chantiers-Prochefontaine, Versailles",
+   "title": "Versailles Porchefontaine maison 8 pièces 188 m² au sol avec jardin clos et garage. Quartier très recherché par les fami",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275275897/",
+   "surface": 188.0,
+   "rooms": 8,
+   "price": 1375000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-29",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1947,7 +1890,7 @@
    "agency": "",
    "first_seen": "2026-07-17",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1967,7 +1910,7 @@
    "agency": "",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -1987,27 +1930,27 @@
    "agency": "",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
-   "canonical_id": "267626515",
+   "canonical_id": "266392703",
    "aliases": [
-    "267626515"
+    "266392703"
    ],
-   "fingerprint": "versailles|275|10",
+   "fingerprint": "versailles|190|6",
    "commune": "versailles",
    "quartier": "Montreuil, Versailles",
-   "title": "Signée Léon Bachelin, l'architecte emblématique du quartier de Montreuil qui a sévi à la fin du XIXème siècle, cette mai",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/267626515/",
-   "surface": 275.0,
-   "rooms": 10,
-   "price": 1950000,
+   "title": "Belle maison familiale Bachelin, très lumineuse en pierre de meulière avec ornements en céramique Art nouveau, située au",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/266392703/",
+   "surface": 190.0,
+   "rooms": 6,
+   "price": 1850000,
    "n_mandats": 1,
    "agency": "",
-   "first_seen": "2026-04-21",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2028,7 +1971,47 @@
    "agency": "",
    "first_seen": "2026-01-06",
    "first_seen_estimated": true,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
+  {
+   "canonical_id": "261076299",
+   "aliases": [
+    "261076299"
+   ],
+   "fingerprint": "versailles|380|10",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "Elégante maison en pierre de meulière et briques, érigée en 1900, d'une surface totale d'environ 380 m² (286 m² habitabl",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/261076299/#",
+   "surface": 380.0,
+   "rooms": 10,
+   "price": 3490000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-29",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-29",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275720869",
+   "aliases": [
+    "275720869"
+   ],
+   "fingerprint": "versailles|304|8",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "Belle maison de caractère des années 1930, agrandie en 1980, développant 203,60 m² habitables et 268,20 m² au sol pour l",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/275720869/#",
+   "surface": 304.0,
+   "rooms": 8,
+   "price": 2080000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-29",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2049,7 +2032,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2069,27 +2052,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_60516564",
-   "aliases": [
-    "aetm_60516564"
-   ],
-   "fingerprint": "meudon|130|5",
-   "commune": "meudon",
-   "quartier": "Meudon",
-   "title": "MEUDON Montalets Maison 5 pièces 130 m² sur terrain 420 m² 130m² - 1 290 000 € dont 4.6% TTC d'honoraires",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60516564/maison-5-pieces-130-m2-sur-terrain-420-m2.html",
-   "surface": 130.0,
-   "rooms": 5,
-   "price": 1290000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2109,7 +2072,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2129,7 +2092,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2149,7 +2112,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2169,7 +2132,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2189,7 +2152,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2209,7 +2172,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2229,7 +2192,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2249,7 +2212,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2269,7 +2232,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2289,7 +2252,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
   },
   {
@@ -2309,8 +2272,169 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-07-27",
+   "last_seen": "2026-07-29",
    "misses": 0
+  },
+  {
+   "canonical_id": "266671407",
+   "aliases": [
+    "266671407"
+   ],
+   "fingerprint": "meudon|244|10",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "Nichée sur les hauteurs de l’Observatoire de Meudon, cette somptueuse maison de maître du XIXème siècle bénéficie d’une ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/266671407/#",
+   "surface": 243.61,
+   "rooms": 10,
+   "price": 2400000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-10",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 1
+  },
+  {
+   "canonical_id": "257469745",
+   "aliases": [
+    "257469745",
+    "257469953"
+   ],
+   "fingerprint": "chaville|265|9",
+   "commune": "chaville",
+   "quartier": "Père Komitas, Chaville",
+   "title": "Au calme d'une impasse, à 3-4 minutes à pied de Chaville–Rive Droite, cette maison des années 1930, agrandie, développe ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/257469745/#",
+   "surface": 265.0,
+   "rooms": 9,
+   "price": 1390000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2025-12-25",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 1
+  },
+  {
+   "canonical_id": "262650027",
+   "aliases": [
+    "262650027"
+   ],
+   "fingerprint": "sevres|380|9",
+   "commune": "sevres",
+   "quartier": "Monesse-Croix Bosset, Sèvres",
+   "title": "Nichée dans un écrin de verdure de 1 500m². cette somptueuse villa en pierre meulière à tourelle, d’une superficie de 43",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47096/262650027/#",
+   "surface": 380.0,
+   "rooms": 9,
+   "price": 2490000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-02-23",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 1
+  },
+  {
+   "canonical_id": "268194639",
+   "aliases": [
+    "268194639"
+   ],
+   "fingerprint": "viroflay|180|10",
+   "commune": "viroflay",
+   "quartier": "Les Aulnettes, Viroflay",
+   "title": "Dans l'un des quartiers les plus recherchés de Viroflay, à proximité immédiate de la gare de Viroflay Rive Droite (ligne",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45797/268194639/#",
+   "surface": 180.0,
+   "rooms": 10,
+   "price": 1250000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-28",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 1
+  },
+  {
+   "canonical_id": "274049773",
+   "aliases": [
+    "274049773"
+   ],
+   "fingerprint": "viroflay|130|6",
+   "commune": "viroflay",
+   "quartier": "Rive Droite, Viroflay",
+   "title": "Exclusivité. Votre consultant Barnes - Damien Portail - vous présente aujourd'hui cette maison contemporaine de 1994 ave",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45796/274049773/",
+   "surface": 130.1,
+   "rooms": 6,
+   "price": 840000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-04",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 1
+  },
+  {
+   "canonical_id": "271096525",
+   "aliases": [
+    "271096525"
+   ],
+   "fingerprint": "versailles|183|8",
+   "commune": "versailles",
+   "quartier": "Bernard de Jussieu-Petits Bois-Picardie, Versailles",
+   "title": "Maison meulière style Bachelin à deux pas du lycée privé Sainte Geneviève et ses grandes écoles.Elle se compose au rez d",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45780/271096525/",
+   "surface": 183.0,
+   "rooms": 8,
+   "price": 1075000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-27",
+   "misses": 1
+  },
+  {
+   "canonical_id": "267626515",
+   "aliases": [
+    "267626515"
+   ],
+   "fingerprint": "versailles|275|10",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "Signée Léon Bachelin, l'architecte emblématique du quartier de Montreuil qui a sévi à la fin du XIXème siècle, cette mai",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/267626515/",
+   "surface": 275.0,
+   "rooms": 10,
+   "price": 1950000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-21",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-27",
+   "misses": 1
+  },
+  {
+   "canonical_id": "aetm_60516564",
+   "aliases": [
+    "aetm_60516564"
+   ],
+   "fingerprint": "meudon|130|5",
+   "commune": "meudon",
+   "quartier": "Meudon",
+   "title": "MEUDON Montalets Maison 5 pièces 130 m² sur terrain 420 m² 130m² - 1 290 000 € dont 4.6% TTC d'honoraires",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60516564/maison-5-pieces-130-m2-sur-terrain-420-m2.html",
+   "surface": 130.0,
+   "rooms": 5,
+   "price": 1290000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-27",
+   "misses": 1
   },
   {
    "canonical_id": "agence_principale_sevres_59806758",
@@ -2330,84 +2454,6 @@
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
    "last_seen": "2026-07-27",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275310819",
-   "aliases": [
-    "275310819"
-   ],
-   "fingerprint": "versailles|107|6",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "VERSAILLES - Porchefontaine – Maison de 107,12 m² entièrement refaite à neuf Maison familiale, avec 4 chambres, idéaleme",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275310819/",
-   "surface": 107.12,
-   "rooms": 6,
-   "price": 960000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-19",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-25",
-   "misses": 1
-  },
-  {
-   "canonical_id": "266392703",
-   "aliases": [
-    "266392703"
-   ],
-   "fingerprint": "versailles|190|6",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Belle maison familiale Bachelin, très lumineuse en pierre de meulière avec ornements en céramique Art nouveau, située au",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/266392703/#",
-   "surface": 190.0,
-   "rooms": 6,
-   "price": 1850000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-25",
-   "misses": 1
-  },
-  {
-   "canonical_id": "272319275",
-   "aliases": [
-    "272319275"
-   ],
-   "fingerprint": "meudon|212|8",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Dans un secteur recherché de Meudon, cette élégante maison ancienne, rénovée et agrandie en 2010, d'une surface de 240 m",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/272319275/#",
-   "surface": 212.0,
-   "rooms": 8,
-   "price": 2150000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-22",
-   "misses": 1
-  },
-  {
-   "canonical_id": "264443153",
-   "aliases": [
-    "264443153"
-   ],
-   "fingerprint": "meudon|300|9",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "Jolie maison meulière rénovée d'environ 300 m², édifiée en 1926 sur une parcelle de 374 m². Elle se distingue par ses vo",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/264443153/#",
-   "surface": 300.0,
-   "rooms": 9,
-   "price": 2250000,
-   "n_mandats": 1,
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-22",
    "misses": 1
   }
  ]
