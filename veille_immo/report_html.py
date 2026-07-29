@@ -14,6 +14,15 @@ def _pdf(v): return "—" if v is None else (("+" if v >= 0 else "") + f"{v} %")
 def _esc(s): return html.escape(str(s or ""))
 
 
+def _fr_date(iso):
+    """'2026-07-15' -> '15 juil. 2026' ; renvoie la chaîne telle quelle si non ISO."""
+    try:
+        d = datetime.date.fromisoformat(iso)
+    except (ValueError, TypeError):
+        return _esc(iso)
+    return f"{d.day} {MOIS[d.month]} {d.year}"
+
+
 _COMMUNE_PRETTY = {
     "sevres": "Sèvres", "sèvres": "Sèvres",
     "ville-d'avray": "Ville-d'Avray", "ville d'avray": "Ville-d'Avray",
@@ -121,11 +130,12 @@ _THEAD8 = (f'<tr style="background:#faf6ec;"><th {_TH8}>Bien (lien)</th><th {_TH
            f'<th {_TH8}>vs&nbsp;moy.</th><th {_TH8}>En ligne (est.)</th><th {_TH8}>Statut</th></tr>')
 
 
-def _rich_row(p, total, pd, statut, today_max, old_price=None, highlight=False):
+def _rich_row(p, total, pd, statut, today_max, old_price=None, highlight=False, note=None):
     """Une ligne au format riche 8 colonnes, partagée par les nouveautés, les
-    mouvements, les retraits et les coups de cœur. `old_price` fait afficher la
-    variation dans la colonne Prix (mouvements) ; `statut` est le contenu HTML de
-    la dernière colonne (badge propre à chaque bloc)."""
+    mouvements, les retraits, les remises en ligne et les coups de cœur.
+    `old_price` fait afficher la variation dans la colonne Prix ; `statut` est le
+    contenu HTML de la dernière colonne (badge propre à chaque bloc) ; `note` est
+    une ligne de rappel optionnelle sous le titre (ex : date/prix de retrait)."""
     B = 'padding:7px 9px;border-bottom:1px solid #eee;vertical-align:top;'
     lbl, _ = _online_label(p, today_max)
     tr = ' style="background:#f0f7f0;"' if highlight else ''
@@ -140,9 +150,10 @@ def _rich_row(p, total, pd, statut, today_max, old_price=None, highlight=False):
     surf_cell = f'{surf:g} m² · {p.get("rooms") or "?"}p' if surf else "—"
     conf = f'{total}/6' if total is not None else "—"
     pd_col = "#2e7d32" if (pd is not None and pd < 0) else "#333"
+    note_html = f'<br><span style="color:#8a6d1b;font-size:11px;font-style:italic;">{note}</span>' if note else ""
     return (
         f'<tr data-commune="{_esc(_commune_disp(p))}"{tr}>'
-        f'<td style="{B}">{bien}{ag}<br><span style="color:#666;font-size:11px;">{_esc(p.get("title"))[:56]}</span></td>'
+        f'<td style="{B}">{bien}{ag}<br><span style="color:#666;font-size:11px;">{_esc(p.get("title"))[:56]}</span>{note_html}</td>'
         f'<td style="{B}white-space:nowrap;">{price_cell}</td>'
         f'<td style="{B}white-space:nowrap;">{surf_cell}</td>'
         f'<td style="{B}text-align:center;">{p.get("n_mandats") or 1}</td>'
@@ -179,6 +190,7 @@ def build(props, events, prev_max_id, today, errors=None):
     n_ret = sum(1 for e in events if e["type"] == "RETIRE")
     n_baisse = sum(1 for e in events if e["type"] == "BAISSE")
     n_hausse = sum(1 for e in events if e["type"] == "HAUSSE")
+    n_relist = sum(1 for e in events if e["type"] == "REMISE_EN_LIGNE")
     by_id = {p["canonical_id"]: p for p in props}
 
     # --- lignes riches 8 colonnes pilotées par les événements (corps email) -----
@@ -215,6 +227,26 @@ def build(props, events, prev_max_id, today, errors=None):
                  "aliases": e.get("aliases", []), "first_seen": e.get("first_seen")}
             total, pd = _score_of(p)
             o += _rich_row(p, total, pd, _badge("retiré", "#8a8a8a"), today_max)
+        return o
+
+    def relist_rows():
+        o = ""
+        for e in [x for x in events if x["type"] == "REMISE_EN_LIGNE"]:
+            p = by_id.get(e["id"]) or {
+                "canonical_id": e["id"], "title": e.get("title", ""),
+                "quartier": e.get("quartier", ""), "commune": e.get("commune", ""),
+                "price": e.get("price"), "surface": e.get("surface"), "rooms": e.get("rooms"),
+                "n_mandats": e.get("n_mandats", 1), "url": e.get("url", ""),
+                "aliases": [e["id"]], "first_seen": e.get("first_seen")}
+            total, pd = _score_of(p)
+            rp = e.get("retired_price")
+            ret_on = e.get("retired_on")
+            date_txt = _fr_date(ret_on) if ret_on else "date inconnue"
+            note = f"↩ retiré le {date_txt} à {_euro(rp)}"
+            # si le prix a changé depuis le retrait, on l'affiche comme un mouvement
+            old = rp if (rp and e.get("price") and rp != e.get("price")) else None
+            o += _rich_row(p, total, pd, _badge("🔄 de retour", "#8a6d1b"), today_max,
+                           old_price=old, highlight=True, note=note)
         return o
 
     def cdc_rows_email():
@@ -303,6 +335,11 @@ def build(props, events, prev_max_id, today, errors=None):
                 o += f'<li><b style="color:#2e7d32;">NOUVEAU</b> {corps} — {_euro(e.get("price"))}</li>'
             elif t == "RETIRE":
                 o += f'<li><b style="color:#8a8a8a;">RETIRÉ</b> {titre}</li>'
+            elif t == "REMISE_EN_LIGNE":
+                var = (f' ({_euro(e.get("retired_price"))} → {_euro(e.get("price"))})'
+                       if e.get("pct") is not None else f' — {_euro(e.get("price"))}')
+                o += (f'<li><b style="color:#8a6d1b;">REMISE EN LIGNE</b> {corps}{var} '
+                      f'<span style="color:#777;">· retiré le {_fr_date(e.get("retired_on"))}</span></li>')
             else:
                 col = "#2e7d32" if t == "BAISSE" else "#b00"
                 o += (f'<li><b style="color:{col};">{t}</b> {corps} — '
@@ -313,7 +350,10 @@ def build(props, events, prev_max_id, today, errors=None):
     def _plur(n, sing, plur=None):
         return f"{n} {sing if n <= 1 else (plur or sing + 's')}"
 
-    chg_parts = [_plur(n_new, "nouveau", "nouveaux"), _plur(n_baisse, "baisse")]
+    chg_parts = [_plur(n_new, "nouveau", "nouveaux")]
+    if n_relist:
+        chg_parts.append(_plur(n_relist, "remise en ligne", "remises en ligne"))
+    chg_parts.append(_plur(n_baisse, "baisse"))
     if n_hausse:
         chg_parts.append(_plur(n_hausse, "hausse"))
     chg_parts.append(_plur(n_ret, "retrait"))
@@ -335,6 +375,9 @@ def build(props, events, prev_max_id, today, errors=None):
 
     changes_body = (
         _sub("🆕 Nouveautés", n_new, new_rows(), "Biens apparus depuis le dernier scan.")
+        + _sub("🔄 Remises en ligne", n_relist, relist_rows(),
+               "Biens réapparus après un retrait : rappel de la date et du prix de retrait. "
+               "Une republication à prix revu est un signal de négociation.")
         + _sub("⚡ Mouvements de prix", len(moves), move_rows_rich(),
                "Le signal le plus actionnable : une baisse ouvre une fenêtre de négociation.")
         + _sub("🚫 Retraits", n_ret, ret_rows(),
@@ -445,5 +488,6 @@ table.sortable th.sort-asc::after{content:" \\2191";color:#8a6d1b;}table.sortabl
 {anoter_block}
 <p style="font-size:12px;color:#777;font-style:italic;margin-top:14px;">Rapport complet (biens du budget, multi-mandats, mouvements) en pièce jointe HTML. Scores de confort = scores de zone indicatifs.</p>
 </div>"""
-    stats = dict(biens=len(props), inb=len(inb), cdc=len(cdc), multi=n_multi, nouveaux=n_new, retraits=n_ret, baisses=n_baisse)
+    stats = dict(biens=len(props), inb=len(inb), cdc=len(cdc), multi=n_multi, nouveaux=n_new,
+                 retraits=n_ret, baisses=n_baisse, remises=n_relist)
     return full, email, stats
