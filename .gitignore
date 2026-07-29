@@ -1,5 +1,6 @@
 # Fichier d'aperçu local (non destiné au dépôt)
 data/reports/apercu_ameliore.html
+data/reports/apercu_email_refactor.html
 
 # Python
 __pycache__/
