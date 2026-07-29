@@ -195,8 +195,17 @@ def scan_grace(curr_props, prev_props, today, failed_communes=(), grace=2):
             out.append(pp); continue
         misses = pp.get("misses", 0) + 1
         if misses >= grace:                          # retrait CONFIRMÉ
+            # on porte l'état structurel du bien retiré (il n'est plus dans l'état
+            # courant, donc le rapport ne peut plus le retrouver) : de quoi le
+            # rendre au même format riche que les nouveautés/mouvements.
             events.append({"type": "RETIRE", "id": pp["canonical_id"],
-                           "title": pp.get("title", ""), "price": pp.get("price")})
+                           "title": pp.get("title", ""), "price": pp.get("price"),
+                           "url": pp.get("url", ""), "surface": pp.get("surface"),
+                           "rooms": pp.get("rooms"), "commune": pp.get("commune", ""),
+                           "quartier": pp.get("quartier", ""),
+                           "n_mandats": pp.get("n_mandats", 1),
+                           "aliases": list(pp.get("aliases", [])),
+                           "first_seen": pp.get("first_seen")})
         else:                                        # en sursis : conservé, non signalé
             pp = dict(pp); pp["misses"] = misses; out.append(pp)
     return out, events
