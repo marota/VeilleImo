@@ -31,10 +31,12 @@ def main(argv=None):
     cfg = yaml.safe_load(open(a.config, encoding="utf-8"))
     today = datetime.date.today().isoformat()
 
-    prev = []
+    prev, backlog = [], []
     sp = pathlib.Path(a.state)
     if sp.exists():
-        prev = json.load(open(sp, encoding="utf-8")).get("properties", [])
+        st = json.load(open(sp, encoding="utf-8"))
+        prev = st.get("properties", [])
+        backlog = st.get("retired", [])          # biens retirés en attente d'une éventuelle remise en ligne
     prev_n = len(prev)
     prev_max_id = max((int(x) for p in prev for x in p.get("aliases", []) if str(x).isdigit()), default=274139959)
 
@@ -90,12 +92,24 @@ def main(argv=None):
     src_commune = {s["name"]: s.get("commune") for s in cfg["sources"] if s.get("commune")}
     failed_communes = {src_commune[n] for n, cnt in per_source.items()
                        if cnt == 0 and src_commune.get(n)}
-    grace = int(cfg.get("retrait_grace", 2))
+    # + communes dont le VOLUME collecté chute fortement (collecte partielle : même
+    #   remède que l'échec total, on gèle pour ne pas fabriquer de faux retraits)
+    dropped = chain.volume_drop_communes(prev, collected)
+    if dropped:
+        print(f"[veille] communes gelées (chute de volume, collecte partielle) : {sorted(dropped)}")
+    failed_communes |= dropped
+    grace = int(cfg.get("retrait_grace", 3))
     if failed_communes:
-        print(f"[veille] communes gelées (source en échec) : {sorted(failed_communes)}")
+        print(f"[veille] communes gelées au total : {sorted(failed_communes)}")
 
-    # chaînage FIABLE : hystérésis retraits + gel des communes non collectées
-    curr, events = chain.scan_grace(collected, prev, today, failed_communes=failed_communes, grace=grace)
+    # chaînage FIABLE : hystérésis retraits + gel des communes + backlog remise en ligne
+    curr, events, backlog = chain.scan_grace(collected, prev, today,
+                                             failed_communes=failed_communes, grace=grace,
+                                             backlog=backlog)
+    n_relist = sum(1 for e in events if e["type"] == "REMISE_EN_LIGNE")
+    if n_relist:
+        print(f"[veille] {n_relist} remise(s) en ligne détectée(s) depuis le backlog")
+    print(f"[veille] backlog retraits : {len(backlog)} bien(s) suivi(s)")
     full_html, email_html, stats = report_html.build(curr, events, prev_max_id, today, errors)
     print(f"[veille] {stats}")
     # diagnostic : détail des NOUVEAUX (pour repérer d'éventuels doublons non fusionnés)
@@ -114,14 +128,16 @@ def main(argv=None):
                   f"{p.get('commune','?'):<14} mandats={p.get('n_mandats','?')}")
 
     sp.parent.mkdir(parents=True, exist_ok=True)
-    json.dump({"schema": "chained-properties-v1", "updated_at": datetime.datetime.now().isoformat(),
-               "properties": curr}, open(sp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump({"schema": "chained-properties-v2", "updated_at": datetime.datetime.now().isoformat(),
+               "properties": curr, "retired": backlog},
+              open(sp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     rep = pathlib.Path("data/reports"); rep.mkdir(parents=True, exist_ok=True)
     (rep / f"rapport_{today}.html").write_text(full_html, encoding="utf-8")
 
     if not a.no_email:
+        relist = f", {stats['remises']} remises en ligne" if stats.get("remises") else ""
         subj = (f"Veille immo — {today} : {stats['cdc']} coups de cœur, "
-                f"{stats['nouveaux']} nouveaux, {stats['baisses']} baisses, {stats['retraits']} retraits")
+                f"{stats['nouveaux']} nouveaux{relist}, {stats['baisses']} baisses, {stats['retraits']} retraits")
         to = mailer.send(subj, email_html, text_body="Rapport de veille — voir HTML/pièce jointe.",
                          attachments=[(f"rapport_veille_{today}.html", full_html, "text/html")])
         print("email envoyé à", to)
