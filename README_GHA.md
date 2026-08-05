@@ -1,7 +1,7 @@
 # Veille immo — exécution autonome via GitHub Actions
 
 Ce dépôt fait tourner la veille **sans dépendre de ton ordinateur** : GitHub
-exécute le scan tous les 2 jours, chaîne les biens, et t'envoie le rapport par
+exécute le scan tous les 3 jours, chaîne les biens, et t'envoie le rapport par
 email. L'état est conservé d'un run à l'autre (commit automatique).
 
 ## 1. Créer le dépôt
@@ -22,7 +22,7 @@ Les secrets sont chiffrés côté GitHub et injectés en variables d'environneme
 run ; ils ne sont jamais écrits sur disque ni visibles dans les logs.
 
 ## 3. Lancer / planifier
-- **Automatique** : cron `30 6 */2 * *` = tous les 2 jours à **06:30 UTC**
+- **Automatique** : cron `30 6 */3 * *` = tous les 3 jours à **06:30 UTC**
   (≈ 08:30 Paris l'été, 07:30 l'hiver — GitHub Actions est en UTC, sans heure d'été).
 - **À la main** : onglet **Actions → Veille immo → Run workflow** (bouton).
   Fais-le une fois pour vérifier que l'email arrive.
@@ -49,9 +49,38 @@ run ; ils ne sont jamais écrits sur disque ni visibles dans les logs.
   remplacer l'envoi SMTP par l'API Gmail en OAuth (scope `gmail.send`) — me le dire,
   je fournis la variante `mailer_oauth.py`.
 
-## Test local (optionnel, sans email)
-    pip install -r requirements-gha.txt && python -m playwright install chromium
-    python run_veille.py --config config.gha.yaml --no-email
+## Run local sans crédit (`--local`) — le filet de secours
+
+Quand le quota scrape.do est épuisé (HTTP 401) ou que tu veux simplement le rapport
+du jour sans attendre le cron :
+
+    pip install -r requirements-gha.txt playwright && python -m playwright install chromium
+    python run_veille.py --config config.gha.yaml --local --no-email
+
+Le rapport atterrit dans `data/reports/rapport_AAAA-MM-JJ.html`, l'état est mis à
+jour normalement, **zéro crédit consommé**.
+
+Pourquoi ça marche alors que GitHub est bloqué : DataDome bloque les IP datacenter
+(GitHub Actions) **et** le Chromium *headless* même en local (HTTP 403 vérifié),
+mais laisse passer un Chromium **headed** depuis une IP résidentielle (HTTP 200).
+`veille_immo/collector_local.py` ouvre donc une vraie fenêtre — positionnée hors
+écran pour ne pas voler le focus — et parse le HTML avec `bd_parse.parse_cards`,
+exactement comme le collecteur scrape.do : mêmes identifiants, état chaînable sans
+rupture. Le défilement déclenche le lazy-load, si bien que cette collecte est en
+pratique **plus complète que celle de l'API** (mesuré le 05/08/2026 : Ville-d'Avray
+39 annonces contre 20, Viroflay 39 contre 31).
+
+Deux précautions :
+
+- `--local` prime sur `SCRAPER_API_KEY` ; sans clé du tout, c'est le mode par défaut.
+- L'hystérésis compte les **scans**, pas les jours : enchaîner plusieurs runs le même
+  jour consomme les 3 scans de grâce et peut déclarer RETIRÉ un bien simplement
+  absent du portail ce jour-là. Pour un essai, viser une copie de l'état :
+  `--state /tmp/state_test.json`.
+
+## Test local (sans email, sans toucher à l'état)
+    python run_veille.py --config config.gha.yaml --local --no-email \
+        --state /tmp/state_test.json
 
 ---
 
@@ -67,11 +96,11 @@ une **IP résidentielle française** en mode *stealth*.
    nom `SCRAPER_API_KEY`, valeur = ta clé.
 
 Dès que `SCRAPER_API_KEY` est présent, `run_veille.py` utilise automatiquement le
-collecteur ScrapingBee (sinon il retombe sur Playwright headless).
+collecteur ScrapingBee (sinon il retombe sur le navigateur local, cf. `--local`).
 
 **Coût / crédits.** Le mode stealth (nécessaire contre DataDome) coûte ~75 crédits
-par page. Périmètre = 5 pages → ~375 crédits par scan. Un scan tous les 2 jours
-≈ 15 scans/mois ≈ ~5 600 crédits/mois. L'essai gratuit (1000 crédits) couvre
+par page. Périmètre = 5 pages → ~375 crédits par scan. Un scan tous les 3 jours
+≈ 10 scans/mois ≈ ~3 750 crédits/mois. L'essai gratuit (1000 crédits) couvre
 ~2-3 scans de test ; au-delà, le plan payant le moins cher suffit largement.
 Pour réduire : dans `veille_immo/collector_scrapingbee.py`, tu peux tester
 `premium_proxy=true` (moins cher) à la place de `stealth_proxy=true` si DataDome
@@ -131,24 +160,84 @@ Augmente `retrait_grace` si tu veux être encore plus conservateur.
 
 ---
 
-## Fallback automatique éco → résidentiel (dans le workflow)
+## Budget crédits scrape.do (à surveiller — c'est la contrainte réelle)
 
-Le workflow tente **d'abord le mode économique** (proxy datacenter, ~5 crédits/page) ;
-si la collecte échoue (vide/partielle → code de sortie ≠ 0), il **relance
-automatiquement en résidentiel** (`SCRAPER_SUPER=true`, anti-DataDome).
+Coût d'une page selon le mode (barème scrape.do) : datacenter 1, datacenter +
+rendu JS **5**, résidentiel **10**, résidentiel + rendu JS **25**.
 
-- Étape 1 « Scan (éco - datacenter) » : `SCRAPER_SUPER=false`,
-  `--suppress-alert-email` (pas d'alerte email puisqu'on va réessayer),
+`config.gha.yaml` contient **10 URL** (Sèvres 1, Ville-d'Avray 1, Meudon 1,
+Chaville 2, Viroflay 5) et le cron tourne **tous les 3 jours** (≈ 10 runs/mois) :
+
+| Mode                              | par run | par mois |
+|-----------------------------------|--------:|---------:|
+| résidentiel + rendu JS (défaut)   |     250 |   2 500  |
+| résidentiel sans rendu JS         |     100 |   1 000  |
+| datacenter + rendu JS (éco)       |      50 |     500  |
+
+**L'offre gratuite = 1000 crédits/mois.** Même à 10 runs/mois, le mode résidentiel
+avec rendu JS (2 500/mois) dépasse largement le quota gratuit — le passage à */3
+réduit la casse mais ne la résout pas : le run peut encore heurter le plafond en
+cours de mois et scrape.do répondre **HTTP 401 « no credits »**, ce qui vide des
+communes entières. Deux leviers restent utiles :
+
+1. **Passer à une offre payante** (le premier palier couvre très largement 2 500/mois) ;
+2. **Tester le résidentiel sans rendu JS** : *Run workflow* → cocher `no_render`
+   (ou `SCRAPER_RENDER=false`). Si le nombre d'annonces par source reste le même,
+   c'est **−60 % de crédits** et ça tombe pile sur le quota gratuit (1 000/mois).
+   Si les sources tombent à 0, ne pas garder.
+
+Le log de chaque run affiche `[scrapedo/super] crédits consommés : N — restants : M`,
+et sous 400 crédits restants un avertissement est ajouté au rapport.
+
+## Tentative éco → résidentiel (dans le workflow)
+
+Le mode économique (datacenter) est **désactivé par défaut depuis le 31/07/2026** :
+DataDome bloque désormais systématiquement ces IP sur Belles Demeures, la tentative
+ne ramenait plus rien et coûtait quand même crédits et ~15 min avant de repasser en
+résidentiel. Le run scheduled part donc **directement en résidentiel**.
+
+Pour la réactiver ponctuellement : *Actions → Veille immo → Run workflow* → cocher
+**`eco_first`**. Le workflow retrouve alors son comportement à deux étages :
+
+- Étape 1 « Scan (éco - datacenter) » : `SCRAPER_SUPER=false`, `--strict`
+  (la moindre commune manquante rend la main), `--suppress-alert-email`,
   `continue-on-error: true`.
-- Étape 2 « Scan (fallback - résidentiel) » : ne s'exécute que
-  `if: steps.scan_eco.outcome == 'failure'`, en résidentiel, sans suppression
-  d'alerte (si ça échoue AUSSI, tu reçois l'alerte).
+- Étape 2 « Scan (résidentiel) » : s'exécute si l'étape 1 a échoué, sans
+  suppression d'alerte.
 
-Conséquence : **un seul email par run** (rapport si l'un des deux réussit ;
-alerte seulement si les deux échouent), et tu payes le résidentiel **uniquement
-quand le datacenter n'a pas suffi**. La *Variable* `SCRAPER_SUPER` n'est plus
-nécessaire — le workflow pilote les deux modes. Pour forcer toujours le
-résidentiel, supprime l'étape 1 et mets `SCRAPER_SUPER=true` sur l'étape restante.
+Dans tous les cas : **un seul email par run**.
+
+## Collecte partielle : rapport dégradé plutôt que silence
+
+Une source muette ne doit plus faire disparaître le rapport. Le garde-fou est
+désormais à deux niveaux (`run_veille.collecte_suffisante`) :
+
+- **Plancher global** : si la collecte tombe sous **30 %** du parc connu, on
+  n'envoie que l'alerte « état conservé » (rien de fiable à dire du marché).
+- **Ratio par périmètre** : au-dessus du plancher, les communes gelées sortent des
+  **deux** côtés de la comparaison. Exemple réel du 05/08/2026 : 59 biens collectés
+  vs 116 connus déclenchaient l'alerte (< 60 %) alors que seules Ville-d'Avray et
+  Meudon étaient muettes ; hors gel c'est 59 sur 74 attendus → le rapport part.
+
+Le rapport et l'email portent alors un **bandeau « Collecte partielle — communes
+gelées : … »**, le sujet est préfixé **`⚠ partiel`**, et l'état mémorise le nombre
+de scans consécutifs de gel (`frozen` dans `state_chained.json`) : le bandeau
+affiche « Meudon — 2e scan consécutif », signe qu'il faut aller voir la source.
+
+Les biens des communes gelées sont **conservés à l'identique** : ni nouveauté, ni
+retrait, ni mouvement de prix n'est fabriqué à partir d'une source en panne.
+
+## Robustesse des téléchargements
+
+- **scrape.do** : 3 essais par URL avec back-off exponentiel + jitter. Les 502
+  (« request has failed, please try again ») sont fréquents et transitoires — ils
+  vidaient des communes entières quand la source n'avait qu'une seule URL, et ces
+  réponses ne sont **pas facturées**. Un **401/402** (crédits épuisés) arrête en
+  revanche la collecte immédiatement : inutile d'insister, la collecte partielle
+  déjà obtenue est remontée telle quelle et les communes non atteintes sont gelées.
+- **Sites d'agences** : 3 essais par page, et surtout **isolation par URL** — un
+  `ReadTimeout` sur la page 2 d'AETM ne fait plus perdre les 18 annonces déjà
+  extraites des autres pages (c'est ce qui s'était produit le 05/08).
 
 ---
 

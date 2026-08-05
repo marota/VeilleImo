@@ -168,7 +168,7 @@ def _table8(body):
             f'font-family:Georgia,serif;font-size:13px;margin:6px 0 4px;">{_THEAD8}{body}</table>')
 
 
-def build(props, events, prev_max_id, today, errors=None):
+def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
     today_max = max((int(a) for p in props for a in p["aliases"] if str(a).isdigit()), default=ANCHOR_ID)
     scored = []
     for p in props:
@@ -347,8 +347,25 @@ def build(props, events, prev_max_id, today, errors=None):
         return o or "<li>Aucun mouvement.</li>"
 
     err_html = ("<div class='warn'><b>Sources non récupérées :</b><br>" + "<br>".join(_esc(x) for x in (errors or [])) + "</div>") if errors else ""
+
     def _plur(n, sing, plur=None):
         return f"{n} {sing if n <= 1 else (plur or sing + 's')}"
+
+    # Collecte partielle : les communes dont la source n'a pas répondu sont GELÉES
+    # (biens conservés en l'état, aucun retrait signalé) — il faut le dire, sinon un
+    # rapport incomplet passerait pour un rapport complet.
+    frozen_txt = ""
+    if frozen:
+        frozen_txt = (f"<b>Collecte partielle — {_plur(len(frozen), 'commune gelée', 'communes gelées')} : </b>"
+                      + ", ".join(_esc(x) for x in frozen)
+                      + ". Leurs biens sont conservés tels quels : ni nouveauté, ni retrait, "
+                        "ni mouvement de prix n'est signalé sur ces communes tant que la source ne répond pas.")
+    if note:
+        frozen_txt = (frozen_txt + " " if frozen_txt else "<b>Collecte partielle.</b> ") + _esc(note)
+    frozen_html = f"<div class='warn'>{frozen_txt}</div>" if frozen_txt else ""
+    frozen_mail = (f'<div style="background:#fff6e5;border:1px solid #e0b96a;border-left:4px solid #c9822a;'
+                   f'border-radius:6px;padding:10px 14px;font-size:13px;color:#6b4a12;margin:8px 0;">'
+                   f'⚠ {frozen_txt}</div>') if frozen_txt else ""
 
     chg_parts = [_plur(n_new, "nouveau", "nouveaux")]
     if n_relist:
@@ -452,6 +469,7 @@ table.sortable th.sort-asc::after{content:" \\2191";color:#8a6d1b;}table.sortabl
 <h1>Maison à acheter — scan du {today}</h1>
 <p class="sub">Sèvres · Ville-d'Avray · Meudon · Chaville · Viroflay (+ voisins) — source Belles Demeures (exécution GitHub Actions)</p>
 <div class="synth"><b>Synthèse.</b> {synth}.</div>
+{frozen_html}
 <div class="toolbar"><label for="communeFilter">Filtrer par commune :</label>
 <select id="communeFilter"><option value="">Toutes les communes</option></select>
 <span id="filterCount" class="count"></span>
@@ -483,6 +501,7 @@ table.sortable th.sort-asc::after{content:" \\2191";color:#8a6d1b;}table.sortabl
 <p style="color:#8a6d1b;font-size:12px;letter-spacing:1px;margin:0;">VEILLE IMMOBILIÈRE — OUEST PARISIEN</p>
 <h2 style="font-size:22px;color:#3a2f1c;margin:3px 0;">Maison à acheter — scan du {today}</h2>
 <div style="background:#faf6ec;border:1px solid #e6d9b8;border-radius:6px;padding:11px 15px;font-size:14px;color:#5b4636;"><b>Synthèse.</b> {synth}.</div>
+{frozen_mail}
 {changes_block}
 {cdc_memo}
 {anoter_block}
