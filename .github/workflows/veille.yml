@@ -1,8 +1,17 @@
 name: Veille immo
 on:
   schedule:
-    - cron: "30 6 */2 * *"      # tous les 2 jours à 06:30 UTC (~08:30 Paris l'été)
-  workflow_dispatch: {}
+    - cron: "30 6 */3 * *"      # tous les 3 jours à 06:30 UTC (~08:30 Paris l'été)
+  workflow_dispatch:
+    inputs:
+      eco_first:
+        description: "Essayer d'abord le proxy datacenter (5 crédits/page) avant le résidentiel (25)"
+        type: boolean
+        default: false
+      no_render:
+        description: "Résidentiel sans rendu JS : 10 crédits/page au lieu de 25 (à tester une fois)"
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -24,21 +33,28 @@ jobs:
       - name: Install deps
         run: pip install -r requirements-gha.txt
 
-      # 1) Tentative ÉCONOMIQUE (proxy datacenter, ~5 crédits/page).
-      #    --suppress-alert-email : pas d'email d'alerte si ça échoue (on va réessayer).
+      # 1) Tentative ÉCONOMIQUE (proxy datacenter, 5 crédits/page) — DÉSACTIVÉE par
+      #    défaut : depuis le 31/07/2026 DataDome bloque toutes les IP datacenter sur
+      #    bellesdemeures, cette tentative ne ramenait plus rien et consommait quand
+      #    même crédits et ~15 min avant de repasser en résidentiel. La relancer :
+      #    « Run workflow » avec eco_first coché.
+      #    --strict : la moindre commune manquante rend la main au résidentiel.
       - name: Scan (éco - datacenter)
         id: scan_eco
+        if: inputs.eco_first
         continue-on-error: true
         env:
           SCRAPER_SUPER: "false"
-        run: python run_veille.py --config config.gha.yaml --suppress-alert-email
+        run: python run_veille.py --config config.gha.yaml --suppress-alert-email --strict
 
-      # 2) FALLBACK RÉSIDENTIEL, seulement si l'éco a échoué (collecte vide/partielle).
-      #    Ici l'alerte email n'est PAS supprimée : si ça échoue aussi, tu es prévenu.
-      - name: Scan (fallback - résidentiel)
-        if: steps.scan_eco.outcome == 'failure'
+      # 2) RÉSIDENTIEL : la voie normale. Une collecte partielle produit quand même le
+      #    rapport (communes manquantes gelées + bandeau d'avertissement dans l'email) ;
+      #    l'alerte « état conservé » ne part que si le périmètre collecté s'effondre.
+      - name: Scan (résidentiel)
+        if: ${{ !inputs.eco_first || steps.scan_eco.outcome == 'failure' }}
         env:
           SCRAPER_SUPER: "true"
+          SCRAPER_RENDER: ${{ inputs.no_render && 'false' || 'true' }}
         run: python run_veille.py --config config.gha.yaml
 
       - name: Persist state & report
