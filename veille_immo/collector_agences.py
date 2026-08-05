@@ -83,17 +83,41 @@ def _card_text(a, max_up=6):
     return None
 
 
+ATTEMPTS = 3          # un site d'agence lent (ReadTimeout) ne doit pas vider la source
+
+
+def _get(url, name):
+    """Télécharge une page d'agence avec réessais. Retourne (html, erreur)."""
+    err = None
+    for attempt in range(1, ATTEMPTS + 1):
+        try:
+            r = requests.get(url, headers={"User-Agent": UA, "Accept-Language": "fr-FR,fr;q=0.9"},
+                             timeout=45)
+            r.raise_for_status()
+            r.encoding = r.apparent_encoding or r.encoding
+            return r.text, None
+        except Exception as e:
+            err = f"{name} : {type(e).__name__} {str(e)[:60]} ({url[-38:]})"
+        if attempt < ATTEMPTS:
+            time.sleep(3 * attempt)
+    return None, f"{err} [{ATTEMPTS} essais]"
+
+
 def _scan_site(src):
-    """src: {name, agency, base, urls[], href_filter, id_regex, commune_default}"""
-    out, seen, skipped = [], set(), []
+    """src: {name, agency, base, urls[], href_filter, id_regex, commune_default}
+
+    Chaque URL est isolée : une page en échec ne fait plus perdre les annonces
+    déjà extraites des autres pages de la même agence."""
+    out, seen, skipped, errors = [], set(), [], []
     href_filter = re.compile(src["href_filter"]) if src.get("href_filter") else None
     id_re = re.compile(src.get("id_regex", r"(\d{5,})"))
     for url in src["urls"]:
-        r = requests.get(url, headers={"User-Agent": UA, "Accept-Language": "fr-FR,fr;q=0.9"},
-                         timeout=45)
-        r.raise_for_status()
-        r.encoding = r.apparent_encoding or r.encoding
-        soup = BeautifulSoup(r.text, "html.parser")
+        html, err = _get(url, src["name"])
+        if html is None:
+            errors.append(err)
+            time.sleep(1.5)
+            continue
+        soup = BeautifulSoup(html, "html.parser")
         for a in soup.find_all("a", href=True):
             href = a["href"]
             if href_filter and not href_filter.search(href):
@@ -120,7 +144,7 @@ def _scan_site(src):
         time.sleep(1.5)
     if skipped:
         print(f"    ({src['name']}: {len(skipped)} annonces ignorées, commune indétectable)")
-    return out
+    return out, errors
 
 
 def collect(sources, delay=2.0):
@@ -128,12 +152,13 @@ def collect(sources, delay=2.0):
     for src in sources:
         n = 0
         try:
-            recs = _scan_site(src)
+            recs, errs = _scan_site(src)
+            errors.extend(errs)
             for rec in recs:
                 if rec["id"] not in listings:
                     listings[rec["id"]] = rec
             n = len(recs)
-            if not recs:
+            if not recs and not errs:
                 errors.append(f"{src['name']} : 0 annonce extraite")
         except Exception as e:
             errors.append(f"{src['name']} : {type(e).__name__} {str(e)[:70]}")
