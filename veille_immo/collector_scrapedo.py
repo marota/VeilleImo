@@ -29,6 +29,7 @@ RETRY_STATUS = {408, 425, 429, 500, 502, 503, 504}
 FATAL_STATUS = {401: "crédits épuisés ou abonnement suspendu",
                 402: "paiement requis (abonnement)"}
 LOW_CREDITS = 400                              # en dessous : on le signale dans le rapport
+ROTATE_PAUSE = 60                              # pause avant la 1re requête d'un compte de secours
 
 
 def _fetch(url, token, super_proxy=True, render=True, wait_selector=None):
@@ -62,21 +63,86 @@ class _Budget:
             self.left = left
 
 
+def tokens(api_key=None):
+    """Jetons scrape.do disponibles, dans l'ordre d'utilisation.
+
+    Plusieurs comptes peuvent être déclarés — utile pour cumuler des quotas ou pour
+    garder un compte de secours : soit plusieurs jetons séparés par des virgules
+    dans SCRAPER_API_KEY, soit SCRAPER_API_KEY_2, _3… (secrets GitHub distincts)."""
+    if api_key is not None:                  # appel explicite : on n'ajoute rien d'autre
+        bruts = [api_key]
+    else:
+        bruts = [os.environ.get("SCRAPER_API_KEY", "")]
+        bruts += [os.environ.get(f"SCRAPER_API_KEY_{n}", "") for n in range(2, 6)]
+    out = []
+    for b in bruts:
+        out += [t.strip() for t in re.split(r"[,\s]+", b or "") if t.strip()]
+    return list(dict.fromkeys(out))          # dédoublonne en conservant l'ordre
+
+
+def _rotate_pause():
+    """Secondes d'attente au changement de compte (SCRAPER_ROTATE_PAUSE, 0 = aucune)."""
+    try:
+        return max(0, int(os.environ.get("SCRAPER_ROTATE_PAUSE", ROTATE_PAUSE)))
+    except ValueError:
+        return ROTATE_PAUSE
+
+
+class _Keyring:
+    """Trousseau de comptes : on bascule sur le suivant dès qu'un quota est épuisé."""
+
+    def __init__(self, jetons, tag="scrapedo"):
+        self.jetons = list(jetons)
+        self.tag = tag
+        self.i = 0
+        self.budgets = [_Budget() for _ in self.jetons]
+
+    @property
+    def token(self):
+        return self.jetons[self.i]
+
+    def note(self, resp):
+        self.budgets[self.i].note(resp)
+
+    def rotate(self, raison):
+        """-> True si un compte de secours a pris le relais.
+
+        On temporise avant la première requête du compte suivant : enchaîner une
+        salve de 401 avec des appels immédiats sur un compte neuf est une mauvaise
+        manière, et la pause laisse aussi retomber une éventuelle limite de débit.
+        Elle ne rend pas les comptes indépendants pour autant — même workload, même
+        plage d'IP, même cadence : le délai ne change pas cette signature."""
+        if self.i + 1 >= len(self.jetons):
+            return False
+        pause = _rotate_pause()
+        print(f"[{self.tag}] compte {self.i + 1} : {raison} — bascule sur le compte "
+              f"{self.i + 2}" + (f" après {pause} s" if pause else ""), flush=True)
+        if pause:
+            time.sleep(pause)
+        self.i += 1
+        return True
+
+
 def _backoff(delay, attempt):
     """Back-off exponentiel + jitter : 1er échec ~delay, puis 2×, 4×… (plafonné)."""
     return min(delay * (2 ** (attempt - 1)) + random.uniform(0, delay / 2), MAX_BACKOFF)
 
 
-def _get(url, token, name, super_proxy, render, delay, budget, wait_selector=None):
+def _get(url, keys, name, super_proxy, render, delay, wait_selector=None):
     """Télécharge une URL avec réessais. Retourne (html, erreur) ; l'un des deux est None.
-    Lève QuotaExhausted si le compte scrape.do ne sert plus (inutile d'insister)."""
-    err = None
-    for attempt in range(1, ATTEMPTS + 1):
+    Lève QuotaExhausted quand PLUS AUCUN compte n'a de crédits (inutile d'insister)."""
+    err, attempt = None, 0
+    while attempt < ATTEMPTS:
+        attempt += 1
         try:
-            r = _fetch(url, token, super_proxy, render, wait_selector)
-            budget.note(r)
+            r = _fetch(url, keys.token, super_proxy, render, wait_selector)
+            keys.note(r)
             if r.status_code in FATAL_STATUS:
-                raise QuotaExhausted(f"scrape.do HTTP {r.status_code} — {FATAL_STATUS[r.status_code]}")
+                raison = FATAL_STATUS[r.status_code]
+                if keys.rotate(raison):
+                    attempt -= 1        # changer de compte ne consomme pas un essai
+                    continue            # et on rejoue la MÊME url : rien n'est perdu
+                raise QuotaExhausted(f"scrape.do HTTP {r.status_code} — {raison}")
             if r.status_code == 200:
                 return r.text, None
             err = f"{name} : HTTP {r.status_code} ({url[-40:]})"
@@ -102,15 +168,17 @@ def _title_ok(title, expect):
 def collect(sources, delay=4.0, api_key=None, super_proxy=None, render=None):
     """Collecte TOUTES les URL d'une source et fusionne (couverture garantie même
     si l'une des URL est redirigée vers la recherche nationale)."""
-    token = api_key or os.environ.get("SCRAPER_API_KEY")
-    if not token:
+    jetons = tokens(api_key)
+    if not jetons:
         raise RuntimeError("SCRAPER_API_KEY manquant")
     if super_proxy is None:
         super_proxy = os.environ.get("SCRAPER_SUPER", "true").lower() != "false"
     if render is None:
         render = os.environ.get("SCRAPER_RENDER", "true").lower() != "false"
-    budget = _Budget()
     tag = "scrapedo" + ("/super" if super_proxy else "") + ("" if render else "/norender")
+    keys = _Keyring(jetons, tag)
+    if len(jetons) > 1:
+        print(f"[{tag}] {len(jetons)} comptes disponibles (bascule automatique si quota épuisé)")
     listings, errors = {}, []
     # toutes les sources sont connues d'avance : une source non atteinte reste à 0,
     # ce qui gèle sa commune au lieu de la faire passer pour un déstockage.
@@ -120,8 +188,8 @@ def collect(sources, delay=4.0, api_key=None, super_proxy=None, render=None):
             got, urls = {}, (src.get("urls") or [src["url"]])
             parse_cards, wait_selector = PARSERS[src.get("parser", "bd")]
             for url_try in urls:
-                html, err = _get(url_try, token, src["name"], super_proxy, render, delay,
-                                 budget, wait_selector)
+                html, err = _get(url_try, keys, src["name"], super_proxy, render, delay,
+                                 wait_selector)
                 if html is not None:
                     tm = re.search(r"<title>(.*?)</title>", html, re.I | re.S)
                     title = (tm.group(1) if tm else "").strip()
@@ -144,17 +212,24 @@ def collect(sources, delay=4.0, api_key=None, super_proxy=None, render=None):
                   + (f"  ({len(urls)} url)" if len(urls) > 1 else ""))
             time.sleep(delay)
     except QuotaExhausted as e:
-        errors.append(f"COLLECTE INTERROMPUE — {e}")
-        print(f"[{tag}] {e} : arrêt de la collecte (les sources restantes sont gelées)")
-        raise QuotaExhausted(str(e), list(listings.values()), errors, per_source) from None
+        msg = f"{e} (tous les comptes épuisés : {len(jetons)})" if len(jetons) > 1 else str(e)
+        errors.append(f"COLLECTE INTERROMPUE — {msg}")
+        print(f"[{tag}] {msg} : arrêt de la collecte (les sources restantes sont gelées)")
+        raise QuotaExhausted(msg, list(listings.values()), errors, per_source) from None
     finally:
-        _log_budget(tag, budget, errors)
+        _log_budget(tag, keys, errors)
     return list(listings.values()), errors, per_source
 
 
-def _log_budget(tag, budget, errors):
-    if budget.spent or budget.left is not None:
-        left = "?" if budget.left is None else budget.left
-        print(f"[{tag}] crédits consommés : {budget.spent} — restants : {left}")
-    if budget.left is not None and budget.left < LOW_CREDITS:
-        errors.append(f"crédits scrape.do bientôt épuisés : {budget.left} restants")
+def _log_budget(tag, keys, errors):
+    """Journalise la consommation compte par compte, et prévient quand le dernier
+    compte encore utilisable approche de la fin (les précédents sont déjà à sec)."""
+    for n, budget in enumerate(keys.budgets, start=1):
+        if budget.spent or budget.left is not None:
+            left = "?" if budget.left is None else budget.left
+            compte = f" compte {n}" if len(keys.budgets) > 1 else ""
+            print(f"[{tag}]{compte} crédits consommés : {budget.spent} — restants : {left}")
+    dispo = sum(b.left for b in keys.budgets if b.left is not None)
+    if any(b.left is not None for b in keys.budgets) and dispo < LOW_CREDITS:
+        errors.append(f"crédits scrape.do bientôt épuisés : {dispo} restants "
+                      f"sur {len(keys.jetons)} compte(s)")

@@ -99,8 +99,9 @@ Dès que `SCRAPER_API_KEY` est présent, `run_veille.py` utilise automatiquement
 collecteur ScrapingBee (sinon il retombe sur le navigateur local, cf. `--local`).
 
 **Coût / crédits.** Le mode stealth (nécessaire contre DataDome) coûte ~75 crédits
-par page. Périmètre = 5 pages → ~375 crédits par scan. Un scan tous les 3 jours
-≈ 10 scans/mois ≈ ~3 750 crédits/mois. L'essai gratuit (1000 crédits) couvre
+par page. Périmètre = 10 pages → ~750 crédits par scan. Un scan tous les 3 jours
+≈ 10 scans/mois ≈ ~7 500 crédits/mois — soit trois fois le tarif scrape.do, qui
+reste donc le fournisseur par défaut. L'essai gratuit (1000 crédits) couvre
 ~2-3 scans de test ; au-delà, le plan payant le moins cher suffit largement.
 Pour réduire : dans `veille_immo/collector_scrapingbee.py`, tu peux tester
 `premium_proxy=true` (moins cher) à la place de `stealth_proxy=true` si DataDome
@@ -165,30 +166,89 @@ Augmente `retrait_grace` si tu veux être encore plus conservateur.
 Coût d'une page selon le mode (barème scrape.do) : datacenter 1, datacenter +
 rendu JS **5**, résidentiel **10**, résidentiel + rendu JS **25**.
 
-`config.gha.yaml` contient **15 URL** — 10 Belles Demeures (Sèvres 1, Ville-d'Avray 1,
-Meudon 1, Chaville 2, Viroflay 5) + 5 SeLoger (une par commune) — et le cron tourne
-**tous les 3 jours** (≈ 10 runs/mois) :
+`config.gha.yaml` contient **10 URL** — une par commune et par portail, 5 Belles
+Demeures + 5 SeLoger — et le cron tourne **tous les 3 jours** (≈ 10 runs/mois) :
 
 | Mode                              | par run | par mois |
 |-----------------------------------|--------:|---------:|
-| résidentiel + rendu JS (défaut)   |     375 |   3 750  |
-| résidentiel sans rendu JS         |     150 |   1 500  |
-| datacenter + rendu JS (éco)       |      75 |     750  |
+| résidentiel + rendu JS (défaut)   |     250 |   2 500  |
+| résidentiel sans rendu JS         |     100 |   1 000  |
+| datacenter + rendu JS (éco)       |      50 |     500  |
 
-**L'offre gratuite = 1000 crédits/mois.** Même à 10 runs/mois, le mode résidentiel
-avec rendu JS dépasse largement le quota gratuit — le passage à */3 réduit la casse
-mais ne la résout pas : le run peut encore heurter le plafond en cours de mois et
-scrape.do répondre **HTTP 401 « no credits »**, ce qui vide des communes entières.
-Deux leviers :
+### Plusieurs comptes scrape.do (bascule automatique)
 
-1. **Passer à une offre payante** (le premier palier couvre très largement 3 750/mois) ;
+Un seul quota ne suffit pas ? Déclare des comptes de secours : la collecte bascule
+sur le suivant dès qu'un compte répond **HTTP 401 « no credits »**, et **rejoue
+l'URL refusée** — aucune commune n'est perdue au passage. Deux façons de faire :
+
+- secrets distincts `SCRAPER_API_KEY_2`, `SCRAPER_API_KEY_3` (déjà câblés dans le
+  workflow ; laisser vide s'il n'y en a qu'un) ;
+- ou plusieurs jetons séparés par des virgules dans `SCRAPER_API_KEY`.
+
+L'ordre est celui de la déclaration : le compte 1 est vidé avant qu'on touche au 2.
+Le log indique la bascule et la consommation compte par compte :
+
+    [scrapedo/super] 2 comptes disponibles (bascule automatique si quota épuisé)
+    [scrapedo/super] compte 1 : crédits épuisés ou abonnement suspendu — bascule sur le compte 2 après 60 s
+    [scrapedo/super] compte 1 crédits consommés : 175 — restants : 0
+    [scrapedo/super] compte 2 crédits consommés : 75 — restants : 925
+
+Une pause de 60 s précède la première requête du compte de secours
+(`SCRAPER_ROTATE_PAUSE`, en secondes ; `0` la désactive) : enchaîner une salve de
+401 avec des appels immédiats sur un compte neuf est une mauvaise manière, et la
+pause laisse retomber une éventuelle limite de débit. **Elle ne rend pas les
+comptes indépendants** : même jeu d'URL, mêmes plages d'IP GitHub Actions, même
+User-Agent, même cadence — le délai ne change rien à cette signature.
+
+L'alerte « crédits bientôt épuisés » dans le rapport se déclenche sur le **total**
+restant, tous comptes confondus. Quand tous sont à sec, on retombe sur le
+comportement habituel : collecte partielle exploitée, communes non atteintes gelées.
+
+Note : cumuler les quotas gratuits de plusieurs comptes est souvent encadré par les
+CGU des fournisseurs — à vérifier. Le mécanisme sert aussi, sans ambiguïté, à
+chaîner un compte payant et un compte de secours.
+
+**L'offre gratuite = 1000 crédits/mois.** À 2 500/mois on reste au-dessus du quota :
+le run peut heurter le plafond en cours de mois et scrape.do répondre **HTTP 401
+« no credits »**, ce qui vide des communes entières. Deux leviers :
+
+1. **Passer à une offre payante** (le premier palier couvre très largement 2 500/mois) ;
 2. **Tester le résidentiel sans rendu JS** : *Run workflow* → cocher `no_render`
-   (ou `SCRAPER_RENDER=false`) : **−60 % de crédits**. Vérifier alors le compte des
-   sources `seloger_*` en particulier : SeLoger est une SPA React, elle peut exiger
-   le rendu là où Belles Demeures s'en passe. Si ces sources tombent à 0, ne garder
-   `no_render` qu'en le combinant avec le retrait des URL SeLoger — ou pas du tout.
+   (ou `SCRAPER_RENDER=false`) : **−60 % de crédits, soit 1 000/mois — pile le quota
+   gratuit**. Vérifier alors le compte des sources `seloger_*` en particulier :
+   SeLoger est une SPA React, elle peut exiger le rendu là où Belles Demeures s'en
+   passe. Si ces sources tombent à 0, ne pas garder `no_render`.
 
 En dépannage, `--local` reste gratuit et collecte les deux portails (cf. plus haut).
+
+### Ce que rapporte chaque URL (audit du 06/08/2026)
+
+Mesuré id par id sur une collecte réelle, en croisant avec `criteria` :
+
+| source | annonces | dans les critères | **exclusifs** dans les critères |
+|---|---:|---:|---:|
+| sevres_brancas    | 28 |   4 | 0 |
+| ville_davray      | 40 |   9 | 5 |
+| meudon            | 20 |   6 | 1 |
+| chaville          | 34 |  23 | 1 |
+| viroflay          | 38 |  28 | 9 |
+| les 5 `seloger_*` | 110 | **107** | 89 |
+
+SeLoger coûte le même prix que Belles Demeures et rapporte plus du double de biens
+utiles. Les sources BD sont conservées quand même : ce sont les seules sur leur
+commune si SeLoger change de balisage, et elles couvrent le segment > 1,2 M €.
+
+C'est cet audit qui a fait tomber 5 URL redondantes (Chaville avait deux URL au jeu
+identique, Viroflay quatre pages `pl-` n'apportant qu'une annonce à elles toutes) :
+**−125 crédits/run pour zéro bien perdu** — vérifié, les deux configurations donnent
+exactement les mêmes 190 biens. Refaire cet audit avant d'ajouter des URL :
+`scratchpad/audit_urls.py` dans l'historique de la PR, ou simplement comparer les
+jeux d'ids URL par URL.
+
+Attention : la redondance d'URL n'était pas que de la couverture. Pendant les
+orages de 502 chez scrape.do, les communes à plusieurs URL survivaient là où les
+communes à URL unique tombaient à zéro. Avec une seule URL par commune, ce sont les
+3 essais avec back-off qui jouent ce rôle — pas une seconde URL.
 
 Le log de chaque run affiche `[scrapedo/super] crédits consommés : N — restants : M`,
 et sous 400 crédits restants un avertissement est ajouté au rapport.

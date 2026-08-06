@@ -22,6 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     env:                          # secrets communs aux deux tentatives
       SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+      # Comptes de secours : la collecte bascule dessus dès qu'un quota est épuisé
+      # (HTTP 401). Optionnels — laisser le secret vide s'il n'y en a qu'un.
+      SCRAPER_API_KEY_2: ${{ secrets.SCRAPER_API_KEY_2 }}
+      SCRAPER_API_KEY_3: ${{ secrets.SCRAPER_API_KEY_3 }}
       GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
       GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
       MAIL_TO: ${{ secrets.MAIL_TO }}
