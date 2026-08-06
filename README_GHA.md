@@ -175,6 +175,32 @@ Demeures + 5 SeLoger — et le cron tourne **tous les 3 jours** (≈ 10 runs/moi
 | résidentiel sans rendu JS         |     100 |   1 000  |
 | datacenter + rendu JS (éco)       |      50 |     500  |
 
+### Plusieurs comptes scrape.do (bascule automatique)
+
+Un seul quota ne suffit pas ? Déclare des comptes de secours : la collecte bascule
+sur le suivant dès qu'un compte répond **HTTP 401 « no credits »**, et **rejoue
+l'URL refusée** — aucune commune n'est perdue au passage. Deux façons de faire :
+
+- secrets distincts `SCRAPER_API_KEY_2`, `SCRAPER_API_KEY_3` (déjà câblés dans le
+  workflow ; laisser vide s'il n'y en a qu'un) ;
+- ou plusieurs jetons séparés par des virgules dans `SCRAPER_API_KEY`.
+
+L'ordre est celui de la déclaration : le compte 1 est vidé avant qu'on touche au 2.
+Le log indique la bascule et la consommation compte par compte :
+
+    [scrapedo/super] 2 comptes disponibles (bascule automatique si quota épuisé)
+    [scrapedo/super] compte 1 : crédits épuisés ou abonnement suspendu — bascule sur le compte 2
+    [scrapedo/super] compte 1 crédits consommés : 175 — restants : 0
+    [scrapedo/super] compte 2 crédits consommés : 75 — restants : 925
+
+L'alerte « crédits bientôt épuisés » dans le rapport se déclenche sur le **total**
+restant, tous comptes confondus. Quand tous sont à sec, on retombe sur le
+comportement habituel : collecte partielle exploitée, communes non atteintes gelées.
+
+Note : cumuler les quotas gratuits de plusieurs comptes est souvent encadré par les
+CGU des fournisseurs — à vérifier. Le mécanisme sert aussi, sans ambiguïté, à
+chaîner un compte payant et un compte de secours.
+
 **L'offre gratuite = 1000 crédits/mois.** À 2 500/mois on reste au-dessus du quota :
 le run peut heurter le plafond en cours de mois et scrape.do répondre **HTTP 401
 « no credits »**, ce qui vide des communes entières. Deux leviers :

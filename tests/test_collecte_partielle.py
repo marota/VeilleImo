@@ -95,6 +95,37 @@ def test_502_est_reessaye(monkeypatch):
     assert per_source == {"chaville": 1} and len(rows) == 1
 
 
+def test_bascule_sur_le_second_compte_quand_le_premier_est_a_sec(monkeypatch):
+    """Le quota d'un compte ne doit rien coûter en couverture : l'URL refusée est
+    rejouée telle quelle par le compte suivant."""
+    vus = []
+
+    def fake_get(url, params=None, timeout=None):
+        vus.append((params["token"], params["url"]))
+        if params["token"] == "compte1":
+            return FakeResp(401)                      # premier compte à sec
+        return FakeResp(200, CARD, {"Scrape.do-Request-Cost": "25",
+                                    "Scrape.do-Remaining-Credits": "900"})
+
+    monkeypatch.setattr(requests, "get", fake_get)
+    monkeypatch.setattr(collector_scrapedo.time, "sleep", lambda *_: None)
+    monkeypatch.setenv("SCRAPER_API_KEY", "compte1")
+    monkeypatch.setenv("SCRAPER_API_KEY_2", "compte2")
+    rows, errors, per_source = collector_scrapedo.collect(
+        [{"name": "chaville", "commune": "chaville", "expect": "Chaville",
+          "urls": ["https://www.bellesdemeures.com/x"]}], delay=0)
+    assert per_source == {"chaville": 1} and len(rows) == 1   # rien n'est perdu
+    assert [t for t, _ in vus] == ["compte1", "compte2"]      # même URL, compte suivant
+    assert errors == []
+
+
+def test_tokens_lit_les_deux_formes_de_declaration(monkeypatch):
+    monkeypatch.setenv("SCRAPER_API_KEY", "a, b")     # plusieurs jetons d'un coup
+    monkeypatch.setenv("SCRAPER_API_KEY_2", "c")      # ou un secret distinct
+    monkeypatch.setenv("SCRAPER_API_KEY_3", "a")      # doublon : ignoré
+    assert collector_scrapedo.tokens() == ["a", "b", "c"]
+
+
 def test_401_arrete_la_collecte_en_conservant_le_deja_collecte(monkeypatch):
     def fake_get(url, params=None, timeout=None):
         if "chaville" in params["url"]:
