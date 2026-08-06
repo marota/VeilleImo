@@ -24,27 +24,22 @@ sources:
   expect: Meudon
   urls:
   - https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/meudon/maison-luxe/tt-2-tb-2-pl-38328/
+# Chaville et Viroflay n'ont plus qu'une URL : la page `recherche?ci=` couvre toute
+# la commune. Mesuré le 06/08/2026 (audit id par id) : la seconde URL de Chaville
+# renvoyait un jeu STRICTEMENT identique (34 annonces, écart nul), et les 4 pages
+# `pl-` de Viroflay n'apportaient qu'une annonce exclusive à elles toutes — pour
+# 125 crédits par run. `ci=` est le code INSEE de la commune, préfixe département
+# puis numéro sur 4 chiffres (Chaville 92022 -> 920022, Viroflay 78686 -> 780686).
 - name: chaville
   commune: chaville
-  expect:
-  - Chaville
+  expect: Chaville
   urls:
-  - https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/chaville/maison-luxe/tt-2-tb-2-pl-38315/
   - https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2
 - name: viroflay
   commune: viroflay
-  expect:
-  - Viroflay
-  - Rive Gauche
-  - Aulnettes
-  - Arcades
-  - Rive Droite
+  expect: Viroflay
   urls:
   - https://www.bellesdemeures.com/recherche?ci=780686&idpays=250&idtb=2&idtt=2
-  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45801/
-  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45797/
-  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45799/
-  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45796/
 # SeLoger : même back-office que Belles Demeures (ids partagés, chaînage natif),
 # mais SANS le filtre « luxe » — c'est là qu'apparaît le segment 700 k–1,2 M €.
 # Le filtrage est fait côté serveur (priceMin/priceMax/roomCountMin/squareMeterMin)
