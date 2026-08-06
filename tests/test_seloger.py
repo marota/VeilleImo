@@ -78,6 +78,18 @@ def test_surface_decimale_ne_coupe_pas_le_lieu():
     assert recs[0]["quartier"] == "Pavé des Gardes, Chaville"
 
 
+def test_quartier_long_le_bruit_reste_nettoyable():
+    """Vu en prod (sl_267LZS93HUC2) : quartier à rallonge précédé d'une surface de
+    terrain. Une borne de capture trop courte démarrait au milieu du mot et laissait
+    « rain Cote d'Argent-… » — donc un quartier faux dans le rapport."""
+    recs = sl_parse.parse_cards(page(carte(
+        "https://www.seloger.com/annonce/achat/ile-de-france/ville-d-avray-92410/267LZS93HUC2",
+        "Maison à vendre 7 pièces · 5 chambres · 175 m² · 788 m² de terrain "
+        "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray (92410)")))
+    assert recs[0]["quartier"] == "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray"
+    assert recs[0]["surface"] == 175.0
+
+
 def test_nombre_coupe_par_le_balisage_ne_devient_pas_une_commune():
     """Vu en prod : « 13 » et « 4 m² » dans deux spans → lieu « 4 m² Chaville ».
 
@@ -93,6 +105,40 @@ def test_doublons_et_cartes_sans_lien_ignores():
     html = page(carte("/a/271067259.htm", REEL), carte("/b/271067259.htm", REEL),
                 '<div data-testid="serp-core-classified-card-testid">sans lien</div>')
     assert len(sl_parse.parse_cards(html)) == 1
+
+
+# --------------------------------------------------------------------------- #
+# Les quatre formes d'URL qui cohabitent sur une même page de résultats        #
+# --------------------------------------------------------------------------- #
+def test_toutes_les_formes_d_url_sont_captees():
+    """Relevé sur la SERP Viroflay du 06/08/2026 : sur 30 cartes, seules 11 étaient
+    au format historique `<num>.htm`. Les ids alphanumériques (12 cartes, dont les
+    annonces en marque blanche) étaient purement et simplement perdus."""
+    txt = "751 000 € Maison à vendre 5 pièces · 3 chambres · 127 m² Les Arcades, Viroflay (78220)"
+    html = page(
+        carte("/annonces/achat/maison/viroflay-78/le-haras/272129545.htm", txt),
+        carte("https://www.bellesdemeures.com/275622143/detail.htm", txt),
+        carte("https://www.seloger.com/annonce/achat/maison/viroflay-78220/26G9Z1Y2ETQ1", txt),
+        carte("https://www.seloger.com/wl-cdp/264BTAIFMGPU", txt),
+    )
+    ids = [r["id"] for r in sl_parse.parse_cards(html)]
+    # ids numériques bruts : espace partagé avec Belles Demeures, fusion native
+    assert "272129545" in ids and "275622143" in ids
+    # ids alphanumériques : espace distinct, donc préfixés
+    assert "sl_26G9Z1Y2ETQ1" in ids and "sl_264BTAIFMGPU" in ids
+    assert len(ids) == 4
+
+
+def test_maisons_a_construire_hors_perimetre():
+    """seloger-construire = terrain + projet de construction, pas un bien du marché."""
+    html = page(carte("https://www.seloger-construire.com/detail/274648791",
+                      "290 000 € Maison à vendre 5 pièces · 110 m² Viroflay (78220)"))
+    assert sl_parse.parse_cards(html) == []
+
+
+def test_identifier_ignore_les_urls_non_reconnues():
+    assert sl_parse._identifier("https://www.seloger.com/agences/xyz") is None
+    assert sl_parse._identifier("/annonces/achat/maison/viroflay-78/276120375.htm") == "276120375"
 
 
 def test_config_seloger_coherente():

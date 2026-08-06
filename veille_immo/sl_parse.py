@@ -15,14 +15,27 @@ import re
 from bs4 import BeautifulSoup
 
 CARD = '[data-testid="serp-core-classified-card-testid"]'
+# Quatre formes d'URL cohabitent sur une même page de résultats :
+#   /annonces/…/<num>.htm            annonce historique (id partagé avec Belles Demeures)
+#   bellesdemeures.com/<num>/detail  bien « luxe », même id : fusionne avec les sources BD
+#   /annonce/achat/…/<CODE>          nouvel espace d'ids alphanumériques
+#   /wl-cdp/<CODE>                   annonce diffusée en marque blanche, idem
+# seloger-construire = maisons à faire construire : hors périmètre (pas un bien du marché).
 AD = re.compile(r"/(\d{6,})\.htm")
+BD_URL = re.compile(r"bellesdemeures\.com/(\d{6,})/")
+CODE = re.compile(r"[A-Z0-9]{8,}")
+HORS_PERIMETRE = ("seloger-construire.com",)
+LIEN = 'a[data-testid*="covering-link"], a[href]'
 # prix de vente : montant en € NON suivi de /m² (qui est le prix au mètre carré)
 PRICE = re.compile(r"(\d[\d\s  ]{4,})\s*€(?!\s*/\s*m)")
 # surface habitable : m² NON suivis de « de terrain »
 SURF = re.compile(r"(\d{2,4}(?:[.,]\d{1,2})?)\s*m²(?!\s*de\s*terrain)")
 ROOMS = re.compile(r"(\d{1,2})\s*pi[eè]ces?", re.I)
-# « Pavé des Gardes, Chaville (92370) » ou « Chaville (92370) »
-LOC = re.compile(r"([^·,]{2,40}),\s*([^·,(]{2,30}?)\s*\((\d{5})\)|([^·,(]{2,30}?)\s*\((\d{5})\)")
+# « Pavé des Gardes, Chaville (92370) » ou « Chaville (92370) ». Les bornes hautes
+# sont larges à dessein : trop courtes, la capture démarre au milieu du bruit qui
+# précède (« …de ter | rain Cote d'Argent… ») et _clean ne peut plus le retirer.
+LOC = re.compile(r"([^·,]{2,90}),\s*([^·,(]{2,40}?)\s*\((\d{5})\)"
+                 r"|([^·,(]{2,90}?)\s*\((\d{5})\)")
 # Bruit précédant le lieu dans le texte de carte (« … 150 m² · 217 m² de terrain
 # Pavé des Gardes »). Volontairement gourmand : on coupe au DERNIER jeton de bruit,
 # sinon « 217 m² de terrain X » ne perd que « 217 m² ».
@@ -67,19 +80,32 @@ def _location(txt):
     return commune
 
 
+def _identifier(href):
+    """-> id d'annonce, ou None si l'URL est hors périmètre ou non reconnue.
+
+    Les ids numériques sont laissés bruts : ils sont partagés avec Belles Demeures,
+    donc un bien vu des deux côtés se chaîne tout seul. Les nouveaux ids
+    alphanumériques vivent dans un autre espace : on les préfixe pour éviter toute
+    collision, comme le fait déjà le collecteur des sites d'agences."""
+    if any(h in href for h in HORS_PERIMETRE):
+        return None
+    m = AD.search(href) or BD_URL.search(href)
+    if m:
+        return m.group(1)
+    segment = href.rstrip("/").rsplit("/", 1)[-1]
+    return "sl_" + segment if CODE.fullmatch(segment) else None
+
+
 def parse_cards(html):
     soup = BeautifulSoup(html, "html.parser")
     out, seen = [], set()
     for card in soup.select(CARD):
-        a = card.select_one('a[href*=".htm"]')
+        a = card.select_one(LIEN)
         if not a or not a.get("href"):
             continue
         href = a["href"].split("?")[0].split("#")[0]
-        m = AD.search(href)
-        if not m:
-            continue
-        cid = m.group(1)
-        if cid in seen:
+        cid = _identifier(href)
+        if not cid or cid in seen:
             continue
         seen.add(cid)
         url = href if href.startswith("http") else "https://www.seloger.com" + href
