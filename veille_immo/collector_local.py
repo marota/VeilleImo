@@ -18,22 +18,22 @@ un peu plus complète que celle de l'API (qui photographie la page sans déroule
 """
 import os, time
 
-from .bd_parse import parse_cards
-from .collector_scrapedo import _title_ok
+from .collector_scrapedo import PARSERS, _title_ok
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
 BLOCKED = ("datadome", "captcha", "are human", "vérifier que vous")
 
 
-def _scan_url(page, url, name, expect):
+def _scan_url(page, url, name, expect, parser="bd"):
     """Charge une URL et en extrait les annonces. -> (records, erreur)."""
+    parse_cards, selector = PARSERS[parser]
     r = page.goto(url, wait_until="domcontentloaded", timeout=60000)
     status = r.status if r else 0
     if status >= 400:
         return None, f"{name} : HTTP {status} ({url[-40:]})"
     try:
-        page.wait_for_selector("div.item.js_favoritesParent", timeout=15000)
+        page.wait_for_selector(selector, timeout=15000)
     except Exception:
         pass
     body = (page.inner_text("body") or "")[:400].lower()
@@ -76,7 +76,8 @@ def collect(sources, delay=4.0, headless=None):
                     recs, err = None, None
                     for attempt in (1, 2):            # un réessai (aléa réseau / rendu)
                         try:
-                            recs, err = _scan_url(page, url, src["name"], src.get("expect"))
+                            recs, err = _scan_url(page, url, src["name"], src.get("expect"),
+                                                  src.get("parser", "bd"))
                         except Exception as e:
                             recs, err = None, f"{src['name']} : {type(e).__name__} {str(e)[:60]}"
                         if recs or (err and "titre inattendu" in err):

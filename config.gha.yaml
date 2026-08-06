@@ -45,6 +45,42 @@ sources:
   - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45797/
   - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45799/
   - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45796/
+# SeLoger : même back-office que Belles Demeures (ids partagés, chaînage natif),
+# mais SANS le filtre « luxe » — c'est là qu'apparaît le segment 700 k–1,2 M €.
+# Le filtrage est fait côté serveur (priceMin/priceMax/roomCountMin/squareMeterMin)
+# pour tenir en une page par commune : peu de volume, peu de crédits.
+# `locations` = code AVIV de la commune, numéroté par ordre alphabétique dans le
+# département (92 : Chaville 36607 < Meudon 36620 < Sèvres 36629 < Ville-d'Avray 36633).
+- name: seloger_sevres
+  parser: seloger
+  commune: sevres
+  expect: Sèvres
+  urls:
+  - https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=House&locations=AD08FR36629&priceMin=700000&priceMax=1200000&roomCountMin=4&squareMeterMin=90
+- name: seloger_ville_davray
+  parser: seloger
+  commune: ville-d'avray
+  expect: Ville-d
+  urls:
+  - https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=House&locations=AD08FR36633&priceMin=700000&priceMax=1200000&roomCountMin=4&squareMeterMin=90
+- name: seloger_meudon
+  parser: seloger
+  commune: meudon
+  expect: Meudon
+  urls:
+  - https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=House&locations=AD08FR36620&priceMin=700000&priceMax=1200000&roomCountMin=4&squareMeterMin=90
+- name: seloger_chaville
+  parser: seloger
+  commune: chaville
+  expect: Chaville
+  urls:
+  - https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=House&locations=AD08FR36607&priceMin=700000&priceMax=1200000&roomCountMin=4&squareMeterMin=90
+- name: seloger_viroflay
+  parser: seloger
+  commune: viroflay
+  expect: Viroflay
+  urls:
+  - https://www.seloger.com/classified-search?distributionTypes=Buy&estateTypes=House&locations=AD08FR32622&priceMin=700000&priceMax=1200000&roomCountMin=4&squareMeterMin=90
 agences:
 - name: aetm
   agency: A&M Appartements & Maisons

@@ -14,8 +14,13 @@ back-off exponentiel, et on distingue :
   - 401 / 402             => crédits épuisés : on arrête tout de suite (QuotaExhausted).
 """
 import os, random, re, time, requests
-from .bd_parse import parse_cards
+from . import bd_parse, sl_parse
 from .errors import QuotaExhausted
+
+# Une source déclare son portail via `parser:` — même mécanique de récupération
+# (proxy résidentiel + rendu JS), seul le balisage des cartes diffère.
+PARSERS = {"bd": (bd_parse.parse_cards, "div.item.js_favoritesParent"),
+           "seloger": (sl_parse.parse_cards, sl_parse.CARD)}
 
 API = "https://api.scrape.do/"
 ATTEMPTS = 3                                   # 3 essais par URL (502 fréquents et transitoires)
@@ -26,11 +31,11 @@ FATAL_STATUS = {401: "crédits épuisés ou abonnement suspendu",
 LOW_CREDITS = 400                              # en dessous : on le signale dans le rapport
 
 
-def _fetch(url, token, super_proxy=True, render=True):
+def _fetch(url, token, super_proxy=True, render=True, wait_selector=None):
     params = {"token": token, "url": url, "geoCode": "fr"}
     if render:
         params.update({"render": "true",
-                       "waitSelector": "div.item.js_favoritesParent",
+                       "waitSelector": wait_selector or "div.item.js_favoritesParent",
                        "customWait": "3000"})
     if super_proxy:
         params["super"] = "true"      # proxy résidentiel (anti-DataDome)
@@ -62,13 +67,13 @@ def _backoff(delay, attempt):
     return min(delay * (2 ** (attempt - 1)) + random.uniform(0, delay / 2), MAX_BACKOFF)
 
 
-def _get(url, token, name, super_proxy, render, delay, budget):
+def _get(url, token, name, super_proxy, render, delay, budget, wait_selector=None):
     """Télécharge une URL avec réessais. Retourne (html, erreur) ; l'un des deux est None.
     Lève QuotaExhausted si le compte scrape.do ne sert plus (inutile d'insister)."""
     err = None
     for attempt in range(1, ATTEMPTS + 1):
         try:
-            r = _fetch(url, token, super_proxy, render)
+            r = _fetch(url, token, super_proxy, render, wait_selector)
             budget.note(r)
             if r.status_code in FATAL_STATUS:
                 raise QuotaExhausted(f"scrape.do HTTP {r.status_code} — {FATAL_STATUS[r.status_code]}")
@@ -113,8 +118,10 @@ def collect(sources, delay=4.0, api_key=None, super_proxy=None, render=None):
     try:
         for src in sources:
             got, urls = {}, (src.get("urls") or [src["url"]])
+            parse_cards, wait_selector = PARSERS[src.get("parser", "bd")]
             for url_try in urls:
-                html, err = _get(url_try, token, src["name"], super_proxy, render, delay, budget)
+                html, err = _get(url_try, token, src["name"], super_proxy, render, delay,
+                                 budget, wait_selector)
                 if html is not None:
                     tm = re.search(r"<title>(.*?)</title>", html, re.I | re.S)
                     title = (tm.group(1) if tm else "").strip()

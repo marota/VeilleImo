@@ -165,26 +165,30 @@ Augmente `retrait_grace` si tu veux être encore plus conservateur.
 Coût d'une page selon le mode (barème scrape.do) : datacenter 1, datacenter +
 rendu JS **5**, résidentiel **10**, résidentiel + rendu JS **25**.
 
-`config.gha.yaml` contient **10 URL** (Sèvres 1, Ville-d'Avray 1, Meudon 1,
-Chaville 2, Viroflay 5) et le cron tourne **tous les 3 jours** (≈ 10 runs/mois) :
+`config.gha.yaml` contient **15 URL** — 10 Belles Demeures (Sèvres 1, Ville-d'Avray 1,
+Meudon 1, Chaville 2, Viroflay 5) + 5 SeLoger (une par commune) — et le cron tourne
+**tous les 3 jours** (≈ 10 runs/mois) :
 
 | Mode                              | par run | par mois |
 |-----------------------------------|--------:|---------:|
-| résidentiel + rendu JS (défaut)   |     250 |   2 500  |
-| résidentiel sans rendu JS         |     100 |   1 000  |
-| datacenter + rendu JS (éco)       |      50 |     500  |
+| résidentiel + rendu JS (défaut)   |     375 |   3 750  |
+| résidentiel sans rendu JS         |     150 |   1 500  |
+| datacenter + rendu JS (éco)       |      75 |     750  |
 
 **L'offre gratuite = 1000 crédits/mois.** Même à 10 runs/mois, le mode résidentiel
-avec rendu JS (2 500/mois) dépasse largement le quota gratuit — le passage à */3
-réduit la casse mais ne la résout pas : le run peut encore heurter le plafond en
-cours de mois et scrape.do répondre **HTTP 401 « no credits »**, ce qui vide des
-communes entières. Deux leviers restent utiles :
+avec rendu JS dépasse largement le quota gratuit — le passage à */3 réduit la casse
+mais ne la résout pas : le run peut encore heurter le plafond en cours de mois et
+scrape.do répondre **HTTP 401 « no credits »**, ce qui vide des communes entières.
+Deux leviers :
 
-1. **Passer à une offre payante** (le premier palier couvre très largement 2 500/mois) ;
+1. **Passer à une offre payante** (le premier palier couvre très largement 3 750/mois) ;
 2. **Tester le résidentiel sans rendu JS** : *Run workflow* → cocher `no_render`
-   (ou `SCRAPER_RENDER=false`). Si le nombre d'annonces par source reste le même,
-   c'est **−60 % de crédits** et ça tombe pile sur le quota gratuit (1 000/mois).
-   Si les sources tombent à 0, ne pas garder.
+   (ou `SCRAPER_RENDER=false`) : **−60 % de crédits**. Vérifier alors le compte des
+   sources `seloger_*` en particulier : SeLoger est une SPA React, elle peut exiger
+   le rendu là où Belles Demeures s'en passe. Si ces sources tombent à 0, ne garder
+   `no_render` qu'en le combinant avec le retrait des URL SeLoger — ou pas du tout.
+
+En dépannage, `--local` reste gratuit et collecte les deux portails (cf. plus haut).
 
 Le log de chaque run affiche `[scrapedo/super] crédits consommés : N — restants : M`,
 et sous 400 crédits restants un avertissement est ajouté au rapport.
@@ -240,6 +244,33 @@ retrait, ni mouvement de prix n'est fabriqué à partir d'une source en panne.
   extraites des autres pages (c'est ce qui s'était produit le 05/08).
 
 ---
+
+## Source SeLoger — le segment 700 k–1,2 M €
+
+Belles Demeures est la **vitrine « luxe » du même back-office que SeLoger** (groupe
+AVIV) : les deux partagent un seul espace d'identifiants — l'URL SeLoger d'un bien
+haut de gamme redirige vers `bellesdemeures.com` sous le même id. Conséquence : une
+maison à 740 000 € n'apparaît **jamais** sur Belles Demeures, alors qu'elle est au
+cœur des critères. C'est un angle mort structurel, pas un défaut de collecte.
+
+Les sources `parser: seloger` de `config.gha.yaml` comblent ce trou. Mesure du
+06/08/2026 : **+70 annonces**, l'état passe de 128 à **179 biens** et les *biens
+dans le budget* de 41 à **94**.
+
+- **Chaînage natif** : ids partagés ⇒ un bien vu sur les deux portails fusionne
+  tout seul (multi-mandats), sans préfixe ni migration d'état.
+- **Filtrage côté serveur** : `priceMin/priceMax/roomCountMin/squareMeterMin` dans
+  l'URL, calés sur `criteria`. Une page par commune suffit — peu de volume, peu de
+  crédits. **Si tu changes `criteria`, pense à répercuter dans ces 5 URL.**
+- **Code de localisation** (`locations=AD08FR…`) : numéroté par ordre alphabétique
+  dans le département. Relevés — Chaville 36607, Meudon 36620, Sèvres 36629,
+  Ville-d'Avray 36633, Viroflay 32622 ; en bonus Saint-Cloud 36627,
+  Vélizy-Villacoublay 32607. Pour une commune nouvelle : la chercher sur seloger.com
+  et lire `locations=` dans l'URL, ou ouvrir une SERP voisine et y relever les
+  `AD08FR…` du JSON embarqué (chaque annonce porte le code de sa commune).
+- **Ajouter un portail** se fait par un parser : `veille_immo/sl_parse.py` + une
+  entrée dans `collector_scrapedo.PARSERS`. La récupération (proxy résidentiel,
+  rendu JS, réessais, navigateur local) est mutualisée, seul le balisage change.
 
 ## Sources « agences locales » (gratuites, hors portail)
 
