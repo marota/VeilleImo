@@ -29,6 +29,7 @@ RETRY_STATUS = {408, 425, 429, 500, 502, 503, 504}
 FATAL_STATUS = {401: "crédits épuisés ou abonnement suspendu",
                 402: "paiement requis (abonnement)"}
 LOW_CREDITS = 400                              # en dessous : on le signale dans le rapport
+ROTATE_PAUSE = 60                              # pause avant la 1re requête d'un compte de secours
 
 
 def _fetch(url, token, super_proxy=True, render=True, wait_selector=None):
@@ -79,6 +80,14 @@ def tokens(api_key=None):
     return list(dict.fromkeys(out))          # dédoublonne en conservant l'ordre
 
 
+def _rotate_pause():
+    """Secondes d'attente au changement de compte (SCRAPER_ROTATE_PAUSE, 0 = aucune)."""
+    try:
+        return max(0, int(os.environ.get("SCRAPER_ROTATE_PAUSE", ROTATE_PAUSE)))
+    except ValueError:
+        return ROTATE_PAUSE
+
+
 class _Keyring:
     """Trousseau de comptes : on bascule sur le suivant dès qu'un quota est épuisé."""
 
@@ -96,11 +105,20 @@ class _Keyring:
         self.budgets[self.i].note(resp)
 
     def rotate(self, raison):
-        """-> True si un compte de secours a pris le relais."""
+        """-> True si un compte de secours a pris le relais.
+
+        On temporise avant la première requête du compte suivant : enchaîner une
+        salve de 401 avec des appels immédiats sur un compte neuf est une mauvaise
+        manière, et la pause laisse aussi retomber une éventuelle limite de débit.
+        Elle ne rend pas les comptes indépendants pour autant — même workload, même
+        plage d'IP, même cadence : le délai ne change pas cette signature."""
         if self.i + 1 >= len(self.jetons):
             return False
-        print(f"[{self.tag}] compte {self.i + 1} : {raison} — bascule sur le compte {self.i + 2}",
-              flush=True)
+        pause = _rotate_pause()
+        print(f"[{self.tag}] compte {self.i + 1} : {raison} — bascule sur le compte "
+              f"{self.i + 2}" + (f" après {pause} s" if pause else ""), flush=True)
+        if pause:
+            time.sleep(pause)
         self.i += 1
         return True
 

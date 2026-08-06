@@ -189,9 +189,16 @@ L'ordre est celui de la déclaration : le compte 1 est vidé avant qu'on touche 
 Le log indique la bascule et la consommation compte par compte :
 
     [scrapedo/super] 2 comptes disponibles (bascule automatique si quota épuisé)
-    [scrapedo/super] compte 1 : crédits épuisés ou abonnement suspendu — bascule sur le compte 2
+    [scrapedo/super] compte 1 : crédits épuisés ou abonnement suspendu — bascule sur le compte 2 après 60 s
     [scrapedo/super] compte 1 crédits consommés : 175 — restants : 0
     [scrapedo/super] compte 2 crédits consommés : 75 — restants : 925
+
+Une pause de 60 s précède la première requête du compte de secours
+(`SCRAPER_ROTATE_PAUSE`, en secondes ; `0` la désactive) : enchaîner une salve de
+401 avec des appels immédiats sur un compte neuf est une mauvaise manière, et la
+pause laisse retomber une éventuelle limite de débit. **Elle ne rend pas les
+comptes indépendants** : même jeu d'URL, mêmes plages d'IP GitHub Actions, même
+User-Agent, même cadence — le délai ne change rien à cette signature.
 
 L'alerte « crédits bientôt épuisés » dans le rapport se déclenche sur le **total**
 restant, tous comptes confondus. Quand tous sont à sec, on retombe sur le

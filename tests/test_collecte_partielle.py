@@ -119,6 +119,29 @@ def test_bascule_sur_le_second_compte_quand_le_premier_est_a_sec(monkeypatch):
     assert errors == []
 
 
+def test_pause_avant_de_servir_le_compte_suivant(monkeypatch):
+    """On ne sert pas un compte neuf dans la seconde qui suit une salve de 401."""
+    pauses = []
+
+    def fake_get(url, params=None, timeout=None):
+        return FakeResp(401) if params["token"] == "compte1" else FakeResp(200, CARD)
+
+    monkeypatch.setattr(requests, "get", fake_get)
+    monkeypatch.setattr(collector_scrapedo.time, "sleep", lambda s: pauses.append(s))
+    monkeypatch.setenv("SCRAPER_API_KEY", "compte1")
+    monkeypatch.setenv("SCRAPER_API_KEY_2", "compte2")
+    monkeypatch.delenv("SCRAPER_ROTATE_PAUSE", raising=False)
+    src = [{"name": "chaville", "expect": "Chaville", "urls": ["https://x/1"]}]
+    rows, _, _ = collector_scrapedo.collect(src, delay=0)
+    assert len(rows) == 1 and max(pauses) >= 60
+
+    # …et la pause reste réglable (0 = aucune, pour les essais)
+    pauses.clear()
+    monkeypatch.setenv("SCRAPER_ROTATE_PAUSE", "0")
+    collector_scrapedo.collect(src, delay=0)
+    assert not [p for p in pauses if p >= 60]
+
+
 def test_tokens_lit_les_deux_formes_de_declaration(monkeypatch):
     monkeypatch.setenv("SCRAPER_API_KEY", "a, b")     # plusieurs jetons d'un coup
     monkeypatch.setenv("SCRAPER_API_KEY_2", "c")      # ou un secret distinct
