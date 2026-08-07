@@ -1,6 +1,6 @@
 {
  "schema": "chained-properties-v2",
- "updated_at": "2026-08-06T13:50:03.818381",
+ "updated_at": "2026-08-07T08:06:07.954651",
  "properties": [
   {
    "canonical_id": "270410081",
@@ -20,27 +20,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-05-23",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "270612203",
-   "aliases": [
-    "270612203"
-   ],
-   "fingerprint": "sevres|154|7",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "Dans le quartier résidentiel « Brancas » à Sèvres, à proximité immédiate des écoles internationales, une jolie maison fa",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/270612203/#",
-   "surface": 153.88,
-   "rooms": 7,
-   "price": 1300000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-05-26",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -61,7 +41,7 @@
    "agency": "",
    "first_seen": "2026-03-11",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -81,7 +61,7 @@
    "agency": "",
    "first_seen": "2025-10-28",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -105,7 +85,27 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2025-09-26",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "270612203",
+   "aliases": [
+    "270612203"
+   ],
+   "fingerprint": "sevres|154|7",
+   "commune": "sevres",
+   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
+   "title": "Dans le quartier résidentiel « Brancas » à Sèvres, à proximité immédiate des écoles internationales, une jolie maison fa",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/270612203/#",
+   "surface": 153.88,
+   "rooms": 7,
+   "price": 1300000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-05-26",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -125,7 +125,7 @@
    "agency": "",
    "first_seen": "2026-03-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -146,7 +146,7 @@
    "agency": "",
    "first_seen": "2026-04-01",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -167,7 +167,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-07-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -187,7 +187,7 @@
    "agency": "",
    "first_seen": "2026-05-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -198,6 +198,7 @@
     "275502419",
     "276074147",
     "276360933",
+    "276807663",
     "aetm_60230486",
     "aetm_60231016"
    ],
@@ -213,7 +214,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-03-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -234,7 +235,7 @@
    "agency": "",
    "first_seen": "2026-01-10",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -257,7 +258,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-05-24",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -277,7 +278,7 @@
    "agency": "",
    "first_seen": "2026-04-22",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -297,7 +298,7 @@
    "agency": "",
    "first_seen": "2026-01-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -317,7 +318,7 @@
    "agency": "",
    "first_seen": "2026-02-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -337,7 +338,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -358,7 +359,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -378,7 +379,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -399,7 +400,7 @@
    "agency": "",
    "first_seen": "2026-04-29",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -419,7 +420,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -442,7 +443,7 @@
    "agency": "A&M Appartements & Maisons",
    "first_seen": "2026-04-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -462,7 +463,7 @@
    "agency": "",
    "first_seen": "2025-11-24",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -483,7 +484,7 @@
    "agency": "Agence Principale Sèvres",
    "first_seen": "2026-06-27",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -503,7 +504,7 @@
    "agency": "",
    "first_seen": "2026-08-01",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -523,7 +524,7 @@
    "agency": "",
    "first_seen": "2026-06-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -543,7 +544,7 @@
    "agency": "",
    "first_seen": "2026-06-17",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -563,7 +564,7 @@
    "agency": "",
    "first_seen": "2026-08-06",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -583,7 +584,7 @@
    "agency": "",
    "first_seen": "2026-06-15",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -603,7 +604,7 @@
    "agency": "",
    "first_seen": "2025-10-02",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -624,7 +625,7 @@
    "agency": "",
    "first_seen": "2026-04-08",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -644,7 +645,7 @@
    "agency": "",
    "first_seen": "2026-01-03",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -664,7 +665,7 @@
    "agency": "",
    "first_seen": "2026-03-08",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -684,7 +685,7 @@
    "agency": "",
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -704,7 +705,7 @@
    "agency": "",
    "first_seen": "2026-07-29",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -724,7 +725,7 @@
    "agency": "",
    "first_seen": "2026-07-31",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -744,7 +745,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -764,7 +765,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -785,7 +786,7 @@
    "agency": "",
    "first_seen": "2026-06-25",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -806,7 +807,7 @@
    "agency": "",
    "first_seen": "2026-05-20",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -826,7 +827,7 @@
    "agency": "",
    "first_seen": "2026-07-29",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -847,7 +848,7 @@
    "agency": "",
    "first_seen": "2026-07-20",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -867,7 +868,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -888,7 +889,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -908,7 +909,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -928,7 +929,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -949,7 +950,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -969,7 +970,7 @@
    "agency": "",
    "first_seen": "2026-08-05",
    "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -989,7 +990,7 @@
    "agency": "",
    "first_seen": "2026-06-14",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -1009,7 +1010,7 @@
    "agency": "",
    "first_seen": "2026-01-12",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -1032,7 +1033,2198 @@
    "agency": "",
    "first_seen": "2026-07-16",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "270387453",
+   "aliases": [
+    "270387453",
+    "270477905",
+    "271923183"
+   ],
+   "fingerprint": "chaville|145|6",
+   "commune": "chaville",
+   "quartier": "Chaville",
+   "title": "Située dans une impasse sans issue, dans un quartier calme et résidentiel de Chaville à la limite de Viroflay, belle mai",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38315/270387453/",
+   "surface": 145.0,
+   "rooms": 6,
+   "price": 1190000,
+   "n_mandats": 3,
+   "agency": "",
+   "first_seen": "2026-05-23",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "265788053",
+   "aliases": [
+    "265788053"
+   ],
+   "fingerprint": "chaville|150|8",
+   "commune": "chaville",
+   "quartier": "Louvois-Anatole France, Chaville",
+   "title": "Domaine privé du Parc Fourchon — Élégante demeure début XX? rénovée Nichée au cœur du prestigieux domaine privé du Parc ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46921/265788053/",
+   "surface": 150.0,
+   "rooms": 8,
+   "price": 1180000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-03-31",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "270362135",
+   "aliases": [
+    "270362135",
+    "274504929",
+    "274514695",
+    "275262967",
+    "275296571"
+   ],
+   "fingerprint": "chaville|163|7",
+   "commune": "chaville",
+   "quartier": "Monesse-Roger Salendro, Chaville",
+   "title": "Rare sur le secteur, cette propriété conjugue parfaitement vie familiale et espace professionnel, avec des volumes excep",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46916/270362135/",
+   "surface": 163.0,
+   "rooms": 7,
+   "price": 930000,
+   "n_mandats": 5,
+   "agency": "",
+   "first_seen": "2026-07-19",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "266002847",
+   "aliases": [
+    "266002847"
+   ],
+   "fingerprint": "chaville|104|5",
+   "commune": "chaville",
+   "quartier": "Monesse-Roger Salendro, Chaville",
+   "title": "A la limite de Chaville et Sèvres, à 3 minutes à pied des commerces du centre-ville et environ 15 minutes à pied de la g",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46916/266002847/",
+   "surface": 104.0,
+   "rooms": 5,
+   "price": 849500,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-02",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "266078679",
+   "aliases": [
+    "266078679"
+   ],
+   "fingerprint": "chaville|190|8",
+   "commune": "chaville",
+   "quartier": "Étang de Brisemiche, Chaville",
+   "title": "Idéalement située, proche de la forêt et de toutes commodités (gare, écoles, commerces), cette vaste maison alliant mode",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46923/266078679/",
+   "surface": 190.0,
+   "rooms": 8,
+   "price": 1240000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "259966745",
+   "aliases": [
+    "259966745"
+   ],
+   "fingerprint": "chaville|212|7",
+   "commune": "chaville",
+   "quartier": "Père Komitas, Chaville",
+   "title": "- UNE EXCLUSIVITE APPARTEMENTS ET MAISONS CHAVILLE- Au calme d'une impasse, idéalement située, à proximité de toutes les",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/259966745/",
+   "surface": 212.0,
+   "rooms": 7,
+   "price": 1094000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-01-23",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271128619",
+   "aliases": [
+    "271128619"
+   ],
+   "fingerprint": "chaville|162|6",
+   "commune": "chaville",
+   "quartier": "Père Komitas, Chaville",
+   "title": "Chaville rive droite en impasse, sur un terrain de 370m2, jolie maison de 162m2 utiles rénovée comprenant au rez-de-chau",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/271128619/",
+   "surface": 162.0,
+   "rooms": 6,
+   "price": 895000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-06-01",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "265186403",
+   "aliases": [
+    "265186403"
+   ],
+   "fingerprint": "chaville|184|7",
+   "commune": "chaville",
+   "quartier": "Chaville",
+   "title": "Sous Promesse. Exclusivité. Votre consultant Barnes Versailles-Viroflay - Damien Portail - vous présente cette demeure é",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38315/265186403/",
+   "surface": 184.0,
+   "rooms": 7,
+   "price": 1290000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-03-24",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "269145095",
+   "aliases": [
+    "269145095"
+   ],
+   "fingerprint": "viroflay|262|6",
+   "commune": "viroflay",
+   "quartier": "Le Haras, Viroflay",
+   "title": "La Bastide Immobilière vous propose à la vente en exclusivité dans l'un des secteurs les plus recherchés de Viroflay, à ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45800/269145095/",
+   "surface": 262.0,
+   "rooms": 6,
+   "price": 1300000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-05-09",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "274124335",
+   "aliases": [
+    "274124335",
+    "275204623",
+    "275208365",
+    "275501899",
+    "275611365",
+    "276178359",
+    "276178363",
+    "aetm_60937806"
+   ],
+   "fingerprint": "sevres|190|6",
+   "commune": "sevres",
+   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
+   "title": "1 / 11 D 1 150 000 € 6 053 €/m² Maison à vendre 6 pièces · 4 chambres · 190 m² · 280 m² de terrain Bruyères-Postillons-J",
+   "url": "https://www.bellesdemeures.com/274124335/detail.htm",
+   "surface": 190.0,
+   "rooms": 6,
+   "price": 1150000,
+   "n_mandats": 4,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "272266513",
+   "aliases": [
+    "272266513",
+    "agence_principale_sevres_60816496"
+   ],
+   "fingerprint": "sevres|115|6",
+   "commune": "sevres",
+   "quartier": "Bruyères-Acacias-Fonceaux, Sèvres",
+   "title": "EXCLUSIVITE AGENCE PRINCIPALE - Nichée dans un environnement calme et verdoyant, avec un beau jardin sans vis à vis, nou",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47088/272266513/",
+   "surface": 115.0,
+   "rooms": 6,
+   "price": 790000,
+   "n_mandats": 2,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-06-14",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "276721479",
+   "aliases": [
+    "276721479",
+    "sl_26G9Z1Y2ETQ1"
+   ],
+   "fingerprint": "viroflay|196|8",
+   "commune": "viroflay",
+   "quartier": "Viroflay",
+   "title": "VIROFLAY (78220), GVI vous propose à la vente, quartier du Haras, une maison individuelle non mitoyenne des années 60, d",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-34158/276721479/",
+   "surface": 196.0,
+   "rooms": 8,
+   "price": 1100000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-08-05",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275622133",
+   "aliases": [
+    "267728671",
+    "272930647",
+    "275622133",
+    "275622143"
+   ],
+   "fingerprint": "viroflay|154|8",
+   "commune": "viroflay",
+   "quartier": "Rive Gauche, Viroflay",
+   "title": "Située dans une adresse très recherchée de Viroflay dans un quartier historique avec des rues en étoile autour de la pla",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/275622133/",
+   "surface": 154.0,
+   "rooms": 8,
+   "price": 1195000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-04-22",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "219230995",
+   "aliases": [
+    "219230995"
+   ],
+   "fingerprint": "viroflay|178|7",
+   "commune": "viroflay",
+   "quartier": "Rive Gauche, Viroflay",
+   "title": "Cette maison de 170 m² vous séduira par ses volumes généreux, sa luminosité et son jardin orienté sud-ouest. Profitez d'",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/219230995/",
+   "surface": 178.0,
+   "rooms": 7,
+   "price": 1090000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2024-10-09",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "272649319",
+   "aliases": [
+    "272649319",
+    "276401765",
+    "276401767",
+    "sl_26DSRJMA6MKC",
+    "sl_26GZUKUI6WPI",
+    "sl_26P4ZI964V6D"
+   ],
+   "fingerprint": "viroflay|116|5",
+   "commune": "viroflay",
+   "quartier": "Rive Gauche, Viroflay",
+   "title": "Maison Contemporaine de 116 m² Rive Gauche Découvrez cette superbe maison contemporaine de 116 m², construite en 2026, o",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/272649319/",
+   "surface": 116.2,
+   "rooms": 5,
+   "price": 911000,
+   "n_mandats": 6,
+   "agency": "",
+   "first_seen": "2026-06-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "265928317",
+   "aliases": [
+    "265928317",
+    "sl_26BJ438DC3WT",
+    "sl_26IDX6UNLWEC",
+    "sl_26LX1UMX6Z9C"
+   ],
+   "fingerprint": "viroflay|125|5",
+   "commune": "viroflay",
+   "quartier": "Rive Gauche, Viroflay",
+   "title": "Sous compromis : Maison Contemporaine 4 chambres Rive gauche Découvrez cette superbe maison contemporaine de 125 m², con",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/265928317/",
+   "surface": 124.9,
+   "rooms": 5,
+   "price": 990000,
+   "n_mandats": 3,
+   "agency": "",
+   "first_seen": "2026-04-02",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "270136255",
+   "aliases": [
+    "270136255"
+   ],
+   "fingerprint": "viroflay|140|7",
+   "commune": "viroflay",
+   "quartier": "Les Arcades, Viroflay",
+   "title": "Agréable maison familiale au coeur d'un quartier prisé entre gare et centre ville. Elle offre un double séjour avec une ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45799/270136255/",
+   "surface": 140.0,
+   "rooms": 7,
+   "price": 990000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-05-20",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "273962935",
+   "aliases": [
+    "273962935"
+   ],
+   "fingerprint": "versailles|175|8",
+   "commune": "versailles",
+   "quartier": "Bernard de Jussieu-Petits Bois-Picardie, Versailles",
+   "title": "Versailles Montreuil Maison 7 pièces 165 m² habitables sur parcelle de 449 m² - Charmante maison ancienne en bon état, é",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45780/273962935/",
+   "surface": 175.0,
+   "rooms": 8,
+   "price": 1360000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-03",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271096525",
+   "aliases": [
+    "271096525"
+   ],
+   "fingerprint": "versailles|183|8",
+   "commune": "versailles",
+   "quartier": "Bernard de Jussieu-Petits Bois-Picardie, Versailles",
+   "title": "Maison meulière style Bachelin à deux pas du lycée privé Sainte Geneviève et ses grandes écoles.Elle se compose au rez d",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45780/271096525/",
+   "surface": 183.0,
+   "rooms": 8,
+   "price": 1075000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-05",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275310819",
+   "aliases": [
+    "275310819"
+   ],
+   "fingerprint": "versailles|107|6",
+   "commune": "versailles",
+   "quartier": "Chantiers-Prochefontaine, Versailles",
+   "title": "VERSAILLES - Porchefontaine – Maison de 107,12 m² entièrement refaite à neuf Maison familiale, avec 4 chambres, idéaleme",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275310819/",
+   "surface": 107.12,
+   "rooms": 6,
+   "price": 960000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-07",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "265849707",
+   "aliases": [
+    "265849707"
+   ],
+   "fingerprint": "versailles|125|7",
+   "commune": "versailles",
+   "quartier": "Chantiers-Prochefontaine, Versailles",
+   "title": "VERSAILLES Porchefontaine, à proximité immédiate de la gare RER C de Versailles Porchefontaine, de la place du marché de",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/265849707/",
+   "surface": 125.0,
+   "rooms": 7,
+   "price": 899000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-01",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275145599",
+   "aliases": [
+    "275145599"
+   ],
+   "fingerprint": "versailles|110|5",
+   "commune": "versailles",
+   "quartier": "Chantiers-Prochefontaine, Versailles",
+   "title": "Barnes Versailles vous présente une maison ancienne d'environ 110 m² habitables, édifiée sur un terrain d'environ 205 m²",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275145599/",
+   "surface": 110.0,
+   "rooms": 5,
+   "price": 922000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-17",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "270386213",
+   "aliases": [
+    "270386213"
+   ],
+   "fingerprint": "versailles|262|0",
+   "commune": "versailles",
+   "quartier": "Chantiers-Prochefontaine, Versailles",
+   "title": "À l'abri des regards, cette élégante propriété familiale séduit par ses volumes généreux, sa luminosité et ses espaces d",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/270386213/",
+   "surface": 262.0,
+   "rooms": null,
+   "price": 1950000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-05-23",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "266392703",
+   "aliases": [
+    "266392703"
+   ],
+   "fingerprint": "versailles|190|6",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "Belle maison familiale Bachelin, très lumineuse en pierre de meulière avec ornements en céramique Art nouveau, située au",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/266392703/",
+   "surface": 190.0,
+   "rooms": 6,
+   "price": 1850000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "261076299",
+   "aliases": [
+    "261076299"
+   ],
+   "fingerprint": "versailles|380|10",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "Elégante maison en pierre de meulière et briques, érigée en 1900, d'une surface totale d'environ 380 m² (286 m² habitabl",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/261076299/",
+   "surface": 380.0,
+   "rooms": 10,
+   "price": 3490000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-29",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275805565",
+   "aliases": [
+    "275805565"
+   ],
+   "fingerprint": "sevres|160|6",
+   "commune": "sevres",
+   "quartier": "Monesse-Croix Bosset, Sèvres",
+   "title": "1 / 17 C 1 100 000 € 6 875 €/m² Maison à vendre 6 pièces · 4 chambres · 160 m² · 479 m² de terrain Monesse-Croix Bosset,",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/monesse-croix-bosset/275805565.htm",
+   "surface": 160.0,
+   "rooms": 6,
+   "price": 1100000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "263972841",
+   "aliases": [
+    "263972841"
+   ],
+   "fingerprint": "sevres|172|9",
+   "commune": "sevres",
+   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
+   "title": "1 / 16 C 790 000 € 4 593 €/m² Maison de ville à vendre 9 pièces · 4 chambres · 172 m² · 245 m² de terrain Bruyères-Posti",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/263972841.htm",
+   "surface": 172.0,
+   "rooms": 9,
+   "price": 790000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "273781241",
+   "aliases": [
+    "273781241"
+   ],
+   "fingerprint": "sevres|210|8",
+   "commune": "sevres",
+   "quartier": "Sèvres",
+   "title": "1 / 9 F 750 000 € 3 571 €/m² Maison à vendre 8 pièces · 7 chambres · 210 m² · 480 m² de terrain Sèvres (92310) ParisOues",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/273781241.htm",
+   "surface": 210.0,
+   "rooms": 8,
+   "price": 750000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275397897",
+   "aliases": [
+    "275397897"
+   ],
+   "fingerprint": "sevres|167|5",
+   "commune": "sevres",
+   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
+   "title": "1 / 17 C 980 000 € 5 868 €/m² Maison à vendre 5 pièces · 3 chambres · 167 m² · 337 m² de terrain Bruyères-Postillons-Jau",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/275397897.htm",
+   "surface": 167.0,
+   "rooms": 5,
+   "price": 980000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275397895",
+   "aliases": [
+    "275397895"
+   ],
+   "fingerprint": "sevres|150|5",
+   "commune": "sevres",
+   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
+   "title": "1 / 11 E 860 000 € 5 733 €/m² Maison à vendre 5 pièces · 4 chambres · 150 m² · 264 m² de terrain Ernest Renan-Chataigner",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/ernest-renan-chataigneraie/275397895.htm",
+   "surface": 150.0,
+   "rooms": 5,
+   "price": 860000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271082591",
+   "aliases": [
+    "271082591"
+   ],
+   "fingerprint": "sevres|193|9",
+   "commune": "sevres",
+   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
+   "title": "1 / 15 F 998 000 € 5 166 €/m² Maison à vendre 9 pièces · 6 chambres · 193,2 m² · 381 m² de terrain Bruyères-Postillons-J",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/271082591.htm",
+   "surface": 193.2,
+   "rooms": 9,
+   "price": 998000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275670489",
+   "aliases": [
+    "275670489"
+   ],
+   "fingerprint": "sevres|180|9",
+   "commune": "sevres",
+   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
+   "title": "1 / 24 E 1 150 000 € 6 389 €/m² Maison de plain-pied à vendre 9 pièces · 4 chambres · 180 m² · 603 m² de terrain Bruyère",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/275670489.htm",
+   "surface": 180.0,
+   "rooms": 9,
+   "price": 1150000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271082513",
+   "aliases": [
+    "271082513"
+   ],
+   "fingerprint": "sevres|145|5",
+   "commune": "sevres",
+   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
+   "title": "1 / 9 F 849 000 € 5 846 €/m² Maison à vendre 5 pièces · 3 chambres · 145,2 m² · 357 m² de terrain Bruyères-Postillons-Ja",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/271082513.htm",
+   "surface": 145.2,
+   "rooms": 5,
+   "price": 849000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "274129265",
+   "aliases": [
+    "274129265"
+   ],
+   "fingerprint": "sevres|180|8",
+   "commune": "sevres",
+   "quartier": "Beau Site-Pommerets-Binelles, Sèvres",
+   "title": "1 / 7 E 824 000 € 4 578 €/m² Maison à vendre 8 pièces · 6 chambres · 180 m² · 289 m² de terrain Beau Site-Pommerets-Bine",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/beau-site-pommerets-binelles/274129265.htm",
+   "surface": 180.0,
+   "rooms": 8,
+   "price": 824000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "229502815",
+   "aliases": [
+    "229502815"
+   ],
+   "fingerprint": "sevres|174|6",
+   "commune": "sevres",
+   "quartier": "Sèvres",
+   "title": "1 / 25 E 1 190 000 € 6 839 €/m² Maison à vendre 6 pièces · 174 m² Sèvres (92310) Avis aux créatifs. Rare projet de rénov",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/229502815.htm",
+   "surface": 174.0,
+   "rooms": 6,
+   "price": 1190000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "268099631",
+   "aliases": [
+    "268099631"
+   ],
+   "fingerprint": "sevres|203|10",
+   "commune": "sevres",
+   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
+   "title": "1 / 18 E 720 000 € 3 548 €/m² Maison à vendre 10 pièces · 6 chambres · 202,9 m² Bruyères-Postillons-Jaurès-Val Allard, S",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/268099631.htm",
+   "surface": 202.9,
+   "rooms": 10,
+   "price": 720000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_26J1FI1BPEKM",
+   "aliases": [
+    "271764167",
+    "sl_26J1FI1BPEKM"
+   ],
+   "fingerprint": "sevres|226|6",
+   "commune": "sevres",
+   "quartier": "Sèvres",
+   "title": "1 / 18 Nouveau D 1 200 000 € 5 310 €/m² Maison à vendre 6 pièces · 2 chambres · 226 m² Sèvres (92310) SÈVRES Villa Brimb",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/sevres-92310/26J1FI1BPEKM",
+   "surface": 226.0,
+   "rooms": 6,
+   "price": 1200000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "272148965",
+   "aliases": [
+    "272148965"
+   ],
+   "fingerprint": "sevres|200|9",
+   "commune": "sevres",
+   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
+   "title": "1 / 7 C 850 000 € 4 250 €/m² Maison à vendre 9 pièces · 6 chambres · 200 m² · 489 m² de terrain Ernest Renan-Chataignera",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/ernest-renan-chataigneraie/272148965.htm",
+   "surface": 200.0,
+   "rooms": 9,
+   "price": 850000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "266116185",
+   "aliases": [
+    "266116185"
+   ],
+   "fingerprint": "sevres|220|10",
+   "commune": "sevres",
+   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
+   "title": "1 / 5 C 850 000 € 3 864 €/m² Maison à vendre 10 pièces · 4 chambres · 220 m² · 507 m² de terrain Ernest Renan-Chataigner",
+   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/266116185.htm",
+   "surface": 220.0,
+   "rooms": 10,
+   "price": 850000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "276209093",
+   "aliases": [
+    "276209093"
+   ],
+   "fingerprint": "ville-d'avray|119|5",
+   "commune": "ville-d'avray",
+   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
+   "title": "1 / 17 E 1 060 000 € 8 908 €/m² Maison à vendre 5 pièces · 3 chambres · 119 m² · 370 m² de terrain Thierry-Saint Cloud, ",
+   "url": "https://www.seloger.com/annonces/achat/maison/ville-d-avray-92/thierry-saint-cloud/276209093.htm",
+   "surface": 119.0,
+   "rooms": 5,
+   "price": 1060000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "276209091",
+   "aliases": [
+    "276209091"
+   ],
+   "fingerprint": "ville-d'avray|125|6",
+   "commune": "ville-d'avray",
+   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
+   "title": "1 / 12 E 850 000 € 6 800 €/m² Maison à vendre 6 pièces · 4 chambres · 125 m² · 170 m² de terrain Thierry-Saint Cloud, Vi",
+   "url": "https://www.seloger.com/annonces/achat/maison/ville-d-avray-92/thierry-saint-cloud/276209091.htm",
+   "surface": 125.0,
+   "rooms": 6,
+   "price": 850000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_2665BG2AE1CD",
+   "aliases": [
+    "sl_2665BG2AE1CD"
+   ],
+   "fingerprint": "ville-d'avray|191|5",
+   "commune": "ville-d'avray",
+   "quartier": "Rue de Versailles-Monastere, Ville-d'Avray",
+   "title": "1 / 15 Nouveau D 850 000 € 4 450 €/m² Maison à vendre 5 pièces · 4 chambres · 191 m² · 30 m² de terrain Rue de Versaille",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/ville-d-avray-92410/2665BG2AE1CD",
+   "surface": 191.0,
+   "rooms": 5,
+   "price": 850000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "270673659",
+   "aliases": [
+    "270673659"
+   ],
+   "fingerprint": "ville-d'avray|116|5",
+   "commune": "ville-d'avray",
+   "quartier": "Forêt de Fausses Reposes, Ville-d'Avray",
+   "title": "1 / 14 D 937 000 € 8 058 €/m² Maison à vendre 5 pièces · 4 chambres · 116,3 m² · 56 m² de terrain Forêt de Fausses Repos",
+   "url": "https://www.seloger.com/annonces/achat/maison/ville-d-avray-92/foret-de-fausses-reposes/270673659.htm",
+   "surface": 116.3,
+   "rooms": 5,
+   "price": 937000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "276428933",
+   "aliases": [
+    "276428933"
+   ],
+   "fingerprint": "ville-d'avray|140|5",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "1 / 6 Nouveau C 995 000 € 7 107 €/m² Maison à vendre 5 pièces · 4 chambres · 140 m² · 250 m² de terrain Cote d'Argent-De",
+   "url": "https://www.seloger.com/annonces/achat/maison/ville-d-avray-92/276428933.htm",
+   "surface": 140.0,
+   "rooms": 5,
+   "price": 995000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_267LZS93HUC2",
+   "aliases": [
+    "sl_267LZS93HUC2"
+   ],
+   "fingerprint": "ville-d'avray|175|7",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "1 / 14 D de 1.1M à 1.7M € Maison à vendre 7 pièces · 5 chambres · 175 m² · 788 m² de terrain Cote d'Argent-Desvallieres-",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/ville-d-avray-92410/267LZS93HUC2",
+   "surface": 175.0,
+   "rooms": 7,
+   "price": null,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "273362245",
+   "aliases": [
+    "273362245",
+    "276124079",
+    "276124085"
+   ],
+   "fingerprint": "meudon|165|6",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "1 / 9 G 1 180 000 € 7 152 €/m² Maison à vendre 6 pièces · 5 chambres · 165 m² · 378 m² de terrain Bas Meudon, Meudon (92",
+   "url": "https://www.bellesdemeures.com/273362245/detail.htm",
+   "surface": 165.0,
+   "rooms": 6,
+   "price": 1160000,
+   "n_mandats": 3,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "272306215",
+   "aliases": [
+    "272306215"
+   ],
+   "fingerprint": "meudon|242|8",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "1 / 21 F 1 150 000 € 4 752 €/m² Maison à vendre 8 pièces · 5 chambres · 242 m² Le Centre, Meudon (92190) Nichée dans l'u",
+   "url": "https://www.bellesdemeures.com/272306215/detail.htm",
+   "surface": 242.0,
+   "rooms": 8,
+   "price": 1150000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "273477277",
+   "aliases": [
+    "273477277"
+   ],
+   "fingerprint": "meudon|165|8",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "1 / 16 G 1 180 000 € 7 152 €/m² Maison à vendre 8 pièces · 5 chambres · 165 m² · 378 m² de terrain Bas Meudon, Meudon (9",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bas-meudon/273477277.htm",
+   "surface": 165.0,
+   "rooms": 8,
+   "price": 1180000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "257859219",
+   "aliases": [
+    "257859219"
+   ],
+   "fingerprint": "meudon|115|6",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "1 / 16 D 795 000 € 6 913 €/m² Maison à vendre 6 pièces · 4 chambres · 115 m² Bas Meudon, Meudon (92190) iad France - Sté",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bas-meudon/257859219.htm",
+   "surface": 115.0,
+   "rooms": 6,
+   "price": 795000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "264651711",
+   "aliases": [
+    "264651711"
+   ],
+   "fingerprint": "meudon|160|8",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "1 / 14 F 1 050 000 € 6 563 €/m² Maison à vendre 8 pièces · 6 chambres · 160 m² · 296 m² de terrain Val Fleury, Meudon (9",
+   "url": "https://www.bellesdemeures.com/264651711/detail.htm",
+   "surface": 160.0,
+   "rooms": 8,
+   "price": 1050000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-03-18",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "263428239",
+   "aliases": [
+    "263428239"
+   ],
+   "fingerprint": "meudon|180|9",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "1 / 20 E 1 150 000 € 6 389 €/m² Maison de plain-pied à vendre 9 pièces · 4 chambres · 180 m² · 603 m² de terrain Bellevu",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bellevue/263428239.htm",
+   "surface": 180.0,
+   "rooms": 9,
+   "price": 1150000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "197669363",
+   "aliases": [
+    "197669363",
+    "265788347"
+   ],
+   "fingerprint": "meudon|139|6",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "1 / 8 E 785 000 € 5 647 €/m² Maison à vendre 6 pièces · 4 chambres · 139 m² · 277 m² de terrain Val Fleury, Meudon (9219",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/val-fleury/197669363.htm",
+   "surface": 139.0,
+   "rooms": 6,
+   "price": 785000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "258449977",
+   "aliases": [
+    "258449977",
+    "271671805"
+   ],
+   "fingerprint": "meudon|107|4",
+   "commune": "meudon",
+   "quartier": "Meudon",
+   "title": "1 / 15 Nouveau E 832 000 € 7 776 €/m² Maison à vendre 4 pièces · 4 chambres · 107 m² · 372 m² de terrain Meudon (92190) ",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/258449977.htm",
+   "surface": 107.0,
+   "rooms": 4,
+   "price": 832000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-06-07",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "264744529",
+   "aliases": [
+    "264744529"
+   ],
+   "fingerprint": "meudon|97|6",
+   "commune": "meudon",
+   "quartier": "Meudon",
+   "title": "1 / 12 F 721 000 € 7 433 €/m² Maison à vendre 6 pièces · 3 chambres · 97 m² · 184 m² de terrain Meudon (92190) Immobilie",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/264744529.htm",
+   "surface": 97.0,
+   "rooms": 6,
+   "price": 721000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "266075393",
+   "aliases": [
+    "266075393"
+   ],
+   "fingerprint": "meudon|195|7",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "1 / 21 C 1 090 000 € 5 590 €/m² Maison de ville à vendre 7 pièces · 5 chambres · 195 m² · 30 m² de terrain Val Fleury, M",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/val-fleury/266075393.htm",
+   "surface": 195.0,
+   "rooms": 7,
+   "price": 1090000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "267860211",
+   "aliases": [
+    "267860211",
+    "273331545"
+   ],
+   "fingerprint": "meudon|170|6",
+   "commune": "meudon",
+   "quartier": "Meudon",
+   "title": "1 / 19 D 1 090 000 € 6 394 €/m² Maison à vendre 6 pièces · 4 chambres · 170,5 m² · 266 m² de terrain Meudon (92190) MEUD",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/267860211.htm",
+   "surface": 170.5,
+   "rooms": 6,
+   "price": 1090000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "252269633",
+   "aliases": [
+    "252269633",
+    "274583123"
+   ],
+   "fingerprint": "meudon|140|5",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "1 / 14 C 1 150 000 € 8 214 €/m² Maison à vendre 5 pièces · 4 chambres · 140 m² · 160 m² de terrain Bas Meudon, Meudon (9",
+   "url": "https://www.bellesdemeures.com/252269633/detail.htm",
+   "surface": 140.0,
+   "rooms": 5,
+   "price": 1150000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-07-11",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275458771",
+   "aliases": [
+    "275458771"
+   ],
+   "fingerprint": "meudon|153|6",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "1 / 8 D 835 000 € 5 458 €/m² Maison de plain-pied à vendre 6 pièces · 4 chambres · 153 m² · 108 m² de terrain Val Fleury",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/val-fleury/275458771.htm",
+   "surface": 153.0,
+   "rooms": 6,
+   "price": 835000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271761089",
+   "aliases": [
+    "271761089"
+   ],
+   "fingerprint": "meudon|151|6",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "1 / 13 E 1 150 000 € 7 616 €/m² Maison à vendre 6 pièces · 4 chambres · 151 m² Bellevue, Meudon (92190) RENOVATION 2026 ",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bellevue/271761089.htm",
+   "surface": 151.0,
+   "rooms": 6,
+   "price": 1150000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "272937535",
+   "aliases": [
+    "272937535"
+   ],
+   "fingerprint": "meudon|135|5",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "1 / 10 C 1 150 000 € 8 519 €/m² Maison à vendre 5 pièces · 3 chambres · 135 m² · 158 m² de terrain Bas Meudon, Meudon (9",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bas-meudon/272937535.htm",
+   "surface": 135.0,
+   "rooms": 5,
+   "price": 1150000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275316201",
+   "aliases": [
+    "275316201"
+   ],
+   "fingerprint": "meudon|175|7",
+   "commune": "meudon",
+   "quartier": "Meudon",
+   "title": "1 / 14 Nouveau D 1 150 000 € 6 571 €/m² Maison à vendre 7 pièces · 5 chambres · 175 m² Meudon (92190) Maison ancienne de",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/275316201.htm",
+   "surface": 175.0,
+   "rooms": 7,
+   "price": 1150000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "262780315",
+   "aliases": [
+    "262780315"
+   ],
+   "fingerprint": "meudon|161|6",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "1 / 7 F 930 000 € 5 776 €/m² Maison à vendre 6 pièces · 4 chambres · 161 m² · 380 m² de terrain Val Fleury, Meudon (9219",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/val-fleury/262780315.htm",
+   "surface": 161.0,
+   "rooms": 6,
+   "price": 930000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271082547",
+   "aliases": [
+    "271082547"
+   ],
+   "fingerprint": "meudon|93|4",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "1 / 14 C 719 000 € 7 753 €/m² Maison de ville à vendre 4 pièces · 3 chambres · 92,7 m² Bellevue, Meudon (92190) Au coeur",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bellevue/271082547.htm",
+   "surface": 92.7,
+   "rooms": 4,
+   "price": 719000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "274043897",
+   "aliases": [
+    "274043897"
+   ],
+   "fingerprint": "meudon|135|6",
+   "commune": "meudon",
+   "quartier": "Bas Meudon, Meudon",
+   "title": "1 / 20 D 998 000 € 7 393 €/m² Maison de ville à vendre 6 pièces · 4 chambres · 135 m² · 309 m² de terrain Bas Meudon, Me",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bas-meudon/274043897.htm",
+   "surface": 135.0,
+   "rooms": 6,
+   "price": 998000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "268099791",
+   "aliases": [
+    "268099791"
+   ],
+   "fingerprint": "meudon|160|8",
+   "commune": "meudon",
+   "quartier": "Val Fleury, Meudon",
+   "title": "1 / 25 D 1 160 000 € 7 250 €/m² Maison à vendre 8 pièces · 7 chambres · 160 m² Val Fleury, Meudon (92190) iad France - A",
+   "url": "https://www.bellesdemeures.com/268099791/detail.htm",
+   "surface": 160.0,
+   "rooms": 8,
+   "price": 1160000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "274118941",
+   "aliases": [
+    "274118941"
+   ],
+   "fingerprint": "meudon|140|6",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "1 / 18 E 995 000 € 7 107 €/m² Maison à vendre 6 pièces · 4 chambres · 140 m² · 333 m² de terrain Le Centre, Meudon (9219",
+   "url": "https://www.bellesdemeures.com/274118941/detail.htm",
+   "surface": 140.0,
+   "rooms": 6,
+   "price": 995000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-05",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "268374795",
+   "aliases": [
+    "268374795"
+   ],
+   "fingerprint": "meudon|130|6",
+   "commune": "meudon",
+   "quartier": "Meudon",
+   "title": "1 / 14 Nouveau D 995 000 € 7 654 €/m² Maison à vendre 6 pièces · 4 chambres · 130 m² · 220 m² de terrain Meudon (92190) ",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/268374795.htm",
+   "surface": 130.0,
+   "rooms": 6,
+   "price": 995000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "182271195",
+   "aliases": [
+    "182271195"
+   ],
+   "fingerprint": "meudon|130|5",
+   "commune": "meudon",
+   "quartier": "Le Centre, Meudon",
+   "title": "1 / 9 C 845 000 € 6 500 €/m² Villa à vendre 5 pièces · 3 chambres · 130 m² · 200 m² de terrain Le Centre, Meudon (92190)",
+   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/le-centre/182271195.htm",
+   "surface": 130.0,
+   "rooms": 5,
+   "price": 845000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271067259",
+   "aliases": [
+    "271067259",
+    "272007881"
+   ],
+   "fingerprint": "chaville|150|7",
+   "commune": "chaville",
+   "quartier": "Pavé des Gardes, Chaville",
+   "title": "1 / 14 C 945 000 € 6 300 €/m² Maison de plain-pied à vendre 7 pièces · 5 chambres · 150 m² · 217 m² de terrain Pavé des ",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/pave-des-gardes/271067259.htm",
+   "surface": 150.0,
+   "rooms": 7,
+   "price": 935000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "271686847",
+   "aliases": [
+    "271686847",
+    "273068595",
+    "274663217",
+    "275410613"
+   ],
+   "fingerprint": "chaville|150|7",
+   "commune": "chaville",
+   "quartier": "Étang Saint Denis, Chaville",
+   "title": "1 / 18 C 795 000 € 5 300 €/m² Maison de ville à vendre 7 pièces · 5 chambres · 150 m² · 250 m² de terrain Étang Saint De",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/271686847.htm",
+   "surface": 150.0,
+   "rooms": 7,
+   "price": 795000,
+   "n_mandats": 4,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "259443557",
+   "aliases": [
+    "259443557",
+    "260828369"
+   ],
+   "fingerprint": "chaville|130|5",
+   "commune": "chaville",
+   "quartier": "Étang de Brisemiche, Chaville",
+   "title": "1 / 18 C 865 000 € 6 654 €/m² Maison à vendre 5 pièces · 4 chambres · 130 m² · 355 m² de terrain Étang de Brisemiche, Ch",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/etang-de-brisemiche/259443557.htm",
+   "surface": 130.0,
+   "rooms": 5,
+   "price": 822970,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275834369",
+   "aliases": [
+    "275834369"
+   ],
+   "fingerprint": "chaville|127|5",
+   "commune": "chaville",
+   "quartier": "Étang de Brisemiche, Chaville",
+   "title": "1 / 18 C 823 000 € 6 480 €/m² Maison à vendre 5 pièces · 3 chambres · 127 m² · 330 m² de terrain Étang de Brisemiche, Ch",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/275834369.htm",
+   "surface": 127.0,
+   "rooms": 5,
+   "price": 823000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_26N72DSMU5G6",
+   "aliases": [
+    "sl_26N72DSMU5G6"
+   ],
+   "fingerprint": "chaville|121|5",
+   "commune": "chaville",
+   "quartier": "Étang de Brisemiche, Chaville",
+   "title": "1 / 13 Nouveau D 965 000 € 7 975 €/m² Maison à vendre 5 pièces · 3 chambres · 121 m² · 550 m² de terrain Étang de Brisem",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/chaville-92370/26N72DSMU5G6",
+   "surface": 121.0,
+   "rooms": 5,
+   "price": 965000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "276478913",
+   "aliases": [
+    "276478913"
+   ],
+   "fingerprint": "chaville|120|5",
+   "commune": "chaville",
+   "quartier": "Monesse-Roger Salendro, Chaville",
+   "title": "1 / 12 Nouveau C 729 000 € 6 075 €/m² Maison à vendre 5 pièces · 4 chambres · 120 m² Monesse-Roger Salendro, Chaville (9",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/276478913.htm",
+   "surface": 120.0,
+   "rooms": 5,
+   "price": 729000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "273778541",
+   "aliases": [
+    "273778541"
+   ],
+   "fingerprint": "chaville|122|5",
+   "commune": "chaville",
+   "quartier": "Étang de Brisemiche, Chaville",
+   "title": "1 / 16 D 1 100 000 € 9 016 €/m² Maison à vendre 5 pièces · 3 chambres · 122 m² · 530 m² de terrain Étang de Brisemiche, ",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/etang-de-brisemiche/273778541.htm",
+   "surface": 122.0,
+   "rooms": 5,
+   "price": 1100000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_26C1WSZFIRES",
+   "aliases": [
+    "sl_26C1WSZFIRES"
+   ],
+   "fingerprint": "chaville|105|6",
+   "commune": "chaville",
+   "quartier": "Mare Adam, Chaville",
+   "title": "1 / 10 E 750 000 € 7 143 €/m² Maison à vendre - Première occupation 6 pièces · 4 chambres · 105 m² · 97 m² de terrain Ma",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/chaville-92370/26C1WSZFIRES",
+   "surface": 105.0,
+   "rooms": 6,
+   "price": 750000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "273300761",
+   "aliases": [
+    "273300761"
+   ],
+   "fingerprint": "chaville|109|5",
+   "commune": "chaville",
+   "quartier": "Pavé des Gardes, Chaville",
+   "title": "1 / 10 E 790 000 € 7 248 €/m² Maison à vendre 5 pièces · 3 chambres · 109 m² · 206 m² de terrain Pavé des Gardes, Chavil",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/pave-des-gardes/273300761.htm",
+   "surface": 109.0,
+   "rooms": 5,
+   "price": 790000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275232481",
+   "aliases": [
+    "275232481"
+   ],
+   "fingerprint": "chaville|103|5",
+   "commune": "chaville",
+   "quartier": "Chaville",
+   "title": "1 / 10 E 780 000 € 7 546 €/m² Maison de ville à vendre 5 pièces · 4 chambres · 103,4 m² Chaville (92370) Nichée dans un ",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/275232481.htm",
+   "surface": 103.4,
+   "rooms": 5,
+   "price": 780000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "268533277",
+   "aliases": [
+    "268533277"
+   ],
+   "fingerprint": "chaville|209|8",
+   "commune": "chaville",
+   "quartier": "Étang Saint Denis, Chaville",
+   "title": "1 / 18 E 960 000 € 4 593 €/m² Maison à vendre 8 pièces · 6 chambres · 209 m² · 320 m² de terrain Étang Saint Denis, Chav",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/etang-saint-denis/268533277.htm",
+   "surface": 209.0,
+   "rooms": 8,
+   "price": 960000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275299139",
+   "aliases": [
+    "275299139"
+   ],
+   "fingerprint": "viroflay|170|8",
+   "commune": "viroflay",
+   "quartier": "Le Haras, Viroflay",
+   "title": "1 / 17 D 1 075 000 € 6 324 €/m² Maison de plain-pied à vendre 8 pièces · 6 chambres · 170 m² · 391 m² de terrain Le Hara",
+   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/le-haras/275299139.htm",
+   "surface": 170.0,
+   "rooms": 8,
+   "price": 1075000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "262237097",
+   "aliases": [
+    "262237097",
+    "273404183"
+   ],
+   "fingerprint": "viroflay|140|6",
+   "commune": "viroflay",
+   "quartier": "La Ville Au Bois, Viroflay",
+   "title": "1 / 17 D 900 000 € 6 429 €/m² Maison à vendre 6 pièces · 4 chambres · 140 m² · 233 m² de terrain La Ville Au Bois, Virof",
+   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/les-petits-bois/262237097.htm",
+   "surface": 140.0,
+   "rooms": 6,
+   "price": 950250,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_261YX8SHV25F",
+   "aliases": [
+    "sl_261YX8SHV25F"
+   ],
+   "fingerprint": "viroflay|110|5",
+   "commune": "viroflay",
+   "quartier": "Les Arcades, Viroflay",
+   "title": "1 / 12 Nouveau F 735 000 € 6 682 €/m² Maison à vendre 5 pièces · 3 chambres · 110 m² · 150 m² de terrain Les Arcades, Vi",
+   "url": "https://www.seloger.com/wl-cdp/261YX8SHV25F",
+   "surface": 110.0,
+   "rooms": 5,
+   "price": 735000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_26QNRVASBK6D",
+   "aliases": [
+    "sl_26QNRVASBK6D",
+    "sl_26UNPLQM5ILX"
+   ],
+   "fingerprint": "viroflay|127|5",
+   "commune": "viroflay",
+   "quartier": "Les Arcades, Viroflay",
+   "title": "LES COMPARATEURS DU NEUF 1 / 9 Nouveau A 751 000 € 5 913 €/m² Maison à vendre - neuf 5 pièces · 4 chambres · 127 m² · 11",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/26QNRVASBK6D",
+   "surface": 127.0,
+   "rooms": 5,
+   "price": 751000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_268BDU97WBLH",
+   "aliases": [
+    "sl_268BDU97WBLH"
+   ],
+   "fingerprint": "viroflay|104|4",
+   "commune": "viroflay",
+   "quartier": "Les Arcades, Viroflay",
+   "title": "1 / 20 Nouveau D 720 000 € 6 931 €/m² Maison à vendre 4 pièces · 3 chambres · 103,9 m² Les Arcades, Viroflay (78220) Tri",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/268BDU97WBLH",
+   "surface": 103.9,
+   "rooms": 4,
+   "price": 720000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_255DUPR3IHRU",
+   "aliases": [
+    "sl_255DUPR3IHRU"
+   ],
+   "fingerprint": "viroflay|80|4",
+   "commune": "viroflay",
+   "quartier": "Les Aulnettes, Viroflay",
+   "title": "1 / 11 Nouveau E 748 800 € 9 411 €/m² Maison à vendre 4 pièces · 3 chambres · 79,6 m² · 160 m² de terrain Les Aulnettes,",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/255DUPR3IHRU",
+   "surface": 79.6,
+   "rooms": 4,
+   "price": 748800,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "275588799",
+   "aliases": [
+    "275588799"
+   ],
+   "fingerprint": "viroflay|252|8",
+   "commune": "viroflay",
+   "quartier": "Les Arcades, Viroflay",
+   "title": "1 / 14 D 1 200 000 € 4 762 €/m² Maison à vendre 8 pièces · 5 chambres · 252 m² Les Arcades, Viroflay (78220) Au cœur du ",
+   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/les-arcades/275588799.htm",
+   "surface": 252.0,
+   "rooms": 8,
+   "price": 1200000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "273211445",
+   "aliases": [
+    "273211445",
+    "sl_26KXQ181MV63"
+   ],
+   "fingerprint": "viroflay|96|4",
+   "commune": "viroflay",
+   "quartier": "Les Aulnettes, Viroflay",
+   "title": "1 / 9 E 735 000 € 7 667 €/m² Maison à vendre 4 pièces · 3 chambres · 95,9 m² · 161 m² de terrain Les Aulnettes, Viroflay",
+   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/les-aulnettes/273211445.htm",
+   "surface": 95.9,
+   "rooms": 4,
+   "price": 750000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "sl_25MQ9AG9V8RW",
+   "aliases": [
+    "sl_25MQ9AG9V8RW"
+   ],
+   "fingerprint": "viroflay|74|3",
+   "commune": "viroflay",
+   "quartier": "Viroflay",
+   "title": "1 / 12 Nouveau F 724 000 € 9 735 €/m² Maison à vendre 3 pièces · 2 chambres · 74,4 m² · 200 m² de terrain Viroflay (7822",
+   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/25MQ9AG9V8RW",
+   "surface": 74.4,
+   "rooms": 3,
+   "price": 724000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "270485661",
+   "aliases": [
+    "270485661"
+   ],
+   "fingerprint": "viroflay|183|7",
+   "commune": "viroflay",
+   "quartier": "Le Haras, Viroflay",
+   "title": "1 / 14 D 1 075 000 € 5 874 €/m² Maison à vendre 7 pièces · 5 chambres · 183 m² · 391 m² de terrain Le Haras, Viroflay (7",
+   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/le-haras/270485661.htm",
+   "surface": 183.0,
+   "rooms": 7,
+   "price": 1075000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "274779219",
+   "aliases": [
+    "274779219"
+   ],
+   "fingerprint": "viroflay|107|5",
+   "commune": "viroflay",
+   "quartier": "Les Aulnettes, Viroflay",
+   "title": "1 / 11 F 700 000 € 6 570 €/m² Maison à vendre 5 pièces · 2 chambres · 106,6 m² · 358 m² de terrain Les Aulnettes, Virofl",
+   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/les-aulnettes/274779219.htm",
+   "surface": 106.6,
+   "rooms": 5,
+   "price": 700000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "267984421",
+   "aliases": [
+    "265091471",
+    "265109027",
+    "267984421"
+   ],
+   "fingerprint": "viroflay|105|6",
+   "commune": "viroflay",
+   "quartier": "Viroflay",
+   "title": "1 / 21 D 990 000 € 9 429 €/m² Maison à vendre 6 pièces · 4 chambres · 105 m² · 300 m² de terrain Viroflay (78220) EXPERT",
+   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/267984421.htm",
+   "surface": 105.0,
+   "rooms": 6,
+   "price": 990000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-03-23",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "254811363",
+   "aliases": [
+    "254811363"
+   ],
+   "fingerprint": "viroflay|90|4",
+   "commune": "viroflay",
+   "quartier": "Le Haras, Viroflay",
+   "title": "1 / 10 E 756 000 € 8 400 €/m² Maison à vendre 4 pièces · 3 chambres · 90 m² · 160 m² de terrain Le Haras, Viroflay (7822",
+   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/le-haras/254811363.htm",
+   "surface": 90.0,
+   "rooms": 4,
+   "price": 756000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_61070004",
+   "aliases": [
+    "275286565",
+    "aetm_61070004"
+   ],
+   "fingerprint": "meudon|230|12",
+   "commune": "meudon",
+   "quartier": "Centre, Meudon",
+   "title": "MEUDON Centre Elégante meulière de 12 pièces sur un terrain de 492 m² 230m² - 2 000 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_61070004/elegante-meuliere-de-12-pieces-sur-un-terrain-de-492-m2.html",
+   "surface": 230.0,
+   "rooms": 12,
+   "price": 2000000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-19",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_60963076",
+   "aliases": [
+    "274466477",
+    "aetm_60963076"
+   ],
+   "fingerprint": "meudon|300|9",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "MEUDON Bellevue Maison 9 pièces sur un terrain de 1 425 m² 300m² - 3 200 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60963076/maison-9-pieces-sur-un-terrain-de-1-425-m2.html",
+   "surface": 300.0,
+   "rooms": 9,
+   "price": 3200000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-09",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_60962851",
+   "aliases": [
+    "aetm_60962851",
+    "agence_principale_sevres_61057936"
+   ],
+   "fingerprint": "sevres|100|5",
+   "commune": "sevres",
+   "quartier": "Sèvres",
+   "title": "SEVRES Maison de ville 5 pièces avec garage 100m² - 490 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60962851/maison-de-ville-5-pieces-avec-garage.html",
+   "surface": 100.0,
+   "rooms": 5,
+   "price": 490000,
+   "n_mandats": 2,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_60756005",
+   "aliases": [
+    "271067753",
+    "aetm_60756005"
+   ],
+   "fingerprint": "meudon|215|8",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "MEUDON Bellevue Maison 8 pièces sur terrain de 445 m² 215m² - 1 795 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60756005/maison-8-pieces-sur-terrain-de-445-m2.html",
+   "surface": 215.0,
+   "rooms": 8,
+   "price": 1795000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-05-31",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_60756056",
+   "aliases": [
+    "271067951",
+    "aetm_60756056"
+   ],
+   "fingerprint": "meudon|170|8",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "MEUDON Bellevue Maison 8 pièces sur terrain de 523 m² 170m² - 1 495 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60756056/maison-8-pieces-sur-terrain-de-523-m2.html",
+   "surface": 170.0,
+   "rooms": 8,
+   "price": 1495000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_60698098",
+   "aliases": [
+    "271450541",
+    "aetm_60698098"
+   ],
+   "fingerprint": "meudon|190|6",
+   "commune": "meudon",
+   "quartier": "Meudon",
+   "title": "MEUDON Stalingrad Maison 6 pièces sur terrain de 342m² 190m² - 1 470 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60698098/maison-6-pieces-sur-terrain-de-342m2.html",
+   "surface": 190.0,
+   "rooms": 6,
+   "price": 1470000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-06-04",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_60569975",
+   "aliases": [
+    "aetm_60569975"
+   ],
+   "fingerprint": "meudon|210|9",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "MEUDON Bellevue Maison 9 pièces sur un terrain de 360m² 210m² - 1 390 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60569975/maison-9-pieces-sur-un-terrain-de-360m2.html",
+   "surface": 210.0,
+   "rooms": 9,
+   "price": 1390000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_60464255",
+   "aliases": [
+    "aetm_60464255"
+   ],
+   "fingerprint": "ville-d'avray|180|9",
+   "commune": "ville-d'avray",
+   "quartier": "Etangs, Ville-d'Avray",
+   "title": "VILLE D AVRAY Etangs de Corot Maison 9 pièces sur un terrain de 784 m² vue sur les étangs de Corot 180m² - 1 995 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60464255/maison-9-pieces-sur-un-terrain-de-784-m2-vue-sur-les-etangs-de-corot.html",
+   "surface": 180.0,
+   "rooms": 9,
+   "price": 1995000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_57889442",
+   "aliases": [
+    "aetm_57889442"
+   ],
+   "fingerprint": "sevres|135|7",
+   "commune": "sevres",
+   "quartier": "Sèvres",
+   "title": "SEVRES Monesse Maison 7 pièces sur terrain arboré de 256 m² 135m² - 1 075 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_57889442/maison-7-pieces-sur-terrain-arbore-de-256-m2.html",
+   "surface": 135.0,
+   "rooms": 7,
+   "price": 1075000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_59588613",
+   "aliases": [
+    "aetm_59588613"
+   ],
+   "fingerprint": "sevres|255|8",
+   "commune": "sevres",
+   "quartier": "Brancas, Sèvres",
+   "title": "SEVRES Brancas Maison 8 pièces sur un terrain de 948m² 255m² - 2 495 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_59588613/maison-8-pieces-sur-un-terrain-de-948m2.html",
+   "surface": 255.0,
+   "rooms": 8,
+   "price": 2495000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_58448434",
+   "aliases": [
+    "242284729",
+    "aetm_58448434"
+   ],
+   "fingerprint": "meudon|261|7",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "MEUDON Bellevue Maison de 7 pièces sur un terrain de 478 m² 261m² - 2 500 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_58448434/maison-de-7-pieces-sur-un-terrain-de-478-m2.html",
+   "surface": 261.0,
+   "rooms": 7,
+   "price": 2500000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "aetm_58258029",
+   "aliases": [
+    "240318741",
+    "aetm_58258029"
+   ],
+   "fingerprint": "meudon|216|7",
+   "commune": "meudon",
+   "quartier": "Bellevue, Meudon",
+   "title": "MEUDON Bellevue Maison de 7 pièces sur un terrain de 356 m² 216m² - 2 150 000 €",
+   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_58258029/maison-de-7-pieces-sur-un-terrain-de-356-m2.html",
+   "surface": 216.0,
+   "rooms": 7,
+   "price": 2150000,
+   "n_mandats": 1,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-07-22",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "agence_principale_sevres_60977072",
+   "aliases": [
+    "agence_principale_sevres_60977072"
+   ],
+   "fingerprint": "sevres|80|4",
+   "commune": "sevres",
+   "quartier": "Rive Gauche, Sèvres",
+   "title": "Exclusif Référence 581-S SEVRES RIVE GAUCHE - MAISON DE CHARME 575 000 € 4 pièces 80 m² EXCLUSIVITE AGENCE PRINCIPALE - ",
+   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_60977072/sevres-rive-gauche-maison-de-charme.html",
+   "surface": 80.0,
+   "rooms": 4,
+   "price": 575000,
+   "n_mandats": 1,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-07-25",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "agence_principale_sevres_59806758",
+   "aliases": [
+    "agence_principale_sevres_59806758"
+   ],
+   "fingerprint": "sevres|170|6",
+   "commune": "sevres",
+   "quartier": "Brancas, Sèvres",
+   "title": "Référence 652-S Maison à vendre à Sèvres avec vue sur le Parc de Saint Cloud 1 455 000 € 6 pièces 170 m² SEVRES BRANCAS ",
+   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_59806758/maison-a-vendre-a-sevres-avec-vue-sur-le-parc-de-saint-cloud.html",
+   "surface": 170.0,
+   "rooms": 6,
+   "price": 1455000,
+   "n_mandats": 1,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-07-31",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
+   "misses": 0
+  },
+  {
+   "canonical_id": "agence_principale_sevres_60035219",
+   "aliases": [
+    "agence_principale_sevres_60035219"
+   ],
+   "fingerprint": "sevres|112|7",
+   "commune": "sevres",
+   "quartier": "Rive Gauche, Sèvres",
+   "title": "Référence 609-S SEVRES RIVE GAUCHE - JOLIE MAISON 5 CHAMBRES 699 000 € 7 pièces 112 m² SEVRES RIVE GAUCHE - CHATAIGNERAI",
+   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_60035219/sevres-rive-gauche-jolie-maison-5-chambres.html",
+   "surface": 112.0,
+   "rooms": 7,
+   "price": 699000,
+   "n_mandats": 1,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-08-06",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-07",
    "misses": 0
   },
   {
@@ -1077,27 +3269,6 @@
    "misses": 0
   },
   {
-   "canonical_id": "242284729",
-   "aliases": [
-    "242284729",
-    "aetm_58448434"
-   ],
-   "fingerprint": "meudon|261|7",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "EXCLUSIVITE. Dans le très privilégié quartier de Bellevue, emplacement exceptionnel, avec pour environnement immédiat le",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47016/242284729/#",
-   "surface": 261.4,
-   "rooms": 7,
-   "price": 2500000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
    "canonical_id": "272652095",
    "aliases": [
     "272652095"
@@ -1114,27 +3285,6 @@
    "agency": "",
    "first_seen": "2026-06-18",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "240318741",
-   "aliases": [
-    "240318741",
-    "aetm_58258029"
-   ],
-   "fingerprint": "meudon|217|7",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "EXCLUSIVITE. Dans le très privilégié quartier de Bellevue, emplacement exceptionnel, avec pour environnement immédiat le",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47016/240318741/#",
-   "surface": 216.9,
-   "rooms": 7,
-   "price": 2150000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
    "last_seen": "2026-08-06",
    "misses": 0
   },
@@ -1199,109 +3349,6 @@
    "misses": 0
   },
   {
-   "canonical_id": "252269633",
-   "aliases": [
-    "252269633",
-    "274583123"
-   ],
-   "fingerprint": "meudon|140|5",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "Dans une impasse privative avec une vue privilégiée sur Paris cette maison récente de 2008 située dans un environnement ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/252269633/#",
-   "surface": 140.0,
-   "rooms": 5,
-   "price": 1150000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-07-11",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275286565",
-   "aliases": [
-    "275286565",
-    "aetm_61070004"
-   ],
-   "fingerprint": "meudon|230|12",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "Bien d'exception ! Cette demeure construite en 1880 ornée de charmants cabochons en façade, a été entièrement rénovée av",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47017/275286565/#",
-   "surface": 230.0,
-   "rooms": 12,
-   "price": 2000000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-19",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274466477",
-   "aliases": [
-    "274466477",
-    "aetm_60963076"
-   ],
-   "fingerprint": "meudon|300|9",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "EXCLUSIVITE - RARE - Maison familiale de 300 m² répartie sur seulement deux niveaux, au coeur d'un superbe parc arboré d",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47016/274466477/#",
-   "surface": 300.0,
-   "rooms": 9,
-   "price": 3200000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-09",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "264651711",
-   "aliases": [
-    "264651711"
-   ],
-   "fingerprint": "meudon|160|8",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "iad France - Stéphanie Cornetti vous propose: MEUDON VAL-FLEURY A 6 MINUTES DU MONOPRIX ET DU RER C - MAISON FAMILIALE 6",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/264651711/#",
-   "surface": 160.0,
-   "rooms": 8,
-   "price": 1050000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-03-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274118941",
-   "aliases": [
-    "274118941"
-   ],
-   "fingerprint": "meudon|140|6",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "EXCLUSIVITÉ MEUDON CENTRE MAISON 6 PIÈCES AVEC JARDIN Idéalement située au coeur de Meudon, dans un environnement calme ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/274118941/#",
-   "surface": 140.0,
-   "rooms": 6,
-   "price": 995000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-05",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
    "canonical_id": "262583733",
    "aliases": [
     "262583733"
@@ -1317,409 +3364,6 @@
    "n_mandats": 1,
    "agency": "",
    "first_seen": "2026-02-22",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271671805",
-   "aliases": [
-    "271671805"
-   ],
-   "fingerprint": "meudon|105|5",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "EXCLUSIVITÉ – Au cœur du très recherché quartier de Val Fleury, découvrez cette charmante maison de 105 m², idéalement e",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47014/271671805/#",
-   "surface": 105.0,
-   "rooms": 5,
-   "price": 795000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-06-07",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271450541",
-   "aliases": [
-    "271450541",
-    "aetm_60698098"
-   ],
-   "fingerprint": "meudon|190|6",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "RARE- Entre la place Stalingrad et le potager du Dauphin. Au calme, dans un quartier très recherché pour sa proximité av",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271450541/#",
-   "surface": 190.0,
-   "rooms": 6,
-   "price": 1470000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-06-04",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271067753",
-   "aliases": [
-    "271067753",
-    "aetm_60756005"
-   ],
-   "fingerprint": "meudon|215|8",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "RARE - Cette maison d'environ 215m² sur un terrain de 445m² et entièrement réhabilitée a su garder son âme ! Très belle ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271067753/#",
-   "surface": 215.0,
-   "rooms": 8,
-   "price": 1795000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-05-31",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271067951",
-   "aliases": [
-    "271067951",
-    "aetm_60756056"
-   ],
-   "fingerprint": "meudon|170|8",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "RARE - Cette maison d'environ 170m² sur un terrain de 523m² entièrement réhabilitée a su garder son âme et un cachet ind",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47015/271067951/#",
-   "surface": 170.0,
-   "rooms": 8,
-   "price": 1495000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "270387453",
-   "aliases": [
-    "270387453",
-    "270477905",
-    "271923183"
-   ],
-   "fingerprint": "chaville|145|6",
-   "commune": "chaville",
-   "quartier": "Chaville",
-   "title": "Située dans une impasse sans issue, dans un quartier calme et résidentiel de Chaville à la limite de Viroflay, belle mai",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38315/270387453/",
-   "surface": 145.0,
-   "rooms": 6,
-   "price": 1190000,
-   "n_mandats": 3,
-   "agency": "",
-   "first_seen": "2026-05-23",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "265788053",
-   "aliases": [
-    "265788053"
-   ],
-   "fingerprint": "chaville|150|8",
-   "commune": "chaville",
-   "quartier": "Louvois-Anatole France, Chaville",
-   "title": "Domaine privé du Parc Fourchon — Élégante demeure début XX? rénovée Nichée au cœur du prestigieux domaine privé du Parc ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46921/265788053/",
-   "surface": 150.0,
-   "rooms": 8,
-   "price": 1180000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-03-31",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "270362135",
-   "aliases": [
-    "270362135",
-    "274504929",
-    "274514695",
-    "275262967",
-    "275296571"
-   ],
-   "fingerprint": "chaville|163|7",
-   "commune": "chaville",
-   "quartier": "Monesse-Roger Salendro, Chaville",
-   "title": "Rare sur le secteur, cette propriété conjugue parfaitement vie familiale et espace professionnel, avec des volumes excep",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46916/270362135/",
-   "surface": 163.0,
-   "rooms": 7,
-   "price": 930000,
-   "n_mandats": 5,
-   "agency": "",
-   "first_seen": "2026-07-19",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "266002847",
-   "aliases": [
-    "266002847"
-   ],
-   "fingerprint": "chaville|104|5",
-   "commune": "chaville",
-   "quartier": "Monesse-Roger Salendro, Chaville",
-   "title": "A la limite de Chaville et Sèvres, à 3 minutes à pied des commerces du centre-ville et environ 15 minutes à pied de la g",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46916/266002847/",
-   "surface": 104.0,
-   "rooms": 5,
-   "price": 849500,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-04-02",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "266078679",
-   "aliases": [
-    "266078679"
-   ],
-   "fingerprint": "chaville|190|8",
-   "commune": "chaville",
-   "quartier": "Étang de Brisemiche, Chaville",
-   "title": "Idéalement située, proche de la forêt et de toutes commodités (gare, écoles, commerces), cette vaste maison alliant mode",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46923/266078679/",
-   "surface": 190.0,
-   "rooms": 8,
-   "price": 1240000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "259966745",
-   "aliases": [
-    "259966745"
-   ],
-   "fingerprint": "chaville|212|7",
-   "commune": "chaville",
-   "quartier": "Père Komitas, Chaville",
-   "title": "- UNE EXCLUSIVITE APPARTEMENTS ET MAISONS CHAVILLE- Au calme d'une impasse, idéalement située, à proximité de toutes les",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/259966745/",
-   "surface": 212.0,
-   "rooms": 7,
-   "price": 1094000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-01-23",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271128619",
-   "aliases": [
-    "271128619"
-   ],
-   "fingerprint": "chaville|162|6",
-   "commune": "chaville",
-   "quartier": "Père Komitas, Chaville",
-   "title": "Chaville rive droite en impasse, sur un terrain de 370m2, jolie maison de 162m2 utiles rénovée comprenant au rez-de-chau",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46917/271128619/",
-   "surface": 162.0,
-   "rooms": 6,
-   "price": 895000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-06-01",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "265186403",
-   "aliases": [
-    "265186403"
-   ],
-   "fingerprint": "chaville|184|7",
-   "commune": "chaville",
-   "quartier": "Chaville",
-   "title": "Sous Promesse. Exclusivité. Votre consultant Barnes Versailles-Viroflay - Damien Portail - vous présente cette demeure é",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38315/265186403/",
-   "surface": 184.0,
-   "rooms": 7,
-   "price": 1290000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-03-24",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "265091471",
-   "aliases": [
-    "265091471",
-    "265109027",
-    "267984421"
-   ],
-   "fingerprint": "viroflay|105|5",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Sous compromis : Découvrez cette **maison individuelle de standing**, entièrement rénovée en 2022, où l'élégance intempo",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/265091471/",
-   "surface": 105.49,
-   "rooms": 5,
-   "price": 990000,
-   "n_mandats": 3,
-   "agency": "",
-   "first_seen": "2026-03-23",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "269145095",
-   "aliases": [
-    "269145095"
-   ],
-   "fingerprint": "viroflay|262|6",
-   "commune": "viroflay",
-   "quartier": "Le Haras, Viroflay",
-   "title": "La Bastide Immobilière vous propose à la vente en exclusivité dans l'un des secteurs les plus recherchés de Viroflay, à ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45800/269145095/",
-   "surface": 262.0,
-   "rooms": 6,
-   "price": 1300000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-05-09",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274124335",
-   "aliases": [
-    "274124335",
-    "275204623",
-    "275208365",
-    "275501899",
-    "275611365",
-    "276178359",
-    "276178363",
-    "aetm_60937806"
-   ],
-   "fingerprint": "sevres|190|6",
-   "commune": "sevres",
-   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
-   "title": "1 / 11 D 1 150 000 € 6 053 €/m² Maison à vendre 6 pièces · 4 chambres · 190 m² · 280 m² de terrain Bruyères-Postillons-J",
-   "url": "https://www.bellesdemeures.com/274124335/detail.htm",
-   "surface": 190.0,
-   "rooms": 6,
-   "price": 1150000,
-   "n_mandats": 4,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "272266513",
-   "aliases": [
-    "272266513",
-    "agence_principale_sevres_60816496"
-   ],
-   "fingerprint": "sevres|115|6",
-   "commune": "sevres",
-   "quartier": "Bruyères-Acacias-Fonceaux, Sèvres",
-   "title": "EXCLUSIVITE AGENCE PRINCIPALE - Nichée dans un environnement calme et verdoyant, avec un beau jardin sans vis à vis, nou",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47088/272266513/",
-   "surface": 115.0,
-   "rooms": 6,
-   "price": 790000,
-   "n_mandats": 2,
-   "agency": "Agence Principale Sèvres",
-   "first_seen": "2026-06-14",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "276721479",
-   "aliases": [
-    "276721479",
-    "sl_26G9Z1Y2ETQ1"
-   ],
-   "fingerprint": "viroflay|196|8",
-   "commune": "viroflay",
-   "quartier": "Viroflay",
-   "title": "VIROFLAY (78220), GVI vous propose à la vente, quartier du Haras, une maison individuelle non mitoyenne des années 60, d",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-34158/276721479/",
-   "surface": 196.0,
-   "rooms": 8,
-   "price": 1100000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-08-05",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275622133",
-   "aliases": [
-    "267728671",
-    "272930647",
-    "275622133",
-    "275622143"
-   ],
-   "fingerprint": "viroflay|154|8",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Située dans une adresse très recherchée de Viroflay dans un quartier historique avec des rues en étoile autour de la pla",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/275622133/",
-   "surface": 154.0,
-   "rooms": 8,
-   "price": 1195000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-04-22",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "219230995",
-   "aliases": [
-    "219230995"
-   ],
-   "fingerprint": "viroflay|178|7",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Cette maison de 170 m² vous séduira par ses volumes généreux, sa luminosité et son jardin orienté sud-ouest. Profitez d'",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/219230995/",
-   "surface": 178.0,
-   "rooms": 7,
-   "price": 1090000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2024-10-09",
    "first_seen_estimated": true,
    "last_seen": "2026-08-06",
    "misses": 0
@@ -1742,215 +3386,7 @@
    "first_seen": "2026-06-12",
    "first_seen_estimated": true,
    "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "270136255",
-   "aliases": [
-    "270136255"
-   ],
-   "fingerprint": "viroflay|140|7",
-   "commune": "viroflay",
-   "quartier": "Les Arcades, Viroflay",
-   "title": "Agréable maison familiale au coeur d'un quartier prisé entre gare et centre ville. Elle offre un double séjour avec une ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45799/270136255/",
-   "surface": 140.0,
-   "rooms": 7,
-   "price": 990000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-05-20",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "272649319",
-   "aliases": [
-    "272649319",
-    "276401765",
-    "276401767",
-    "sl_26DSRJMA6MKC",
-    "sl_26GZUKUI6WPI",
-    "sl_26P4ZI964V6D"
-   ],
-   "fingerprint": "viroflay|116|5",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Maison Contemporaine de 116 m² Rive Gauche Découvrez cette superbe maison contemporaine de 116 m², construite en 2026, o",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/272649319/",
-   "surface": 116.2,
-   "rooms": 5,
-   "price": 911000,
-   "n_mandats": 6,
-   "agency": "",
-   "first_seen": "2026-06-18",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "265928317",
-   "aliases": [
-    "265928317",
-    "sl_26BJ438DC3WT",
-    "sl_26IDX6UNLWEC",
-    "sl_26LX1UMX6Z9C"
-   ],
-   "fingerprint": "viroflay|125|5",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "Sous compromis : Maison Contemporaine 4 chambres Rive gauche Découvrez cette superbe maison contemporaine de 125 m², con",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45801/265928317/",
-   "surface": 124.9,
-   "rooms": 5,
-   "price": 975000,
-   "n_mandats": 4,
-   "agency": "",
-   "first_seen": "2026-04-02",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "273962935",
-   "aliases": [
-    "273962935"
-   ],
-   "fingerprint": "versailles|175|8",
-   "commune": "versailles",
-   "quartier": "Bernard de Jussieu-Petits Bois-Picardie, Versailles",
-   "title": "Versailles Montreuil Maison 7 pièces 165 m² habitables sur parcelle de 449 m² - Charmante maison ancienne en bon état, é",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45780/273962935/",
-   "surface": 175.0,
-   "rooms": 8,
-   "price": 1360000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-03",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271096525",
-   "aliases": [
-    "271096525"
-   ],
-   "fingerprint": "versailles|183|8",
-   "commune": "versailles",
-   "quartier": "Bernard de Jussieu-Petits Bois-Picardie, Versailles",
-   "title": "Maison meulière style Bachelin à deux pas du lycée privé Sainte Geneviève et ses grandes écoles.Elle se compose au rez d",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45780/271096525/",
-   "surface": 183.0,
-   "rooms": 8,
-   "price": 1075000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-05",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "265849707",
-   "aliases": [
-    "265849707"
-   ],
-   "fingerprint": "versailles|125|7",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "VERSAILLES Porchefontaine, à proximité immédiate de la gare RER C de Versailles Porchefontaine, de la place du marché de",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/265849707/",
-   "surface": 125.0,
-   "rooms": 7,
-   "price": 899000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-04-01",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275145599",
-   "aliases": [
-    "275145599"
-   ],
-   "fingerprint": "versailles|110|5",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "Barnes Versailles vous présente une maison ancienne d'environ 110 m² habitables, édifiée sur un terrain d'environ 205 m²",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/275145599/",
-   "surface": 110.0,
-   "rooms": 5,
-   "price": 922000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-17",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "270386213",
-   "aliases": [
-    "270386213"
-   ],
-   "fingerprint": "versailles|262|0",
-   "commune": "versailles",
-   "quartier": "Chantiers-Prochefontaine, Versailles",
-   "title": "À l'abri des regards, cette élégante propriété familiale séduit par ses volumes généreux, sa luminosité et ses espaces d",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45782/270386213/",
-   "surface": 262.0,
-   "rooms": null,
-   "price": 1950000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-05-23",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "266392703",
-   "aliases": [
-    "266392703"
-   ],
-   "fingerprint": "versailles|190|6",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Belle maison familiale Bachelin, très lumineuse en pierre de meulière avec ornements en céramique Art nouveau, située au",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/266392703/",
-   "surface": 190.0,
-   "rooms": 6,
-   "price": 1850000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "261076299",
-   "aliases": [
-    "261076299"
-   ],
-   "fingerprint": "versailles|380|10",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Elégante maison en pierre de meulière et briques, érigée en 1900, d'une surface totale d'environ 380 m² (286 m² habitabl",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/261076299/",
-   "surface": 380.0,
-   "rooms": 10,
-   "price": 3490000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-29",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
+   "misses": 1
   },
   {
    "canonical_id": "275720869",
@@ -1970,751 +3406,7 @@
    "first_seen": "2026-07-29",
    "first_seen_estimated": false,
    "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275805565",
-   "aliases": [
-    "275805565"
-   ],
-   "fingerprint": "sevres|160|6",
-   "commune": "sevres",
-   "quartier": "Monesse-Croix Bosset, Sèvres",
-   "title": "1 / 17 C 1 100 000 € 6 875 €/m² Maison à vendre 6 pièces · 4 chambres · 160 m² · 479 m² de terrain Monesse-Croix Bosset,",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/monesse-croix-bosset/275805565.htm",
-   "surface": 160.0,
-   "rooms": 6,
-   "price": 1100000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "273781241",
-   "aliases": [
-    "273781241"
-   ],
-   "fingerprint": "sevres|210|8",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "1 / 9 F 750 000 € 3 571 €/m² Maison à vendre 8 pièces · 7 chambres · 210 m² · 480 m² de terrain Sèvres (92310) ParisOues",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/273781241.htm",
-   "surface": 210.0,
-   "rooms": 8,
-   "price": 750000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275397897",
-   "aliases": [
-    "275397897"
-   ],
-   "fingerprint": "sevres|167|5",
-   "commune": "sevres",
-   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
-   "title": "1 / 17 C 980 000 € 5 868 €/m² Maison à vendre 5 pièces · 3 chambres · 167 m² · 337 m² de terrain Bruyères-Postillons-Jau",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/275397897.htm",
-   "surface": 167.0,
-   "rooms": 5,
-   "price": 980000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275397895",
-   "aliases": [
-    "275397895"
-   ],
-   "fingerprint": "sevres|150|5",
-   "commune": "sevres",
-   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
-   "title": "1 / 11 E 860 000 € 5 733 €/m² Maison à vendre 5 pièces · 4 chambres · 150 m² · 264 m² de terrain Ernest Renan-Chataigner",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/ernest-renan-chataigneraie/275397895.htm",
-   "surface": 150.0,
-   "rooms": 5,
-   "price": 860000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271082591",
-   "aliases": [
-    "271082591"
-   ],
-   "fingerprint": "sevres|193|9",
-   "commune": "sevres",
-   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
-   "title": "1 / 15 F 998 000 € 5 166 €/m² Maison à vendre 9 pièces · 6 chambres · 193,2 m² · 381 m² de terrain Bruyères-Postillons-J",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/271082591.htm",
-   "surface": 193.2,
-   "rooms": 9,
-   "price": 998000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275670489",
-   "aliases": [
-    "275670489"
-   ],
-   "fingerprint": "sevres|180|9",
-   "commune": "sevres",
-   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
-   "title": "1 / 24 E 1 150 000 € 6 389 €/m² Maison de plain-pied à vendre 9 pièces · 4 chambres · 180 m² · 603 m² de terrain Bruyère",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/275670489.htm",
-   "surface": 180.0,
-   "rooms": 9,
-   "price": 1150000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271082513",
-   "aliases": [
-    "271082513"
-   ],
-   "fingerprint": "sevres|145|5",
-   "commune": "sevres",
-   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
-   "title": "1 / 9 F 849 000 € 5 846 €/m² Maison à vendre 5 pièces · 3 chambres · 145,2 m² · 357 m² de terrain Bruyères-Postillons-Ja",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/271082513.htm",
-   "surface": 145.2,
-   "rooms": 5,
-   "price": 849000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274129265",
-   "aliases": [
-    "274129265"
-   ],
-   "fingerprint": "sevres|180|8",
-   "commune": "sevres",
-   "quartier": "Beau Site-Pommerets-Binelles, Sèvres",
-   "title": "1 / 7 E 824 000 € 4 578 €/m² Maison à vendre 8 pièces · 6 chambres · 180 m² · 289 m² de terrain Beau Site-Pommerets-Bine",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/beau-site-pommerets-binelles/274129265.htm",
-   "surface": 180.0,
-   "rooms": 8,
-   "price": 824000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "229502815",
-   "aliases": [
-    "229502815"
-   ],
-   "fingerprint": "sevres|174|6",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "1 / 25 E 1 190 000 € 6 839 €/m² Maison à vendre 6 pièces · 174 m² Sèvres (92310) Avis aux créatifs. Rare projet de rénov",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/229502815.htm",
-   "surface": 174.0,
-   "rooms": 6,
-   "price": 1190000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "263972841",
-   "aliases": [
-    "263972841"
-   ],
-   "fingerprint": "sevres|172|9",
-   "commune": "sevres",
-   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
-   "title": "1 / 16 C 790 000 € 4 593 €/m² Maison de ville à vendre 9 pièces · 4 chambres · 172 m² · 245 m² de terrain Bruyères-Posti",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/263972841.htm",
-   "surface": 172.0,
-   "rooms": 9,
-   "price": 790000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "268099631",
-   "aliases": [
-    "268099631"
-   ],
-   "fingerprint": "sevres|203|10",
-   "commune": "sevres",
-   "quartier": "Bruyères-Postillons-Jaurès-Val Allard, Sèvres",
-   "title": "1 / 18 E 720 000 € 3 548 €/m² Maison à vendre 10 pièces · 6 chambres · 202,9 m² Bruyères-Postillons-Jaurès-Val Allard, S",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/bruyeres-postillons-jaures-val-allard/268099631.htm",
-   "surface": 202.9,
-   "rooms": 10,
-   "price": 720000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271764167",
-   "aliases": [
-    "271764167"
-   ],
-   "fingerprint": "sevres|226|6",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "1 / 18 D 1 200 000 € 5 310 €/m² Maison à vendre 6 pièces · 2 chambres · 226 m² Sèvres (92310) SÈVRES Villa Brimborion Él",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/271764167.htm",
-   "surface": 226.0,
-   "rooms": 6,
-   "price": 1200000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "272148965",
-   "aliases": [
-    "272148965"
-   ],
-   "fingerprint": "sevres|200|9",
-   "commune": "sevres",
-   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
-   "title": "1 / 7 C 850 000 € 4 250 €/m² Maison à vendre 9 pièces · 6 chambres · 200 m² · 489 m² de terrain Ernest Renan-Chataignera",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/ernest-renan-chataigneraie/272148965.htm",
-   "surface": 200.0,
-   "rooms": 9,
-   "price": 850000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "266116185",
-   "aliases": [
-    "266116185"
-   ],
-   "fingerprint": "sevres|220|10",
-   "commune": "sevres",
-   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
-   "title": "1 / 5 C 850 000 € 3 864 €/m² Maison à vendre 10 pièces · 4 chambres · 220 m² · 507 m² de terrain Ernest Renan-Chataigner",
-   "url": "https://www.seloger.com/annonces/achat/maison/sevres-92/266116185.htm",
-   "surface": 220.0,
-   "rooms": 10,
-   "price": 850000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "276209093",
-   "aliases": [
-    "276209093"
-   ],
-   "fingerprint": "ville-d'avray|119|5",
-   "commune": "ville-d'avray",
-   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
-   "title": "1 / 17 E 1 060 000 € 8 908 €/m² Maison à vendre 5 pièces · 3 chambres · 119 m² · 370 m² de terrain Thierry-Saint Cloud, ",
-   "url": "https://www.seloger.com/annonces/achat/maison/ville-d-avray-92/thierry-saint-cloud/276209093.htm",
-   "surface": 119.0,
-   "rooms": 5,
-   "price": 1060000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "276209091",
-   "aliases": [
-    "276209091"
-   ],
-   "fingerprint": "ville-d'avray|125|6",
-   "commune": "ville-d'avray",
-   "quartier": "Thierry-Saint Cloud, Ville-d'Avray",
-   "title": "1 / 12 E 850 000 € 6 800 €/m² Maison à vendre 6 pièces · 4 chambres · 125 m² · 170 m² de terrain Thierry-Saint Cloud, Vi",
-   "url": "https://www.seloger.com/annonces/achat/maison/ville-d-avray-92/thierry-saint-cloud/276209091.htm",
-   "surface": 125.0,
-   "rooms": 6,
-   "price": 850000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_2665BG2AE1CD",
-   "aliases": [
-    "sl_2665BG2AE1CD"
-   ],
-   "fingerprint": "ville-d'avray|191|5",
-   "commune": "ville-d'avray",
-   "quartier": "Rue de Versailles-Monastere, Ville-d'Avray",
-   "title": "1 / 15 Nouveau D 850 000 € 4 450 €/m² Maison à vendre 5 pièces · 4 chambres · 191 m² · 30 m² de terrain Rue de Versaille",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/ville-d-avray-92410/2665BG2AE1CD",
-   "surface": 191.0,
-   "rooms": 5,
-   "price": 850000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "270673659",
-   "aliases": [
-    "270673659"
-   ],
-   "fingerprint": "ville-d'avray|116|5",
-   "commune": "ville-d'avray",
-   "quartier": "Forêt de Fausses Reposes, Ville-d'Avray",
-   "title": "1 / 14 D 937 000 € 8 058 €/m² Maison à vendre 5 pièces · 4 chambres · 116,3 m² · 56 m² de terrain Forêt de Fausses Repos",
-   "url": "https://www.seloger.com/annonces/achat/maison/ville-d-avray-92/foret-de-fausses-reposes/270673659.htm",
-   "surface": 116.3,
-   "rooms": 5,
-   "price": 937000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "276428933",
-   "aliases": [
-    "276428933"
-   ],
-   "fingerprint": "ville-d'avray|140|5",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "1 / 6 Nouveau C 995 000 € 7 107 €/m² Maison à vendre 5 pièces · 4 chambres · 140 m² · 250 m² de terrain Cote d'Argent-De",
-   "url": "https://www.seloger.com/annonces/achat/maison/ville-d-avray-92/276428933.htm",
-   "surface": 140.0,
-   "rooms": 5,
-   "price": 995000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_267LZS93HUC2",
-   "aliases": [
-    "sl_267LZS93HUC2"
-   ],
-   "fingerprint": "ville-d'avray|175|7",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "1 / 14 D de 1.1M à 1.7M € Maison à vendre 7 pièces · 5 chambres · 175 m² · 788 m² de terrain Cote d'Argent-Desvallieres-",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/ville-d-avray-92410/267LZS93HUC2",
-   "surface": 175.0,
-   "rooms": 7,
-   "price": null,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "273362245",
-   "aliases": [
-    "273362245",
-    "276124079",
-    "276124085"
-   ],
-   "fingerprint": "meudon|165|6",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "1 / 9 G 1 180 000 € 7 152 €/m² Maison à vendre 6 pièces · 5 chambres · 165 m² · 378 m² de terrain Bas Meudon, Meudon (92",
-   "url": "https://www.bellesdemeures.com/273362245/detail.htm",
-   "surface": 165.0,
-   "rooms": 6,
-   "price": 1160000,
-   "n_mandats": 3,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "272306215",
-   "aliases": [
-    "272306215"
-   ],
-   "fingerprint": "meudon|242|8",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "1 / 21 F 1 150 000 € 4 752 €/m² Maison à vendre 8 pièces · 5 chambres · 242 m² Le Centre, Meudon (92190) Nichée dans l'u",
-   "url": "https://www.bellesdemeures.com/272306215/detail.htm",
-   "surface": 242.0,
-   "rooms": 8,
-   "price": 1150000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "273477277",
-   "aliases": [
-    "273477277"
-   ],
-   "fingerprint": "meudon|165|8",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "1 / 16 G 1 180 000 € 7 152 €/m² Maison à vendre 8 pièces · 5 chambres · 165 m² · 378 m² de terrain Bas Meudon, Meudon (9",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bas-meudon/273477277.htm",
-   "surface": 165.0,
-   "rooms": 8,
-   "price": 1180000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "257859219",
-   "aliases": [
-    "257859219"
-   ],
-   "fingerprint": "meudon|115|6",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "1 / 16 D 795 000 € 6 913 €/m² Maison à vendre 6 pièces · 4 chambres · 115 m² Bas Meudon, Meudon (92190) iad France - Sté",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bas-meudon/257859219.htm",
-   "surface": 115.0,
-   "rooms": 6,
-   "price": 795000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "263428239",
-   "aliases": [
-    "263428239"
-   ],
-   "fingerprint": "meudon|180|9",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "1 / 20 E 1 150 000 € 6 389 €/m² Maison de plain-pied à vendre 9 pièces · 4 chambres · 180 m² · 603 m² de terrain Bellevu",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bellevue/263428239.htm",
-   "surface": 180.0,
-   "rooms": 9,
-   "price": 1150000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "197669363",
-   "aliases": [
-    "197669363",
-    "265788347"
-   ],
-   "fingerprint": "meudon|139|6",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "1 / 8 E 785 000 € 5 647 €/m² Maison à vendre 6 pièces · 4 chambres · 139 m² · 277 m² de terrain Val Fleury, Meudon (9219",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/val-fleury/197669363.htm",
-   "surface": 139.0,
-   "rooms": 6,
-   "price": 785000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "264744529",
-   "aliases": [
-    "264744529"
-   ],
-   "fingerprint": "meudon|97|6",
-   "commune": "meudon",
-   "quartier": "Meudon",
-   "title": "1 / 12 F 721 000 € 7 433 €/m² Maison à vendre 6 pièces · 3 chambres · 97 m² · 184 m² de terrain Meudon (92190) Immobilie",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/264744529.htm",
-   "surface": 97.0,
-   "rooms": 6,
-   "price": 721000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "266075393",
-   "aliases": [
-    "266075393"
-   ],
-   "fingerprint": "meudon|195|7",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "1 / 21 C 1 090 000 € 5 590 €/m² Maison de ville à vendre 7 pièces · 5 chambres · 195 m² · 30 m² de terrain Val Fleury, M",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/val-fleury/266075393.htm",
-   "surface": 195.0,
-   "rooms": 7,
-   "price": 1090000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "267860211",
-   "aliases": [
-    "267860211",
-    "273331545"
-   ],
-   "fingerprint": "meudon|170|6",
-   "commune": "meudon",
-   "quartier": "Meudon",
-   "title": "1 / 19 D 1 090 000 € 6 394 €/m² Maison à vendre 6 pièces · 4 chambres · 170,5 m² · 266 m² de terrain Meudon (92190) MEUD",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/267860211.htm",
-   "surface": 170.5,
-   "rooms": 6,
-   "price": 1090000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275458771",
-   "aliases": [
-    "275458771"
-   ],
-   "fingerprint": "meudon|153|6",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "1 / 8 D 835 000 € 5 458 €/m² Maison de plain-pied à vendre 6 pièces · 4 chambres · 153 m² · 108 m² de terrain Val Fleury",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/val-fleury/275458771.htm",
-   "surface": 153.0,
-   "rooms": 6,
-   "price": 835000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271761089",
-   "aliases": [
-    "271761089"
-   ],
-   "fingerprint": "meudon|151|6",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "1 / 13 E 1 150 000 € 7 616 €/m² Maison à vendre 6 pièces · 4 chambres · 151 m² Bellevue, Meudon (92190) RENOVATION 2026 ",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bellevue/271761089.htm",
-   "surface": 151.0,
-   "rooms": 6,
-   "price": 1150000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "272937535",
-   "aliases": [
-    "272937535"
-   ],
-   "fingerprint": "meudon|135|5",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "1 / 10 C 1 150 000 € 8 519 €/m² Maison à vendre 5 pièces · 3 chambres · 135 m² · 158 m² de terrain Bas Meudon, Meudon (9",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bas-meudon/272937535.htm",
-   "surface": 135.0,
-   "rooms": 5,
-   "price": 1150000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275316201",
-   "aliases": [
-    "275316201"
-   ],
-   "fingerprint": "meudon|175|7",
-   "commune": "meudon",
-   "quartier": "Meudon",
-   "title": "1 / 14 Nouveau D 1 150 000 € 6 571 €/m² Maison à vendre 7 pièces · 5 chambres · 175 m² Meudon (92190) Maison ancienne de",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/275316201.htm",
-   "surface": 175.0,
-   "rooms": 7,
-   "price": 1150000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "262780315",
-   "aliases": [
-    "262780315"
-   ],
-   "fingerprint": "meudon|161|6",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "1 / 7 F 930 000 € 5 776 €/m² Maison à vendre 6 pièces · 4 chambres · 161 m² · 380 m² de terrain Val Fleury, Meudon (9219",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/val-fleury/262780315.htm",
-   "surface": 161.0,
-   "rooms": 6,
-   "price": 930000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271082547",
-   "aliases": [
-    "271082547"
-   ],
-   "fingerprint": "meudon|93|4",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "1 / 14 C 719 000 € 7 753 €/m² Maison de ville à vendre 4 pièces · 3 chambres · 92,7 m² Bellevue, Meudon (92190) Au coeur",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bellevue/271082547.htm",
-   "surface": 92.7,
-   "rooms": 4,
-   "price": 719000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274043897",
-   "aliases": [
-    "274043897"
-   ],
-   "fingerprint": "meudon|135|6",
-   "commune": "meudon",
-   "quartier": "Bas Meudon, Meudon",
-   "title": "1 / 20 D 998 000 € 7 393 €/m² Maison de ville à vendre 6 pièces · 4 chambres · 135 m² · 309 m² de terrain Bas Meudon, Me",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/bas-meudon/274043897.htm",
-   "surface": 135.0,
-   "rooms": 6,
-   "price": 998000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "268099791",
-   "aliases": [
-    "268099791"
-   ],
-   "fingerprint": "meudon|160|8",
-   "commune": "meudon",
-   "quartier": "Val Fleury, Meudon",
-   "title": "1 / 25 D 1 160 000 € 7 250 €/m² Maison à vendre 8 pièces · 7 chambres · 160 m² Val Fleury, Meudon (92190) iad France - A",
-   "url": "https://www.bellesdemeures.com/268099791/detail.htm",
-   "surface": 160.0,
-   "rooms": 8,
-   "price": 1160000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
+   "misses": 1
   },
   {
    "canonical_id": "258449977",
@@ -2731,674 +3423,6 @@
    "price": 832000,
    "n_mandats": 1,
    "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "268374795",
-   "aliases": [
-    "268374795"
-   ],
-   "fingerprint": "meudon|130|6",
-   "commune": "meudon",
-   "quartier": "Meudon",
-   "title": "1 / 14 Nouveau D 995 000 € 7 654 €/m² Maison à vendre 6 pièces · 4 chambres · 130 m² · 220 m² de terrain Meudon (92190) ",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/268374795.htm",
-   "surface": 130.0,
-   "rooms": 6,
-   "price": 995000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "182271195",
-   "aliases": [
-    "182271195"
-   ],
-   "fingerprint": "meudon|130|5",
-   "commune": "meudon",
-   "quartier": "Le Centre, Meudon",
-   "title": "1 / 9 C 845 000 € 6 500 €/m² Villa à vendre 5 pièces · 3 chambres · 130 m² · 200 m² de terrain Le Centre, Meudon (92190)",
-   "url": "https://www.seloger.com/annonces/achat/maison/meudon-92/le-centre/182271195.htm",
-   "surface": 130.0,
-   "rooms": 5,
-   "price": 845000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271067259",
-   "aliases": [
-    "271067259",
-    "272007881"
-   ],
-   "fingerprint": "chaville|150|7",
-   "commune": "chaville",
-   "quartier": "Pavé des Gardes, Chaville",
-   "title": "1 / 14 C 945 000 € 6 300 €/m² Maison de plain-pied à vendre 7 pièces · 5 chambres · 150 m² · 217 m² de terrain Pavé des ",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/pave-des-gardes/271067259.htm",
-   "surface": 150.0,
-   "rooms": 7,
-   "price": 935000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "271686847",
-   "aliases": [
-    "271686847",
-    "273068595",
-    "274663217",
-    "275410613"
-   ],
-   "fingerprint": "chaville|150|7",
-   "commune": "chaville",
-   "quartier": "Étang Saint Denis, Chaville",
-   "title": "1 / 18 Nouveau C 795 000 € 5 300 €/m² Maison de ville à vendre 7 pièces · 5 chambres · 150 m² · 250 m² de terrain Étang ",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/271686847.htm",
-   "surface": 150.0,
-   "rooms": 7,
-   "price": 795000,
-   "n_mandats": 4,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "259443557",
-   "aliases": [
-    "259443557",
-    "260828369"
-   ],
-   "fingerprint": "chaville|130|5",
-   "commune": "chaville",
-   "quartier": "Étang de Brisemiche, Chaville",
-   "title": "1 / 18 C 865 000 € 6 654 €/m² Maison à vendre 5 pièces · 4 chambres · 130 m² · 355 m² de terrain Étang de Brisemiche, Ch",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/etang-de-brisemiche/259443557.htm",
-   "surface": 130.0,
-   "rooms": 5,
-   "price": 822970,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275834369",
-   "aliases": [
-    "275834369"
-   ],
-   "fingerprint": "chaville|127|5",
-   "commune": "chaville",
-   "quartier": "Étang de Brisemiche, Chaville",
-   "title": "1 / 18 C 823 000 € 6 480 €/m² Maison à vendre 5 pièces · 3 chambres · 127 m² · 330 m² de terrain Étang de Brisemiche, Ch",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/275834369.htm",
-   "surface": 127.0,
-   "rooms": 5,
-   "price": 823000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_26N72DSMU5G6",
-   "aliases": [
-    "sl_26N72DSMU5G6"
-   ],
-   "fingerprint": "chaville|121|5",
-   "commune": "chaville",
-   "quartier": "Étang de Brisemiche, Chaville",
-   "title": "1 / 13 Nouveau D 965 000 € 7 975 €/m² Maison à vendre 5 pièces · 3 chambres · 121 m² · 550 m² de terrain Étang de Brisem",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/chaville-92370/26N72DSMU5G6",
-   "surface": 121.0,
-   "rooms": 5,
-   "price": 965000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "276478913",
-   "aliases": [
-    "276478913"
-   ],
-   "fingerprint": "chaville|120|5",
-   "commune": "chaville",
-   "quartier": "Monesse-Roger Salendro, Chaville",
-   "title": "1 / 12 Nouveau C 729 000 € 6 075 €/m² Maison à vendre 5 pièces · 4 chambres · 120 m² Monesse-Roger Salendro, Chaville (9",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/276478913.htm",
-   "surface": 120.0,
-   "rooms": 5,
-   "price": 729000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "273778541",
-   "aliases": [
-    "273778541"
-   ],
-   "fingerprint": "chaville|122|5",
-   "commune": "chaville",
-   "quartier": "Étang de Brisemiche, Chaville",
-   "title": "1 / 16 D 1 100 000 € 9 016 €/m² Maison à vendre 5 pièces · 3 chambres · 122 m² · 530 m² de terrain Étang de Brisemiche, ",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/etang-de-brisemiche/273778541.htm",
-   "surface": 122.0,
-   "rooms": 5,
-   "price": 1100000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_26C1WSZFIRES",
-   "aliases": [
-    "sl_26C1WSZFIRES"
-   ],
-   "fingerprint": "chaville|105|6",
-   "commune": "chaville",
-   "quartier": "Mare Adam, Chaville",
-   "title": "1 / 10 Nouveau E 750 000 € 7 143 €/m² Maison à vendre - Première occupation 6 pièces · 4 chambres · 105 m² · 97 m² de te",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/chaville-92370/26C1WSZFIRES",
-   "surface": 105.0,
-   "rooms": 6,
-   "price": 750000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "273300761",
-   "aliases": [
-    "273300761"
-   ],
-   "fingerprint": "chaville|109|5",
-   "commune": "chaville",
-   "quartier": "Pavé des Gardes, Chaville",
-   "title": "1 / 10 E 790 000 € 7 248 €/m² Maison à vendre 5 pièces · 3 chambres · 109 m² · 206 m² de terrain Pavé des Gardes, Chavil",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/pave-des-gardes/273300761.htm",
-   "surface": 109.0,
-   "rooms": 5,
-   "price": 790000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275232481",
-   "aliases": [
-    "275232481"
-   ],
-   "fingerprint": "chaville|103|5",
-   "commune": "chaville",
-   "quartier": "Chaville",
-   "title": "1 / 10 E 780 000 € 7 546 €/m² Maison de ville à vendre 5 pièces · 4 chambres · 103,4 m² Chaville (92370) Nichée dans un ",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/275232481.htm",
-   "surface": 103.4,
-   "rooms": 5,
-   "price": 780000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "268533277",
-   "aliases": [
-    "268533277"
-   ],
-   "fingerprint": "chaville|209|8",
-   "commune": "chaville",
-   "quartier": "Étang Saint Denis, Chaville",
-   "title": "1 / 18 E 960 000 € 4 593 €/m² Maison à vendre 8 pièces · 6 chambres · 209 m² · 320 m² de terrain Étang Saint Denis, Chav",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/etang-saint-denis/268533277.htm",
-   "surface": 209.0,
-   "rooms": 8,
-   "price": 960000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275299139",
-   "aliases": [
-    "275299139"
-   ],
-   "fingerprint": "viroflay|170|8",
-   "commune": "viroflay",
-   "quartier": "Le Haras, Viroflay",
-   "title": "1 / 17 D 1 075 000 € 6 324 €/m² Maison de plain-pied à vendre 8 pièces · 6 chambres · 170 m² · 391 m² de terrain Le Hara",
-   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/le-haras/275299139.htm",
-   "surface": 170.0,
-   "rooms": 8,
-   "price": 1075000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "262237097",
-   "aliases": [
-    "262237097",
-    "273404183"
-   ],
-   "fingerprint": "viroflay|140|6",
-   "commune": "viroflay",
-   "quartier": "La Ville Au Bois, Viroflay",
-   "title": "1 / 17 D 900 000 € 6 429 €/m² Maison à vendre 6 pièces · 4 chambres · 140 m² · 233 m² de terrain La Ville Au Bois, Virof",
-   "url": "https://www.seloger.com/annonces/achat/maison/chaville-92/les-petits-bois/262237097.htm",
-   "surface": 140.0,
-   "rooms": 6,
-   "price": 950250,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_261YX8SHV25F",
-   "aliases": [
-    "sl_261YX8SHV25F"
-   ],
-   "fingerprint": "viroflay|110|5",
-   "commune": "viroflay",
-   "quartier": "Les Arcades, Viroflay",
-   "title": "1 / 12 Nouveau F 735 000 € 6 682 €/m² Maison à vendre 5 pièces · 3 chambres · 110 m² · 150 m² de terrain Les Arcades, Vi",
-   "url": "https://www.seloger.com/wl-cdp/261YX8SHV25F",
-   "surface": 110.0,
-   "rooms": 5,
-   "price": 735000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_26QNRVASBK6D",
-   "aliases": [
-    "sl_26QNRVASBK6D"
-   ],
-   "fingerprint": "viroflay|127|5",
-   "commune": "viroflay",
-   "quartier": "Les Arcades, Viroflay",
-   "title": "LES COMPARATEURS DU NEUF 1 / 9 Nouveau A 751 000 € 5 913 €/m² Maison à vendre - neuf 5 pièces · 4 chambres · 127 m² · 11",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/26QNRVASBK6D",
-   "surface": 127.0,
-   "rooms": 5,
-   "price": 751000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_268BDU97WBLH",
-   "aliases": [
-    "sl_268BDU97WBLH"
-   ],
-   "fingerprint": "viroflay|104|4",
-   "commune": "viroflay",
-   "quartier": "Les Arcades, Viroflay",
-   "title": "1 / 20 Nouveau D 720 000 € 6 931 €/m² Maison à vendre 4 pièces · 3 chambres · 103,9 m² Les Arcades, Viroflay (78220) Tri",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/268BDU97WBLH",
-   "surface": 103.9,
-   "rooms": 4,
-   "price": 720000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_255DUPR3IHRU",
-   "aliases": [
-    "sl_255DUPR3IHRU"
-   ],
-   "fingerprint": "viroflay|80|4",
-   "commune": "viroflay",
-   "quartier": "La Ville Au Bois, Viroflay",
-   "title": "1 / 11 Nouveau E 748 800 € 9 411 €/m² Maison à vendre 4 pièces · 3 chambres · 79,6 m² · 160 m² de terrain La Ville Au Bo",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/255DUPR3IHRU",
-   "surface": 79.6,
-   "rooms": 4,
-   "price": 748800,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "275588799",
-   "aliases": [
-    "275588799"
-   ],
-   "fingerprint": "viroflay|252|8",
-   "commune": "viroflay",
-   "quartier": "Les Arcades, Viroflay",
-   "title": "1 / 14 D 1 200 000 € 4 762 €/m² Maison à vendre 8 pièces · 5 chambres · 252 m² Les Arcades, Viroflay (78220) Au cœur du ",
-   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/les-arcades/275588799.htm",
-   "surface": 252.0,
-   "rooms": 8,
-   "price": 1200000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "273211445",
-   "aliases": [
-    "273211445",
-    "sl_26KXQ181MV63"
-   ],
-   "fingerprint": "viroflay|96|4",
-   "commune": "viroflay",
-   "quartier": "Les Aulnettes, Viroflay",
-   "title": "1 / 9 E 735 000 € 7 667 €/m² Maison à vendre 4 pièces · 3 chambres · 95,9 m² · 161 m² de terrain Les Aulnettes, Viroflay",
-   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/les-aulnettes/273211445.htm",
-   "surface": 95.9,
-   "rooms": 4,
-   "price": 750000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_25MQ9AG9V8RW",
-   "aliases": [
-    "sl_25MQ9AG9V8RW"
-   ],
-   "fingerprint": "viroflay|74|3",
-   "commune": "viroflay",
-   "quartier": "Les Aulnettes, Viroflay",
-   "title": "1 / 12 Nouveau F 724 000 € 9 735 €/m² Maison à vendre 3 pièces · 2 chambres · 74,4 m² · 200 m² de terrain Les Aulnettes,",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/25MQ9AG9V8RW",
-   "surface": 74.4,
-   "rooms": 3,
-   "price": 724000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "270485661",
-   "aliases": [
-    "270485661"
-   ],
-   "fingerprint": "viroflay|183|7",
-   "commune": "viroflay",
-   "quartier": "Le Haras, Viroflay",
-   "title": "1 / 14 D 1 075 000 € 5 874 €/m² Maison à vendre 7 pièces · 5 chambres · 183 m² · 391 m² de terrain Le Haras, Viroflay (7",
-   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/le-haras/270485661.htm",
-   "surface": 183.0,
-   "rooms": 7,
-   "price": 1075000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "274779219",
-   "aliases": [
-    "274779219"
-   ],
-   "fingerprint": "viroflay|107|5",
-   "commune": "viroflay",
-   "quartier": "Les Aulnettes, Viroflay",
-   "title": "1 / 11 F 700 000 € 6 570 €/m² Maison à vendre 5 pièces · 2 chambres · 106,6 m² · 358 m² de terrain Les Aulnettes, Virofl",
-   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/les-aulnettes/274779219.htm",
-   "surface": 106.6,
-   "rooms": 5,
-   "price": 700000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "254811363",
-   "aliases": [
-    "254811363"
-   ],
-   "fingerprint": "viroflay|90|4",
-   "commune": "viroflay",
-   "quartier": "Le Haras, Viroflay",
-   "title": "1 / 10 E 756 000 € 8 400 €/m² Maison à vendre 4 pièces · 3 chambres · 90 m² · 160 m² de terrain Le Haras, Viroflay (7822",
-   "url": "https://www.seloger.com/annonces/achat/maison/viroflay-78/le-haras/254811363.htm",
-   "surface": 90.0,
-   "rooms": 4,
-   "price": 756000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_60962851",
-   "aliases": [
-    "aetm_60962851",
-    "agence_principale_sevres_61057936"
-   ],
-   "fingerprint": "sevres|100|5",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "SEVRES Maison de ville 5 pièces avec garage 100m² - 490 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60962851/maison-de-ville-5-pieces-avec-garage.html",
-   "surface": 100.0,
-   "rooms": 5,
-   "price": 490000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_60569975",
-   "aliases": [
-    "aetm_60569975"
-   ],
-   "fingerprint": "meudon|210|9",
-   "commune": "meudon",
-   "quartier": "Bellevue, Meudon",
-   "title": "MEUDON Bellevue Maison 9 pièces sur un terrain de 360m² 210m² - 1 390 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60569975/maison-9-pieces-sur-un-terrain-de-360m2.html",
-   "surface": 210.0,
-   "rooms": 9,
-   "price": 1390000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_60464255",
-   "aliases": [
-    "aetm_60464255"
-   ],
-   "fingerprint": "ville-d'avray|180|9",
-   "commune": "ville-d'avray",
-   "quartier": "Etangs, Ville-d'Avray",
-   "title": "VILLE D AVRAY Etangs de Corot Maison 9 pièces sur un terrain de 784 m² vue sur les étangs de Corot 180m² - 1 995 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_60464255/maison-9-pieces-sur-un-terrain-de-784-m2-vue-sur-les-etangs-de-corot.html",
-   "surface": 180.0,
-   "rooms": 9,
-   "price": 1995000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_57889442",
-   "aliases": [
-    "aetm_57889442"
-   ],
-   "fingerprint": "sevres|135|7",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "SEVRES Monesse Maison 7 pièces sur terrain arboré de 256 m² 135m² - 1 075 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_57889442/maison-7-pieces-sur-terrain-arbore-de-256-m2.html",
-   "surface": 135.0,
-   "rooms": 7,
-   "price": 1075000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "aetm_59588613",
-   "aliases": [
-    "aetm_59588613"
-   ],
-   "fingerprint": "sevres|255|8",
-   "commune": "sevres",
-   "quartier": "Brancas, Sèvres",
-   "title": "SEVRES Brancas Maison 8 pièces sur un terrain de 948m² 255m² - 2 495 000 €",
-   "url": "https://www.aetm-immobilier.com/../fiches/4-40-26_59588613/maison-8-pieces-sur-un-terrain-de-948m2.html",
-   "surface": 255.0,
-   "rooms": 8,
-   "price": 2495000,
-   "n_mandats": 1,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "agence_principale_sevres_60977072",
-   "aliases": [
-    "agence_principale_sevres_60977072"
-   ],
-   "fingerprint": "sevres|80|4",
-   "commune": "sevres",
-   "quartier": "Rive Gauche, Sèvres",
-   "title": "Exclusif Référence 581-S SEVRES RIVE GAUCHE - MAISON DE CHARME 575 000 € 4 pièces 80 m² EXCLUSIVITE AGENCE PRINCIPALE - ",
-   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_60977072/sevres-rive-gauche-maison-de-charme.html",
-   "surface": 80.0,
-   "rooms": 4,
-   "price": 575000,
-   "n_mandats": 1,
-   "agency": "Agence Principale Sèvres",
-   "first_seen": "2026-07-25",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "agence_principale_sevres_59806758",
-   "aliases": [
-    "agence_principale_sevres_59806758"
-   ],
-   "fingerprint": "sevres|170|6",
-   "commune": "sevres",
-   "quartier": "Brancas, Sèvres",
-   "title": "Référence 652-S Maison à vendre à Sèvres avec vue sur le Parc de Saint Cloud 1 455 000 € 6 pièces 170 m² SEVRES BRANCAS ",
-   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_59806758/maison-a-vendre-a-sevres-avec-vue-sur-le-parc-de-saint-cloud.html",
-   "surface": 170.0,
-   "rooms": 6,
-   "price": 1455000,
-   "n_mandats": 1,
-   "agency": "Agence Principale Sèvres",
-   "first_seen": "2026-07-31",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-06",
-   "misses": 0
-  },
-  {
-   "canonical_id": "agence_principale_sevres_60035219",
-   "aliases": [
-    "agence_principale_sevres_60035219"
-   ],
-   "fingerprint": "sevres|112|7",
-   "commune": "sevres",
-   "quartier": "Rive Gauche, Sèvres",
-   "title": "Référence 609-S SEVRES RIVE GAUCHE - JOLIE MAISON 5 CHAMBRES 699 000 € 7 pièces 112 m² SEVRES RIVE GAUCHE - CHATAIGNERAI",
-   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_60035219/sevres-rive-gauche-jolie-maison-5-chambres.html",
-   "surface": 112.0,
-   "rooms": 7,
-   "price": 699000,
-   "n_mandats": 1,
-   "agency": "Agence Principale Sèvres",
    "first_seen": "2026-08-06",
    "first_seen_estimated": false,
    "last_seen": "2026-08-06",
@@ -3422,7 +3446,7 @@
    "first_seen": "2026-07-22",
    "first_seen_estimated": false,
    "last_seen": "2026-08-05",
-   "misses": 1
+   "misses": 2
   },
   {
    "canonical_id": "273277233",
@@ -3443,7 +3467,7 @@
    "first_seen": "2026-01-06",
    "first_seen_estimated": true,
    "last_seen": "2026-08-05",
-   "misses": 1
+   "misses": 2
   },
   {
    "canonical_id": "agence_principale_sevres_60800628",
@@ -3463,156 +3487,6 @@
    "first_seen": "2026-07-25",
    "first_seen_estimated": false,
    "last_seen": "2026-08-05",
-   "misses": 1
-  },
-  {
-   "canonical_id": "271664505",
-   "aliases": [
-    "271664505",
-    "agence_principale_sevres_60782088"
-   ],
-   "fingerprint": "sevres|160|9",
-   "commune": "sevres",
-   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
-   "title": "SEVRES RIVE DROITE - Adresse recherchée, proche de la gare Rive Droite, charmante maison adossée au Parc de Saint Cloud ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/271664505/#",
-   "surface": 160.0,
-   "rooms": 9,
-   "price": 1670000,
-   "n_mandats": 2,
-   "agency": "Agence Principale Sèvres",
-   "first_seen": "2026-06-07",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "272266519",
-   "aliases": [
-    "267137589",
-    "272266519",
-    "272528297",
-    "272635709",
-    "aetm_60821850",
-    "agence_principale_sevres_60816507"
-   ],
-   "fingerprint": "sevres|170|7",
-   "commune": "sevres",
-   "quartier": "Europe-Pierre Midrin, Sèvres",
-   "title": "Situation exceptionnelle pour cette maison familiale : à proximité immédiate des écoles, du centre-ville et de la gare R",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47093/272266519/#",
-   "surface": 170.0,
-   "rooms": 7,
-   "price": 1330000,
-   "n_mandats": 2,
-   "agency": "Agence Principale Sèvres",
-   "first_seen": "2026-04-16",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "265240157",
-   "aliases": [
-    "265240157",
-    "aetm_59924221"
-   ],
-   "fingerprint": "sevres|250|10",
-   "commune": "sevres",
-   "quartier": "Sèvres",
-   "title": "RARE - Ville d'Avray en limite de Sèvres - Dans le très recherché triangle d'or de Ville-d'Avray, à la limite de Sèvres ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38337/265240157/#",
-   "surface": 250.0,
-   "rooms": 10,
-   "price": 1750000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-03-25",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "274017259",
-   "aliases": [
-    "274017259"
-   ],
-   "fingerprint": "ville-d'avray|260|7",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "À quelques pas du parc de Saint-Cloud et à 7 minutes à pied de la gare (lignes L et U), située en retrait d'une rue calm",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/274017259/#",
-   "surface": 260.0,
-   "rooms": 7,
-   "price": 3200000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-04",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "259865199",
-   "aliases": [
-    "259865199",
-    "275737277",
-    "aetm_59853933"
-   ],
-   "fingerprint": "ville-d'avray|250|10",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "RARE - Dans le très recherché triangle d'or de Ville-d'Avray, à la limite de Sèvres (rive droite), cette maison bénéfici",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/259865199/#",
-   "surface": 250.0,
-   "rooms": 10,
-   "price": 1750000,
-   "n_mandats": 2,
-   "agency": "A&M Appartements & Maisons",
-   "first_seen": "2026-01-22",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "274259733",
-   "aliases": [
-    "274259733",
-    "275718025"
-   ],
-   "fingerprint": "ville-d'avray|161|7",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "Cette charmante maison construite en 1926, agrandie et rénovée en 2001, d'une surface de 160 m² environ, érigée sur une ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/274259733/#",
-   "surface": 161.0,
-   "rooms": 7,
-   "price": 1390000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-07-07",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "267947611",
-   "aliases": [
-    "267947611"
-   ],
-   "fingerprint": "ville-d'avray|141|7",
-   "commune": "ville-d'avray",
-   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
-   "title": "Dans un environnement exceptionnel, avec un parc de plus de 2000m2, nous vous proposons cette propriété parfaitement au ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/267947611/#",
-   "surface": 141.0,
-   "rooms": 7,
-   "price": 1870000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-04-25",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-01",
    "misses": 2
   },
   {
@@ -3677,107 +3551,6 @@
    "misses": 1
   },
   {
-   "canonical_id": "273450787",
-   "aliases": [
-    "273450787"
-   ],
-   "fingerprint": "sevres|166|5",
-   "commune": "sevres",
-   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
-   "title": "Au cœur d’un quartier résidentiel prisé, à quelques pas de la Forêt Domaniale de Meudon, cette belle meulière édifiée en",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47090/273450787/#",
-   "surface": 166.0,
-   "rooms": 5,
-   "price": 1295001,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-31",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "273969409",
-   "aliases": [
-    "273969409",
-    "agence_principale_sevres_60927889"
-   ],
-   "fingerprint": "sevres|140|5",
-   "commune": "sevres",
-   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
-   "title": "Proche de la forêt, dans un quartier résidentiel et familial, jolie maison en meulière construite en 1936. Elle se compo",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47090/273969409/#",
-   "surface": 140.0,
-   "rooms": 5,
-   "price": 1295000,
-   "n_mandats": 2,
-   "agency": "Agence Principale Sèvres",
-   "first_seen": "2026-07-25",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "272296747",
-   "aliases": [
-    "272296747"
-   ],
-   "fingerprint": "chaville|158|6",
-   "commune": "chaville",
-   "quartier": "Pavé des Gardes, Chaville",
-   "title": "EN EXCLUSIVITE -CHAVILLE Proche du Centre et des gares RG/RD -RER C Au calme d'une petite impasse pavillonnaire, à proxi",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46920/272296747/#",
-   "surface": 157.92,
-   "rooms": 6,
-   "price": 990000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-06-14",
-   "first_seen_estimated": true,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "agence_principale_sevres_60807699",
-   "aliases": [
-    "agence_principale_sevres_60807699"
-   ],
-   "fingerprint": "sevres|235|12",
-   "commune": "sevres",
-   "quartier": "Rive Gauche, Sèvres",
-   "title": "Exclusif Référence 661-S SEVRES RIVE GAUCHE - DEMEURE DE CHARME 1 270 000 € 12 pièces 235 m² EXCLUSIVITE AGENCE PRINCIPA",
-   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_60807699/sevres-rive-gauche-demeure-de-charme.html",
-   "surface": 235.0,
-   "rooms": 12,
-   "price": 1270000,
-   "n_mandats": 1,
-   "agency": "Agence Principale Sèvres",
-   "first_seen": "2026-07-25",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
-   "canonical_id": "agence_principale_sevres_60782532",
-   "aliases": [
-    "agence_principale_sevres_60782532"
-   ],
-   "fingerprint": "sevres|200|6",
-   "commune": "sevres",
-   "quartier": "Rive Gauche, Sèvres",
-   "title": "Référence 650-S SEVRES RIVE GAUCHE - MAISON DE CHARME 1 190 000 € 6 pièces 200 m² SEVRES RIVE GAUCHE - Dans un cadre buc",
-   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_60782532/sevres-rive-gauche-maison-de-charme.html",
-   "surface": 200.0,
-   "rooms": 6,
-   "price": 1190000,
-   "n_mandats": 1,
-   "agency": "Agence Principale Sèvres",
-   "first_seen": "2026-07-25",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-01",
-   "misses": 2
-  },
-  {
    "canonical_id": "265788349",
    "aliases": [
     "265788349"
@@ -3815,66 +3588,6 @@
    "first_seen": "2026-07-27",
    "first_seen_estimated": false,
    "last_seen": "2026-07-31",
-   "misses": 2
-  },
-  {
-   "canonical_id": "270382077",
-   "aliases": [
-    "270382077"
-   ],
-   "fingerprint": "versailles|340|14",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "Implantée dans un parc privé et historique, à l'abri de toute nuisance, cette maison familiale construite en 1998 et agr",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/270382077/",
-   "surface": 340.0,
-   "rooms": 14,
-   "price": 2990000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-05-23",
-   "first_seen_estimated": true,
-   "last_seen": "2026-07-29",
-   "misses": 2
-  },
-  {
-   "canonical_id": "274028993",
-   "aliases": [
-    "274028993"
-   ],
-   "fingerprint": "versailles|150|8",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "VERSAILLES - MONTREUIL - PRIMMO, Immobilier de caractère, vous présente cette meulière datant de 1897, d'environ 150 m² ",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/274028993/#",
-   "surface": 150.0,
-   "rooms": 8,
-   "price": 1339000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-29",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-29",
-   "misses": 2
-  },
-  {
-   "canonical_id": "273775161",
-   "aliases": [
-    "273775161"
-   ],
-   "fingerprint": "versailles|194|10",
-   "commune": "versailles",
-   "quartier": "Montreuil, Versailles",
-   "title": "VERSAILLES limite Viroflay - PRIMMO, Immobilier de Caractère vous présente cette propriété composée de 2 maisons édifiée",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/273775161/#",
-   "surface": 194.0,
-   "rooms": 10,
-   "price": 1144000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-29",
-   "first_seen_estimated": false,
-   "last_seen": "2026-07-29",
    "misses": 2
   }
  ],
@@ -3999,9 +3712,321 @@
    "first_seen_estimated": false,
    "last_seen": "2026-07-29",
    "retired_on": "2026-08-06"
+  },
+  {
+   "canonical_id": "271664505",
+   "aliases": [
+    "271664505",
+    "agence_principale_sevres_60782088"
+   ],
+   "fingerprint": "sevres|160|9",
+   "commune": "sevres",
+   "quartier": "Brancas-Fontenelles-Beauregard, Sèvres",
+   "title": "SEVRES RIVE DROITE - Adresse recherchée, proche de la gare Rive Droite, charmante maison adossée au Parc de Saint Cloud ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47097/271664505/#",
+   "surface": 160.0,
+   "rooms": 9,
+   "price": 1670000,
+   "n_mandats": 2,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-06-07",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "272266519",
+   "aliases": [
+    "267137589",
+    "272266519",
+    "272528297",
+    "272635709",
+    "aetm_60821850",
+    "agence_principale_sevres_60816507"
+   ],
+   "fingerprint": "sevres|170|7",
+   "commune": "sevres",
+   "quartier": "Europe-Pierre Midrin, Sèvres",
+   "title": "Situation exceptionnelle pour cette maison familiale : à proximité immédiate des écoles, du centre-ville et de la gare R",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47093/272266519/#",
+   "surface": 170.0,
+   "rooms": 7,
+   "price": 1330000,
+   "n_mandats": 2,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-04-16",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "265240157",
+   "aliases": [
+    "265240157",
+    "aetm_59924221"
+   ],
+   "fingerprint": "sevres|250|10",
+   "commune": "sevres",
+   "quartier": "Sèvres",
+   "title": "RARE - Ville d'Avray en limite de Sèvres - Dans le très recherché triangle d'or de Ville-d'Avray, à la limite de Sèvres ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-38337/265240157/#",
+   "surface": 250.0,
+   "rooms": 10,
+   "price": 1750000,
+   "n_mandats": 2,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-03-25",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "274017259",
+   "aliases": [
+    "274017259"
+   ],
+   "fingerprint": "ville-d'avray|260|7",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "À quelques pas du parc de Saint-Cloud et à 7 minutes à pied de la gare (lignes L et U), située en retrait d'une rue calm",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/274017259/#",
+   "surface": 260.0,
+   "rooms": 7,
+   "price": 3200000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-04",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "259865199",
+   "aliases": [
+    "259865199",
+    "275737277",
+    "aetm_59853933"
+   ],
+   "fingerprint": "ville-d'avray|250|10",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "RARE - Dans le très recherché triangle d'or de Ville-d'Avray, à la limite de Sèvres (rive droite), cette maison bénéfici",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/259865199/#",
+   "surface": 250.0,
+   "rooms": 10,
+   "price": 1750000,
+   "n_mandats": 2,
+   "agency": "A&M Appartements & Maisons",
+   "first_seen": "2026-01-22",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "274259733",
+   "aliases": [
+    "274259733",
+    "275718025"
+   ],
+   "fingerprint": "ville-d'avray|161|7",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "Cette charmante maison construite en 1926, agrandie et rénovée en 2001, d'une surface de 160 m² environ, érigée sur une ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/274259733/#",
+   "surface": 161.0,
+   "rooms": 7,
+   "price": 1390000,
+   "n_mandats": 2,
+   "agency": "",
+   "first_seen": "2026-07-07",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "267947611",
+   "aliases": [
+    "267947611"
+   ],
+   "fingerprint": "ville-d'avray|141|7",
+   "commune": "ville-d'avray",
+   "quartier": "Cote d'Argent-Desvallieres-Gambetta, Ville-d'Avray",
+   "title": "Dans un environnement exceptionnel, avec un parc de plus de 2000m2, nous vous proposons cette propriété parfaitement au ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47122/267947611/#",
+   "surface": 141.0,
+   "rooms": 7,
+   "price": 1870000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-04-25",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "273450787",
+   "aliases": [
+    "273450787"
+   ],
+   "fingerprint": "sevres|166|5",
+   "commune": "sevres",
+   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
+   "title": "Au cœur d’un quartier résidentiel prisé, à quelques pas de la Forêt Domaniale de Meudon, cette belle meulière édifiée en",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47090/273450787/#",
+   "surface": 166.0,
+   "rooms": 5,
+   "price": 1295001,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-31",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "273969409",
+   "aliases": [
+    "273969409",
+    "agence_principale_sevres_60927889"
+   ],
+   "fingerprint": "sevres|140|5",
+   "commune": "sevres",
+   "quartier": "Ernest Renan-Chataigneraie, Sèvres",
+   "title": "Proche de la forêt, dans un quartier résidentiel et familial, jolie maison en meulière construite en 1936. Elle se compo",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-47090/273969409/#",
+   "surface": 140.0,
+   "rooms": 5,
+   "price": 1295000,
+   "n_mandats": 2,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-07-25",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "272296747",
+   "aliases": [
+    "272296747"
+   ],
+   "fingerprint": "chaville|158|6",
+   "commune": "chaville",
+   "quartier": "Pavé des Gardes, Chaville",
+   "title": "EN EXCLUSIVITE -CHAVILLE Proche du Centre et des gares RG/RD -RER C Au calme d'une petite impasse pavillonnaire, à proxi",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46920/272296747/#",
+   "surface": 157.92,
+   "rooms": 6,
+   "price": 990000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-06-14",
+   "first_seen_estimated": true,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "agence_principale_sevres_60807699",
+   "aliases": [
+    "agence_principale_sevres_60807699"
+   ],
+   "fingerprint": "sevres|235|12",
+   "commune": "sevres",
+   "quartier": "Rive Gauche, Sèvres",
+   "title": "Exclusif Référence 661-S SEVRES RIVE GAUCHE - DEMEURE DE CHARME 1 270 000 € 12 pièces 235 m² EXCLUSIVITE AGENCE PRINCIPA",
+   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_60807699/sevres-rive-gauche-demeure-de-charme.html",
+   "surface": 235.0,
+   "rooms": 12,
+   "price": 1270000,
+   "n_mandats": 1,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-07-25",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "agence_principale_sevres_60782532",
+   "aliases": [
+    "agence_principale_sevres_60782532"
+   ],
+   "fingerprint": "sevres|200|6",
+   "commune": "sevres",
+   "quartier": "Rive Gauche, Sèvres",
+   "title": "Référence 650-S SEVRES RIVE GAUCHE - MAISON DE CHARME 1 190 000 € 6 pièces 200 m² SEVRES RIVE GAUCHE - Dans un cadre buc",
+   "url": "https://www.agenceprincipalesevres.com/../fiches/4-40-26_60782532/sevres-rive-gauche-maison-de-charme.html",
+   "surface": 200.0,
+   "rooms": 6,
+   "price": 1190000,
+   "n_mandats": 1,
+   "agency": "Agence Principale Sèvres",
+   "first_seen": "2026-07-25",
+   "first_seen_estimated": false,
+   "last_seen": "2026-08-01",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "270382077",
+   "aliases": [
+    "270382077"
+   ],
+   "fingerprint": "versailles|340|14",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "Implantée dans un parc privé et historique, à l'abri de toute nuisance, cette maison familiale construite en 1998 et agr",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/270382077/",
+   "surface": 340.0,
+   "rooms": 14,
+   "price": 2990000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-05-23",
+   "first_seen_estimated": true,
+   "last_seen": "2026-07-29",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "274028993",
+   "aliases": [
+    "274028993"
+   ],
+   "fingerprint": "versailles|150|8",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "VERSAILLES - MONTREUIL - PRIMMO, Immobilier de caractère, vous présente cette meulière datant de 1897, d'environ 150 m² ",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/274028993/#",
+   "surface": 150.0,
+   "rooms": 8,
+   "price": 1339000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-29",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-29",
+   "retired_on": "2026-08-07"
+  },
+  {
+   "canonical_id": "273775161",
+   "aliases": [
+    "273775161"
+   ],
+   "fingerprint": "versailles|194|10",
+   "commune": "versailles",
+   "quartier": "Montreuil, Versailles",
+   "title": "VERSAILLES limite Viroflay - PRIMMO, Immobilier de Caractère vous présente cette propriété composée de 2 maisons édifiée",
+   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-45781/273775161/#",
+   "surface": 194.0,
+   "rooms": 10,
+   "price": 1144000,
+   "n_mandats": 1,
+   "agency": "",
+   "first_seen": "2026-07-29",
+   "first_seen_estimated": false,
+   "last_seen": "2026-07-29",
+   "retired_on": "2026-08-07"
   }
  ],
  "frozen": {
-  "saint-cloud": 1
+  "meudon": 1,
+  "saint-cloud": 2
  }
 }
