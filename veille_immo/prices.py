@@ -173,4 +173,4 @@ def clean_title(text):
     t = _SURF_PRIX.sub(" ", t)      # « 230m² - 2 000 000 € » : la surface a sa colonne
     t = _MONTANT.sub(" ", t)
     t = re.sub(rf"[{_ESP}\s]+", " ", t)
-    return t.strip(" -–·,")
+    return t.strip(" -–·,.;:")   # un montant retiré en tête laisse « . Votre consultant… »

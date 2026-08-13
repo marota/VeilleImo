@@ -1,9 +1,12 @@
 """Construit le rapport HTML (rapport complet + corps email) au niveau BIEN."""
 import html, datetime
 from .models import Listing
-from . import scoring
+from . import prices, scoring
 
-CRIT = dict(pmin=700000, pmax=1200000, smin=90, rmin=4)
+# Budget : bornes INCLUSES, surchargeables par VEILLEIMO_PRICE_MIN / _MAX (cf. prices).
+CRIT = dict(pmin=prices.PRICE_MIN, pmax=prices.PRICE_MAX, smin=90, rmin=4)
+# Part des communes cibles gelées à partir de laquelle le scan n'est plus « frais ».
+STALE_RATIO = 0.8
 MOIS = ['', 'janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.']
 ANCHOR_ID = 274139959      # id max observé au 6 juillet 2026
 ANCHOR_DATE = datetime.date(2026, 7, 6)
@@ -99,8 +102,14 @@ def _online_label(prop, today_max):
 
 
 def _matches(p):
-    return (p["price"] and p["surface"] and CRIT["pmin"] <= p["price"] <= CRIT["pmax"]
+    return (p["price"] and p["surface"] and prices.in_budget(p["price"])
             and p["surface"] >= CRIT["smin"] and (not p["rooms"] or p["rooms"] >= CRIT["rmin"]))
+
+
+def _titre(p):
+    """Libellé affichable : le texte de carte brut mélange compteur, DPE, prix et
+    prix/m² à la description, alors que le tableau a déjà des colonnes pour ça."""
+    return prices.clean_title(p.get("title") if isinstance(p, dict) else p)
 
 
 def _is_recent(p, prev_max_id):
@@ -153,7 +162,7 @@ def _rich_row(p, total, pd, statut, today_max, old_price=None, highlight=False, 
     note_html = f'<br><span style="color:#8a6d1b;font-size:11px;font-style:italic;">{note}</span>' if note else ""
     return (
         f'<tr data-commune="{_esc(_commune_disp(p))}"{tr}>'
-        f'<td style="{B}">{bien}{ag}<br><span style="color:#666;font-size:11px;">{_esc(p.get("title"))[:56]}</span>{note_html}</td>'
+        f'<td style="{B}">{bien}{ag}<br><span style="color:#666;font-size:11px;">{_esc(_titre(p))[:56]}</span>{note_html}</td>'
         f'<td style="{B}white-space:nowrap;">{price_cell}</td>'
         f'<td style="{B}white-space:nowrap;">{surf_cell}</td>'
         f'<td style="{B}text-align:center;">{p.get("n_mandats") or 1}</td>'
@@ -168,8 +177,33 @@ def _table8(body):
             f'font-family:Georgia,serif;font-size:13px;margin:6px 0 4px;">{_THEAD8}{body}</table>')
 
 
-def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
+def build(props, events, prev_max_id, today, errors=None, frozen=(), note="",
+          n_communes=0):
     today_max = max((int(a) for p in props for a in p["aliases"] if str(a).isdigit()), default=ANCHOR_ID)
+    by_id = {p["canonical_id"]: p for p in props}
+
+    # --- Budget : borne de TOUTES les vues, pas seulement des « biens dans vos
+    # critères ». Un bien hors budget reste dans l'état (jamais retiré, donc ni faux
+    # retrait ni fausse remise en ligne s'il y revient) : il n'est pas affiché, c'est
+    # tout. Le filtrage est au RENDU et non à la collecte — le collecteur ramène des
+    # pages de résultats entières, filtrer plus tôt n'économiserait aucun crédit.
+    def _prix_evt(e):
+        return e.get("price") or (by_id.get(e["id"]) or {}).get("price")
+
+    events = [e for e in events if prices.in_budget(_prix_evt(e))]
+
+    # --- Variations de prix aberrantes : partitionnées, jamais masquées. Ne concerne
+    # que les mouvements TEMPORELS (prix précédent -> prix courant) ; la colonne
+    # « vs moy. » compare à la moyenne de la commune et atteint légitimement −50 %.
+    dmax = prices.delta_max_pct()
+
+    def _anormal(e):
+        return abs(e.get("pct") or 0) > dmax
+
+    anomalies = [e for e in events if e["type"] in ("BAISSE", "HAUSSE") and _anormal(e)]
+    ecartes = {id(e) for e in anomalies}
+    events = [e for e in events if id(e) not in ecartes]
+
     scored = []
     for p in props:
         if not _matches(p):
@@ -185,13 +219,14 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
     # qui ne donnent que la commune) : ils ne peuvent pas être coups de cœur.
     anoter = sorted([r for r in inb if r["total"] is None and r["pd"] is not None and r["pd"] <= 0],
                     key=lambda r: r["pd"])
-    n_multi = sum(1 for p in props if p["n_mandats"] > 1)
+    multi = sorted([p for p in props if p["n_mandats"] > 1 and prices.in_budget(p.get("price"))],
+                   key=lambda x: -x["n_mandats"])
+    n_multi = len(multi)
     n_new = sum(1 for e in events if e["type"] == "NOUVEAU")
     n_ret = sum(1 for e in events if e["type"] == "RETIRE")
     n_baisse = sum(1 for e in events if e["type"] == "BAISSE")
     n_hausse = sum(1 for e in events if e["type"] == "HAUSSE")
     n_relist = sum(1 for e in events if e["type"] == "REMISE_EN_LIGNE")
-    by_id = {p["canonical_id"]: p for p in props}
 
     # --- lignes riches 8 colonnes pilotées par les événements (corps email) -----
     def new_rows():
@@ -214,6 +249,20 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
             total, pd = _score_of(p)
             up = e["type"] == "HAUSSE"
             st = _badge(f'{"↗" if up else "↘"} {e["pct"]:+} %', "#b00" if up else "#2e7d32")
+            o += _rich_row(p, total, pd, st, today_max, old_price=e.get("old_price"))
+        return o
+
+    def anomalies_rows():
+        o = ""
+        for e in anomalies:
+            p = by_id.get(e["id"]) or {
+                "canonical_id": e["id"], "title": e.get("title", ""),
+                "quartier": e.get("quartier", ""), "commune": e.get("commune", ""),
+                "price": e.get("price"), "surface": e.get("surface"), "rooms": e.get("rooms"),
+                "n_mandats": e.get("n_mandats", 1), "url": e.get("url", ""),
+                "aliases": [e["id"]], "first_seen": e.get("first_seen")}
+            total, pd = _score_of(p)
+            st = _badge(f'🚨 {e["pct"]:+} %', "#b00")
             o += _rich_row(p, total, pd, st, today_max, old_price=e.get("old_price"))
         return o
 
@@ -267,7 +316,7 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
             tr = ' style="background:#f0f7f0;"' if rec else ''
             ag = _BADGE_AG if _agency_of(p) else ""
             o += (f'<tr data-commune="{_esc(_commune_disp(p))}"{tr}><td style="{B}"><a href="{_esc(p["url"])}" style="color:#8a6d1b;font-weight:bold;text-decoration:none;">{_esc(p["quartier"])}</a>{ag}'
-                  f'<br><span style="color:#666;font-size:11px;">{_esc(p["title"])[:56]}</span></td>'
+                  f'<br><span style="color:#666;font-size:11px;">{_esc(_titre(p))[:56]}</span></td>'
                   f'<td data-sort="{p["price"] or 0}" style="{B}font-weight:bold;white-space:nowrap;">{_euro(p["price"])}</td>'
                   f'<td data-sort="{p["surface"] or 0}" style="{B}white-space:nowrap;">{p["surface"]:g} m² · {p["rooms"] or "?"}p</td>'
                   f'<td data-sort="{p["n_mandats"]}" style="{B}text-align:center;">{p["n_mandats"]}</td>'
@@ -300,7 +349,7 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
 
     def multi_rows():
         o = ""
-        for p in sorted([x for x in props if x["n_mandats"] > 1], key=lambda x: -x["n_mandats"]):
+        for p in multi:
             al = ", ".join(f'<a href="{_esc(p["url"])}">{a}</a>' for a in p["aliases"])
             comm = _commune_disp(p)
             o += (f'<tr data-commune="{_esc(comm)}"><td data-sort="{p["n_mandats"]}" style="text-align:center;">{p["n_mandats"]}×</td>'
@@ -316,7 +365,7 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
             p = r["p"]
             lieu = _esc(p["quartier"]) if p["quartier"] else _esc(_commune_disp(p))
             o += (f'<tr data-commune="{_esc(_commune_disp(p))}"><td style="{B}"><a href="{_esc(p["url"])}" style="color:#8a6d1b;font-weight:bold;text-decoration:none;">{lieu}</a>'
-                  f'<div style="color:#777;font-size:11px;">{_esc(p["title"])[:56]}</div></td>'
+                  f'<div style="color:#777;font-size:11px;">{_esc(_titre(p))[:56]}</div></td>'
                   f'<td data-sort="{p["price"] or 0}" style="{B}font-weight:bold;white-space:nowrap;">{_euro(p["price"])}</td>'
                   f'<td data-sort="{p["surface"] or 0}" style="{B}white-space:nowrap;">{p["surface"]:g} m² · {p["rooms"] or "?"}p</td>'
                   f'<td data-sort="{r["pd"] if r["pd"] is not None else 9999}" style="{B}color:#2e7d32;">{_pdf(r["pd"])}</td>'
@@ -327,7 +376,7 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
         o = ""
         for e in events:
             t = e["type"]
-            titre = _esc(e["title"])[:64] or "voir l" + chr(39) + "annonce"
+            titre = _esc(_titre(e.get("title")))[:64] or "voir l" + chr(39) + "annonce"
             url = e.get("url")
             # lien direct vers l'annonce pour tout mouvement encore en ligne (pas les retraits)
             corps = f'<a href="{_esc(url)}">{titre}</a>' if (url and t != "RETIRE") else titre
@@ -345,6 +394,28 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
                 o += (f'<li><b style="color:{col};">{t}</b> {corps} — '
                       f'{_euro(e.get("old_price"))} → <b>{_euro(e.get("price"))}</b> ({e.get("pct"):+}%)</li>')
         return o or "<li>Aucun mouvement.</li>"
+
+    # Bloc à part, en fin de rapport : au-delà de ±dmax % d'un scan à l'autre, un
+    # « mouvement » est plus souvent un défaut de lecture (prix pollué, mandat
+    # changé, honoraires basculés) qu'une vraie renégociation. Rien n'est masqué,
+    # mais ces lignes ne comptent pas dans la synthèse.
+    _pct_txt = f"{dmax:g}"
+    anomalies_block = ("" if not anomalies else
+        f'<h3 style="font-size:17px;color:#3a2f1c;border-bottom:2px solid #b00;padding-bottom:5px;'
+        f'margin-top:22px;">🚨 Anomalies de prix (à vérifier) ({len(anomalies)})</h3>'
+        f'<p style="font-size:12px;color:#777;font-style:italic;margin:5px 0;">'
+        f'Variation de plus de ±{_pct_txt} % depuis le scan précédent : à confirmer sur l\'annonce '
+        f'avant d\'y voir une négociation. Ces lignes ne sont pas comptées dans la synthèse.</p>'
+        f'{_table8(anomalies_rows())}')
+
+    # Bandeau ROUGE : quand la quasi-totalité des communes cibles est gelée, le
+    # rapport ne décrit plus le marché du jour — le dire fort, pas dans le corps.
+    stale = bool(n_communes) and len(frozen) >= STALE_RATIO * n_communes
+    stale_html = ("" if not stale else
+        f'<div style="background:#b00020;color:#fff;font-weight:bold;font-size:15px;'
+        f'padding:12px 16px;border-radius:6px;margin:12px 0;letter-spacing:.3px;">'
+        f'⚠ SCAN NON FRAIS — {len(frozen)}/{n_communes} communes cibles gelées, '
+        f'les mouvements affichés sont potentiellement obsolètes.</div>')
 
     err_html = ("<div class='warn'><b>Sources non récupérées :</b><br>" + "<br>".join(_esc(x) for x in (errors or [])) + "</div>") if errors else ""
 
@@ -374,7 +445,11 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note=""):
     if n_hausse:
         chg_parts.append(_plur(n_hausse, "hausse"))
     chg_parts.append(_plur(n_ret, "retrait"))
-    synth = (f"{sum(len(p['aliases']) for p in props)} annonces → <b>{len(props)} biens uniques</b> · {n_multi} multi-mandats · "
+    if anomalies:
+        chg_parts.append(f"{len(anomalies)} anomalie" + ("s" if len(anomalies) > 1 else "")
+                         + " de prix (hors décompte)")
+    synth = (f"{sum(len(p['aliases']) for p in props)} annonces → <b>{len(props)} biens uniques</b> · "
+             f"{n_multi} multi-mandats dans le budget · "
              f"<b>{len(inb)} biens dans le budget</b> · <b>{len(cdc)} coups de cœur</b> · changements : {', '.join(chg_parts)}")
 
     moves = [e for e in events if e["type"] in ("BAISSE", "HAUSSE")]
@@ -468,6 +543,7 @@ table.sortable th.sort-asc::after{content:" \\2191";color:#8a6d1b;}table.sortabl
 <p class="k">VEILLE IMMOBILIÈRE — OUEST PARISIEN</p>
 <h1>Maison à acheter — scan du {today}</h1>
 <p class="sub">Sèvres · Ville-d'Avray · Meudon · Chaville · Viroflay (+ voisins) — source Belles Demeures (exécution GitHub Actions)</p>
+{stale_html}
 <div class="synth"><b>Synthèse.</b> {synth}.</div>
 {frozen_html}
 <div class="toolbar"><label for="communeFilter">Filtrer par commune :</label>
@@ -479,11 +555,12 @@ table.sortable th.sort-asc::after{content:" \\2191";color:#8a6d1b;}table.sortabl
 <table class="sortable filterable"><tr><th>Bien (lien)</th><th>Prix</th><th>Surface</th><th>Mandats</th><th>Confort</th><th>vs moy.</th><th>En ligne (est.)</th><th>Statut</th></tr>{cdc_rows(True)}</table>
 {anoter_block}
 <h2>Biens dans vos critères ({len(inb)})</h2>
-<p class="note">700 000–1 200 000 € · ≥ 90 m² · ≥ 4 p. — ● nouveau · ○ déjà suivi. <span style="background:#5b4636;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;">AGENCE</span> = annonce d'un site d'agence.</p>
+<p class="note">{_euro(prices.price_min())}–{_euro(prices.price_max())} (bornes incluses) · ≥ {CRIT["smin"]} m² · ≥ {CRIT["rmin"]} p. — ● nouveau · ○ déjà suivi. <span style="background:#5b4636;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;">AGENCE</span> = annonce d'un site d'agence.</p>
 <table class="sortable filterable"><tr><th class="nosort"></th><th>Prix</th><th>Surf.</th><th>P.</th><th>Mandats</th><th>Conf.</th><th>vs moy.</th><th>En ligne (est.)</th><th>Commune</th><th>Quartier</th></tr>{inb_rows()}</table>
 <h2>Mouvements depuis le dernier scan (chaînés par bien)</h2><ul style="font-size:13px;">{ev_rows()}</ul>
 <h2>Biens en multi-mandats ({n_multi})</h2>
 <table class="sortable filterable"><tr><th>Mandats</th><th>Surface</th><th>Prix</th><th>Commune</th><th class="nosort">Identifiants (alias)</th></tr>{multi_rows()}</table>
+{anomalies_block}
 {err_html}
 <p class="note">Scores de confort = scores de ZONE indicatifs ; confirmer le dénivelé réel au trajet piéton (≤ 20–25 m cumulés). « En ligne depuis » = first_seen chaîné, ou estimation par la séquence des identifiants tant que l'historique est court.</p>
 {SCRIPT}
@@ -501,12 +578,15 @@ table.sortable th.sort-asc::after{content:" \\2191";color:#8a6d1b;}table.sortabl
 <p style="color:#8a6d1b;font-size:12px;letter-spacing:1px;margin:0;">VEILLE IMMOBILIÈRE — OUEST PARISIEN</p>
 <h2 style="font-size:22px;color:#3a2f1c;margin:3px 0;">Maison à acheter — scan du {today}</h2>
 <div style="background:#faf6ec;border:1px solid #e6d9b8;border-radius:6px;padding:11px 15px;font-size:14px;color:#5b4636;"><b>Synthèse.</b> {synth}.</div>
+{stale_html}
 {frozen_mail}
 {changes_block}
 {cdc_memo}
 {anoter_block}
+{anomalies_block}
 <p style="font-size:12px;color:#777;font-style:italic;margin-top:14px;">Rapport complet (biens du budget, multi-mandats, mouvements) en pièce jointe HTML. Scores de confort = scores de zone indicatifs.</p>
 </div>"""
     stats = dict(biens=len(props), inb=len(inb), cdc=len(cdc), multi=n_multi, nouveaux=n_new,
-                 retraits=n_ret, baisses=n_baisse, remises=n_relist)
+                 retraits=n_ret, baisses=n_baisse, hausses=n_hausse, remises=n_relist,
+                 anomalies=len(anomalies), stale=stale)
     return full, email, stats

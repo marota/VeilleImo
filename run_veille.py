@@ -238,8 +238,12 @@ def main(argv=None):
     if n_relist:
         print(f"[veille] {n_relist} remise(s) en ligne détectée(s) depuis le backlog")
     print(f"[veille] backlog retraits : {len(backlog)} bien(s) suivi(s)")
+    # nb de communes CIBLES (une commune peut être servie par plusieurs sources) :
+    # c'est le dénominateur du bandeau « scan non frais ».
+    n_communes = len({c for c in src_commune.values() if c})
     full_html, email_html, stats = report_html.build(curr, events, prev_max_id, today, errors,
-                                                    frozen=frozen_labels, note=quota)
+                                                    frozen=frozen_labels, note=quota,
+                                                    n_communes=n_communes)
     print(f"[veille] {stats}")
     # diagnostic : détail des NOUVEAUX (pour repérer d'éventuels doublons non fusionnés)
     moves = [e for e in events if e["type"] in ("BAISSE", "HAUSSE")]
