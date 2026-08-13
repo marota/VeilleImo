@@ -12,6 +12,7 @@ Le first_seen est alors conservé ; sinon le bien est NOUVEAU (first_seen = aujo
 import datetime
 from typing import Dict, List
 from . import identity
+from .prices import is_sane
 
 MIN_PCT = 2.0     # variation de prix minimale signalée (%)
 MIN_EUR = 5000    # et en euros
@@ -58,7 +59,9 @@ def build_properties(listings: List[Listing]) -> List[dict]:
     props = []
     for grp in identity.cluster(listings):
         c = _canonical(grp)
-        prices = [l.price for l in grp if l.price]
+        # un prix invraisemblable est écarté de la médiane : dans un cluster à deux
+        # mandats, il la déplace entièrement (10 975 000 € pour une maison à 990 000).
+        prices = [l.price for l in grp if l.price and is_sane(l.price)]
         props.append({
             "canonical_id": c.id,
             "aliases": sorted({l.id for l in grp}, key=_idkey),

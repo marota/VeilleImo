@@ -12,11 +12,12 @@ texte : commune, quartier, titre, surface, pièces, prix. Ajouter une agence =
 """
 import re, time, requests
 from bs4 import BeautifulSoup
+from . import prices
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
 
-PRICE = re.compile(r"(\d[\d\s  ]{4,})\s*€")
+PRICE = prices.PRICE
 # surface "collée" au prix : '230m² - 2 000 000 €'  (évite de capter le terrain)
 SURF_NEAR = re.compile(r"(\d{2,4}(?:[.,]\d{1,2})?)\s*m²\s*[-–]\s*\d[\d\s  ]{4,}\s*€")
 SURF_ANY = re.compile(r"(\d{2,4}(?:[.,]\d{1,2})?)\s*m²")
@@ -36,17 +37,15 @@ QUARTIERS = ["Bellevue", "Brancas", "Rive Gauche", "Rive Droite", "Croix Bosset"
              "Château", "Etangs", "Étangs"]
 
 
-def _to_int(t):
-    d = re.sub(r"[^\d]", "", t or "")
-    return int(d) if d else None
+_to_int = prices.to_int
 
 
 def _parse_link(text, href, base):
     """La commune est cherchée dans la carte PUIS dans le slug de l'URL."""
     """Extrait une annonce depuis le texte d'un lien de liste. None si non exploitable."""
     txt = re.sub(r"\s+", " ", text or "").strip()
-    pm = PRICE.search(txt)
-    if not pm:
+    prix = prices.parse_price(txt)
+    if not prix:
         return None
     sm = SURF_NEAR.search(txt) or SURF_ANY.search(txt)
     if not sm:
@@ -62,7 +61,7 @@ def _parse_link(text, href, base):
     return {
         "url": url.split("?")[0],
         "title": re.sub(r"^D[ée]couvrir\s+", "", txt)[:120],
-        "price": _to_int(pm.group(1)),
+        "price": prix,
         "surface": float(sm.group(1).replace(",", ".")),
         "rooms": int(rm.group(1)) if rm else None,
         "quartier": loc,

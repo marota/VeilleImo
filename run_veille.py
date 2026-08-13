@@ -3,7 +3,7 @@
 import argparse, importlib.util, json, datetime, pathlib, os, re, yaml
 from veille_immo.models import Listing
 from veille_immo.errors import QuotaExhausted
-from veille_immo import chain, identity, report_html, mailer
+from veille_immo import chain, identity, prices, report_html, mailer
 
 MIN_RATIO = 0.6      # en dessous de 60% des biens précédents (hors communes gelées) => suspect
 FLOOR_RATIO = 0.3    # plancher absolu : sous 30% du parc connu, plus de rapport du tout
@@ -57,6 +57,24 @@ def collecte_suffisante(prev, collected, failed_communes, min_ratio=MIN_RATIO,
     return ok, n_coll, n_prev, "actif"
 
 
+def garde_prix(rows):
+    """Refuse les prix invraisemblables AVANT tout stockage. -> nb de prix écartés.
+
+    Un montant hors plafond résidentiel est un accident de parsing (compteur de
+    carrousel collé au prix, montant du prêt, prix d'un lot), pas une affaire :
+    le laisser entrer, c'est polluer l'état, les moyennes de zone et les
+    mouvements du scan suivant. Le bien est CONSERVÉ, seul son prix est écarté —
+    le supprimer fabriquerait un faux retrait puis une fausse remise en ligne."""
+    n = 0
+    for r in rows:
+        if not prices.is_sane(r.get("price")):
+            print(f"[veille] WARN prix invraisemblable écarté [{r.get('id')}] "
+                  f"{r['price']} € (plafond {prices.sanity_max()}) — {r.get('url', '')}")
+            r["price"] = None
+            n += 1
+    return n
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="config.gha.yaml")
@@ -81,6 +99,12 @@ def main(argv=None):
         prev = st.get("properties", [])
         backlog = st.get("retired", [])          # biens retirés en attente d'une éventuelle remise en ligne
         frozen_prev = st.get("frozen", {})       # communes gelées : nb de scans consécutifs
+        # Migration au chargement : les états écrits avant le correctif du parser
+        # portent des prix pollués (compteur de carrousel collé au prix). Les laisser
+        # tels quels ferait une fausse BAISSE de −92 % au premier scan corrigé.
+        fixed = sum(prices.migrate_properties(x)[0] for x in (prev, backlog))
+        if fixed:
+            print(f"[veille] état migré : {fixed} prix corrigé(s) au chargement")
     prev_n = len(prev)
     prev_max_id = max((int(x) for p in prev for x in p.get("aliases", []) if str(x).isdigit()), default=274139959)
 
@@ -128,6 +152,9 @@ def main(argv=None):
         per_source.update(ag_per)
         print(f"[veille] + {len(ag_rows)} annonces via sites d'agences")
     print(f"[veille] collecté {len(rows)} annonces (état précédent: {prev_n} biens)")
+    n_ecartes = garde_prix(rows)
+    if n_ecartes:
+        print(f"[veille] {n_ecartes} prix invraisemblable(s) écarté(s) à la collecte")
 
     listings = [Listing(id=r["id"], source=r.get("agency") or "bd", url=r["url"],
                         title=r["title"], price=r["price"], surface=r["surface"],
