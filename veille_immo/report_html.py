@@ -208,6 +208,15 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note="",
     ecartes = {id(e) for e in anomalies}
     events = [e for e in events if id(e) not in ecartes]
 
+    # Une nouveauté ou un mouvement dont le bien a disparu de l'état (fusionné dans
+    # un autre cluster entre-temps) ne peut pas être rendu : la ligne riche se
+    # construit à partir du BIEN, pas de l'événement. On ne le compte donc pas non
+    # plus — sinon l'en-tête annonce plus de lignes que le tableau n'en montre.
+    # Les retraits, remises en ligne et anomalies portent, eux, de quoi s'afficher
+    # seuls : ils restent, c'est justement quand le bien manque qu'on veut les voir.
+    events = [e for e in events
+              if e["type"] not in ("NOUVEAU", "BAISSE", "HAUSSE") or e["id"] in by_id]
+
     scored = []
     for p in props:
         if not _matches(p):

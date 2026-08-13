@@ -84,6 +84,41 @@ Deux précautions :
 
 ---
 
+## Suite de tests
+
+```bash
+python -m pytest -q
+```
+
+**144 tests, hors ligne** (aucun appel réseau : les collecteurs sont doublés, les
+pages sont des extraits de HTML réel relevés en production). Quelques secondes.
+
+Couverture par ce qu'elle protège :
+
+| fichier de test | ce qui est verrouillé |
+|---|---|
+| `test_prices.py` | lecture du prix : compteur de carrousel, `€/m²`, dates, espaces insécables, plafond de sanité, migration (dont sous le plafond, et idempotence) |
+| `test_parsers_prix.py` | le même prix **à travers les trois parsers** (SeLoger, Belles Demeures, agences), sur du HTML de carte réel |
+| `test_collector_scrapingbee.py` | le provider alternatif lit les prix comme scrape.do ; titre inattendu, HTTP en erreur, panne réseau |
+| `test_migrate_state_cli.py` | migration one-shot : `--dry-run` vraiment sans écriture, idempotence, reste de l'état préservé |
+| `test_filtres_rapport.py` | budget (bornes incluses) sur toutes les vues, partition ±20 %, bandeau de fraîcheur, en-tête = nb de lignes |
+| `test_bords_rapport.py` | cas dégradés du rendu : événements orphelins, estimation de date hors plage, libellés incomplets, cohérence du workflow |
+| `test_render_flag.py` | précédence `--render` / `SCRAPER_RENDER` / défaut, et le workflow ne force pas le rendu |
+| `test_run_bout_en_bout.py` | un run complet avec collecteur simulé, et la reprise d'un état pré-migration |
+| `test_seloger.py`, `test_backlog_relisting.py`, `test_collecte_partielle.py`, `test_email_refactor.py` | parsing SeLoger, hystérésis/backlog/remises en ligne, garde-fous de collecte partielle, structure de l'email |
+
+Mesure de couverture (`coverage` seul suffit, pas besoin de `pytest-cov`) :
+
+```bash
+python -m coverage run --source=veille_immo,run_veille -m pytest -q && python -m coverage report -m
+```
+
+75 % au total. Les modules de collecte réelle restent bas par nature (`collector_local`
+ouvre un navigateur, `mailer` envoie un mail) ; `prices` est à 100 %, `report_html`
+à 98 %.
+
+---
+
 ## Collecte fiable via ScrapingBee (recommandé)
 
 Depuis une IP GitHub, DataDome (l'anti-robot de Belles Demeures) bloque souvent
@@ -97,6 +132,10 @@ une **IP résidentielle française** en mode *stealth*.
 
 Dès que `SCRAPER_API_KEY` est présent, `run_veille.py` utilise automatiquement le
 collecteur ScrapingBee (sinon il retombe sur le navigateur local, cf. `--local`).
+
+Ce collecteur **délègue l'analyse à `bd_parse.parse_cards`**, comme scrape.do : un
+changement de provider ne change donc ni les identifiants, ni les prix collectés
+(c'est vérifié par `tests/test_collector_scrapingbee.py`).
 
 **Coût / crédits.** Le mode stealth (nécessaire contre DataDome) coûte ~75 crédits
 par page. Périmètre = 10 pages → ~750 crédits par scan. Un scan tous les 3 jours
@@ -354,6 +393,15 @@ Pour la réactiver ponctuellement : *Actions → Veille immo → Run workflow* �
   suppression d'alerte.
 
 Dans tous les cas : **un seul email par run**.
+
+**Conséquence de la bascule du rendu JS** (13/08/2026) : `SCRAPER_RENDER` est porté
+par le **job**, pas par une étape — la tentative éco hérite donc du même réglage et
+passe de **5 à 1 crédit/page** (datacenter sans rendu), soit ~10 crédits par
+tentative au lieu de 50. Elle devient quasi gratuite à tenter… mais elle reste
+désactivée par défaut : ce n'est pas son coût qui posait problème depuis le
+31/07/2026, c'est qu'elle **ne ramène plus rien** (DataDome bloque les IP datacenter)
+tout en consommant ~15 min avant de rendre la main. Si tu la réactives, juge-la sur
+le nombre d'annonces, pas sur les crédits.
 
 ## Collecte partielle : rapport dégradé plutôt que silence
 
