@@ -76,7 +76,11 @@ _BADGE_AG = ('<span style="background:#5b4636;color:#fff;font-size:9px;padding:1
 def _est_date(id_int, today_max):
     span = max((datetime.date.today() - ANCHOR_DATE).days, 1)
     slope = max((today_max - ANCHOR_ID) / span, 1)
-    return ANCHOR_DATE + datetime.timedelta(days=(id_int - ANCHOR_ID) / slope)
+    # Borne à ±10 ans : quand le plus grand id collecté est proche de l'ancre, la
+    # pente tombe à 1 et un id ancien projette des millions de jours en arrière —
+    # timedelta débordait et faisait échouer TOUT le rapport après la collecte.
+    jours = max(min((id_int - ANCHOR_ID) / slope, 3650), -3650)
+    return ANCHOR_DATE + datetime.timedelta(days=jours)
 
 
 def _num_aliases(prop):
