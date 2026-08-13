@@ -75,7 +75,19 @@ def garde_prix(rows):
     return n
 
 
-def main(argv=None):
+def resolve_render(cli=None, env=None):
+    """Rendu JS côté scraper : CLI > SCRAPER_RENDER > défaut (activé).
+
+    Le rendu JS coûte 25 crédits/page contre 10 sans — mais SeLoger est une SPA
+    React : sans rendu, ses sources peuvent tomber à 0. Le défaut reste donc le
+    rendu, et `--no-render` sert à mesurer l'économie une fois, à la main."""
+    if cli is not None:
+        return bool(cli)
+    brut = os.environ.get("SCRAPER_RENDER") if env is None else env
+    return (brut or "true").strip().lower() != "false"
+
+
+def build_parser():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="config.gha.yaml")
     ap.add_argument("--state", default="data/state_chained.json")
@@ -88,7 +100,19 @@ def main(argv=None):
     ap.add_argument("--local", action="store_true",
                     help="collecte depuis un navigateur local (Playwright headed) au lieu de l'API : "
                          "zéro crédit, à lancer à la main quand le quota scrape.do est épuisé")
-    a = ap.parse_args(argv)
+    ap.add_argument("--render", action=argparse.BooleanOptionalAction, default=None,
+                    help="rendu JS côté scraper (défaut : activé, ou SCRAPER_RENDER). "
+                         "--no-render économise ~15 crédits/page mais peut vider les "
+                         "sources SeLoger (SPA React) : à vérifier source par source.")
+    return ap
+
+
+def main(argv=None):
+    a = build_parser().parse_args(argv)
+    # La précédence est portée par l'environnement : les trois collecteurs le lisent
+    # eux-mêmes, inutile de faire descendre le réglage dans trois signatures.
+    render = resolve_render(a.render)
+    os.environ["SCRAPER_RENDER"] = "true" if render else "false"
     cfg = yaml.safe_load(open(a.config, encoding="utf-8"))
     today = datetime.date.today().isoformat()
 
@@ -125,10 +149,12 @@ def main(argv=None):
         print(f"[veille] collecteur : navigateur local (Playwright, {raison})")
     elif provider == "scrapingbee":
         from veille_immo import collector_scrapingbee as col
-        print(f"[veille] collecteur : {provider} (API, super={os.environ.get('SCRAPER_SUPER','true')})")
+        print(f"[veille] collecteur : {provider} (API, super={os.environ.get('SCRAPER_SUPER','true')}, "
+              f"rendu JS {'activé' if render else 'DÉSACTIVÉ (~10 crédits/page)'})")
     else:
         from veille_immo import collector_scrapedo as col
-        print(f"[veille] collecteur : {provider} (API, super={os.environ.get('SCRAPER_SUPER','true')})")
+        print(f"[veille] collecteur : {provider} (API, super={os.environ.get('SCRAPER_SUPER','true')}, "
+              f"rendu JS {'activé' if render else 'DÉSACTIVÉ (~10 crédits/page)'})")
     # Crédits épuisés en cours de route : on récupère la collecte partielle plutôt que
     # de tout perdre (les communes non atteintes seront gelées comme une source en panne).
     quota = ""
