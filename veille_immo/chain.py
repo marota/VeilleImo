@@ -10,7 +10,7 @@ Au scan suivant, chaque bien courant est rattaché à un bien connu :
 Le first_seen est alors conservé ; sinon le bien est NOUVEAU (first_seen = aujourd'hui).
 """
 import datetime
-from typing import Dict, List
+from typing import List
 from . import identity
 
 MIN_PCT = 2.0     # variation de prix minimale signalée (%)
@@ -75,85 +75,6 @@ def build_properties(listings: List[Listing]) -> List[dict]:
             "agency": next((l.agency for l in grp if getattr(l, "agency", "")), ""),
         })
     return props
-
-
-def _find_prior(prop: dict, prev: List[dict], prev_listings: Dict[str, Listing]):
-    # 1) recouvrement d'ID (alias déjà connu)
-    alias_set = set(prop["aliases"])
-    for p in prev:
-        if alias_set & set(p.get("aliases", [])):
-            return p
-    # 2) même bien par empreinte floue (republication)
-    a = Listing(id=prop["canonical_id"], source="", title=prop["title"],
-                price=prop["price"], surface=prop["surface"],
-                rooms=prop["rooms"], quartier=prop["quartier"])
-    for p in prev:
-        b = Listing(id=p["canonical_id"], source="", title=p.get("title", ""),
-                    price=p.get("price"), surface=p.get("surface"),
-                    rooms=p.get("rooms"), quartier=p.get("quartier", ""))
-        if identity.same_property(a, b):
-            return p
-    return None
-
-
-def chain(curr_props: List[dict], prev_props: List[dict], today: str) -> List[dict]:
-    """Fusionne l'état courant avec l'état précédent en conservant first_seen."""
-    out = []
-    matched_prev = set()
-    for prop in curr_props:
-        prior = _find_prior(prop, prev_props, {})
-        if prior is not None:
-            matched_prev.add(id(prior))
-            prop["first_seen"] = prior.get("first_seen", today)
-            prop["first_seen_estimated"] = prior.get("first_seen_estimated", False)
-            prop["aliases"] = sorted(set(prop["aliases"]) | set(prior.get("aliases", [])), key=_idkey)
-            prop["price_prev"] = prior.get("price")
-        else:
-            prop["first_seen"] = today
-            prop["first_seen_estimated"] = False
-            prop["price_prev"] = None
-        out.append(prop)
-    return out
-
-
-def diff_properties(curr: List[dict], prev: List[dict]) -> List[dict]:
-    events = []
-    prev_by_alias = {}
-    for p in prev:
-        for a in p.get("aliases", []):
-            prev_by_alias[a] = p
-    seen_prev = set()
-    for prop in curr:
-        prior = None
-        for a in prop["aliases"]:
-            if a in prev_by_alias:
-                prior = prev_by_alias[a]; break
-        if prior is None:
-            prior = _find_prior(prop, prev, {})
-        if prior is None:
-            events.append({"type": "NOUVEAU", "id": prop["canonical_id"],
-                           "title": prop["title"], "price": prop["price"]})
-        else:
-            seen_prev.add(prior["canonical_id"])
-            op, np_ = prior.get("price"), prop.get("price")
-            if op and np_ and op != np_:
-                events.append({"type": "BAISSE" if np_ < op else "HAUSSE",
-                               "id": prop["canonical_id"], "title": prop["title"],
-                               "old_price": op, "price": np_,
-                               "pct": round(100 * (np_ - op) / op, 1)})
-    curr_aliases = set()
-    for prop in curr:
-        curr_aliases |= set(prop["aliases"])
-    for p in prev:
-        # présent si un alias subsiste OU si un bien courant lui correspond
-        # (republication sous nouvel ID : ce n'est pas un retrait)
-        if set(p.get("aliases", [])) & curr_aliases:
-            continue
-        if p["canonical_id"] in seen_prev:
-            continue
-        events.append({"type": "RETIRE", "id": p["canonical_id"],
-                       "title": p.get("title", ""), "price": p.get("price")})
-    return events
 
 
 def _match_prior(prop, prev, used):
