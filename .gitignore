@@ -5,3 +5,8 @@ data/reports/apercu_email_refactor.html
 # Python
 __pycache__/
 *.pyc
+
+# Tests / couverture
+.pytest_cache/
+.coverage
+htmlcov/

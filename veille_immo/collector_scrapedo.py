@@ -31,8 +31,25 @@ FATAL_STATUS = {401: "crédits épuisés ou abonnement suspendu",
 LOW_CREDITS = 400                              # en dessous : on le signale dans le rapport
 ROTATE_PAUSE = 60                              # pause avant la 1re requête d'un compte de secours
 
+# Rendu JS : DÉSACTIVÉ par défaut depuis l'audit du 06/08/2026 (run GHA 31107448276).
+# Mesuré sur une collecte réelle : sans rendu, les 10 sources répondent (SeLoger
+# compris — la SPA sert du HTML exploitable) pour 100 crédits, contre 250 avec. Et
+# depuis, le rendu FAIT PERDRE des sources : les cinq URL Belles Demeures tombent en
+# HTTP 502 (DataDome relève le challenge JS quand la page est réellement exécutée) —
+# 5 sources sur 10 le 13/08. `--render` / SCRAPER_RENDER=true le rallume au besoin.
+RENDER_DEFAULT = False
+_VRAI = {"1", "true", "vrai", "yes", "oui", "on"}
 
-def _fetch(url, token, super_proxy=True, render=True, wait_selector=None):
+
+def render_enabled(env=None):
+    """Rendu JS demandé ? Lit SCRAPER_RENDER, sinon RENDER_DEFAULT."""
+    brut = os.environ.get("SCRAPER_RENDER") if env is None else env
+    if brut is None or not str(brut).strip():
+        return RENDER_DEFAULT
+    return str(brut).strip().lower() in _VRAI
+
+
+def _fetch(url, token, super_proxy=True, render=RENDER_DEFAULT, wait_selector=None):
     params = {"token": token, "url": url, "geoCode": "fr"}
     if render:
         params.update({"render": "true",
@@ -174,7 +191,7 @@ def collect(sources, delay=4.0, api_key=None, super_proxy=None, render=None):
     if super_proxy is None:
         super_proxy = os.environ.get("SCRAPER_SUPER", "true").lower() != "false"
     if render is None:
-        render = os.environ.get("SCRAPER_RENDER", "true").lower() != "false"
+        render = render_enabled()
     tag = "scrapedo" + ("/super" if super_proxy else "") + ("" if render else "/norender")
     keys = _Keyring(jetons, tag)
     if len(jetons) > 1:

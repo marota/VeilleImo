@@ -84,6 +84,41 @@ Deux précautions :
 
 ---
 
+## Suite de tests
+
+```bash
+python -m pytest -q
+```
+
+**144 tests, hors ligne** (aucun appel réseau : les collecteurs sont doublés, les
+pages sont des extraits de HTML réel relevés en production). Quelques secondes.
+
+Couverture par ce qu'elle protège :
+
+| fichier de test | ce qui est verrouillé |
+|---|---|
+| `test_prices.py` | lecture du prix : compteur de carrousel, `€/m²`, dates, espaces insécables, plafond de sanité, migration (dont sous le plafond, et idempotence) |
+| `test_parsers_prix.py` | le même prix **à travers les trois parsers** (SeLoger, Belles Demeures, agences), sur du HTML de carte réel |
+| `test_collector_scrapingbee.py` | le provider alternatif lit les prix comme scrape.do ; titre inattendu, HTTP en erreur, panne réseau |
+| `test_migrate_state_cli.py` | migration one-shot : `--dry-run` vraiment sans écriture, idempotence, reste de l'état préservé |
+| `test_filtres_rapport.py` | budget (bornes incluses) sur toutes les vues, partition ±20 %, bandeau de fraîcheur, en-tête = nb de lignes |
+| `test_bords_rapport.py` | cas dégradés du rendu : événements orphelins, estimation de date hors plage, libellés incomplets, cohérence du workflow |
+| `test_render_flag.py` | précédence `--render` / `SCRAPER_RENDER` / défaut, et le workflow ne force pas le rendu |
+| `test_run_bout_en_bout.py` | un run complet avec collecteur simulé, et la reprise d'un état pré-migration |
+| `test_seloger.py`, `test_backlog_relisting.py`, `test_collecte_partielle.py`, `test_email_refactor.py` | parsing SeLoger, hystérésis/backlog/remises en ligne, garde-fous de collecte partielle, structure de l'email |
+
+Mesure de couverture (`coverage` seul suffit, pas besoin de `pytest-cov`) :
+
+```bash
+python -m coverage run --source=veille_immo,run_veille -m pytest -q && python -m coverage report -m
+```
+
+75 % au total. Les modules de collecte réelle restent bas par nature (`collector_local`
+ouvre un navigateur, `mailer` envoie un mail) ; `prices` est à 100 %, `report_html`
+à 98 %.
+
+---
+
 ## Collecte fiable via ScrapingBee (recommandé)
 
 Depuis une IP GitHub, DataDome (l'anti-robot de Belles Demeures) bloque souvent
@@ -97,6 +132,10 @@ une **IP résidentielle française** en mode *stealth*.
 
 Dès que `SCRAPER_API_KEY` est présent, `run_veille.py` utilise automatiquement le
 collecteur ScrapingBee (sinon il retombe sur le navigateur local, cf. `--local`).
+
+Ce collecteur **délègue l'analyse à `bd_parse.parse_cards`**, comme scrape.do : un
+changement de provider ne change donc ni les identifiants, ni les prix collectés
+(c'est vérifié par `tests/test_collector_scrapingbee.py`).
 
 **Coût / crédits.** Le mode stealth (nécessaire contre DataDome) coûte ~75 crédits
 par page. Périmètre = 10 pages → ~750 crédits par scan. Un scan tous les 3 jours
@@ -161,6 +200,62 @@ Augmente `retrait_grace` si tu veux être encore plus conservateur.
 
 ---
 
+## Intégrité des prix (correctif du 13/08/2026)
+
+Sur une carte de portail, le compteur du carrousel de photos précède le prix :
+« 1 / 11 950 000 € ». L'ancienne regex démarrait sur le **second nombre du
+compteur** et lisait **11 950 000 €** au lieu de 950 000 €. Six biens de l'état
+étaient touchés (jusqu'à 141 190 000 €), avec des « hausses » à +1 629 % au scan
+suivant, et des moyennes de zone faussées.
+
+Trois garde-fous, dans cet ordre (`veille_immo/prices.py`) :
+
+1. **Lecture** : le compteur est consommé avant la recherche du prix — et seulement
+   quand un nombre le suit directement, pour ne toucher ni un `€/m²` ni une date.
+   Les trois parsers (SeLoger, Belles Demeures, sites d'agences) partagent ce code.
+2. **Sanité** : un prix au-dessus de `VEILLEIMO_PRICE_SANITY_MAX` est **écarté avec
+   un WARN** (id + URL) avant tout stockage. Le bien est conservé sans prix — le
+   supprimer fabriquerait un faux retrait, puis une fausse remise en ligne.
+3. **Migration** : l'état est nettoyé **au chargement** de chaque run. Un prix est
+   recalé s'il porte la signature de l'ancienne regex, ou s'il dépasse le plafond et
+   que le libellé donne une valeur plausible ; sinon il est marqué `price_suspect`
+   (une villa réelle à 5,2 M € n'est pas un prix pollué). En one-shot :
+
+```bash
+python -m veille_immo.migrate_state data/state_chained.json   # --dry-run pour voir
+```
+
+### Bornes du rapport
+
+Le rendu (et lui seul — l'état garde tout) est borné :
+
+- **budget** `700 000–1 200 000 €`, **bornes incluses**, sur *toutes* les vues :
+  coups de cœur, à noter, biens dans vos critères, multi-mandats, mouvements ;
+- **variation de prix** au-delà de ±20 % d'un scan à l'autre : le mouvement bascule
+  dans un bloc **« 🚨 Anomalies de prix (à vérifier) »** en fin de rapport et ne
+  compte pas dans la synthèse (rien n'est masqué). Ne concerne que les mouvements
+  temporels : la colonne « vs moy. » descend légitimement à −50 % ;
+- **bandeau rouge « SCAN NON FRAIS »** dès que ≥ 80 % des communes cibles sont
+  gelées : les mouvements affichés sont alors potentiellement obsolètes.
+
+Un bien qui sort du budget **reste dans l'état** : il n'est pas retiré, donc pas de
+faux retrait ni de fausse remise en ligne s'il y revient — il est seulement absent
+du rendu tant qu'il est hors bornes.
+
+### Variables d'environnement
+
+| variable | défaut | effet |
+|---|---:|---|
+| `SCRAPER_RENDER` | `false` | rendu JS côté scraper (25 crédits/page au lieu de 10). Surchargée par `--render` / `--no-render`. Une valeur non reconnue vaut `false` — le sens le moins coûteux |
+| `VEILLEIMO_PRICE_MIN` | `700000` | bas du budget, borne incluse |
+| `VEILLEIMO_PRICE_MAX` | `1200000` | haut du budget, borne incluse |
+| `VEILLEIMO_PRICE_SANITY_MAX` | `5000000` | au-delà, le prix est jugé invraisemblable et écarté |
+| `VEILLEIMO_DELTA_MAX_PCT` | `20` | variation max. d'un scan à l'autre avant bascule en anomalie |
+
+Une valeur illisible est ignorée (retour au défaut, avec un message).
+
+---
+
 ## Budget crédits scrape.do (à surveiller — c'est la contrainte réelle)
 
 Coût d'une page selon le mode (barème scrape.do) : datacenter 1, datacenter +
@@ -169,11 +264,13 @@ rendu JS **5**, résidentiel **10**, résidentiel + rendu JS **25**.
 `config.gha.yaml` contient **10 URL** — une par commune et par portail, 5 Belles
 Demeures + 5 SeLoger — et le cron tourne **tous les 3 jours** (≈ 10 runs/mois) :
 
-| Mode                              | par run | par mois |
-|-----------------------------------|--------:|---------:|
-| résidentiel + rendu JS (défaut)   |     250 |   2 500  |
-| résidentiel sans rendu JS         |     100 |   1 000  |
-| datacenter + rendu JS (éco)       |      50 |     500  |
+| Mode                               | par run | par mois |
+|------------------------------------|--------:|---------:|
+| **résidentiel sans rendu JS (défaut)** | **100** | **1 000** |
+| résidentiel + rendu JS (`--render`)|     250 |   2 500  |
+| datacenter sans rendu JS (éco)     |      10 |     100  |
+
+Le défaut tient donc **pile dans le quota gratuit de 1 000 crédits/mois**.
 
 ### Plusieurs comptes scrape.do (bascule automatique)
 
@@ -208,22 +305,48 @@ Note : cumuler les quotas gratuits de plusieurs comptes est souvent encadré par
 CGU des fournisseurs — à vérifier. Le mécanisme sert aussi, sans ambiguïté, à
 chaîner un compte payant et un compte de secours.
 
-**L'offre gratuite = 1000 crédits/mois.** À 2 500/mois on reste au-dessus du quota :
-le run peut heurter le plafond en cours de mois et scrape.do répondre **HTTP 401
-« no credits »**, ce qui vide des communes entières. Deux leviers :
+**L'offre gratuite = 1000 crédits/mois.** Avec rendu JS on était à 2 500/mois, donc
+au-dessus du quota : le run heurtait le plafond en cours de mois et scrape.do
+répondait **HTTP 401 « no credits »**, ce qui vide des communes entières. C'est
+réglé par le défaut sans rendu (1 000/mois) ; un compte payant reste l'option si le
+périmètre s'élargit.
 
-1. **Passer à une offre payante** (le premier palier couvre très largement 2 500/mois) ;
-2. **Tester le résidentiel sans rendu JS** : *Run workflow* → cocher `no_render`
-   (ou `SCRAPER_RENDER=false`) : **−60 % de crédits, soit 1 000/mois — pile le quota
-   gratuit**. Vérifier alors le compte des sources `seloger_*` en particulier :
-   SeLoger est une SPA React, elle peut exiger le rendu là où Belles Demeures s'en
-   passe. Si ces sources tombent à 0, ne pas garder `no_render`.
+### Le rendu JS ne sert à rien ici (mesuré le 06/08/2026)
+
+L'essai a été fait pour de vrai — [run GHA 31107448276](https://github.com/marota/VeilleImo/actions/runs/31107448276),
+`workflow_dispatch` avec `no_render`, tag `[scrapedo/super/norender]` dans les logs :
+
+| source | sans rendu (06/08) | avec rendu (07/08) | avec rendu (10/08) | avec rendu (13/08) |
+|---|---:|---:|---:|---:|
+| sevres_brancas | 28 | 28 | 28 | **0** |
+| ville_davray | 40 | 40 | **0** | **0** |
+| meudon | 20 | **0** | **0** | **0** |
+| chaville | 34 | 34 | 33 | **0** |
+| viroflay | 38 | 35 | **0** | **0** |
+| les 5 `seloger_*` | 110 | 110 | 110 | 110 |
+| **crédits consommés** | **100** | 250 | ~200 | 125 |
+
+Deux enseignements :
+
+- **SeLoger n'a pas besoin du rendu** : 24 / 6 / 29 / 25 / 26 annonces, *au chiffre
+  près*, avec et sans. La SPA React sert du HTML exploitable — l'inquiétude qui
+  justifiait le rendu ne tient pas.
+- **Le rendu fait perdre Belles Demeures** : depuis le 07/08, ses URL tombent en
+  **HTTP 502 après 3 essais** (« Sources non récupérées » du rapport du 13/08) —
+  les cinq d'un coup ce jour-là, alors que la collecte sans rendu du 06/08 n'avait
+  **aucune source en échec**. Exécuter réellement le JS déclenche le challenge
+  DataDome ; sans rendu, la page brute revient telle quelle.
+
+Le défaut est donc **sans rendu**, partout : `SCRAPER_RENDER` non défini, workflow
+inclus. Pour le rallumer ponctuellement : `--render`, ou *Run workflow* → cocher
+`render`. Précédence : **`--render` / `--no-render` > `SCRAPER_RENDER` > désactivé**.
 
 En dépannage, `--local` reste gratuit et collecte les deux portails (cf. plus haut).
 
 ### Ce que rapporte chaque URL (audit du 06/08/2026)
 
-Mesuré id par id sur une collecte réelle, en croisant avec `criteria` :
+Mesuré id par id sur une collecte réelle, en croisant avec `criteria` — c'est le run
+**sans rendu JS** ci-dessus : ces chiffres sont ceux du mode par défaut actuel.
 
 | source | annonces | dans les critères | **exclusifs** dans les critères |
 |---|---:|---:|---:|
@@ -270,6 +393,15 @@ Pour la réactiver ponctuellement : *Actions → Veille immo → Run workflow* �
   suppression d'alerte.
 
 Dans tous les cas : **un seul email par run**.
+
+**Conséquence de la bascule du rendu JS** (13/08/2026) : `SCRAPER_RENDER` est porté
+par le **job**, pas par une étape — la tentative éco hérite donc du même réglage et
+passe de **5 à 1 crédit/page** (datacenter sans rendu), soit ~10 crédits par
+tentative au lieu de 50. Elle devient quasi gratuite à tenter… mais elle reste
+désactivée par défaut : ce n'est pas son coût qui posait problème depuis le
+31/07/2026, c'est qu'elle **ne ramène plus rien** (DataDome bloque les IP datacenter)
+tout en consommant ~15 min avant de rendre la main. Si tu la réactives, juge-la sur
+le nombre d'annonces, pas sur les crédits.
 
 ## Collecte partielle : rapport dégradé plutôt que silence
 

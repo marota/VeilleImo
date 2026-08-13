@@ -13,6 +13,7 @@ texte de carte porte tout le reste — « 945 000 € · 7 pièces · 5 chambres
 """
 import re
 from bs4 import BeautifulSoup
+from . import prices
 
 CARD = '[data-testid="serp-core-classified-card-testid"]'
 # Quatre formes d'URL cohabitent sur une même page de résultats :
@@ -26,8 +27,9 @@ BD_URL = re.compile(r"bellesdemeures\.com/(\d{6,})/")
 CODE = re.compile(r"[A-Z0-9]{8,}")
 HORS_PERIMETRE = ("seloger-construire.com",)
 LIEN = 'a[data-testid*="covering-link"], a[href]'
-# prix de vente : montant en € NON suivi de /m² (qui est le prix au mètre carré)
-PRICE = re.compile(r"(\d[\d\s  ]{4,})\s*€(?!\s*/\s*m)")
+# prix de vente : voir prices.parse_price (le compteur du carrousel « 1 / 11 » doit
+# être consommé avant, sinon « 1 / 11 950 000 € » se lit 11 950 000 €).
+PRICE = prices.PRICE
 # surface habitable : m² NON suivis de « de terrain »
 SURF = re.compile(r"(\d{2,4}(?:[.,]\d{1,2})?)\s*m²(?!\s*de\s*terrain)")
 ROOMS = re.compile(r"(\d{1,2})\s*pi[eè]ces?", re.I)
@@ -42,9 +44,7 @@ LOC = re.compile(r"([^·,]{2,90}),\s*([^·,(]{2,40}?)\s*\((\d{5})\)"
 NOISE = re.compile(r"^.*(?:de\s*terrain|m²|€|·)\s*", re.S)
 
 
-def _to_int(t):
-    d = re.sub(r"[^\d]", "", t or "")
-    return int(d) if d else None
+_to_int = prices.to_int
 
 
 UNITES = {"m²", "€", "·", "-"}
@@ -112,10 +112,10 @@ def parse_cards(html):
         full = re.sub(r"\s+", " ", card.get_text(" ", strip=True))
         # le descriptif commence après l'accroche crédit ; à défaut, on prend tout
         desc = full.split("Simuler mon crédit immobilier", 1)[-1].strip()
-        pm, sm, rm = PRICE.search(full), SURF.search(full), ROOMS.search(full)
+        sm, rm = SURF.search(full), ROOMS.search(full)
         out.append({
             "id": cid, "url": url, "title": desc[:120],
-            "price": _to_int(pm.group(1)) if pm else None,
+            "price": prices.parse_price(full),
             "surface": float(sm.group(1).replace(",", ".")) if sm else None,
             "rooms": int(rm.group(1)) if rm else None,
             "quartier": _location(full), "agency": "",
