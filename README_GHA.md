@@ -161,6 +161,62 @@ Augmente `retrait_grace` si tu veux être encore plus conservateur.
 
 ---
 
+## Intégrité des prix (correctif du 13/08/2026)
+
+Sur une carte de portail, le compteur du carrousel de photos précède le prix :
+« 1 / 11 950 000 € ». L'ancienne regex démarrait sur le **second nombre du
+compteur** et lisait **11 950 000 €** au lieu de 950 000 €. Six biens de l'état
+étaient touchés (jusqu'à 141 190 000 €), avec des « hausses » à +1 629 % au scan
+suivant, et des moyennes de zone faussées.
+
+Trois garde-fous, dans cet ordre (`veille_immo/prices.py`) :
+
+1. **Lecture** : le compteur est consommé avant la recherche du prix — et seulement
+   quand un nombre le suit directement, pour ne toucher ni un `€/m²` ni une date.
+   Les trois parsers (SeLoger, Belles Demeures, sites d'agences) partagent ce code.
+2. **Sanité** : un prix au-dessus de `VEILLEIMO_PRICE_SANITY_MAX` est **écarté avec
+   un WARN** (id + URL) avant tout stockage. Le bien est conservé sans prix — le
+   supprimer fabriquerait un faux retrait, puis une fausse remise en ligne.
+3. **Migration** : l'état est nettoyé **au chargement** de chaque run. Un prix est
+   recalé s'il porte la signature de l'ancienne regex, ou s'il dépasse le plafond et
+   que le libellé donne une valeur plausible ; sinon il est marqué `price_suspect`
+   (une villa réelle à 5,2 M € n'est pas un prix pollué). En one-shot :
+
+```bash
+python -m veille_immo.migrate_state data/state_chained.json   # --dry-run pour voir
+```
+
+### Bornes du rapport
+
+Le rendu (et lui seul — l'état garde tout) est borné :
+
+- **budget** `700 000–1 200 000 €`, **bornes incluses**, sur *toutes* les vues :
+  coups de cœur, à noter, biens dans vos critères, multi-mandats, mouvements ;
+- **variation de prix** au-delà de ±20 % d'un scan à l'autre : le mouvement bascule
+  dans un bloc **« 🚨 Anomalies de prix (à vérifier) »** en fin de rapport et ne
+  compte pas dans la synthèse (rien n'est masqué). Ne concerne que les mouvements
+  temporels : la colonne « vs moy. » descend légitimement à −50 % ;
+- **bandeau rouge « SCAN NON FRAIS »** dès que ≥ 80 % des communes cibles sont
+  gelées : les mouvements affichés sont alors potentiellement obsolètes.
+
+Un bien qui sort du budget **reste dans l'état** : il n'est pas retiré, donc pas de
+faux retrait ni de fausse remise en ligne s'il y revient — il est seulement absent
+du rendu tant qu'il est hors bornes.
+
+### Variables d'environnement
+
+| variable | défaut | effet |
+|---|---:|---|
+| `SCRAPER_RENDER` | `true` | rendu JS côté scraper (25 crédits/page vs 10). Surchargée par `--render` / `--no-render` |
+| `VEILLEIMO_PRICE_MIN` | `700000` | bas du budget, borne incluse |
+| `VEILLEIMO_PRICE_MAX` | `1200000` | haut du budget, borne incluse |
+| `VEILLEIMO_PRICE_SANITY_MAX` | `5000000` | au-delà, le prix est jugé invraisemblable et écarté |
+| `VEILLEIMO_DELTA_MAX_PCT` | `20` | variation max. d'un scan à l'autre avant bascule en anomalie |
+
+Une valeur illisible est ignorée (retour au défaut, avec un message).
+
+---
+
 ## Budget crédits scrape.do (à surveiller — c'est la contrainte réelle)
 
 Coût d'une page selon le mode (barème scrape.do) : datacenter 1, datacenter +
@@ -213,11 +269,16 @@ le run peut heurter le plafond en cours de mois et scrape.do répondre **HTTP 40
 « no credits »**, ce qui vide des communes entières. Deux leviers :
 
 1. **Passer à une offre payante** (le premier palier couvre très largement 2 500/mois) ;
-2. **Tester le résidentiel sans rendu JS** : *Run workflow* → cocher `no_render`
-   (ou `SCRAPER_RENDER=false`) : **−60 % de crédits, soit 1 000/mois — pile le quota
-   gratuit**. Vérifier alors le compte des sources `seloger_*` en particulier :
-   SeLoger est une SPA React, elle peut exiger le rendu là où Belles Demeures s'en
-   passe. Si ces sources tombent à 0, ne pas garder `no_render`.
+2. **Tester le résidentiel sans rendu JS** : `python run_veille.py --no-render`
+   en local, *Run workflow* → cocher `no_render`, ou `SCRAPER_RENDER=false` :
+   **−60 % de crédits, soit 1 000/mois — pile le quota gratuit**. Vérifier alors le
+   compte des sources `seloger_*` en particulier : SeLoger est une SPA React, elle
+   peut exiger le rendu là où Belles Demeures s'en passe. Si ces sources tombent à 0,
+   ne pas garder `no_render`.
+
+   Précédence du réglage : **`--render` / `--no-render` > `SCRAPER_RENDER` > rendu
+   activé**. Le défaut de production reste le rendu tant que l'essai sans rendu n'a
+   pas été fait pour de vrai — le workflow n'a pas été modifié.
 
 En dépannage, `--local` reste gratuit et collecte les deux portails (cf. plus haut).
 
