@@ -76,15 +76,15 @@ def garde_prix(rows):
 
 
 def resolve_render(cli=None, env=None):
-    """Rendu JS côté scraper : CLI > SCRAPER_RENDER > défaut (activé).
+    """Rendu JS côté scraper : CLI > SCRAPER_RENDER > défaut (DÉSACTIVÉ).
 
-    Le rendu JS coûte 25 crédits/page contre 10 sans — mais SeLoger est une SPA
-    React : sans rendu, ses sources peuvent tomber à 0. Le défaut reste donc le
-    rendu, et `--no-render` sert à mesurer l'économie une fois, à la main."""
+    Le défaut a basculé après l'audit du 06/08/2026 (cf. collector_scrapedo) :
+    sans rendu, les 10 sources répondent pour 100 crédits au lieu de 250 — et
+    avec rendu, Belles Demeures tombe désormais en 502."""
     if cli is not None:
         return bool(cli)
-    brut = os.environ.get("SCRAPER_RENDER") if env is None else env
-    return (brut or "true").strip().lower() != "false"
+    from veille_immo.collector_scrapedo import render_enabled
+    return render_enabled(env)
 
 
 def build_parser():
@@ -101,9 +101,9 @@ def build_parser():
                     help="collecte depuis un navigateur local (Playwright headed) au lieu de l'API : "
                          "zéro crédit, à lancer à la main quand le quota scrape.do est épuisé")
     ap.add_argument("--render", action=argparse.BooleanOptionalAction, default=None,
-                    help="rendu JS côté scraper (défaut : activé, ou SCRAPER_RENDER). "
-                         "--no-render économise ~15 crédits/page mais peut vider les "
-                         "sources SeLoger (SPA React) : à vérifier source par source.")
+                    help="rendu JS côté scraper (défaut : DÉSACTIVÉ depuis l'audit du "
+                         "06/08/2026, ou SCRAPER_RENDER). --render le rallume : "
+                         "25 crédits/page au lieu de 10, et Belles Demeures tombe en 502.")
     return ap
 
 
@@ -150,11 +150,11 @@ def main(argv=None):
     elif provider == "scrapingbee":
         from veille_immo import collector_scrapingbee as col
         print(f"[veille] collecteur : {provider} (API, super={os.environ.get('SCRAPER_SUPER','true')}, "
-              f"rendu JS {'activé' if render else 'DÉSACTIVÉ (~10 crédits/page)'})")
+              f"rendu JS {'FORCÉ (25 crédits/page)' if render else 'désactivé (10 crédits/page)'})")
     else:
         from veille_immo import collector_scrapedo as col
         print(f"[veille] collecteur : {provider} (API, super={os.environ.get('SCRAPER_SUPER','true')}, "
-              f"rendu JS {'activé' if render else 'DÉSACTIVÉ (~10 crédits/page)'})")
+              f"rendu JS {'FORCÉ (25 crédits/page)' if render else 'désactivé (10 crédits/page)'})")
     # Crédits épuisés en cours de route : on récupère la collecte partielle plutôt que
     # de tout perdre (les communes non atteintes seront gelées comme une source en panne).
     quota = ""

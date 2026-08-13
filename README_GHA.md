@@ -207,7 +207,7 @@ du rendu tant qu'il est hors bornes.
 
 | variable | défaut | effet |
 |---|---:|---|
-| `SCRAPER_RENDER` | `true` | rendu JS côté scraper (25 crédits/page vs 10). Surchargée par `--render` / `--no-render` |
+| `SCRAPER_RENDER` | `false` | rendu JS côté scraper (25 crédits/page au lieu de 10). Surchargée par `--render` / `--no-render`. Une valeur non reconnue vaut `false` — le sens le moins coûteux |
 | `VEILLEIMO_PRICE_MIN` | `700000` | bas du budget, borne incluse |
 | `VEILLEIMO_PRICE_MAX` | `1200000` | haut du budget, borne incluse |
 | `VEILLEIMO_PRICE_SANITY_MAX` | `5000000` | au-delà, le prix est jugé invraisemblable et écarté |
@@ -225,11 +225,13 @@ rendu JS **5**, résidentiel **10**, résidentiel + rendu JS **25**.
 `config.gha.yaml` contient **10 URL** — une par commune et par portail, 5 Belles
 Demeures + 5 SeLoger — et le cron tourne **tous les 3 jours** (≈ 10 runs/mois) :
 
-| Mode                              | par run | par mois |
-|-----------------------------------|--------:|---------:|
-| résidentiel + rendu JS (défaut)   |     250 |   2 500  |
-| résidentiel sans rendu JS         |     100 |   1 000  |
-| datacenter + rendu JS (éco)       |      50 |     500  |
+| Mode                               | par run | par mois |
+|------------------------------------|--------:|---------:|
+| **résidentiel sans rendu JS (défaut)** | **100** | **1 000** |
+| résidentiel + rendu JS (`--render`)|     250 |   2 500  |
+| datacenter sans rendu JS (éco)     |      10 |     100  |
+
+Le défaut tient donc **pile dans le quota gratuit de 1 000 crédits/mois**.
 
 ### Plusieurs comptes scrape.do (bascule automatique)
 
@@ -264,27 +266,48 @@ Note : cumuler les quotas gratuits de plusieurs comptes est souvent encadré par
 CGU des fournisseurs — à vérifier. Le mécanisme sert aussi, sans ambiguïté, à
 chaîner un compte payant et un compte de secours.
 
-**L'offre gratuite = 1000 crédits/mois.** À 2 500/mois on reste au-dessus du quota :
-le run peut heurter le plafond en cours de mois et scrape.do répondre **HTTP 401
-« no credits »**, ce qui vide des communes entières. Deux leviers :
+**L'offre gratuite = 1000 crédits/mois.** Avec rendu JS on était à 2 500/mois, donc
+au-dessus du quota : le run heurtait le plafond en cours de mois et scrape.do
+répondait **HTTP 401 « no credits »**, ce qui vide des communes entières. C'est
+réglé par le défaut sans rendu (1 000/mois) ; un compte payant reste l'option si le
+périmètre s'élargit.
 
-1. **Passer à une offre payante** (le premier palier couvre très largement 2 500/mois) ;
-2. **Tester le résidentiel sans rendu JS** : `python run_veille.py --no-render`
-   en local, *Run workflow* → cocher `no_render`, ou `SCRAPER_RENDER=false` :
-   **−60 % de crédits, soit 1 000/mois — pile le quota gratuit**. Vérifier alors le
-   compte des sources `seloger_*` en particulier : SeLoger est une SPA React, elle
-   peut exiger le rendu là où Belles Demeures s'en passe. Si ces sources tombent à 0,
-   ne pas garder `no_render`.
+### Le rendu JS ne sert à rien ici (mesuré le 06/08/2026)
 
-   Précédence du réglage : **`--render` / `--no-render` > `SCRAPER_RENDER` > rendu
-   activé**. Le défaut de production reste le rendu tant que l'essai sans rendu n'a
-   pas été fait pour de vrai — le workflow n'a pas été modifié.
+L'essai a été fait pour de vrai — [run GHA 31107448276](https://github.com/marota/VeilleImo/actions/runs/31107448276),
+`workflow_dispatch` avec `no_render`, tag `[scrapedo/super/norender]` dans les logs :
+
+| source | sans rendu (06/08) | avec rendu (07/08) | avec rendu (10/08) | avec rendu (13/08) |
+|---|---:|---:|---:|---:|
+| sevres_brancas | 28 | 28 | 28 | **0** |
+| ville_davray | 40 | 40 | **0** | **0** |
+| meudon | 20 | **0** | **0** | **0** |
+| chaville | 34 | 34 | 33 | **0** |
+| viroflay | 38 | 35 | **0** | **0** |
+| les 5 `seloger_*` | 110 | 110 | 110 | 110 |
+| **crédits consommés** | **100** | 250 | ~200 | 125 |
+
+Deux enseignements :
+
+- **SeLoger n'a pas besoin du rendu** : 24 / 6 / 29 / 25 / 26 annonces, *au chiffre
+  près*, avec et sans. La SPA React sert du HTML exploitable — l'inquiétude qui
+  justifiait le rendu ne tient pas.
+- **Le rendu fait perdre Belles Demeures** : depuis le 07/08, ses URL tombent en
+  **HTTP 502 après 3 essais** (« Sources non récupérées » du rapport du 13/08) —
+  les cinq d'un coup ce jour-là, alors que la collecte sans rendu du 06/08 n'avait
+  **aucune source en échec**. Exécuter réellement le JS déclenche le challenge
+  DataDome ; sans rendu, la page brute revient telle quelle.
+
+Le défaut est donc **sans rendu**, partout : `SCRAPER_RENDER` non défini, workflow
+inclus. Pour le rallumer ponctuellement : `--render`, ou *Run workflow* → cocher
+`render`. Précédence : **`--render` / `--no-render` > `SCRAPER_RENDER` > désactivé**.
 
 En dépannage, `--local` reste gratuit et collecte les deux portails (cf. plus haut).
 
 ### Ce que rapporte chaque URL (audit du 06/08/2026)
 
-Mesuré id par id sur une collecte réelle, en croisant avec `criteria` :
+Mesuré id par id sur une collecte réelle, en croisant avec `criteria` — c'est le run
+**sans rendu JS** ci-dessus : ces chiffres sont ceux du mode par défaut actuel.
 
 | source | annonces | dans les critères | **exclusifs** dans les critères |
 |---|---:|---:|---:|

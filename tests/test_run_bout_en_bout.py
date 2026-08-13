@@ -42,8 +42,13 @@ def faux_collecteur(monkeypatch):
         rows = lot["rows"]
         return rows, [], {"sevres": len(rows), "chaville": 1}
 
+    from veille_immo import collector_scrapedo
+
     faux = types.ModuleType("veille_immo.collector_scrapedo")
     faux.collect = collect
+    # le double doit exposer la même surface que le vrai module : l'orchestrateur y
+    # lit aussi le réglage du rendu JS (SCRAPER_RENDER)
+    faux.render_enabled = collector_scrapedo.render_enabled
     # `from veille_immo import collector_scrapedo` lit l'ATTRIBUT du paquet dès que
     # le vrai module a été importé une fois (par un autre test) : patcher sys.modules
     # seul laisserait passer un appel réseau.

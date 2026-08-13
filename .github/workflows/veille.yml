@@ -5,11 +5,11 @@ on:
   workflow_dispatch:
     inputs:
       eco_first:
-        description: "Essayer d'abord le proxy datacenter (5 crédits/page) avant le résidentiel (25)"
+        description: "Essayer d'abord le proxy datacenter (1 crédit/page sans rendu) avant le résidentiel (10)"
         type: boolean
         default: false
-      no_render:
-        description: "Résidentiel sans rendu JS : 10 crédits/page au lieu de 25 (à tester une fois)"
+      render:
+        description: "Forcer le rendu JS (25 crédits/page au lieu de 10) — inutile depuis l'audit du 06/08/2026, et Belles Demeures tombe en 502 avec"
         type: boolean
         default: false
 permissions:
@@ -29,6 +29,10 @@ jobs:
       GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
       GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
       MAIL_TO: ${{ secrets.MAIL_TO }}
+      # Rendu JS : désactivé par défaut (audit du 06/08/2026 — 10 crédits/page au lieu
+      # de 25, et les sources Belles Demeures répondent au lieu de tomber en 502).
+      # Case « render » du Run workflow pour le rallumer ponctuellement.
+      SCRAPER_RENDER: ${{ inputs.render && 'true' || 'false' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -37,7 +41,7 @@ jobs:
       - name: Install deps
         run: pip install -r requirements-gha.txt
 
-      # 1) Tentative ÉCONOMIQUE (proxy datacenter, 5 crédits/page) — DÉSACTIVÉE par
+      # 1) Tentative ÉCONOMIQUE (proxy datacenter, 1 crédit/page sans rendu) — DÉSACTIVÉE par
       #    défaut : depuis le 31/07/2026 DataDome bloque toutes les IP datacenter sur
       #    bellesdemeures, cette tentative ne ramenait plus rien et consommait quand
       #    même crédits et ~15 min avant de repasser en résidentiel. La relancer :
@@ -58,7 +62,6 @@ jobs:
         if: ${{ !inputs.eco_first || steps.scan_eco.outcome == 'failure' }}
         env:
           SCRAPER_SUPER: "true"
-          SCRAPER_RENDER: ${{ inputs.no_render && 'false' || 'true' }}
         run: python run_veille.py --config config.gha.yaml
 
       - name: Persist state & report
