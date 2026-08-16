@@ -997,7 +997,7 @@
    "n_mandats": 1,
    "agency": "",
    "first_seen": "2026-07-19",
-   "first_seen_estimated": true,
+   "first_seen_estimated": false,
    "last_seen": "2026-08-16",
    "misses": 0
   },
@@ -1229,7 +1229,8 @@
    "canonical_id": "271671805",
    "aliases": [
     "258449977",
-    "271671805"
+    "271671805",
+    "sl_265V8I7C7MMS"
    ],
    "fingerprint": "meudon|105|5",
    "commune": "meudon",
@@ -1242,7 +1243,7 @@
    "n_mandats": 1,
    "agency": "",
    "first_seen": "2026-06-07",
-   "first_seen_estimated": true,
+   "first_seen_estimated": false,
    "last_seen": "2026-08-16",
    "misses": 0
   },
@@ -2132,27 +2133,6 @@
    "misses": 0
   },
   {
-   "canonical_id": "sl_265V8I7C7MMS",
-   "aliases": [
-    "258449977",
-    "sl_265V8I7C7MMS"
-   ],
-   "fingerprint": "meudon|107|4",
-   "commune": "meudon",
-   "quartier": "Meudon",
-   "title": "1 / 15 E 832 000 € 7 776 €/m² Maison à vendre 4 pièces · 4 chambres · 107 m² · 372 m² de terrain Meudon (92190) Située e",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/hauts-de-seine-92/meudon-92190/265V8I7C7MMS",
-   "surface": 107.0,
-   "rooms": 4,
-   "price": 832000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-06",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-16",
-   "misses": 0
-  },
-  {
    "canonical_id": "sl_26JZR76Z4ISH",
    "aliases": [
     "268374795",
@@ -2397,7 +2377,7 @@
    "n_mandats": 2,
    "agency": "",
    "first_seen": "2026-05-23",
-   "first_seen_estimated": true,
+   "first_seen_estimated": false,
    "last_seen": "2026-08-16",
    "misses": 0
   },
@@ -2795,7 +2775,7 @@
    "misses": 0
   },
   {
-   "canonical_id": "sl_26DSRJMA6MKC",
+   "canonical_id": "272649319",
    "aliases": [
     "272649319",
     "276401765",
@@ -2815,7 +2795,7 @@
    "n_mandats": 3,
    "agency": "",
    "first_seen": "2026-06-18",
-   "first_seen_estimated": true,
+   "first_seen_estimated": false,
    "last_seen": "2026-08-16",
    "misses": 0
   },
@@ -3269,26 +3249,6 @@
    "misses": 0
   },
   {
-   "canonical_id": "270387453",
-   "aliases": [
-    "270387453"
-   ],
-   "fingerprint": "chaville|145|6",
-   "commune": "chaville",
-   "quartier": "Chaville",
-   "title": "1 / 14 1 190 000 € 8 207 €/m² Maison à vendre 6 pièces · 4 chambres · 145 m² Chaville (92370) Située dans une impasse sa",
-   "url": "https://www.bellesdemeures.com/270387453/detail.htm",
-   "surface": 145.0,
-   "rooms": 6,
-   "price": 1190000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-13",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-13",
-   "misses": 0
-  },
-  {
    "canonical_id": "sl_26ZNZ1594W29",
    "aliases": [
     "273205857",
@@ -3307,67 +3267,6 @@
    "first_seen": "2026-06-25",
    "first_seen_estimated": true,
    "last_seen": "2026-08-13",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_26GZUKUI6WPI",
-   "aliases": [
-    "sl_26GZUKUI6WPI",
-    "sl_26P4ZI964V6D"
-   ],
-   "fingerprint": "viroflay|116|5",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "1 / 10 920 000 € 7 931 €/m² Maison à vendre - neuf 5 pièces · 4 chambres · 116 m² Rive Gauche, Viroflay (78220) **TRAVAU",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/26GZUKUI6WPI",
-   "surface": 116.0,
-   "rooms": 5,
-   "price": 920000,
-   "n_mandats": 2,
-   "agency": "",
-   "first_seen": "2026-08-13",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-13",
-   "misses": 0
-  },
-  {
-   "canonical_id": "272649319",
-   "aliases": [
-    "272649319"
-   ],
-   "fingerprint": "viroflay|116|5",
-   "commune": "viroflay",
-   "quartier": "Rive Gauche, Viroflay",
-   "title": "1 / 3 911 000 € 7 840 €/m² Maison à vendre - neuf 5 pièces · 4 chambres · 116,2 m² Rive Gauche, Viroflay (78220) Maison ",
-   "url": "https://www.bellesdemeures.com/272649319/detail.htm",
-   "surface": 116.2,
-   "rooms": 5,
-   "price": 911000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-13",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-13",
-   "misses": 0
-  },
-  {
-   "canonical_id": "270362135",
-   "aliases": [
-    "270362135"
-   ],
-   "fingerprint": "chaville|163|7",
-   "commune": "chaville",
-   "quartier": "Monesse-Roger Salendro, Chaville",
-   "title": "Rare sur le secteur, cette propriété conjugue parfaitement vie familiale et espace professionnel, avec des volumes excep",
-   "url": "https://www.bellesdemeures.com/annonces/vente/tt-2-tb-2-pl-46916/270362135/",
-   "surface": 163.0,
-   "rooms": 7,
-   "price": 950000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-07-22",
-   "first_seen_estimated": false,
-   "last_seen": "2026-08-10",
    "misses": 0
   },
   {
@@ -3447,26 +3346,6 @@
    "agency": "",
    "first_seen": "2024-10-09",
    "first_seen_estimated": true,
-   "last_seen": "2026-08-10",
-   "misses": 0
-  },
-  {
-   "canonical_id": "sl_26DSRJMA6MKC",
-   "aliases": [
-    "sl_26DSRJMA6MKC"
-   ],
-   "fingerprint": "viroflay|116|5",
-   "commune": "viroflay",
-   "quartier": "Viroflay",
-   "title": "1 / 15 911 000 € 7 853 €/m² Maison de ville à vendre - Première occupation 5 pièces · 4 chambres · 116 m² · dès le 14/09",
-   "url": "https://www.seloger.com/annonce/achat/ile-de-france/yvelines-78/viroflay-78220/26DSRJMA6MKC",
-   "surface": 116.0,
-   "rooms": 5,
-   "price": 911000,
-   "n_mandats": 1,
-   "agency": "",
-   "first_seen": "2026-08-10",
-   "first_seen_estimated": false,
    "last_seen": "2026-08-10",
    "misses": 0
   },

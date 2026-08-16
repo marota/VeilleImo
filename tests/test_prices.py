@@ -137,7 +137,7 @@ def test_migration_fichier(tmp_path):
         "retired": [{"canonical_id": "b", "price": 10_920_000,
                      "title": "1 / 10 920 000 € Maison neuve"}],
     }), encoding="utf-8")
-    assert migrate_state.migrate_file(str(p)) == (2, 0)
+    assert migrate_state.migrate_file(str(p)) == (2, 0, 0)   # (corrigés, suspects, fusions)
     st = json.loads(p.read_text(encoding="utf-8"))
     assert st["properties"][0]["price"] == 911_000
     assert st["retired"][0]["price"] == 920_000

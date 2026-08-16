@@ -182,7 +182,7 @@ def _table8(body):
 
 
 def build(props, events, prev_max_id, today, errors=None, frozen=(), note="",
-          n_communes=0):
+          n_communes=0, n_frozen_cibles=None, degraded=()):
     today_max = max((int(a) for p in props for a in p["aliases"] if str(a).isdigit()), default=ANCHOR_ID)
     by_id = {p["canonical_id"]: p for p in props}
 
@@ -421,13 +421,19 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note="",
         f'avant d\'y voir une négociation. Ces lignes ne sont pas comptées dans la synthèse.</p>'
         f'{_table8(anomalies_rows())}')
 
-    # Bandeau ROUGE : quand la quasi-totalité des communes cibles est gelée, le
+    # Bandeau ROUGE : quand la quasi-totalité des communes CIBLES est gelée, le
     # rapport ne décrit plus le marché du jour — le dire fort, pas dans le corps.
-    stale = bool(n_communes) and len(frozen) >= STALE_RATIO * n_communes
+    # `n_frozen_cibles` est compté par l'appelant : `frozen` contient aussi des
+    # communes hors périmètre (biens de communes voisines ramassés au passage par les
+    # pages « luxe »), qui ne doivent pas peser dans un ratio dont le dénominateur ne
+    # compte que les communes déclarées en config. Le 16/08/2026, le bandeau annonçait
+    # « 4/5 » alors que seules 2 communes cibles étaient gelées.
+    n_gelees = len(frozen) if n_frozen_cibles is None else n_frozen_cibles
+    stale = bool(n_communes) and n_gelees >= STALE_RATIO * n_communes
     stale_html = ("" if not stale else
         f'<div style="background:#b00020;color:#fff;font-weight:bold;font-size:15px;'
         f'padding:12px 16px;border-radius:6px;margin:12px 0;letter-spacing:.3px;">'
-        f'⚠ SCAN NON FRAIS — {len(frozen)}/{n_communes} communes cibles gelées, '
+        f'⚠ SCAN NON FRAIS — {n_gelees}/{n_communes} communes cibles gelées, '
         f'les mouvements affichés sont potentiellement obsolètes.</div>')
 
     err_html = ("<div class='warn'><b>Sources non récupérées :</b><br>" + "<br>".join(_esc(x) for x in (errors or [])) + "</div>") if errors else ""
@@ -442,8 +448,19 @@ def build(props, events, prev_max_id, today, errors=None, frozen=(), note="",
     if frozen:
         frozen_txt = (f"<b>Collecte partielle — {_plur(len(frozen), 'commune gelée', 'communes gelées')} : </b>"
                       + ", ".join(_esc(x) for x in frozen)
-                      + ". Leurs biens sont conservés tels quels : ni nouveauté, ni retrait, "
-                        "ni mouvement de prix n'est signalé sur ces communes tant que la source ne répond pas.")
+                      + ". Aucune de leurs sources n'a répondu : leurs biens sont conservés tels "
+                        "quels, et rien n'est signalé les concernant tant que les sources sont muettes.")
+    # Source muette dont la commune reste couverte par une autre : la commune n'est PAS
+    # gelée (ses mouvements restent suivis), mais le pan de marché que cette source
+    # était seule à voir manque — et il faut le dire, sinon un rapport d'apparence
+    # saine masque une source morte depuis des semaines.
+    if degraded:
+        frozen_txt += (("<br>" if frozen_txt else "")
+                       + f"<b>{_plur(len(degraded), 'source muette', 'sources muettes')}, "
+                         f"commune couverte par ailleurs : </b>"
+                       + ", ".join(_esc(x) for x in degraded)
+                       + ". Les biens que ces sources sont seules à publier ne sont ni retirés "
+                         "ni mis à jour ; le reste de la commune suit son cours normal.")
     if note:
         frozen_txt = (frozen_txt + " " if frozen_txt else "<b>Collecte partielle.</b> ") + _esc(note)
     frozen_html = f"<div class='warn'>{frozen_txt}</div>" if frozen_txt else ""
@@ -601,5 +618,6 @@ table.sortable th.sort-asc::after{content:" \\2191";color:#8a6d1b;}table.sortabl
 </div>"""
     stats = dict(biens=len(props), inb=len(inb), cdc=len(cdc), multi=n_multi, nouveaux=n_new,
                  retraits=n_ret, baisses=n_baisse, hausses=n_hausse, remises=n_relist,
-                 anomalies=len(anomalies), stale=stale)
+                 anomalies=len(anomalies), stale=stale, gelees=n_gelees,
+                 sources_muettes=len(degraded))
     return full, email, stats
