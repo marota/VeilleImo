@@ -90,7 +90,7 @@ Deux précautions :
 python -m pytest -q
 ```
 
-**144 tests, hors ligne** (aucun appel réseau : les collecteurs sont doublés, les
+**174 tests, hors ligne** (aucun appel réseau : les collecteurs sont doublés, les
 pages sont des extraits de HTML réel relevés en production). Quelques secondes.
 
 Couverture par ce qu'elle protège :
@@ -105,6 +105,9 @@ Couverture par ce qu'elle protège :
 | `test_bords_rapport.py` | cas dégradés du rendu : événements orphelins, estimation de date hors plage, libellés incomplets, cohérence du workflow |
 | `test_render_flag.py` | précédence `--render` / `SCRAPER_RENDER` / défaut, et le workflow ne force pas le rendu |
 | `test_run_bout_en_bout.py` | un run complet avec collecteur simulé, et la reprise d'un état pré-migration |
+| `test_doublons_etat.py` | fusion des biens en double, et absorption au scan pour qu'ils ne se recréent pas |
+| `test_gel_par_source.py` | gel commune vs gel ciblé sur une source muette, trace `frozen_sources`, bandeau et formulation |
+| `test_urls_secours.py` | plan B d'URL : non appelé si le nominal répond, toutes les URL de secours sinon |
 | `test_seloger.py`, `test_backlog_relisting.py`, `test_collecte_partielle.py`, `test_email_refactor.py` | parsing SeLoger, hystérésis/backlog/remises en ligne, garde-fous de collecte partielle, structure de l'email |
 
 Mesure de couverture (`coverage` seul suffit, pas besoin de `pytest-cov`) :
@@ -113,9 +116,9 @@ Mesure de couverture (`coverage` seul suffit, pas besoin de `pytest-cov`) :
 python -m coverage run --source=veille_immo,run_veille -m pytest -q && python -m coverage report -m
 ```
 
-75 % au total. Les modules de collecte réelle restent bas par nature (`collector_local`
+86 % au total. Les modules de collecte réelle restent bas par nature (`collector_local`
 ouvre un navigateur, `mailer` envoie un mail) ; `prices` est à 100 %, `report_html`
-à 98 %.
+et `chain` au-dessus de 95 %.
 
 ---
 
@@ -184,10 +187,18 @@ moins d'annonces, ou échouer en 502). Sans précaution, ça produit de faux
 - **Hystérésis** (`retrait_grace: 3` dans `config.gha.yaml`) : un bien n'est
   déclaré RETIRÉ qu'après **3 scans consécutifs d'absence**. Une absence ponctuelle
   est ignorée (le bien reste « en sursis » dans l'état).
-- **Gel par commune** : une commune est **gelée** — ni retrait, ni compteur —
-  si sa source échoue (0 annonce / 502) **ou** si son volume collecté chute
-  fortement d'un scan à l'autre (`chain.volume_drop_communes`, seuil < 50 % du
+- **Gel par commune** : une commune est **gelée** — ni retrait, ni compteur — si
+  **toutes** ses sources échouent (0 annonce / 502) **ou** si son volume collecté
+  chute fortement d'un scan à l'autre (`chain.volume_drop_communes`, seuil < 50 % du
   volume précédent avec ≥ 4 biens auparavant : signature d'une collecte partielle).
+- **Gel par source** (16/08/2026) : quand **une seule** des sources d'une commune est
+  muette, la commune n'est pas gelée — seuls le sont les biens **de cette source**
+  (repérés par le domaine de leur URL). La commune continue donc d'être suivie
+  normalement pour tout ce que l'autre source ramène, et les biens que la source
+  muette est seule à publier (Belles Demeures ne publie que le haut de gamme) sont
+  protégés du faux retrait. Le compteur de scans consécutifs est tenu par source dans
+  `frozen_sources`, comme `frozen` le fait par commune : sans cette trace, une source
+  morte depuis des semaines resterait invisible, la commune ayant l'air saine.
 - **Backlog des retraits** (`retired` dans `state_chained.json`, 180 j) : un bien
   retiré est archivé avec sa date et son prix de retrait. S'il **réapparaît** à un
   scan ultérieur (même id ou même bien par empreinte), il est signalé
@@ -195,8 +206,33 @@ moins d'annonces, ou échouer en 502). Sans précaution, ça produit de faux
   plutôt que compté comme nouveau — et retiré du backlog. Les entrées de plus de
   180 jours sont purgées.
 
+- **Dédoublonnage de l'état** : deux entrées peuvent décrire le même bien quand le
+  clustering finit par réunir deux annonces que des scans successifs avaient
+  enregistrées séparément. L'entrée non appariée partait alors en faux retrait au
+  3ᵉ scan — ou devenait immortelle si sa commune gelait. Un bien courant absorbe
+  désormais **toutes** les entrées qui partagent un de ses identifiants d'annonce
+  (`chain._match_priors`), et l'existant est réparé au chargement
+  (`chain.merge_duplicates`).
+
 Chaque bien de l'état porte `misses` (absences consécutives) et `last_seen`.
 Augmente `retrait_grace` si tu veux être encore plus conservateur.
+
+### URL de secours (`urls_secours`)
+
+Une source peut déclarer un **plan B**, tenté uniquement si ses URL principales n'ont
+rien rendu :
+
+```yaml
+- name: chaville
+  urls:         ["https://www.bellesdemeures.com/recherche?ci=920022&…"]
+  urls_secours: ["https://www.bellesdemeures.com/vente/…/chaville/maison-luxe/tt-2-tb-2-pl-38315/"]
+```
+
+À ne pas confondre avec plusieurs `urls`, qui sont **complémentaires** et toutes
+appelées (les 4 URL de Viroflay sont ses quartiers). Le secours décrit le **même**
+périmètre par un autre chemin : coût nul tant que la principale répond, et l'échec de
+celle-ci reste signalé dans les erreurs du rapport — un repli silencieux masquerait
+une source qui se dégrade.
 
 ---
 
@@ -235,8 +271,13 @@ Le rendu (et lui seul — l'état garde tout) est borné :
   dans un bloc **« 🚨 Anomalies de prix (à vérifier) »** en fin de rapport et ne
   compte pas dans la synthèse (rien n'est masqué). Ne concerne que les mouvements
   temporels : la colonne « vs moy. » descend légitimement à −50 % ;
-- **bandeau rouge « SCAN NON FRAIS »** dès que ≥ 80 % des communes cibles sont
-  gelées : les mouvements affichés sont alors potentiellement obsolètes.
+- **bandeau rouge « SCAN NON FRAIS »** dès que ≥ 80 % des communes **cibles** sont
+  gelées : les mouvements affichés sont alors potentiellement obsolètes. Seules les
+  communes déclarées en config comptent — l'état contient aussi des communes voisines
+  ramassées au passage par les pages « luxe » (Saint-Cloud, Versailles,
+  Marnes-la-Coquette), qu'aucune source ne couvre et qui restent donc gelées en
+  permanence : les compter faisait déclencher le bandeau à tort (« 4/5 » le
+  16/08/2026, pour un ratio réel de 2/5).
 
 Un bien qui sort du budget **reste dans l'état** : il n'est pas retiré, donc pas de
 faux retrait ni de fausse remise en ligne s'il y revient — il est seulement absent
