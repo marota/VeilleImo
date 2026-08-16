@@ -116,19 +116,29 @@ def main(argv=None):
     cfg = yaml.safe_load(open(a.config, encoding="utf-8"))
     today = datetime.date.today().isoformat()
 
-    prev, backlog, frozen_prev = [], [], {}
+    prev, backlog, frozen_prev, src_frozen_prev = [], [], {}, {}
     sp = pathlib.Path(a.state)
     if sp.exists():
         st = json.load(open(sp, encoding="utf-8"))
         prev = st.get("properties", [])
         backlog = st.get("retired", [])          # biens retirés en attente d'une éventuelle remise en ligne
         frozen_prev = st.get("frozen", {})       # communes gelées : nb de scans consécutifs
+        src_frozen_prev = st.get("frozen_sources", {})   # idem par SOURCE muette
         # Migration au chargement : les états écrits avant le correctif du parser
         # portent des prix pollués (compteur de carrousel collé au prix). Les laisser
         # tels quels ferait une fausse BAISSE de −92 % au premier scan corrigé.
         fixed = sum(prices.migrate_properties(x)[0] for x in (prev, backlog))
         if fixed:
             print(f"[veille] état migré : {fixed} prix corrigé(s) au chargement")
+        # Doublons hérités : deux entrées pour un même bien (le clustering a fini par
+        # réunir deux annonces enregistrées séparément). L'orphelin n'est jamais
+        # réapparié — il part en faux RETRAIT, ou devient immortel si sa commune gèle.
+        prev, fusions = chain.merge_duplicates(prev)
+        backlog, f_back = chain.merge_duplicates(backlog)
+        vivants = {a for p in prev for a in chain.ids_annonces(p)}
+        backlog = [b for b in backlog if not (chain.ids_annonces(b) & vivants)]
+        if fusions or f_back:
+            print(f"[veille] doublons fusionnés : {fusions} bien(s), {f_back} au backlog")
     prev_n = len(prev)
     prev_max_id = max((int(x) for p in prev for x in p.get("aliases", []) if str(x).isdigit()), default=274139959)
 
@@ -193,10 +203,23 @@ def main(argv=None):
         _alert(f"[Veille immo] ⚠ collecte VIDE le {today}", errors, per_source, a.no_email or a.suppress_alert_email)
         return 2
 
-    # communes dont la source a échoué (0 annonce) => gel (pas de faux retrait)
+    # Sources muettes (0 annonce). Une commune n'est GELÉE que si TOUTES ses sources
+    # le sont : le 16/08/2026, Chaville et Viroflay étaient déclarées gelées alors que
+    # SeLoger y avait ramené 25 et 27 annonces — seule leur source Belles Demeures
+    # était tombée. Quand la commune reste couverte, on ne gèle que les biens de la
+    # source muette (voir `degraded`), et on garde la trace de son échec.
     src_commune = {s["name"]: s.get("commune") for s in cfg["sources"] if s.get("commune")}
-    failed_communes = {src_commune[n] for n, cnt in per_source.items()
-                       if cnt == 0 and src_commune.get(n)}
+    src_domaine = {s["name"]: chain.domaine((s.get("urls") or [s.get("url", "")])[0])
+                   for s in cfg["sources"]}
+    par_commune = {}
+    for nom, commune in src_commune.items():
+        par_commune.setdefault(commune, []).append(nom)
+    failed_sources = {n for n, cnt in per_source.items() if cnt == 0 and src_commune.get(n)}
+    failed_communes = {commune for commune, noms in par_commune.items()
+                       if noms and all(n in failed_sources for n in noms)}
+    # sources muettes dont la commune reste couverte : gel ciblé sur leurs seuls biens
+    degraded_sources = sorted(n for n in failed_sources if src_commune[n] not in failed_communes)
+    degraded = {(src_commune[n], src_domaine.get(n, "")) for n in degraded_sources}
     # + communes dont le VOLUME collecté chute fortement (collecte partielle : même
     #   remède que l'échec total, on gèle pour ne pas fabriquer de faux retraits)
     dropped = chain.volume_drop_communes(prev, collected)
@@ -230,10 +253,21 @@ def main(argv=None):
     if frozen_labels:
         print(f"[veille] gel : {'; '.join(frozen_labels)}")
 
+    # Même suivi pour les SOURCES muettes dont la commune reste couverte : sans cette
+    # trace, une source morte depuis des semaines resterait invisible — la commune
+    # ayant l'air saine, plus rien ne signalerait qu'un pan du marché n'est plus vu.
+    src_streak = {n: int(src_frozen_prev.get(n, 0)) + 1 for n in degraded_sources}
+    degraded_labels = [f"{n} ({src_domaine.get(n, '?')}, {_nom(src_commune[n])})"
+                       + (f" — {k}e scan consécutif" if k >= 2 else "")
+                       for n, k in sorted(src_streak.items())]
+    if degraded_labels:
+        print(f"[veille] sources muettes, commune couverte par ailleurs : "
+              f"{'; '.join(degraded_labels)}")
+
     # chaînage FIABLE : hystérésis retraits + gel des communes + backlog remise en ligne
     curr, events, backlog = chain.scan_grace(collected, prev, today,
                                              failed_communes=failed_communes, grace=grace,
-                                             backlog=backlog)
+                                             backlog=backlog, degraded=degraded)
     n_relist = sum(1 for e in events if e["type"] == "REMISE_EN_LIGNE")
     if n_relist:
         print(f"[veille] {n_relist} remise(s) en ligne détectée(s) depuis le backlog")
@@ -241,9 +275,12 @@ def main(argv=None):
     # nb de communes CIBLES (une commune peut être servie par plusieurs sources) :
     # c'est le dénominateur du bandeau « scan non frais ».
     n_communes = len({c for c in src_commune.values() if c})
+    cibles = {c for c in src_commune.values() if c}
     full_html, email_html, stats = report_html.build(curr, events, prev_max_id, today, errors,
                                                     frozen=frozen_labels, note=quota,
-                                                    n_communes=n_communes)
+                                                    n_communes=n_communes,
+                                                    n_frozen_cibles=len(failed_communes & cibles),
+                                                    degraded=degraded_labels)
     print(f"[veille] {stats}")
     # diagnostic : détail des NOUVEAUX (pour repérer d'éventuels doublons non fusionnés)
     moves = [e for e in events if e["type"] in ("BAISSE", "HAUSSE")]
@@ -262,7 +299,8 @@ def main(argv=None):
 
     sp.parent.mkdir(parents=True, exist_ok=True)
     json.dump({"schema": "chained-properties-v2", "updated_at": datetime.datetime.now().isoformat(),
-               "properties": curr, "retired": backlog, "frozen": frozen_streak},
+               "properties": curr, "retired": backlog, "frozen": frozen_streak,
+               "frozen_sources": src_streak},
               open(sp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     rep = pathlib.Path("data/reports"); rep.mkdir(parents=True, exist_ok=True)
     (rep / f"rapport_{today}.html").write_text(full_html, encoding="utf-8")

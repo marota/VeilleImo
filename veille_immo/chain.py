@@ -10,6 +10,7 @@ Au scan suivant, chaque bien courant est rattaché à un bien connu :
 Le first_seen est alors conservé ; sinon le bien est NOUVEAU (first_seen = aujourd'hui).
 """
 import datetime
+import re
 from typing import List
 from . import identity
 from .prices import is_sane
@@ -80,13 +81,35 @@ def build_properties(listings: List[Listing]) -> List[dict]:
     return props
 
 
-def _match_prior(prop, prev, used):
-    alias_set = set(prop["aliases"])
-    for p in prev:
-        if id(p) in used:
-            continue
-        if alias_set & set(p.get("aliases", [])):
-            return p
+def ids_annonces(p):
+    """Identifiants d'annonce portés par un bien (alias + id canonique), en texte."""
+    return {str(a) for a in p.get("aliases", [])} | {str(p.get("canonical_id"))}
+
+
+def domaine(url):
+    """'https://www.bellesdemeures.com/x' -> 'bellesdemeures.com'. '' si illisible.
+
+    Sert à savoir de QUELLE source vient un bien : quand une source échoue alors que
+    la commune reste couverte par une autre, seuls les biens de cette source-là
+    doivent être protégés du retrait."""
+    m = re.match(r"https?://([^/]+)", url or "")
+    return m.group(1).lower().removeprefix("www.") if m else ""
+
+
+def _match_priors(prop, prev, used):
+    """TOUS les biens précédents partageant un identifiant d'annonce avec `prop`.
+
+    Un id d'annonce n'appartient qu'à un seul bien : si l'état en contient plusieurs
+    qui le portent, ce sont des doublons (le clustering a fini par réunir deux
+    annonces que deux scans successifs avaient enregistrées séparément). Les absorber
+    tous d'un coup est ce qui les fait disparaître : n'en apparier qu'un laissait
+    l'autre orphelin, donc voué à un faux RETRAIT — ou immortel si sa commune gelait."""
+    alias_set = ids_annonces(prop)
+    return [p for p in prev if id(p) not in used and alias_set & ids_annonces(p)]
+
+
+def _match_flou(prop, prev, used):
+    """Repli : même bien par empreinte (republication sous un nouvel identifiant)."""
     a = Listing(id=prop["canonical_id"], source="", title=prop["title"], price=prop["price"],
                 surface=prop["surface"], rooms=prop["rooms"], quartier=prop["quartier"])
     for p in prev:
@@ -97,6 +120,62 @@ def _match_prior(prop, prev, used):
         if identity.same_property(a, b):
             return p
     return None
+
+
+def _plus_frais(props):
+    """Le bien le plus récemment revu d'un groupe (à égalité : le moins d'absences)."""
+    return max(props, key=lambda p: ((p.get("last_seen") or ""), -p.get("misses", 99)))
+
+
+def merge_duplicates(props):
+    """Fusionne les biens d'un état qui partagent un identifiant d'annonce.
+
+    -> (biens, nb de fusions). Le bien retenu est le plus récemment revu (prix, url,
+    titre à jour) ; il hérite de l'union des alias, du first_seen le plus ancien et
+    du plus petit compteur d'absences. Aucun bien n'est perdu : deux entrées qui
+    décrivaient le même bien n'en font plus qu'une."""
+    parent = list(range(len(props)))
+
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    def union(i, j):
+        ri, rj = find(i), find(j)
+        if ri != rj:
+            parent[max(ri, rj)] = min(ri, rj)
+
+    vu = {}
+    for i, p in enumerate(props):
+        for a in ids_annonces(p):
+            if a in vu:
+                union(vu[a], i)
+            else:
+                vu[a] = i
+    groupes = {}
+    for i in range(len(props)):
+        groupes.setdefault(find(i), []).append(props[i])
+
+    out, fusions = [], 0
+    for racine in sorted(groupes):
+        grp = groupes[racine]
+        if len(grp) == 1:
+            out.append(grp[0])
+            continue
+        fusions += len(grp) - 1
+        base = dict(_plus_frais(grp))
+        base["aliases"] = sorted({a for p in grp for a in ids_annonces(p)}, key=_idkey)
+        base["canonical_id"] = min((str(p["canonical_id"]) for p in grp), key=_idkey)
+        base["first_seen"] = min((p.get("first_seen") for p in grp if p.get("first_seen")),
+                                 default=base.get("first_seen"))
+        base["misses"] = min((p.get("misses", 0) for p in grp), default=0)
+        base["n_mandats"] = max((p.get("n_mandats", 1) for p in grp), default=1)
+        # une date estimée ne l'est plus dès qu'une des copies l'a réellement observée
+        base["first_seen_estimated"] = all(p.get("first_seen_estimated") for p in grp)
+        out.append(base)
+    return out, fusions
 
 
 def _match_backlog(prop, backlog, used):
@@ -118,25 +197,36 @@ def _match_backlog(prop, backlog, used):
 
 
 def scan_grace(curr_props, prev_props, today, failed_communes=(), grace=3,
-               backlog=None, retention_days=RETENTION_DAYS):
+               backlog=None, retention_days=RETENTION_DAYS, degraded=()):
     """Chaînage FIABLE : hystérésis sur les retraits, gel des communes non collectées,
     backlog des retraits pour détecter les remises en ligne.
 
     - un bien courant retrouvé (état précédent) => conservé, misses=0, first_seen préservé ;
+      s'il correspond à PLUSIEURS biens précédents, ce sont des doublons : ils sont
+      absorbés d'un coup (voir _match_priors) ;
     - un bien courant inconnu de l'état MAIS présent au backlog des retraits
       => REMISE_EN_LIGNE (rappel date + prix de retrait), retiré du backlog ;
     - un bien courant inconnu partout => NOUVEAU (first_seen=today) ;
     - un bien précédent absent :
-        * commune non collectée / en chute de volume (source en échec) => gelé ;
+        * commune non collectée du tout / en chute de volume => gelé ;
+        * commune encore couverte mais UNE de ses sources muette (`degraded`, jeu de
+          couples (commune, domaine)) => seuls les biens de CETTE source sont gelés.
+          Les autres suivent le régime normal : une source en panne ne doit pas
+          suspendre le suivi des biens qu'une autre source a bien ramenés ;
         * sinon misses += 1 ; RETIRÉ + versé au backlog quand misses >= grace, sinon « en sursis ».
 
     Le backlog est purgé des entrées de plus de `retention_days` jours.
     Retourne (nouvel_état, événements, nouveau_backlog)."""
     failed = {identity.commune(c) if "," in c or " " in c else c for c in failed_communes}
+    degraded = {(c, d) for c, d in degraded}
     backlog = list(backlog or [])
     events, used, used_back, out = [], set(), set(), []
     for cp in curr_props:
-        prior = _match_prior(cp, prev_props, used)
+        priors = _match_priors(cp, prev_props, used)
+        if not priors:
+            flou = _match_flou(cp, prev_props, used)
+            priors = [flou] if flou is not None else []
+        prior = _plus_frais(priors) if priors else None
         if prior is None:
             back = _match_backlog(cp, backlog, used_back)
             if back is not None:                     # RETOUR d'un bien retiré
@@ -163,11 +253,16 @@ def scan_grace(curr_props, prev_props, today, failed_communes=(), grace=3,
                                "surface": cp.get("surface"), "rooms": cp.get("rooms"),
                                "commune": cp.get("commune", ""), "n_mandats": cp.get("n_mandats", 1)})
         else:
-            used.add(id(prior))
-            cp["first_seen"] = prior.get("first_seen", today)
-            cp["first_seen_estimated"] = prior.get("first_seen_estimated", False)
+            for p in priors:
+                used.add(id(p))
+            # plusieurs biens précédents pour une seule annonce = doublons de l'état :
+            # on garde la date de mise en ligne la plus ancienne et l'union des alias.
+            cp["first_seen"] = min((p.get("first_seen") for p in priors if p.get("first_seen")),
+                                   default=today)
+            cp["first_seen_estimated"] = all(p.get("first_seen_estimated") for p in priors)
             cp["last_seen"] = today; cp["misses"] = 0
-            cp["aliases"] = sorted(set(cp["aliases"]) | set(prior.get("aliases", [])), key=_idkey)
+            cp["aliases"] = sorted(set(cp["aliases"]) | {a for p in priors
+                                                         for a in p.get("aliases", [])}, key=_idkey)
             op, np_ = prior.get("price"), cp.get("price")
             if op and np_ and op != np_:
                 pct = round(100 * (np_ - op) / op, 1)
@@ -185,7 +280,12 @@ def scan_grace(curr_props, prev_props, today, failed_communes=(), grace=3,
         if id(pp) in used:
             continue
         commune = identity.commune(pp.get("quartier", "")) or pp.get("commune", "")
-        if commune in failed:                       # source en échec => on gèle
+        if commune in failed:                       # commune muette => on gèle tout
+            out.append(pp); continue
+        # commune encore couverte, mais le bien vient d'une source muette : lui seul
+        # est gelé. Sans ça, les biens que seule cette source voit (Belles Demeures
+        # ne publie que le haut de gamme) partiraient en faux retrait au 3e échec.
+        if (commune, domaine(pp.get("url"))) in degraded:
             out.append(pp); continue
         misses = pp.get("misses", 0) + 1
         if misses >= grace:                          # retrait CONFIRMÉ
