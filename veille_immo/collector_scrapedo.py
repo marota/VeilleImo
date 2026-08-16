@@ -204,9 +204,12 @@ def collect(sources, delay=4.0, api_key=None, super_proxy=None, render=None):
         for src in sources:
             got, urls = {}, (src.get("urls") or [src["url"]])
             parse_cards, wait_selector = PARSERS[src.get("parser", "bd")]
-            for url_try in urls:
+
+            def essayer(url_try):
+                """Télécharge et parse une URL, verse dans `got`. -> nb d'annonces."""
                 html, err = _get(url_try, keys, src["name"], super_proxy, render, delay,
                                  wait_selector)
+                n = 0
                 if html is not None:
                     tm = re.search(r"<title>(.*?)</title>", html, re.I | re.S)
                     title = (tm.group(1) if tm else "").strip()
@@ -217,16 +220,38 @@ def collect(sources, delay=4.0, api_key=None, super_proxy=None, render=None):
                         if recs:
                             for rec in recs:
                                 got.setdefault(rec["id"], rec)
+                            n = len(recs)
                         else:
                             err = f"{src['name']} : 0 annonce sur ...{url_try[-34:]}"
                 if err:
                     errors.append(err)
                 time.sleep(delay)
+                return n
+
+            n_urls = 0
+            for url_try in urls:
+                n_urls += 1
+                essayer(url_try)
+            # `urls_secours` : même périmètre par un autre chemin, tenté SEULEMENT si
+            # les URL principales n'ont rien rendu. Contrairement à `urls` (pages
+            # complémentaires, toutes appelées), c'est un plan B — donc coût nul tant
+            # que la source nominale répond. Voir config.gha.yaml (Chaville/Viroflay).
+            secours = src.get("urls_secours") or []
+            replie = False
+            if not got and secours:
+                replie = True
+                for url_try in secours:
+                    n_urls += 1
+                    essayer(url_try)
+                if got:
+                    print(f"[{tag}] {src['name']} : URL principale muette, "
+                          f"{len(got)} annonces récupérées par l'URL de secours")
             for rid, rec in got.items():
                 listings.setdefault(rid, rec)
             per_source[src["name"]] = len(got)
             print(f"[{tag}] {src['name']}: {len(got)} annonces"
-                  + (f"  ({len(urls)} url)" if len(urls) > 1 else ""))
+                  + (" [secours]" if replie and got else "")
+                  + (f"  ({n_urls} url)" if n_urls > 1 else ""))
             time.sleep(delay)
     except QuotaExhausted as e:
         msg = f"{e} (tous les comptes épuisés : {len(jetons)})" if len(jetons) > 1 else str(e)

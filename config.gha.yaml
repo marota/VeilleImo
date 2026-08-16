@@ -30,16 +30,32 @@ sources:
 # `pl-` de Viroflay n'apportaient qu'une annonce exclusive à elles toutes — pour
 # 125 crédits par run. `ci=` est le code INSEE de la commune, préfixe département
 # puis numéro sur 4 chiffres (Chaville 92022 -> 920022, Viroflay 78686 -> 780686).
+# `urls_secours` (16/08/2026, à ÉPROUVER) : Chaville et Viroflay sont les deux seules
+# sources en `recherche?ci=`, et les deux seules tombées en HTTP 502 ce jour-là — les
+# trois sources en `/vente/…/maison-luxe/tt-2-tb-2-pl-…/` ont répondu. La corrélation
+# n'est pas une preuve (Meudon, en forme `pl-`, avait échoué les 07 et 10/08), d'où un
+# plan B plutôt qu'un remplacement : ces URL sont la forme SEO du MÊME périmètre
+# (mesuré identique le 06/08 pour Chaville : 34 annonces, écart nul ; pour Viroflay ce
+# sont ses 4 quartiers, réunis ils couvrent la commune). Elles ne sont appelées QUE si
+# la principale ne rend rien : coût inchangé tant que `ci=` répond, +10 à +40 crédits
+# le jour où elle tombe — au lieu d'une commune gelée.
 - name: chaville
   commune: chaville
   expect: Chaville
   urls:
   - https://www.bellesdemeures.com/recherche?ci=920022&idpays=250&idtb=2&idtt=2
+  urls_secours:
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/hauts-de-seine/chaville/maison-luxe/tt-2-tb-2-pl-38315/
 - name: viroflay
   commune: viroflay
   expect: Viroflay
   urls:
   - https://www.bellesdemeures.com/recherche?ci=780686&idpays=250&idtb=2&idtt=2
+  urls_secours:
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45801/
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45797/
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45799/
+  - https://www.bellesdemeures.com/vente/france/ile-de-france/yvelines/viroflay/maison-luxe/tt-2-tb-2-pl-45796/
 # SeLoger : même back-office que Belles Demeures (ids partagés, chaînage natif),
 # mais SANS le filtre « luxe » — c'est là qu'apparaît le segment 700 k–1,2 M €.
 # Le filtrage est fait côté serveur (priceMin/priceMax/roomCountMin/squareMeterMin)
